@@ -1,0 +1,24 @@
+{
+	"name": "ctx-blocks/button",
+	"category": "layout",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"style": {
+			"type": "string",
+			"default": "medium"
+		},
+		"size": {
+			"type": "string"
+        },
+        "url": {
+			"type": "string"
+		},
+		"outline": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

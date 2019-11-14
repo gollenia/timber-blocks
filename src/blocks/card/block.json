@@ -1,0 +1,26 @@
+{
+	"name": "ctx-blocks/alert",
+	"category": "layout",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"style": {
+			"type": "string",
+			"default": "primary"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+        },
+        "footer": {
+			"type": "string",
+			"default": ""
+		},
+		"dismissable": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}
