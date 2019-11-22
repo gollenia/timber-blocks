@@ -6,6 +6,10 @@
 			"type": "string",
 			"default": ""
 		},
+		"subtitle": {
+			"type": "string",
+			"default": ""
+		},
 		"style": {
 			"type": "string",
 			"default": "primary"
@@ -14,11 +18,30 @@
 			"type": "string",
 			"default": ""
         },
-        "footer": {
+        "links": {
+			"type": "array",
+			"default": []
+		},
+		"image": {
+			"type": "string"
+		},
+		"image-round": {
+			"type": "boolean",
+			"default": false
+		},
+		"header": {
 			"type": "string",
 			"default": ""
 		},
-		"dismissable": {
+		"footer": {
+			"type": "string",
+			"default": ""
+		},
+		"small": {
+			"type": "string",
+			"default": ""
+		},
+		"center": {
 			"type": "boolean",
 			"default": false
 		}

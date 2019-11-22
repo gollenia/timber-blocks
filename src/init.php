@@ -4,14 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- *
- * @uses {wp-blocks} for block type registration & related functions.
- * @uses {wp-element} for WP Element abstraction — structure of blocks.
- * @uses {wp-i18n} to internationalize the block's text.
- * @uses {wp-editor} for WP editor styles.
- * @since 1.0.0
- */
+
 function ctx_bootstrap_block_assets() { // phpcs:ignore
 	wp_register_style(
 		'ctx_bootstrap-style-css', // Handle.
