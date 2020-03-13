@@ -1,49 +1,22 @@
 {
-	"name": "ctx-blocks/alert",
+	"name": "ctx-blocks/card",
 	"category": "layout",
 	"attributes": {
-		"title": {
+		"fill-color": {
 			"type": "string",
 			"default": ""
 		},
-		"subtitle": {
+		"text-color": {
 			"type": "string",
 			"default": ""
 		},
-		"style": {
+		"border-color": {
 			"type": "string",
 			"default": "primary"
 		},
-		"text": {
+		"text-align": {
 			"type": "string",
 			"default": ""
-        },
-        "links": {
-			"type": "array",
-			"default": []
-		},
-		"image": {
-			"type": "string"
-		},
-		"image-round": {
-			"type": "boolean",
-			"default": false
-		},
-		"header": {
-			"type": "string",
-			"default": ""
-		},
-		"footer": {
-			"type": "string",
-			"default": ""
-		},
-		"small": {
-			"type": "string",
-			"default": ""
-		},
-		"center": {
-			"type": "boolean",
-			"default": false
-		}
+        }
 	}
 }
