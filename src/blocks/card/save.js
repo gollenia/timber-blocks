@@ -3,72 +3,46 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { TextControl, PanelBody, withState } from '@wordpress/components';
-import {RichText} from '@wordpress/editor';
+import {RichText, InnerBlocks} from '@wordpress/block-editor';
+import { getColorClassName  } from '@wordpress/editor';
 
-export default class ButtonEdit extends Component {
+export default class CardSave extends Component {
 
-	renderTitle() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.title !== "") {
-			return (
-				<h4 class="alert-heading">{attributes.title}</h4>
-			);
-		}
-	}
-
-	renderFooter() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.footer !== "") {
-			return (
-				<Fragment>
-					<hr/>
-					<p class="mb-0">{attributes.footer}</p>
-				</Fragment>
-			);
-		}
-	}
-
-	renderCloseButton() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.dismissable) {
-			return (
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    				<span aria-hidden="true">&times;</span>
-  				</button>
-			);
-		}
-	}
 
 	render() {
 		const {
 			attributes,
-			className,
-			setAttributes,
 		} = this.props;
 
 		const {
-			style,
-			text,
-			footer,
-			title,
-			dismissable
+			textColor,
+			borderColor,
+			backgroundColor,
+			textAlign,
+			imagePosition,
+			image,
 		} = attributes;
 
-
+		var classes = [
+			"card",
+			"bg-" + backgroundColor,
+			"text-" + textColor,
+			"border-" + borderColor
+		]
+		
 		return (
 			<Fragment>
-                <div class={"alert alert-" + style} role="alert">
-                    { this.renderCloseButton() }
-                    { this.renderTitle() }
-                    <p>{text}</p>
-                    { this.renderFooter() }
-                </div>
+                <div className={classes.join(" ")}>
+					{imagePosition == "top" &&
+						<img class="card-img-top" src={image} alt="Card image cap"/>
+					}
+					<div class="card-body">
+						<InnerBlocks.Content />
+					</div>
+					{imagePosition == "bottom" &&
+						<img class="card-img-bottom" src={image} alt="Card image cap"/>
+					}
+				</div>
 			</Fragment>
 		);
 	}

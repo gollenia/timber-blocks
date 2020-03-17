@@ -2,6 +2,8 @@ import edit from './edit';
 import save from './save';
 import icon from './icon';
 import metadata from './block.json';
+const { withColors } = wp.blockEditor;
+const { compose } = wp.compose;
 
 import './style.scss';
 import './editor.scss';
@@ -23,7 +25,7 @@ const settings = {
 		__( 'link', 'ctxblocks' ),
 	],
 	attributes,
-	edit,
+	edit: compose([withColors('alertColor')])(edit),
 	save
 };
 

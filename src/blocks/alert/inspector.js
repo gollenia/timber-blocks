@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
-import { RichText, ToggleControl, TextControl, PanelBody, SelectControl, withState } from '@wordpress/components';
+import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { ToggleControl, PanelBody } from '@wordpress/components';
 /**
  * Inspector controls
  */
@@ -12,11 +12,13 @@ class Inspector extends Component {
 	render() {
 		const {
 			attributes,
-			setAttributes,
+            setAttributes,
+            alertColor,
+            setAlertColor,
 		} = this.props;
 
 		const {
- 			style,
+ 			showFooter,
   			dismissable,
 		} = attributes;
 
@@ -24,34 +26,29 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Alert settings', 'ctxblocks')}
+                        title={__('Optionen', 'ctxblocks')}
                         initialOpen={true}
                     >
-                        <SelectControl
-                            label={ __( 'Select style:', 'ctxblocks') }
-                            value={ attributes.style } 
-                            onChange={ (style) => setAttributes({ style }) } 
-                            options={ [
-                                { value: 'primary', label: __('Primary', 'ctxblocks') },
-                                { value: 'secondary', label: __('Secondary', 'ctxblocks') },
-                                { value: 'success', label: __('Success', 'ctxblocks') },
-                                { value: 'info', label: __('Info', 'ctxblocks') },
-                                { value: 'warning', label: __('Warning', 'ctxblocks') },
-                                { value: 'danger', label: __('Danger', 'ctxblocks') },
-                                { value: 'light', label: __('Light', 'ctxblocks') },
-                                { value: 'dark', label: __('Dark', 'ctxblocks') }
-                            ] }
+                        <PanelColorSettings
+                            colorSettings={[
+                                {
+                                    label: 'Farbe',
+                                    onChange: setAlertColor ,
+                                    value: alertColor.color,
+                                    disableCustomColors: true,
+                                },
+                            ]}
                         />
-
-                        
-                       
                         <ToggleControl
-                            label={ __("Closable by user", 'ctxblocks')}
-                            checked={ attributes.dismissable }
-                            onChange={ (dismissable) => setAttributes({ dismissable }) 
-                            }
+                            label={ __("'X' zum Schließen", 'ctxblocks')}
+                            checked={ dismissable }
+                            onChange={ (dismissable) => setAttributes({ dismissable }) }
                         />
-                        
+                        <ToggleControl
+                            label={ __("Fußzeile", 'ctxblocks')}
+                            checked={ showFooter }
+                            onChange={ (showFooter) => setAttributes({ showFooter }) }
+                        />
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

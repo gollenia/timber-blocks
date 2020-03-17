@@ -2,21 +2,29 @@
 	"name": "ctx-blocks/card",
 	"category": "layout",
 	"attributes": {
-		"fill-color": {
+		"backgroundColor": {
 			"type": "string",
 			"default": ""
 		},
-		"text-color": {
+		"textColor": {
 			"type": "string",
 			"default": ""
 		},
-		"border-color": {
-			"type": "string",
-			"default": "primary"
-		},
-		"text-align": {
+		"borderColor": {
 			"type": "string",
 			"default": ""
-        }
+		},
+		"textAlign": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": ""
+		}
 	}
 }

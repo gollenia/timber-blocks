@@ -7,44 +7,6 @@ import {RichText} from '@wordpress/editor';
 
 export default class ButtonEdit extends Component {
 
-	renderTitle() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.title !== "") {
-			return (
-				<h4 class="alert-heading">{attributes.title}</h4>
-			);
-		}
-	}
-
-	renderFooter() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.footer !== "") {
-			return (
-				<Fragment>
-					<hr/>
-					<p class="mb-0">{attributes.footer}</p>
-				</Fragment>
-			);
-		}
-	}
-
-	renderCloseButton() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.dismissable) {
-			return (
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    				<span aria-hidden="true">&times;</span>
-  				</button>
-			);
-		}
-	}
-
 	render() {
 		const {
 			attributes,
@@ -55,19 +17,32 @@ export default class ButtonEdit extends Component {
 		const {
 			style,
 			text,
+			alertColor,
 			footer,
 			title,
-			dismissable
+			dismissable,
+			showFooter
 		} = attributes;
 
 
 		return (
 			<Fragment>
-                <div class={"alert alert-" + style} role="alert">
-                    { this.renderCloseButton() }
-                    { this.renderTitle() }
+                <div class={"alert alert-" + alertColor} role="alert">
+                    {dismissable &&
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+					  	</button>
+					}
+                    {title !== "" &&
+						<h4 class="alert-heading">{title}</h4>
+					}
                     <p>{text}</p>
-                    { this.renderFooter() }
+                    {showFooter &&
+						<Fragment>
+							<hr/>
+							<p class="mb-0">{footer}</p>
+						</Fragment>
+					}
                 </div>
 			</Fragment>
 		);

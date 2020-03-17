@@ -6,7 +6,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"style": {
+		"alertColor": {
 			"type": "string",
 			"default": "primary"
 		},
@@ -17,6 +17,10 @@
         "footer": {
 			"type": "string",
 			"default": ""
+		},
+		"showFooter": {
+			"type": "boolean",
+			"default": false
 		},
 		"dismissable": {
 			"type": "boolean",

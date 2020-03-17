@@ -1,0 +1,12 @@
+{
+	"attributes": {
+		"hideMobile": {
+			"type": "boolean",
+			"default": false
+		},
+		"hideDesktop": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

@@ -3,55 +3,103 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
-import { RichText, ToggleControl, TextControl, PanelBody, SelectControl, withState } from '@wordpress/components';
+import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, Button, SelectControl, RadioControl } from '@wordpress/components';
+import { PanelColorSettings, withColors, getColorClassName } from '@wordpress/editor';
 /**
  * Inspector controls
  */
 class Inspector extends Component {
+
 	render() {
 		const {
 			attributes,
-			setAttributes,
-		} = this.props;
+            setAttributes,
+            backgroundColor,
+            borderColor,
+            textColor,
+            setTextColor,
+            setBackgroundColor,
+            setBorderColor,
+        } = this.props;
 
 		const {
- 			style,
-  			dismissable,
+            image,
+            imagePosition,
+            textAlign
 		} = attributes;
 
 		return (
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Alert settings', 'ctxblocks')}
+                        title="Optionen"
                         initialOpen={true}
                     >
                         <SelectControl
-                            label={ __( 'Select style:', 'ctxblocks') }
-                            value={ attributes.style } 
-                            onChange={ (style) => setAttributes({ style }) } 
+                            label="Textausrichtung"
+                            value={ textAlign }
                             options={ [
-                                { value: 'primary', label: __('Primary', 'ctxblocks') },
-                                { value: 'secondary', label: __('Secondary', 'ctxblocks') },
-                                { value: 'success', label: __('Success', 'ctxblocks') },
-                                { value: 'info', label: __('Info', 'ctxblocks') },
-                                { value: 'warning', label: __('Warning', 'ctxblocks') },
-                                { value: 'danger', label: __('Danger', 'ctxblocks') },
-                                { value: 'light', label: __('Light', 'ctxblocks') },
-                                { value: 'dark', label: __('Dark', 'ctxblocks') }
+                                { label: 'Links', value: '' },
+                                { label: 'Mitte', value: 'text-center' },
+                                { label: 'Rechts', value: 'text-right' },
                             ] }
+                            onChange={ ( align ) => { setAttributes( { textAlign: align } ) } }
                         />
-
-                        
-                       
-                        <ToggleControl
-                            label={ __("Closable by user", 'ctxblocks')}
-                            checked={ attributes.dismissable }
-                            onChange={ (dismissable) => setAttributes({ dismissable }) 
-                            }
+                    </PanelBody>
+                    <PanelBody
+                        title={__('Farbeinstellungen', 'ctxblocks')}
+                        initialOpen={true}
+                    >
+                        <PanelColorSettings
+                            colorSettings={[
+                                {
+                                    label: 'Textfarbe',
+                                    onChange: setTextColor ,
+                                    value: textColor.color,
+                                    disableCustomColors: true,
+                                },
+                                {
+                                    label: 'Hintergrundfarbe',
+                                    onChange: setBackgroundColor ,
+                                    value: backgroundColor.color,
+                                    disableCustomColors: true,
+                                },
+                                {
+                                    label: 'Rahmenfarbe',
+                                    onChange: setBorderColor,
+                                    value: borderColor.color,
+                                    disableCustomColors: true,
+                                }
+                            ]}
                         />
                         
+                        
+                        
+                    </PanelBody>
+                    <PanelBody
+                        title={__('Bild', 'ctxblocks')}
+                        initialOpen={true}
+                    >
+                        <MediaUploadCheck>
+                            <MediaUpload
+                                onSelect={ ( media ) => setAttributes({image: media.url}) }
+                                label="Hintergrundbild"
+                                value= { image }
+                                render={ ( { open } ) => {
+                                    return <div><img clss="components-responsive-wrapper__content" src={image} onClick={open} alt="Kein Bild geladen"/><button type="button" class="components-button is-button is-default is-large" onClick={ open }>Bild auswählen</button></div> ;
+                                 } }
+                            />
+                        </MediaUploadCheck>
+                        <RadioControl
+                            label="Bildposition"
+                            selected={ imagePosition }
+                            options={ [
+                                { label: 'Oben', value: 'top' },
+                                { label: 'Unten', value: 'bottom' }
+                            ] }
+                            onChange={ ( position ) => { setAttributes( { imagePosition: position } ) } }
+                        />
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>
