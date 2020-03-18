@@ -1,33 +1,25 @@
 import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import { TextControl, PanelBody, withState } from '@wordpress/components';
-import {RichText} from '@wordpress/editor';
+import { Fragment } from '@wordpress/element';
 
-export default class ButtonEdit extends Component {
 
-	render() {
+export default function save( {attributes} ) {
+
+		
 		const {
-			attributes,
-			className,
-			setAttributes,
-		} = this.props;
-
-		const {
-			style,
 			text,
 			alertColor,
 			footer,
+			className,
 			title,
 			dismissable,
 			showFooter
 		} = attributes;
 
-
 		return (
 			<Fragment>
-                <div class={"alert alert-" + alertColor} role="alert">
+                <div className={className + " alert alert-" + alertColor} role="alert">
                     {dismissable &&
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -46,6 +38,6 @@ export default class ButtonEdit extends Component {
                 </div>
 			</Fragment>
 		);
-	}
-
 }
+
+

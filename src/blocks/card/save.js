@@ -1,38 +1,33 @@
 import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import { TextControl, PanelBody, withState } from '@wordpress/components';
-import {RichText, InnerBlocks} from '@wordpress/block-editor';
-import { getColorClassName  } from '@wordpress/editor';
+import { Fragment } from '@wordpress/element';
+import { InnerBlocks} from '@wordpress/block-editor';
 
-export default class CardSave extends Component {
-
-
-	render() {
-		const {
-			attributes,
-		} = this.props;
+export default function save( {attributes} ) {
 
 		const {
 			textColor,
 			borderColor,
 			backgroundColor,
 			textAlign,
+			className,
 			imagePosition,
 			image,
 		} = attributes;
 
 		var classes = [
+			className || '',
 			"card",
 			"bg-" + backgroundColor,
 			"text-" + textColor,
-			"border-" + borderColor
-		]
+			"border-" + borderColor,
+			textAlign
+		].join(" ")
 		
 		return (
 			<Fragment>
-                <div className={classes.join(" ")}>
+                <div className={classes}>
 					{imagePosition == "top" &&
 						<img class="card-img-top" src={image} alt="Card image cap"/>
 					}
@@ -45,6 +40,6 @@ export default class CardSave extends Component {
 				</div>
 			</Fragment>
 		);
-	}
-
 }
+
+

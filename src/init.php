@@ -22,6 +22,8 @@ function ctx_bootstrap_block_assets() { // phpcs:ignore
 		true // Enqueue the script in the footer.
 	);
 
+	
+
 	// Register block editor styles for backend.
 	wp_register_style(
 		'ctx_bootstrap-block-editor-css', // Handle.

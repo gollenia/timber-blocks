@@ -3,7 +3,6 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
-import { getColorObjectByColorValue } from '@wordpress/editor';
 
 export default class CardEdit extends Component {
 

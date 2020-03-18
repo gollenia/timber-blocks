@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cgb-scripts": "1.21.0",
+    "classnames": "^2.2.6",
     "color": "^3.1.2"
   }
 }

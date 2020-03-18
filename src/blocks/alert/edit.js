@@ -8,50 +8,12 @@ import {RichText} from '@wordpress/block-editor';
 var Color = require('color');
 
 export default class ButtonEdit extends Component {
-
-	renderCloseButton() {
-		const {
-			attributes,
-		} = this.props;
-		if(attributes.closeable) {
-			return (
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    				<span aria-hidden="true">&times;</span>
-  				</button>
-			);
-		}
-	}
-
-
-	lightenDarkenColor(col, amt) {
-		var usePound = false;
-		if (col[0] == "#") {
-			col = col.slice(1);
-			usePound = true;
-		}
-	
-		var num = parseInt(col,16);
-		var r = (num >> 16) + amt;
-	
-		if (r > 255) r = 255;
-		else if  (r < 0) r = 0;
-		var b = ((num >> 8) & 0x00FF) + amt;
-	
-		if (b > 255) b = 255;
-		else if  (b < 0) b = 0;
-	
-		var g = (num & 0x0000FF) + amt;
-	
-		if (g > 255) g = 255;
-		else if (g < 0) g = 0;
-	
-		return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-	}
-
 	render() {
+		
 		const {
 			attributes,
 			setAttributes,
+			className,
 			alertColor
 		} = this.props;
 
@@ -71,9 +33,9 @@ export default class ButtonEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-				<div style={{background: color.lighten(0.5), color: color.darken(0.5)}} class="ctx-blocks-alert">
+				<div style={{background: color.lighten(0.5), color: color.darken(0.5)}} className={className + " ctx-blocks-alert"}>
 					{dismissable &&
-						<span type="button" class={"close"} data-dismiss="alert" aria-label="Close">
+						<span type="button" className={"close"} data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</span>
 					}
@@ -98,7 +60,7 @@ export default class ButtonEdit extends Component {
 							<RichText
 								tagName="p"
 								label={__("Footer", 'ctxblocks')}
-								value={ attributes.footer }
+								value={ footer }
 								onChange={ (footer) => setAttributes({ footer }) }
 								placeholder={__("Insert Footer (optional)", 'ctxblocks')}
 							/>
