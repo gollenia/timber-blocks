@@ -56,9 +56,9 @@ export default class CardEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-				<div style={style} class={"ctx-card " + textAlign}>
+				<div style={style} className={"ctx-card " + textAlign}>
 					{imagePosition == "top" &&
-						<img class="card-img-top" src={image} alt="Card image cap"/>
+						<img className="card-img-top" src={image} alt="Card image cap"/>
 					}
 					<InnerBlocks 
 						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/button', 'core/coverImage']}

@@ -3,9 +3,9 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
-import { URLInputButton } from '@wordpress/editor';
-import { ToggleControl, TextControl, PanelBody, SelectControl, withState } from '@wordpress/components';
+import { URLInputButton, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup, Text } from '@wordpress/components';
+import map from 'lodash/map';
 /**
  * Inspector controls
  */
@@ -13,63 +13,97 @@ class Inspector extends Component {
 	render() {
 		const {
 			attributes,
-			setAttributes,
+            setAttributes,
+            buttonColor,
+            setButtonColor
 		} = this.props;
 
 		const {
             title,
 			url,
-			size,
+            size,
+            isLink,
 			outline,
-		} = attributes;
+        } = attributes;
+        
+        const sizeOptions = [
+            {
+                key: "1",
+                value: 'btn-sm',
+                label: __( 'Kleiner', 'ctxblocks' ),
+            },
+            {
+                key: "2",
+                value: '',
+                label: __( 'Normal', 'ctxblocks' ),
+            },
+            {
+                key: "3",
+                value: 'btn-lg',
+                label: __( 'Größer', 'ctxblocks' ),
+            },
+        ];
 
 		return (
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Button settings', 'ctxblocks')}
+                        title={__('Einstellungen', 'ctxblocks')}
                         initialOpen={true}
                     >
                         <TextControl
-                            label={__("Title", 'ctxblocks')}
-                            value={ attributes.title }
+                            label={__("Beschriftung", 'ctxblocks')}
+                            value={ title }
                             onChange={ (title) => setAttributes({ title }) }
                         />
                         <URLInputButton
-                            url={ attributes.url }
+                            url={ url }
                             onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Click here' } ) }
                         />
-                        <SelectControl
-                            label={ __( 'Select style:', 'ctxblocks') }
-                            value={ attributes.style } 
-                            onChange={ (style) => setAttributes({ style }) } 
-                            options={ [
-                                { value: '-default', label: __('Normal', 'ctxblocks') },
-                                { value: '-primary', label: __('Primary', 'ctxblocks') },
-                                { value: '-secondary', label: __('Secondary', 'ctxblocks') },
-                                { value: '-success', label: __('Success', 'ctxblocks') },
-                                { value: '-info', label: __('Info', 'ctxblocks') },
-                                { value: '-warning', label: __('Warning', 'ctxblocks') },
-                                { value: '-danger', label: __('Danger', 'ctxblocks') },
-                                { value: '-link', label: __('Link', 'ctxblocks') }
-                            ] }
+                        <PanelColorSettings
+                            title="Farbe"
+                            colorSettings={[
+                                {
+                                    label: 'Legen Sie eine Farbe für den Button fest',
+                                    onChange: setButtonColor ,
+                                    value: buttonColor.color,
+                                    disableCustomColors: true,
+                                },
+                            ]}
                         />
-                        <SelectControl
-                            label={ __( 'Size:', 'ctxblocks') }
-                            value={ attributes.size }
-                            onChange={ (size) => setAttributes({ size }) } 
-                            options={ [
-                                { value: '', label: __('Normal', 'ctxblocks') },
-                                { value: 'btn-lg', label: __('Large', 'ctxblocks') },
-                                { value: 'btn-sm', label: __('Small', 'ctxblocks') },
-                            ] }
-                        />
-                        <ToggleControl
-                            label={ __("Outline", 'ctxblocks')}
-                            checked={ attributes.outline }
-                            onChange={ (outline) => setAttributes({ outline }) 
-                            }
-                        />
+                        <PanelRow>
+                            
+                            <ButtonGroup>
+                                { map( sizeOptions, ( { label, value, key } ) => (
+											<Button
+                                                key={key}
+                                                className={ value === size ? `components-coblocks-map-styles__button components-button--${ value } components-coblocks-map-styles__button--selected` : `components-button--${ value } components-coblocks-map-styles__button` }
+                                                isSmall
+												isPrimary={ value === size }
+												onClick={ () => {
+													setAttributes( { size: value } );
+												} }
+											>{ label }
+											</Button>
+								) ) }
+                            </ButtonGroup>
+                        </PanelRow>
+                        <PanelRow>
+                            <ToggleControl
+                                label={ __("Nur Außenlinie zeigen", 'ctxblocks')}
+                                checked={ outline }
+                                onChange={ (outline) => setAttributes({ outline }) 
+                                }
+                            />
+                        </PanelRow>
+                        <PanelRow>
+                            <ToggleControl
+                                label={ __("Als Link anzeigen", 'ctxblocks')}
+                                checked={ isLink }
+                                onChange={ (isLink) => setAttributes({ isLink }) 
+                                }
+                            />
+                        </PanelRow>
                         
                     </PanelBody>
                 </InspectorControls>

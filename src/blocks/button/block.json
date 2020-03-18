@@ -4,21 +4,28 @@
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": ""
+			"default": "Button-Beschriftung"
 		},
-		"style": {
+		"buttonColor": {
 			"type": "string",
-			"default": "medium"
+			"default": "primary"
 		},
 		"size": {
-			"type": "string"
+			"type": "string",
+			"default": ""
         },
         "url": {
-			"type": "string"
+			"type": "string",
+			"default": "#"
 		},
 		"outline": {
 			"type": "boolean",
 			"default": false
+		},
+		"isLink": {
+			"type": "boolean",
+			"default": false
 		}
+		
 	}
 }

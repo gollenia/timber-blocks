@@ -7,23 +7,36 @@ export default class ButtonEdit extends Component {
 	render() {
 		const {
 			attributes,
+			buttonColor,
 			className,
-			setAttributes,
 		} = this.props;
 
 		const {
 			title,
-			url,
 			size,
+			isLink,
 			outline,
 		} = attributes
+
+		var classes = [
+			className,
+			"btn",
+			size || "",
+			outline ? "btn-outline" : ""
+		].join(" ");
+
+		var style = {
+            background: isLink ? "none" : ( outline ? "none" : buttonColor.color ),
+            border: isLink ? "1px solid transparent" : "1px solid " + buttonColor.color,
+            color: isLink ? "#007bff" : (outline ? buttonColor.color : '#ffffff')
+        }
 
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
-				<button type="button" class={"btn " + attributes.size + " btn" + (attributes.outline ? "-outline" : "") + attributes.style}>{attributes.title}</button>
+				<a style={style} type="button" className={classes}>{title}</a>
 			</Fragment>
 		);
 	};
