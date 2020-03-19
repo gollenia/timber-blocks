@@ -24,6 +24,7 @@ export default class CardEdit extends Component {
 	render() {
 		const {
 			attributes,
+			className
 		} = this.props;
 
 		const {
@@ -56,7 +57,7 @@ export default class CardEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-				<div style={style} className={"ctx-card " + textAlign}>
+				<div style={style} className={"ctx-card " + textAlign + " " + className}>
 					{imagePosition == "top" &&
 						<img className="card-img-top" src={image} alt="Card image cap"/>
 					}

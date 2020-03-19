@@ -4,6 +4,8 @@ import { registerBlockType } from '@wordpress/blocks';
 import * as button from './blocks/button';
 import * as alert from './blocks/alert';
 import * as card from './blocks/card';
+import * as accordionCollection from './blocks/accordion/accordion-collection';
+import * as accordionItem from './blocks/accordion/accordion-item';
 
 
 const registerBlock = ( block ) => {
@@ -23,7 +25,9 @@ export const registerBlocks = () => {
 	[
 		button,
 		alert,
-		card
+		card,
+		accordionCollection,
+		accordionItem
 	].forEach( registerBlock );
 };
 

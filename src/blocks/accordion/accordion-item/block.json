@@ -1,0 +1,14 @@
+{
+	"name": "ctx-blocks/accordion-item",
+	"category": "layout",
+	"attributes": {
+		"itemColor": {
+			"type": "string",
+			"default": ""
+		},
+		"initialOpen": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}
