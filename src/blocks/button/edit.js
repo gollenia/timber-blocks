@@ -20,7 +20,7 @@ export default class ButtonEdit extends Component {
 
 		var classes = [
 			className,
-			"btn",
+			"uk-button",
 			size || "",
 			outline ? "btn-outline" : ""
 		].join(" ");

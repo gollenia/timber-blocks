@@ -2,10 +2,6 @@
 	"name": "ctx-blocks/alert",
 	"category": "layout",
 	"attributes": {
-		"title": {
-			"type": "string",
-			"default": ""
-		},
 		"alertColor": {
 			"type": "string",
 			"default": "primary"
@@ -14,14 +10,6 @@
 			"type": "string",
 			"default": ""
         },
-        "footer": {
-			"type": "string",
-			"default": ""
-		},
-		"showFooter": {
-			"type": "boolean",
-			"default": false
-		},
 		"dismissable": {
 			"type": "boolean",
 			"default": false

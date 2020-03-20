@@ -16,13 +16,13 @@ export default function save( {attributes} ) {
 			url
         } = attributes;
 
-        var classes = "btn btn-link";
+        var classes = "uk-button uk-button-link";
         if(!isLink) {
             classes = [
                 className,
-                "btn",
+                "uk-button",
                 size || '',
-                outline ? "btn-outline-" + buttonColor : "btn-" + buttonColor,
+                outline ? "uk-btutton-outline-" + buttonColor : "uk-button-" + buttonColor,
             ].join(" ");
         }
 

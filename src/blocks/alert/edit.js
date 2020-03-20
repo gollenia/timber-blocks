@@ -19,9 +19,6 @@ export default class ButtonEdit extends Component {
 
 		const {
 			text,
-			footer,
-			showFooter,
-			title,
 			dismissable
 		} = attributes;
 
@@ -41,31 +38,12 @@ export default class ButtonEdit extends Component {
 					}
 					
 					<RichText
-						tagName="h2"
-						label={__("Title", 'ctxblocks')}
-						value={ title }
-						onChange={ (title) => setAttributes({ title }) }
-						placeholder={__("Insert Title (optional)", 'ctxblocks')}
-					/>
-					<RichText
 						tagName="p"
 						label={__("Text", 'ctxblocks')}
 						value={ text }
 						onChange={ (text) => setAttributes({ text }) }
 						placeholder={__("Message goes here...", 'ctxblocks')}
 					/>
-					{showFooter &&
-						<Fragment>
-							<hr/>
-							<RichText
-								tagName="p"
-								label={__("Footer", 'ctxblocks')}
-								value={ footer }
-								onChange={ (footer) => setAttributes({ footer }) }
-								placeholder={__("Insert Footer (optional)", 'ctxblocks')}
-							/>
-						</Fragment>
-					}
 					
 				</div>
 			</Fragment>

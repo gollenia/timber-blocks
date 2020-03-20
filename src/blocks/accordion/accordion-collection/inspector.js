@@ -18,7 +18,8 @@ class Inspector extends Component {
 
 		const {
             tabsOnDesktop,
-            oneAtATime
+            multiOpen,
+            noCollapse
         } = attributes;
         
 		return (
@@ -32,15 +33,23 @@ class Inspector extends Component {
                             <ToggleControl
                                 label={ __("Auf dem Desktop als Tabs anzeigen", 'ctxblocks')}
                                 checked={ tabsOnDesktop }
-                                onChange={ (tabs) => setAttributes({ tabs }) 
+                                onChange={ (event) => setAttributes({ tabsOnDesktop: event }) 
                                 }
                             />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Immer nur ein Feld geöffnet lassen", 'ctxblocks')}
-                                checked={ oneAtATime }
-                                onChange={ (tabs) => setAttributes({ tabs }) 
+                                label={ __("Dürfen mehrere Felder gleichzeitig geöffnet werden?", 'ctxblocks')}
+                                checked={ multiOpen }
+                                onChange={ (event) => setAttributes({ multiOpen: event, noCollapse: false }) 
+                                }
+                            />
+                        </PanelRow>
+                        <PanelRow>
+                            <ToggleControl
+                                label={ __("Dürfen alle Felder geschlossen werden?", 'ctxblocks')}
+                                checked={ noCollapse }
+                                onChange={ (event) => setAttributes({ noCollapse: event, multiOpen: false }) 
                                 }
                             />
                         </PanelRow>

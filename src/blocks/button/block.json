@@ -8,7 +8,7 @@
 		},
 		"buttonColor": {
 			"type": "string",
-			"default": "primary"
+			"default": "default"
 		},
 		"size": {
 			"type": "string",
@@ -16,13 +16,17 @@
         },
         "url": {
 			"type": "string",
-			"default": "#"
+			"default": ""
 		},
 		"outline": {
 			"type": "boolean",
 			"default": false
 		},
 		"isLink": {
+			"type": "boolean",
+			"default": false
+		},
+		"fullWidth": {
 			"type": "boolean",
 			"default": false
 		}

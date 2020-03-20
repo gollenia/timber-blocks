@@ -23,6 +23,11 @@
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+// Hässlicher Hack, da das Feld sonst mit 300px Breite angezeigt wird.
+.components-panel__body .block-editor-url-input input {
+    width: 100% !important;
+}
+
 
 
 

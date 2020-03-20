@@ -18,7 +18,6 @@ class Inspector extends Component {
 		} = this.props;
 
 		const {
- 			showFooter,
   			dismissable,
 		} = attributes;
 
@@ -44,11 +43,7 @@ class Inspector extends Component {
                             checked={ dismissable }
                             onChange={ (dismissable) => setAttributes({ dismissable }) }
                         />
-                        <ToggleControl
-                            label={ __("Fußzeile", 'ctxblocks')}
-                            checked={ showFooter }
-                            onChange={ (showFooter) => setAttributes({ showFooter }) }
-                        />
+                        
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

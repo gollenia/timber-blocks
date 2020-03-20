@@ -30,6 +30,9 @@
   -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out; }
+
+.components-panel__body .block-editor-url-input input {
+  width: 100% !important; }
 /**
  * #.# Common SCSS
  *
@@ -60,3 +63,14 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-ctx-blocks-accordion-item input.components-text-control__input {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 0px;
+  border: none; }

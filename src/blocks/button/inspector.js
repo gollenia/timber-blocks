@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { URLInputButton, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup, Text } from '@wordpress/components';
+import { URLInputButton, URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup, Text } from '@wordpress/components';
 import map from 'lodash/map';
 /**
  * Inspector controls
@@ -29,7 +29,7 @@ class Inspector extends Component {
         const sizeOptions = [
             {
                 key: "1",
-                value: 'btn-sm',
+                value: 'uk-button-small',
                 label: __( 'Kleiner', 'ctxblocks' ),
             },
             {
@@ -39,7 +39,7 @@ class Inspector extends Component {
             },
             {
                 key: "3",
-                value: 'btn-lg',
+                value: 'uk-button-large',
                 label: __( 'Größer', 'ctxblocks' ),
             },
         ];
@@ -56,10 +56,14 @@ class Inspector extends Component {
                             value={ title }
                             onChange={ (title) => setAttributes({ title }) }
                         />
-                        <URLInputButton
-                            url={ url }
-                            onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Click here' } ) }
-                        />
+                        <BaseControl
+                            label="URL oder Link angeben"
+                        >
+                            <URLInput
+                                value={ url }
+                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Click here' } ) }
+                            />
+                        </BaseControl>
                         <PanelColorSettings
                             title="Farbe"
                             colorSettings={[
@@ -72,8 +76,9 @@ class Inspector extends Component {
                             ]}
                         />
                         <PanelRow>
-                            
+                        <label>Größe</label>
                             <ButtonGroup>
+                                
                                 { map( sizeOptions, ( { label, value, key } ) => (
 											<Button
                                                 key={key}
@@ -91,6 +96,7 @@ class Inspector extends Component {
                         <PanelRow>
                             <ToggleControl
                                 label={ __("Nur Außenlinie zeigen", 'ctxblocks')}
+                                help="Bitte beachten, dass dies keine Standard-Eigenschaft von UiKit ist. Sie müssen das CSS selbst hinzufügen."
                                 checked={ outline }
                                 onChange={ (outline) => setAttributes({ outline }) 
                                 }

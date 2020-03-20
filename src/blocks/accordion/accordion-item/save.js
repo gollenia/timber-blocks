@@ -15,39 +15,18 @@ export default function save( {attributes} ) {
 
 		var classes = [
 			className || '',
-			"card",
-            initialOpen,
+            initialOpen ? "uk-open" : "",
             "bg-" + itemColor
         ].join(" ")
-        
-        var buttonClass = [
-            "btn btn-link",
-            initialOpen ? "" : "collapsed"
-        ].join(" ");
-
-        var contentClass = [
-            "collapse",
-            initialOpen ? "show" : ""
-        ].join(" ");
-        
-        var uniqueId = Math.random().toString(36).substr(2, 9);
-
+    
 		return (
 			<Fragment>
-                <div className={classes}>
-                    <div className="card-header" id={"heading" + uniqueId}>
-                        <h5 className="mb-0">
-                            <a className={buttonClass} data-toggle="collapse" data-target={"#collapse" + uniqueId} aria-expanded="true" aria-controls={"collapse" + uniqueId}>
-                                {title}
-                            </a>
-                        </h5>
+                <li className="classes">
+                    <a class="uk-accordion-title" href="#">{title}</a>
+                    <div class="uk-accordion-content">
+                        <InnerBlocks.Content />
                     </div>
-                    <div id={"collapse" + uniqueId} className={contentClass} aria-labelledby={"heading" + uniqueId} data-parent="#accordion">
-                        <div className="card-body">
-                            <InnerBlocks.Content />
-                        </div>
-                    </div>  
-				</div>
+                </li>
 			</Fragment>
 		);
 }

@@ -9,7 +9,8 @@ export default function save( {attributes} ) {
 
 		const {
 			tabsOnDesktop,
-            oneAtATime,
+            multiOpen,
+            noCollapse,
             className
         } = attributes;
 
@@ -19,15 +20,18 @@ export default function save( {attributes} ) {
             "btn",
         ].join(" ");
         
-
         
+        var options = [
+            multiOpen ? "multiple: true" : "",
+            noCollapse ? "collapsible: false" : "",
+        ].join("; ");
         
         
 		return (
 			<Fragment>
-				<div id="accordion">
+				<ul uk-accordion={options}>
 						<InnerBlocks.Content />
-                </div>
+                </ul>
 			</Fragment>
 		);
 }

@@ -10,7 +10,11 @@
 			"type": "string",
 			"default": ""
 		},
-		"oneAtATime": {
+		"multiOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"noCollapse": {
 			"type": "boolean",
 			"default": false
 		}	
