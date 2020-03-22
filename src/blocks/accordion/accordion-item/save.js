@@ -21,7 +21,7 @@ export default function save( {attributes} ) {
     
 		return (
 			<Fragment>
-                <li className="classes">
+                <li className={classes}>
                     <a class="uk-accordion-title" href="#">{title}</a>
                     <div class="uk-accordion-content">
                         <InnerBlocks.Content />

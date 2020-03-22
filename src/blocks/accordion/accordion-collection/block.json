@@ -17,6 +17,10 @@
 		"noCollapse": {
 			"type": "boolean",
 			"default": false
-		}	
+		},
+		"itemTitles": {
+			"type": "array"
+		}
+
 	}
 }

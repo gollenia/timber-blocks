@@ -3,21 +3,22 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n'; 
 import { Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
+import map from 'lodash/map';
 
 
-export default function save( {attributes} ) {
-
+export default function save( props ) {
+       
 		const {
 			tabsOnDesktop,
             multiOpen,
             noCollapse,
             className
-        } = attributes;
+        } = props.attributes;
 
 
         var classes = [
             className,
-            "btn",
+            tabsOnDesktop ? "btn" : "",
         ].join(" ");
         
         
@@ -26,12 +27,37 @@ export default function save( {attributes} ) {
             noCollapse ? "collapsible: false" : "",
         ].join("; ");
         
+        const children = props.innerBlocks;
+        console.log(children);
         
 		return (
 			<Fragment>
-				<ul uk-accordion={options}>
-						<InnerBlocks.Content />
-                </ul>
+                { tabsOnDesktop &&
+                    <Fragment>
+                        <div className="uk-visible@l">
+                            <ul uk-tab="">
+                            { map( children, ( { attributes } ) => (
+                                <li><a href="#">{attributes.title}</a></li>
+                            ) ) }
+                            </ul>
+                            <ul className="uk-switcher uk-margin">
+                                <InnerBlocks.Content />
+                            </ul>
+                        </div>
+                        <ul className="uk-hidden@l" uk-accordion={options}>
+                            <InnerBlocks.Content />
+                        </ul>
+                    </Fragment>
+                }
+                { !tabsOnDesktop &&
+                    <Fragment>
+                        <ul uk-accordion={options}>
+                            <InnerBlocks.Content />
+                        </ul>
+                    </Fragment>
+                }
+                
+				
 			</Fragment>
 		);
 }

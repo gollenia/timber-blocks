@@ -21,16 +21,7 @@ export default class AccordionItemEdit extends Component {
 			title
 		} = attributes;
 
-		const TEMPLATE = [
-			[
-				'core/paragraph',
-				{
-					placeholder: 'Text, Liste, etc.',
-					className: 'card-text'
-				}
-			]
-		];
-
+	
 		return (
 			<Fragment>
 				<Inspector
@@ -39,11 +30,11 @@ export default class AccordionItemEdit extends Component {
 				<div className={className}>
 					<TextControl
                             value={ title }
-                            onChange={ (title) => setAttributes({ title }) }
+							onChange={ (title) => setAttributes({ title }) }
+							placeholder="Titel eingeben"
                     />
 					<InnerBlocks 
 						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/button', 'core/coverImage']}
-						template={TEMPLATE}
 					/>
 					
 				</div>

@@ -63,6 +63,34 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+
+.wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.wp-block[data-type="ctx-blocks/accordion-collection"].is-selected .block-list-appender, .wp-block[data-type="ctx-blocks/accordion-collection"].has-child-selected .block-list-appender {
+  display: block; }
 /**
  * #.# Common SCSS
  *

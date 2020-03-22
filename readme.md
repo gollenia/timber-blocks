@@ -1,21 +1,33 @@
 # Uikitify Gutenberg
 
-This project aims to include standard Uikit-Elements into the Gutenberg block editor. Yes, there are many Block Collections out there, but not for designers, who need plain, customizable blocks.
+Since late 2018, Wordpress has it's (really awesome) Block Editor called Gutenberg out. Now everybody is going for Blocks! But the galore Plugins found on Wordpress all bring their own style with them, cost a lot of money or have thousands of Blocks - but you need only that ONE you were looking for. :trollface:
 
-This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+That's why I created this Plugin. It's based on [Create Guten Block](https://github.com/ahmadawais/create-guten-block), and I had a lot of help with the react Components fom [CO Blocks](https://github.com/godaddy-wordpress/coblocks).
 
-Below you will find some information on how to run scripts.
+## What's inside?
 
-## 👉  `npm start`
-- Use to compile and run the block in development mode.
-- Watches for any changes and reports back any errors in your code.
+Please not, that all the text styling and so on can easily included with a theme (look at kids-team Theme for further notes)
 
-## 👉  `npm run build`
-- Use to build production code for your block inside `dist` folder.
-- Runs once and reports back the gzip file sizes of the produced code.
+:heavy_check_mark: Momentarily, the plugin features the following Blocks:
 
-## 👉  `npm run eject`
-- Use to eject your plugin out of `create-guten-block`.
-- Provides all the configurations so you can customize the project as you want.
-- It's a one-way street, `eject` and you have to maintain everything yourself.
-- You don't normally have to `eject` a project because by ejecting you lose the connection with `create-guten-block` and from there onwards you have to update and maintain all the dependencies on your own.
+- Cards
+- Accordion (with an option to render it as Tab-Nav on Desktops)
+- Alerts
+- Buttons
+
+:checkered_flag: Planned, but yet not coded Blocks:
+
+- Column
+- Coder
+- Description List
+- Grid
+- Lightbox
+- Modal
+- Tab/Switcher
+- Icon
+- Slideshow
+- Slider
+
+:question: Maybe coming later:
+
+- Overlay
