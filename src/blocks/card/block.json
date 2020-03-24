@@ -32,7 +32,7 @@
 		},
 		"imagePosition": {
 			"type": "string",
-			"default": ""
+			"default": "top"
 		}
 	}
 }

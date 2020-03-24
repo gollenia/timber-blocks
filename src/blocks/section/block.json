@@ -1,0 +1,25 @@
+{
+	"name": "ctx-blocks/section",
+	"category": "layout",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "default"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"preserveColor": {
+			"type": "boolean",
+			"default": false
+		},
+		"containerWidth": {
+			"type": "string"
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "center"
+		}
+	}
+}

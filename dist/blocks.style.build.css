@@ -5,35 +5,6 @@
  * that are used across the project.
 */
 /**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-.wp-block-ctx-blocks-button {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out; }
-
-.components-panel__body .block-editor-url-input input {
-  width: 100% !important; }
-/**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
@@ -63,42 +34,9 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
-.wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.wp-block[data-type="ctx-blocks/accordion-collection"].is-selected .block-list-appender, .wp-block[data-type="ctx-blocks/accordion-collection"].has-child-selected .block-list-appender {
-  display: block; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block-ctx-blocks-accordion-item input.components-text-control__input {
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 0px;
-  border: none; }

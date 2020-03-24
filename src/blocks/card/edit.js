@@ -10,13 +10,8 @@ export default class CardEdit extends Component {
 	createStyle() {
 		const {
 			backgroundColor,
-			borderColor,
 			textColor
 		} = this.props;
-
-		if (borderColor.color != null) {
-			return {border: "1px solid " + borderColor.color, color: borderColor.color};
-		}
 		
 		return {background: backgroundColor.color, color: textColor.color};
 	}
@@ -38,7 +33,7 @@ export default class CardEdit extends Component {
 				'core/heading', 
 				{
 					placeholder: 'Titel',
-					className: 'card-title'
+					className: 'uk-card-title'
 				}
 			],
 			[
@@ -58,14 +53,14 @@ export default class CardEdit extends Component {
 						{ ...this.props }
 				/>
 				<div style={style} className={"ctx-card " + textAlign + " " + className}>
-					{imagePosition == "top" &&
+					{imagePosition === "top" && image !== "" &&
 						<img className="card-img-top" src={image} alt="Card image cap"/>
 					}
 					<InnerBlocks 
 						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/button', 'core/coverImage']}
 						template={TEMPLATE}
 					/>
-					{imagePosition == "bottom" &&
+					{imagePosition === "bottom" && image !== "" &&
 						<img class="card-img-bottom" src={image} alt="Card image cap"/>
 					}
 				</div>

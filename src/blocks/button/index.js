@@ -14,7 +14,7 @@ const settings = {
 	/* translators: block name */
 	title: __( 'Button', 'ctxblocks' ),
 	/* translators: block description */
-	description: __( 'Button which contains a link', 'ctxblocks' ),
+	description: __( 'Button, der einen link enthält', 'ctxblocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',

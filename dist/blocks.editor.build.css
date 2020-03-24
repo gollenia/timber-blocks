@@ -28,3 +28,43 @@
 
 .text-center {
   text-align: center; }
+
+.components-panel__body .block-editor-url-input input {
+  width: 100% !important; }
+
+.ctx-placement {
+  margin-top: 14px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ctx-image-position {
+  margin-top: 14px; }
+  .ctx-image-position .components-radio-control__option label {
+    display: none !important; }
+  .ctx-image-position .components-radio-control__option {
+    width: 30%;
+    margin-bottom: 12px !important;
+    margin-top: 12px !important;
+    text-align: center; }
+  .ctx-image-position .components-base-control .components-base-control__field {
+    margin-bottom: 8px;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .ctx-image-position .components-base-control .components-base-control__label {
+    display: block;
+    margin-bottom: 4px;
+    width: 100%; }
+
+.ctx-section {
+  padding-top: 70px;
+  padding-bottom: 70px; }
+
+div[data-type="ctx-blocks/section"] {
+  max-width: 100%;
+  width: 100%; }

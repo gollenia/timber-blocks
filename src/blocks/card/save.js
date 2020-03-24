@@ -12,34 +12,61 @@ export default function save( {attributes} ) {
 			backgroundColor,
 			textAlign,
 			className,
+			url,
+			hover,
 			imagePosition,
 			image,
 		} = attributes;
 
 		var classes = [
 			className || '',
-			"card",
-			"bg-" + backgroundColor,
-			"text-" + textColor,
-			"border-" + borderColor,
+			"uk-card",
+			hover ? "uk-card-hover" : "",
+			"uk-card-" + backgroundColor,
 			textAlign
 		].join(" ")
 		
+		if(url==="") {
+			return (
+				<Fragment>
+					<div className={classes}>
+						{imagePosition == "top" &&
+							<div className="uk-card-media-top">
+								<img src={image}/>
+							</div>
+						}
+						<div class="uk-card-body">
+							<InnerBlocks.Content />
+						</div>
+						{imagePosition == "bottom" &&
+							<div className="uk-card-media-bottom">
+								<img src={image}/>
+							</div>
+						}
+					</div>
+				</Fragment>
+			);
+		}
 		return (
 			<Fragment>
-                <div className={classes}>
+				<a href={url} className={classes}>
 					{imagePosition == "top" &&
-						<img class="card-img-top" src={image} alt="Card image cap"/>
+						<div className="uk-card-media-top">
+							<img src={image}/>
+						</div>
 					}
-					<div class="card-body">
+					<div class="uk-card-body">
 						<InnerBlocks.Content />
 					</div>
 					{imagePosition == "bottom" &&
-						<img class="card-img-bottom" src={image} alt="Card image cap"/>
+						<div className="uk-card-media-bottom">
+							<img src={image}/>
+						</div>
 					}
-				</div>
+				</a>
 			</Fragment>
 		);
+
 }
 
 

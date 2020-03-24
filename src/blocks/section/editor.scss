@@ -1,0 +1,36 @@
+.ctx-image-position {
+    margin-top: 14px;
+    .components-radio-control__option {
+        label {
+          display:none !important;
+        }
+    }
+    .components-radio-control__option {
+      width: 30%;
+      margin-bottom: 12px !important;
+      margin-top: 12px !important;
+      text-align: center;
+    }
+  
+  
+    .components-base-control .components-base-control__field {
+      margin-bottom: 8px;
+      display: flex;
+      justify-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .components-base-control .components-base-control__label {
+      display: block;
+      margin-bottom: 4px;
+      width: 100%;
+    }
+  }
+
+  .ctx-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  div[data-type="ctx-blocks/section"] {
+    max-width: 100%;
+    width:100%;
+  }

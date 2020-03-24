@@ -5,3 +5,14 @@
 .text-center {
   text-align: center;
 }
+
+
+
+// Hässlicher Hack, da das Feld sonst mit 300px Breite angezeigt wird.
+.components-panel__body .block-editor-url-input input {
+  width: 100% !important;
+}
+
+.ctx-placement {
+  margin-top: 14px;
+}

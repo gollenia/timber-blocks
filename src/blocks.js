@@ -6,6 +6,7 @@ import * as alert from './blocks/alert';
 import * as card from './blocks/card';
 import * as accordionCollection from './blocks/accordion/accordion-collection';
 import * as accordionItem from './blocks/accordion/accordion-item';
+import * as section from './blocks/section';
 
 
 const registerBlock = ( block ) => {
@@ -27,7 +28,8 @@ export const registerBlocks = () => {
 		alert,
 		card,
 		accordionCollection,
-		accordionItem
+		accordionItem,
+		section
 	].forEach( registerBlock );
 };
 

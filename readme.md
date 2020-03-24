@@ -14,6 +14,7 @@ Please not, that all the text styling and so on can easily included with a theme
 - Accordion (with an option to render it as Tab-Nav on Desktops)
 - Alerts
 - Buttons
+- Section / Container
 
 :checkered_flag: Planned, but yet not coded Blocks:
 

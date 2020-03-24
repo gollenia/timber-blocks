@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks/button",
-	"category": "layout",
+	"category": "common",
 	"attributes": {
 		"title": {
 			"type": "string",
