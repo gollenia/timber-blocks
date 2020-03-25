@@ -1,0 +1,104 @@
+.ctx-row-header {
+    background: #dddddd;
+    line-height: 1.2rem;
+    border: 1px dashed #bbb;
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    label {
+        font-size: 12px;
+        margin-left: 10px;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-weight: bold;
+        color: #444;
+    }
+
+    display: flex;
+    align-items: center;
+    .ctx-row-icons {
+        margin-left: auto;
+        padding-right: 10px;;
+        display: flex;
+        align-items: center;
+        .ctx-row-icon {
+            height: 16px;
+            width: 16px;
+            opacity: 0.8;
+        }
+    }
+}
+
+
+.ctx-row-flex > div > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ctx-row-flex > div > div > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+
+.ctx-row-cols-1 > div > div > div {
+    width: 100%
+}
+.ctx-row-cols-2 > div > div > div {
+    width: 50%
+}
+.ctx-row-cols-3 > div > div > div {
+    width: 33%
+}
+.ctx-row-cols-4 > div > div > div {
+    width: 25%
+}
+.ctx-row-cols-5 > div > div > div {
+    width: 20%
+}
+.ctx-row-cols-6 > div > div > div {
+    width: 16%
+}
+
+.ctx-row-flex {
+
+    .block-list-appender {
+        display: block !important;
+    }
+
+    .ctx-blocks-appender {
+		margin-left: 2px;
+		margin-right: 2px;
+		margin-top: 1px;
+	}
+
+	.ctx-appender__toggle {
+		display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 21px;
+        outline: 1px dashed #8d96a0;
+        width: 100%;
+        color: #555d66;
+        background: rgba(237,239,240,.8);
+
+		&:hover {
+			outline: 1px dashed #555d66;
+            color: #191e23;
+            background: rgba(237,239,240,.8) !important;
+            box-shadow: none !important;
+		}
+	}
+
+    &.is-selected,
+	&.has-child-selected {
+
+		.block-list-appender {
+			display: block;
+		}
+	}
+}
+
+
+

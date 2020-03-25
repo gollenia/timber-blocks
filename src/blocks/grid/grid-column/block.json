@@ -1,0 +1,26 @@
+{
+	"name": "ctx-blocks/grid-column",
+	"category": "layout",
+	"attributes": {
+		"widthSmall": {
+			"type": "integer",
+			"default": 0
+		},
+		"widthMedium": {
+			"type": "integer",
+			"default": 0
+        },
+        "widthLarge": {
+			"type": "integer",
+			"default": 0
+		},
+		"expand": {
+			"type": "boolean",
+			"default": false
+		},
+		"auto": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

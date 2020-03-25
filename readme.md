@@ -15,16 +15,16 @@ Please not, that all the text styling and so on can easily included with a theme
 - Alerts
 - Buttons
 - Section / Container
+- Grid (including masnory, equal height, seperators, gaps, parallax and different columns on different devices)
 
 :checkered_flag: Planned, but yet not coded Blocks:
 
 - Column
 - Coder
+- Image / Cover
 - Description List
-- Grid
 - Lightbox
 - Modal
-- Tab/Switcher
 - Icon
 - Slideshow
 - Slider

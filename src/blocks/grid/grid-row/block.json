@@ -1,0 +1,39 @@
+{
+	"name": "ctx-blocks/grid-row",
+	"category": "layout",
+	"attributes": {
+		"gapSize": {
+			"type": "integer",
+			"default": 1
+		},
+		"equalizer": {
+			"type": "boolean",
+			"default": false
+		},
+		"divider": {
+			"type": "boolean",
+			"default": false
+		},
+		"childrenWidthSmall": {
+			"type": "integer",
+			"default": 1
+		},
+		"childrenWidthMedium": {
+			"type": "integer",
+			"default": 2
+        },
+        "childrenWidthLarge": {
+			"type": "integer",
+			"default": 3
+        },
+        "hasParallax": {
+			"type":"integer",
+            "default": 0
+        },
+        "isMasnory": {
+            "type": "boolean",
+            "default": false
+        }
+        
+	}
+}

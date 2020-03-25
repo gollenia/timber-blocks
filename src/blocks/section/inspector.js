@@ -4,8 +4,8 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { CheckboxControl, PanelBody, Button, SelectControl, RadioControl } from '@wordpress/components';
-import { PanelColorSettings, withColors, getColorClassName } from '@wordpress/editor';
+import { CheckboxControl, PanelBody, SelectControl, RadioControl } from '@wordpress/components';
+import { PanelColorSettings } from '@wordpress/editor';
 /**
  * Inspector controls
  */
@@ -38,7 +38,7 @@ class Inspector extends Component {
                         initialOpen={true}
                     >
                         <SelectControl
-                            label="Textausrichtung"
+                            label="Containerbreite"
                             value={ containerWidth }
                             options={ [
                                 { label: 'Normal', value: '' },
@@ -51,7 +51,7 @@ class Inspector extends Component {
                             onChange={ ( align ) => { setAttributes( { textAlign: align } ) } }
                         />
                         <CheckboxControl
-                            label="Hover-Effekt"
+                            label="Farben erhalten"
                             value={preserveColor}
                             onChange={(event) => {setAttributes( { preserveColor: event })}}
                         />

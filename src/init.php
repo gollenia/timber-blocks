@@ -66,6 +66,12 @@ function ctx_blocks() { // phpcs:ignore
 	register_block_type(
 		'ctx-blocks/section', $register_array
 	);
+	register_block_type(
+		'ctx-blocks/grid', $register_array
+	);
+	register_block_type(
+		'ctx-blocks/column', $register_array
+	);
 	
 }
 

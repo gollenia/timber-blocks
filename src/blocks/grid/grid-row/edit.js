@@ -1,0 +1,85 @@
+import Inspector from './inspector';
+
+import { __ } from '@wordpress/i18n'; 
+import { Component, Fragment } from '@wordpress/element';
+import { InnerBlocks} from '@wordpress/block-editor';
+import { Icon} from '@wordpress/components'
+import CustomAppender from './appender';
+import icons from './icons.js'
+import { createBlock } from '@wordpress/blocks';
+import { dispatch, select } from '@wordpress/data';
+
+export default class Edit extends Component {
+
+	constructor() {
+		super( ...arguments );
+		this.insertNewItem = this.insertNewItem.bind( this );
+	}
+	
+
+	insertNewItem() {
+		console.log(this.props);
+		const { clientId, innerBlocks } = this.props;
+		const newEvent = createBlock( 'ctx-blocks/grid-column' );
+		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
+		const childBlocks = parentBlock.innerBlocks;
+		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
+	}
+	
+	render() {
+		const {
+			attributes,
+			className,
+		} = this.props;
+
+		const {
+			gapSize,
+            equalizer,
+            divider,
+            isMasnory,
+            hasParallax,
+			childrenWidthLarge
+		} = attributes;
+
+		// var style = {
+		// 	background: backgroundColor.color, 
+		// 	backgroundSize: "cover", 
+		// 	backgroundPosition: imagePosition, 
+		// 	backgroundImage: "url(" + backgroundImage + ")"
+		// };
+
+		const TEMPLATE = [
+			[
+				'ctx-blocks/grid-column' 
+			],
+			[
+				'ctx-blocks/grid-column'
+			]
+		];
+
+		return (
+			<Fragment>
+				<Inspector
+						{ ...this.props }
+				/>
+                    <div class="ctx-hide ctx-row-header">
+                        <label>Reihe</label>
+						<div className="ctx-row-icons">
+							{ hasParallax > 0 && <Icon className="ctx-row-icon" icon={icons.parallax}/> }
+							{ isMasnory && <Icon className="ctx-row-icon" icon={icons.masnory}/> }
+							{ equalizer && <Icon className="ctx-row-icon" icon={icons.equalizer}/> }
+							{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
+						</div>
+                    </div>
+					<div class={"ctx-row-flex ctx-row-cols-" + childrenWidthLarge}>
+						<InnerBlocks 	
+							allowedBlocks={['ctx-blocks/grid-column']}
+							template={TEMPLATE}	
+							renderAppender={ () => <CustomAppender onClick={ this.insertNewItem } /> }
+						/>
+				    </div>
+			</Fragment>
+		);
+	};
+
+}
