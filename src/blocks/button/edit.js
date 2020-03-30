@@ -33,7 +33,6 @@ export default class ButtonEdit extends Component {
             color: isLink ? "#007bff" : (outline ? buttonColor.color : '#ffffff')
 		}
 		
-		console.log(buttonAlignment);
 
 		return (
 			<Fragment>

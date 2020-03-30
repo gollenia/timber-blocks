@@ -1,0 +1,32 @@
+.ctx-circle {
+    border-radius: 50%;
+    
+    .ctx-inner {
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.ctx-circle.ctx-border {
+    border: 10px solid #fff;
+}
+
+.ctx-circle.box-shadow {
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+}
+    
+.ctx-circle-wrap.ctx-align-left {
+    text-align: left;
+}
+
+.ctx-circle-wrap.ctx-align-center {
+    text-align: center;
+}
+
+.ctx-circle-wrap.ctx-align-right {
+    text-align: right;
+}

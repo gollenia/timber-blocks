@@ -73,6 +73,7 @@ function ctx_blocks() { // phpcs:ignore
 		'ctx-blocks/accordion-item',
 		'ctx-blocks/button',
 		'ctx-blocks/card',
+		'ctx-blocks/circle',
 		'ctx-blocks/alert',
 		'ctx-blocks/section',
 		'ctx-blocks/grid-row',
