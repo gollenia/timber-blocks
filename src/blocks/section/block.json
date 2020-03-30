@@ -7,8 +7,8 @@
 			"default": "default"
 		},
 		"backgroundImage": {
-			"type": "string",
-			"default": ""
+			"type": "object",
+			"default": { "url": "" }
 		},
 		"preserveColor": {
 			"type": "boolean",
@@ -20,6 +20,10 @@
 		"imagePosition": {
 			"type": "string",
 			"default": "center"
+		},
+		"parallaxEffect": {
+			"type": "integer",
+			"default": 0
 		}
 	}
 }

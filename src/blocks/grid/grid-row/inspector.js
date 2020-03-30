@@ -22,7 +22,7 @@ class Inspector extends Component {
             equalizer,
             divider,
             isMasnory,
-            hasParallax,
+            parallaxEffect,
             childrenWidthSmall,
             childrenWidthLarge,
             childrenWidthMedium
@@ -81,11 +81,11 @@ class Inspector extends Component {
                             onChange={(event) => {setAttributes( { isMasnory: event })}}
                         />
                         <RangeControl
-                            label="Parallaxe-Effekt"
+                            label="Parallax-Effekt"
                             max={ 300 }
                             min={ 0 }
-                            onChange={(event) => {setAttributes( { hasParallax: event })}}
-                            value={ hasParallax }
+                            onChange={(event) => {setAttributes( { parallaxEffect: event })}}
+                            value={ parallaxEffect }
                         />
                         <CheckboxControl
                             label="Alle Spalten auf gleiche Höhe bringen"

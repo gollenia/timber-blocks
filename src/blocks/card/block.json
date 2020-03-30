@@ -27,8 +27,8 @@
 			"default": ""
 		},
 		"image": {
-			"type": "string",
-			"default": ""
+			"type": "object",
+			"default": { "url": "" }
 		},
 		"imagePosition": {
 			"type": "string",

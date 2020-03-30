@@ -1,14 +1,8 @@
-/**
- * WordPress dependencies
- */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 import { ToggleControl, PanelBody, PanelRow } from '@wordpress/components';
 
-/**
- * Inspector controls
- */
 class Inspector extends Component {
 	render() {
 		const {

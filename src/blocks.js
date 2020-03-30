@@ -2,6 +2,7 @@ import { registerBlockType } from '@wordpress/blocks';
 
 
 import * as button from './blocks/button';
+import * as image from './blocks/image';
 import * as alert from './blocks/alert';
 import * as card from './blocks/card';
 import * as accordionCollection from './blocks/accordion/accordion-collection';
@@ -33,7 +34,8 @@ export const registerBlocks = () => {
 		accordionItem,
 		section,
 		gridRow,
-		gridColumn
+		gridColumn,
+		image
 	].forEach( registerBlock );
 };
 

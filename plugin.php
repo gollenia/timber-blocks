@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CTX Blocks for UiKit
+ * Plugin Name: Blocks for UiKit
  * Plugin URI: https://github.com/gollenia/ctx-blocks/
  * Description: Use Uikit-Features in Gutenberg Block Editor
  * Author: Thomas Gollenia

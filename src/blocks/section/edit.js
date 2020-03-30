@@ -25,8 +25,15 @@ export default class SectionEdit extends Component {
 			background: backgroundColor.color, 
 			backgroundSize: "cover", 
 			backgroundPosition: imagePosition, 
-			backgroundImage: "url(" + backgroundImage + ")"
+			backgroundImage: backgroundImage.url !== "" ? "url(" + backgroundImage.sizes.large.url + ")" : "none"
 		};
+
+		var classes = [
+			"ctx-section",
+			"alignfull",
+			className,
+			preserveColor
+		].join(" ");
 
 		return (
 			<Fragment>
@@ -34,7 +41,7 @@ export default class SectionEdit extends Component {
 						{ ...this.props }
 				/>
 
-				<div style={style} className={"ctx-section alignfull " + className}>
+				<div style={style} className={classes}>
 					<div className={"ctx-container " + containerWidth}>
 						<InnerBlocks 
 							

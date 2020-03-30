@@ -54,6 +54,7 @@ class Inspector extends Component {
                         <TextControl
                             label={__("Beschriftung", 'ctxblocks')}
                             value={ title }
+                            placeholder="Text auf dem Button"
                             onChange={ (title) => setAttributes({ title }) }
                         />
                         <BaseControl
@@ -64,17 +65,7 @@ class Inspector extends Component {
                                 onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Click here' } ) }
                             />
                         </BaseControl>
-                        <PanelColorSettings
-                            title="Farbe"
-                            colorSettings={[
-                                {
-                                    label: 'Legen Sie eine Farbe für den Button fest',
-                                    onChange: setButtonColor ,
-                                    value: buttonColor.color,
-                                    disableCustomColors: true,
-                                },
-                            ]}
-                        />
+                        
                         <PanelRow>
                         <label>Größe</label>
                             <ButtonGroup>
@@ -112,6 +103,17 @@ class Inspector extends Component {
                         </PanelRow>
                         
                     </PanelBody>
+                    <PanelColorSettings
+                            title="Farbe"
+                            colorSettings={[
+                                {
+                                    label: 'Legen Sie eine Farbe für den Button fest',
+                                    onChange: setButtonColor ,
+                                    value: buttonColor.color,
+                                    disableCustomColors: true,
+                                },
+                            ]}
+                        />
                 </InspectorControls>
 			</Fragment>
 		);

@@ -4,17 +4,34 @@ import icon from './icon';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
 const { compose } = wp.compose;
+const imageSkeletton = {
+	url: "",
+	width: 0,
+	height: 0,
+	alt: "",
+	sizes: {
+		small: {
+			height: 533,
+			width: 800,
+			url: ""
+		}
+	}
+};
 
 import './editor.scss';
-
+metadata.attributes.image.default = imageSkeletton
 const { __ } = wp.i18n; 
 const { name, category, attributes } = metadata;
 
+// const {
+// 	Component
+// } = wp.element;
+
 const settings = {
 	/* translators: block name */
-	title: __( 'Sektion', 'ctxblocks' ),
+	title: __( 'Bild', 'ctxblocks' ),
 	/* translators: block description */
-	description: __( 'Fügt einen Inhaltsblock ein', 'ctxblocks' ),
+	description: __( 'Fügt ein Bild ein', 'ctxblocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',
@@ -28,7 +45,10 @@ const settings = {
 		default: "alignfull"
 	},
 	attributes,
-	edit: compose([withColors('backgroundColor')])(edit),
+	// Die Farbwerte müssen von außen übergeben werden, damit die Funktion nicht nur die HEX-Codes, sondern
+	// auch slug und Farbname erhält. DIese Farben werden im Theme mittels 
+	// add_theme_support( 'editor-color-palette', array(...) ); registriert.
+	edit,
 	save
 };
 

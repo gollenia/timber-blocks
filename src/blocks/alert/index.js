@@ -13,9 +13,9 @@ const { name, category, attributes } = metadata;
 
 const settings = {
 	/* translators: block name */
-	title: __( 'Alert', 'ctxblocks' ),
+	title: __( 'Alarm', 'ctxblocks' ),
 	/* translators: block description */
-	description: __( 'Alert component to inform or warn Visitors', 'ctxblocks' ),
+	description: __( 'Informations- oder Warnhinweis für den Besucher', 'ctxblocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',

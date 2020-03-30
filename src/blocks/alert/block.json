@@ -6,11 +6,11 @@
 			"type": "string",
 			"default": "primary"
 		},
-		"text": {
+		"alertText": {
 			"type": "string",
 			"default": ""
         },
-		"dismissable": {
+		"isDismissable": {
 			"type": "boolean",
 			"default": false
 		}

@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { CheckboxControl, PanelBody, SelectControl, RadioControl } from '@wordpress/components';
+import { CheckboxControl, RangeControl, PanelBody, SelectControl, RadioControl } from '@wordpress/components';
 import { PanelColorSettings } from '@wordpress/editor';
 /**
  * Inspector controls
@@ -23,11 +23,12 @@ class Inspector extends Component {
 			backgroundImage,
             preserveColor,
             imagePosition,
+            parallaxEffect,
 			containerWidth
         } = attributes;
-        
+
         function removeImage () {
-            setAttributes({backgroundImage: ""});
+            setAttributes({backgroundImage: {url:"" }});
         }
 
 		return (
@@ -56,48 +57,43 @@ class Inspector extends Component {
                             onChange={(event) => {setAttributes( { preserveColor: event })}}
                         />
                     </PanelBody>
-                    <PanelBody
-                        title={__('Farbeinstellungen', 'ctxblocks')}
-                        initialOpen={true}
-                    >
-                        <PanelColorSettings
-                            colorSettings={[
-                                {
-                                    label: 'Hintergrundfarbe',
-                                    onChange: setBackgroundColor ,
-                                    value: backgroundColor.color,
-                                    disableCustomColors: true,
-                                }
-                            ]}
-                        />
+              
+                    <PanelColorSettings
+                        colorSettings={[
+                            {
+                                title:"Farben",
+                                label: 'Hintergrundfarbe',
+                                onChange: setBackgroundColor ,
+                                value: backgroundColor.color,
+                                disableCustomColors: true,
+                            }
+                        ]}
+                    />
                         
-                        
-                        
-                    </PanelBody>
                     <PanelBody
                         title={__('Hintergrundbild', 'ctxblocks')}
                         initialOpen={true}
                     >
                         <MediaUploadCheck>
-                            <MediaUpload
-                                onSelect={ ( media ) => setAttributes({backgroundImage: media.url}) }
-                                label="Hintergrundbild"
+                        <MediaUpload
+                                onSelect={ ( media ) => setAttributes({backgroundImage: media}) }
+                                label="Bild"
                                 value= { backgroundImage }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { backgroundImage === "" && <button type="button" class="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { backgroundImage !== "" && <div>
+                                        { backgroundImage.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { backgroundImage.url !== "" && <div>
                                             <Fragment>
-                                            <img className="" src={backgroundImage} onClick={open} alt="Kein Bild geladen"/>
-                                                <button type="button" class="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" class="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
+                                            <img className="" src={backgroundImage.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;
                                  } }
                             />
-                        </MediaUploadCheck>
-                        <div class="ctx-image-position">
+                            </MediaUploadCheck>
+                        <div className="ctx-image-position">
                             <RadioControl
                                 label="Bildausrichtung festlegen"
                                 help="Legen Sie die Position so fest, dass die entscheidenden Bildteile in den Rahmen rücken"
@@ -116,6 +112,13 @@ class Inspector extends Component {
                                 onChange={ ( position ) => { setAttributes( { imagePosition: position } ) } }
                             />
                         </div>
+                        <RangeControl
+                            label="Parallaxe-Effekt"
+                            max={ 300 }
+                            min={ 0 }
+                            onChange={(event) => {setAttributes( { parallaxEffect: event })}}
+                            value={ parallaxEffect }
+                        />
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

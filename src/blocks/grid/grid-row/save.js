@@ -12,7 +12,7 @@ export default function save( {attributes} ) {
             equalizer,
             divider,
             isMasnory,
-            hasParallax,
+            parallaxEffect,
             childrenWidthSmall,
             childrenWidthMedium,
             childrenWidthLarge
@@ -32,15 +32,16 @@ export default function save( {attributes} ) {
 
         var ukGrid = [
              isMasnory ? "masonry: true" : " ",
-             hasParallax > 0 ? "parallax: " + hasParallax : "",
+             parallaxEffect > 0 ? "parallax: " + parallaxEffect : "",
              " "
         ].join(" ");
-		
+        
+        var ukHeightMatch = equalizer ? "target: > div > .uk-card" : "";
 
         return (
             <Fragment>
                 
-                    <div className={classes} uk-grid={ukGrid}>
+                    <div className={classes} uk-grid={ukGrid} uk-height-match={ukHeightMatch}>
                         <InnerBlocks.Content />
                     </div>
                

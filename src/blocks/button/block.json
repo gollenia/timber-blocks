@@ -4,11 +4,11 @@
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "Button-Beschriftung"
+			"default": ""
 		},
 		"buttonColor": {
 			"type": "string",
-			"default": "default"
+			"default": "primary"
 		},
 		"size": {
 			"type": "string",
@@ -29,6 +29,10 @@
 		"fullWidth": {
 			"type": "boolean",
 			"default": false
+		},
+		"buttonAlignment": {
+			"type": "string",
+			"default": "left"
 		}
 		
 	}

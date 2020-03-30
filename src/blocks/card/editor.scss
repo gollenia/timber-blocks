@@ -6,9 +6,7 @@
   text-align: center;
 }
 
-
-
-// Hässlicher Hack, da das Feld sonst mit 300px Breite angezeigt wird.
+// ugly hack for URL-Input-Field width
 .components-panel__body .block-editor-url-input input {
   width: 100% !important;
 }

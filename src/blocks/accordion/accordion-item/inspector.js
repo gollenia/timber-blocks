@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, CheckboxControl, TextControl } from '@wordpress/components';
+import { PanelBody, CheckboxControl } from '@wordpress/components';
 
 class Inspector extends Component {
 
@@ -14,7 +14,6 @@ class Inspector extends Component {
         } = this.props;
 
 		const {
-            title,
             initialOpen
 		} = attributes;
 
@@ -22,35 +21,26 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title="Optionen"
+                        title="Verhalten"
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label="Beim Laden geöffnet"
-                            help="Soll die Karte beim Laden geöffnet sein?"
+                            label="Beim Laden der Seite geöffnet"
                             checked={ initialOpen }
                             onChange={ (event) => setAttributes({ initialOpen: event }) }
                         />    
                     </PanelBody>
-                    <PanelBody
-                        title={__('Farbeinstellungen', 'ctxblocks')}
-                        initialOpen={true}
-                    >
-                        <PanelColorSettings
-                            colorSettings={[
-                                {
-                                    label: 'Farbe',
-                                    onChange: setItemColor ,
-                                    value: itemColor.color,
-                                    disableCustomColors: true,
-                                }
-                            ]}
-                        />
-                        
-                       
-                        
-                    </PanelBody>
-                    
+                    <PanelColorSettings
+                        title="Farbe"
+                        colorSettings={[
+                            {
+                                label: 'Farbe',
+                                onChange: setItemColor ,
+                                value: itemColor.color,
+                                disableCustomColors: true,
+                            },
+                        ]}
+                    />      
                 </InspectorControls>
 			</Fragment>
 		);

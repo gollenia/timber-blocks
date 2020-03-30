@@ -1,13 +1,8 @@
-/**
- * WordPress dependencies
- */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { ToggleControl, PanelBody } from '@wordpress/components';
-/**
- * Inspector controls
- */
+
 class Inspector extends Component {
 	render() {
 		const {
@@ -18,30 +13,31 @@ class Inspector extends Component {
 		} = this.props;
 
 		const {
-  			dismissable,
+  			isDismissable,
 		} = attributes;
 
 		return (
 			<Fragment>
 				<InspectorControls>
+                    <PanelColorSettings
+                        title={__("Farbe")}
+                        colorSettings={[
+                            {
+                                label: "Farbe des Hinweises",
+                                onChange: setAlertColor,
+                                value: alertColor.color,
+                                disableCustomColors: true,
+                            },
+                        ]}
+                    />
                     <PanelBody
-                        title={__('Optionen', 'ctxblocks')}
-                        initialOpen={true}
+                        title={__('Verhalten', 'ctxblocks')}
+                        initialOpen={false}
                     >
-                        <PanelColorSettings
-                            colorSettings={[
-                                {
-                                    label: 'Farbe',
-                                    onChange: setAlertColor ,
-                                    value: alertColor.color,
-                                    disableCustomColors: true,
-                                },
-                            ]}
-                        />
                         <ToggleControl
-                            label={ __("'X' zum Schließen", 'ctxblocks')}
-                            checked={ dismissable }
-                            onChange={ (dismissable) => setAttributes({ dismissable }) }
+                            label={ __("Hinweis kann vom Benutzer geschlossen werden", 'ctxblocks')}
+                            checked={ isDismissable }
+                            onChange={ (isDismissable) => setAttributes({ isDismissable }) }
                         />
                         
                     </PanelBody>

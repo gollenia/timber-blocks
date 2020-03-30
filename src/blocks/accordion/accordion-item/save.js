@@ -1,4 +1,3 @@
-import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
 import { Fragment } from '@wordpress/element';
@@ -22,8 +21,8 @@ export default function save( {attributes} ) {
 		return (
 			<Fragment>
                 <li className={classes}>
-                    <a class="uk-accordion-title" href="#">{title}</a>
-                    <div class="uk-accordion-content">
+                    <a className="uk-accordion-title" href="#">{title}</a>
+                    <div className="uk-accordion-content">
                         <InnerBlocks.Content />
                     </div>
                 </li>

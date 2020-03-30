@@ -13,6 +13,7 @@ export default function save( {attributes} ) {
 			className,
             outline,
             isLink,
+            buttonAlignment,
 			url
         } = attributes;
 
@@ -30,9 +31,9 @@ export default function save( {attributes} ) {
         
         
 		return (
-			<Fragment>
+			<div style={{textAlign: buttonAlignment}}>
 				<a className={classes} href={url}>{ title }</a>
-			</Fragment>
+			</div>
 		);
 }
 

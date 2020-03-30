@@ -19,20 +19,13 @@ export default class SectionEdit extends Component {
             widthLarge
 		} = attributes;
 
-		// var style = {
-		// 	background: backgroundColor.color, 
-		// 	backgroundSize: "cover", 
-		// 	backgroundPosition: imagePosition, 
-		// 	backgroundImage: "url(" + backgroundImage + ")"
-		// };
-
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
-				<div class={"ctx-col ctx-cols-" + widthLarge}>
-                    <div class="ctx-col-header ctx-hide">
+				<div className={"ctx-col ctx-cols-" + widthLarge}>
+                    <div className="ctx-col-header ctx-hide">
                         <label>Spalte</label>
                     </div>
 					<InnerBlocks 		

@@ -6,20 +6,12 @@ import { InnerBlocks} from '@wordpress/block-editor';
 
 export default class CardEdit extends Component {
 
-	// React benötigt für das Styling ein Objekt, keinen String.
-	createStyle() {
-		const {
-			backgroundColor,
-			textColor
-		} = this.props;
-		
-		return {background: backgroundColor.color, color: textColor.color};
-	}
-
 	render() {
 		const {
 			attributes,
-			className
+			className,
+			backgroundColor,
+			textColor
 		} = this.props;
 
 		const {
@@ -39,29 +31,38 @@ export default class CardEdit extends Component {
 			[
 				'core/paragraph',
 				{
-					placeholder: 'Beschreibung oder Inhalts',
+					placeholder: 'Beschreibung oder Inhalt',
 					className: 'card-text'
 				}
 			]
 		];
+	
+		var style = {
+			background: backgroundColor.color, 
+			color: textColor.color}
+		;
 
-		var style = this.createStyle();
-
+		var classes = [
+			"ctx-card",
+			textAlign,
+			className
+		].join(" ");
+		
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
-				<div style={style} className={"ctx-card " + textAlign + " " + className}>
-					{imagePosition === "top" && image !== "" &&
-						<img className="card-img-top" src={image} alt="Card image cap"/>
+				<div style={style} className={classes}>
+					{imagePosition === "top" && image.url !== "" &&
+						<img className="card-img-top" src={image.sizes.small.url} alt="Card image cap"/>
 					}
 					<InnerBlocks 
-						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/button', 'core/coverImage']}
+						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'core/coverImage']}
 						template={TEMPLATE}
 					/>
-					{imagePosition === "bottom" && image !== "" &&
-						<img class="card-img-bottom" src={image} alt="Card image cap"/>
+					{imagePosition === "bottom" && image.url !=="" &&
+						<img className="card-img-bottom" src={image.sizes.small.url} alt="Card image cap"/>
 					}
 				</div>
 				

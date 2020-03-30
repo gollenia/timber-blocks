@@ -37,7 +37,7 @@ export default class Edit extends Component {
             equalizer,
             divider,
             isMasnory,
-            hasParallax,
+            parallaxEffect,
 			childrenWidthLarge
 		} = attributes;
 
@@ -62,16 +62,16 @@ export default class Edit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-                    <div class="ctx-hide ctx-row-header">
+                    <div className="ctx-hide ctx-row-header">
                         <label>Reihe</label>
 						<div className="ctx-row-icons">
-							{ hasParallax > 0 && <Icon className="ctx-row-icon" icon={icons.parallax}/> }
+							{ parallaxEffect > 0 && <Icon className="ctx-row-icon" icon={icons.parallax}/> }
 							{ isMasnory && <Icon className="ctx-row-icon" icon={icons.masnory}/> }
 							{ equalizer && <Icon className="ctx-row-icon" icon={icons.equalizer}/> }
 							{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
 						</div>
                     </div>
-					<div class={"ctx-row-flex ctx-row-cols-" + childrenWidthLarge}>
+					<div className={"ctx-row-flex ctx-row-cols-" + childrenWidthLarge}>
 						<InnerBlocks 	
 							allowedBlocks={['ctx-blocks/grid-column']}
 							template={TEMPLATE}	

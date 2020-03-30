@@ -1,14 +1,9 @@
-/**
- * WordPress dependencies
- */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { URLInput, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { BaseControl, PanelBody, Button, SelectControl, RadioControl, CheckboxControl } from '@wordpress/components';
-import { PanelColorSettings, withColors, getColorClassName } from '@wordpress/block-editor';
-/**
- * Inspector controls
- */
+import { BaseControl, PanelBody, SelectControl, CheckboxControl } from '@wordpress/components';
+import { PanelColorSettings } from '@wordpress/block-editor';
+
 class Inspector extends Component {
 
 	render() {
@@ -28,15 +23,15 @@ class Inspector extends Component {
         } = attributes;
         
         function removeImage () {
-            setAttributes({image: ""});
+            setAttributes({image: {url:"" }});
         }
 
 		return (
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title="Optionen"
-                        initialOpen={true}
+                        title="Aussehen"
+                        initialOpen={false}
                     >
                         <SelectControl
                             label="Textausrichtung"
@@ -48,6 +43,11 @@ class Inspector extends Component {
                             ] }
                             onChange={ ( align ) => { setAttributes( { textAlign: align } ) } }
                         />
+                    </PanelBody>
+                    <PanelBody
+                        title="Verhalten"
+                        initialOpen={false}
+                    >
                         <CheckboxControl
                             label="Hover-Effekt"
                             value={hover}
@@ -61,46 +61,44 @@ class Inspector extends Component {
                                 onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Hier klicken' } ) }
                             />
                         </BaseControl>
-                    </PanelBody>
-                    <PanelBody
-                        title={__('Farbeinstellungen', 'ctxblocks')}
-                        initialOpen={true}
-                    >
-                        <PanelColorSettings
-                            colorSettings={[
-                                {
-                                    label: 'Hintergrundfarbe',
-                                    onChange: setBackgroundColor ,
-                                    value: backgroundColor.color,
-                                    disableCustomColors: true,
-                                }
-                            ]}
-                        />
+                        </PanelBody>
+
+                    <PanelColorSettings
+                        title="Farbe"
+                        initialOpen={false}
+                        colorSettings={[
+                            {
+                                label: 'Hintergrundfarbe',
+                                onChange: setBackgroundColor ,
+                                value: backgroundColor.color,
+                                disableCustomColors: true,
+                            }
+                        ]}
+                    />
                         
-                        
-                        
-                    </PanelBody>
                     <PanelBody
                         title={__('Bild', 'ctxblocks')}
-                        initialOpen={true}
+                        initialOpen={false}
                     >
+                        <MediaUploadCheck>
                         <MediaUpload
-                                onSelect={ ( media ) => setAttributes({image: media.url}) }
+                                onSelect={ ( media ) => setAttributes({image: media}) }
                                 label="Bild"
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { image === "" && <button type="button" class="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { image !== "" && <div>
+                                        { image.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { image.url !== "" && <div>
                                             <Fragment>
-                                            <img className="" src={image} onClick={open} alt="Kein Bild geladen"/>
-                                                <button type="button" class="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" class="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
+                                            <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;
                                  } }
                             />
+                            </MediaUploadCheck>
                             <div className="ctx-placement">
                                 <SelectControl
                                     label="Bildplatzierung"

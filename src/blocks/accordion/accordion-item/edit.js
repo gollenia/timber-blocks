@@ -13,11 +13,9 @@ export default class AccordionItemEdit extends Component {
 			attributes,
 			className,
 			setAttributes,
-			itemColor
 		} = this.props;
 
 		const {
-			initialOpen,
 			title
 		} = attributes;
 

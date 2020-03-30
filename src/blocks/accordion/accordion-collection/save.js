@@ -1,5 +1,3 @@
-import Inspector from './inspector';
-
 import { __ } from '@wordpress/i18n'; 
 import { Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
@@ -28,7 +26,6 @@ export default function save( props ) {
         ].join("; ");
         
         const children = props.innerBlocks;
-        console.log(children);
         
 		return (
 			<Fragment>
