@@ -58,7 +58,7 @@ export default class CardEdit extends Component {
 						<img className="card-img-top" src={image.sizes.small.url} alt="Card image cap"/>
 					}
 					<InnerBlocks 
-						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'core/coverImage']}
+						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'core/coverImage', 'ctx-blocks/circles']}
 						template={TEMPLATE}
 					/>
 					{imagePosition === "bottom" && image.url !=="" &&
