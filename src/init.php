@@ -148,3 +148,4 @@ function customImageSizes($sizes) {
 // 	), $registered_blocks );
  
 // }
+
