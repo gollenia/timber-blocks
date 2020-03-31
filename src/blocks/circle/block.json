@@ -16,10 +16,6 @@
 			"type": "integer",
 			"default": 100
         },
-        "text": {
-            "type": "string",
-			"default": ""
-        },
         "border": {
             "type": "string",
 			"default": ""

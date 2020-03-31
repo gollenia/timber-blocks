@@ -16,7 +16,6 @@ export default function save( {attributes} ) {
         backgroundColor,
         className,
         borderColor,
-        text,
         border,
         boxShadow,
         borderTransparent,
@@ -45,15 +44,26 @@ export default function save( {attributes} ) {
 		
     return (
         <Fragment>
-            <div className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
+            { url === "" &&
+                <div className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
                     <div style={style} className={classes}>
                         <div className="ctx-inner">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
-                            <text style="font: 20px/25px sans-serif; text-align: center; shape-inside: circle(120px at 150px 150px);">{text}</text>
-                        </svg>
+                        
                         </div>
                     </div>    
                 </div>
+            }
+            { url !== "" && 
+                <a href={url} className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
+                    <div style={style} className={classes}>
+                        <div className="ctx-inner">
+                        
+                        </div>
+                    </div>    
+                </a>
+            }
+            
+            
         </Fragment>
     );
 

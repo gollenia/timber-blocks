@@ -9,7 +9,6 @@ class Inspector extends Component {
 	render() {
         const {
 			attributes,
-            className,
             setAttributes,
             backgroundColor,
             setBackgroundColor,
@@ -92,7 +91,7 @@ class Inspector extends Component {
                                 max={ 100 }
                                 step={ 5 }
                                 marks={ marks }
-                                help="Bitte beachten, dass die Leserlichkeit auf Mobilgeräten dadurch beeinträchtigt kann"
+                                help="Bitte beachten, dass die Leserlichkeit auf Mobilgeräten dadurch beeinträchtigt werden kann"
                         />
 
                     </PanelBody>
