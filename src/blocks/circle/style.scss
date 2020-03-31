@@ -1,6 +1,8 @@
 .ctx-circle {
     border-radius: 50%;
-    
+    background-size: cover;
+    background-position: center;
+    position: relative;
     .ctx-inner {
         position: absolute;
         border-radius: 50%;
@@ -11,8 +13,53 @@
     }
 }
 
+.ctx-satellite {
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+}
+
+.ctx-satellite-big {
+    width: 40%;
+    height: 40%;
+    left: 0;
+    bottom: 0;
+    margin-left: -40%;
+    margin-bottom: -20%
+}
+
+.ctx-satellite-medium {
+    width: 20%;
+    height: 20%;
+    left: 0;
+    top: 0;
+    margin-left: -20%;
+    margin-top: 10%
+}
+
+.ctx-satellite-small {
+    width: 30%;
+    height: 30%;
+    right: 0;
+    bottom: 0;
+    margin-right: -30%;
+}
+
 .ctx-circle.ctx-border {
     border: 10px solid #fff;
+    .ctx-satellite-big {
+        margin-left: -50%;
+        margin-bottom: -25%
+    }
+    
+    .ctx-satellite-medium {
+        margin-left: -30%;
+        margin-top: 15%
+    }
+    
+    .ctx-satellite-small {
+        margin-right: -40%;
+    }
 }
 
 .ctx-circle.box-shadow {
