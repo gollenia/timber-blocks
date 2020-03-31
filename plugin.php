@@ -5,10 +5,9 @@
  * Description: Use Uikit-Features in Gutenberg Block Editor
  * Author: Thomas Gollenia
  * Author URI: https://www.gollenia.at
- * Version: 1.0.0
- * License: GPL2+
- * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
- *
+ * Version: 0.0.6
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  * @package CTX
  */
 
