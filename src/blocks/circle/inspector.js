@@ -63,24 +63,24 @@ class Inspector extends Component {
                         <CheckboxControl
                             label="Rand"
                             help="Zeigt einen breiten Raund um den Kreis"
-                            value={border}
+                            checked={border}
                             onChange={(event) => {setAttributes( { border: event })}}
                         />
                         <CheckboxControl
                             label="Rand ist halbtransparent"
                             disabled={!border}
-                            value={borderTransparent}
+                            checked={borderTransparent}
                             onChange={(event) => {setAttributes( { borderTransparent: event })}}
                         />
                         <CheckboxControl
                             label="Schatten"
-                            value={boxShadow}
+                            checked={boxShadow}
                             onChange={(event) => {setAttributes( { boxShadow: event })}}
                         />
                         <CheckboxControl
                             label="Satelliten"
                             help="Zeigt zwei kleinere Kreise um den KReis herum an"
-                            value={hasSatellites}
+                            checked={hasSatellites}
                             onChange={(event) => {setAttributes( { hasSatellites: event })}}
                         />
                         <RangeControl
