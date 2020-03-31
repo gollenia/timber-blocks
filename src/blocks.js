@@ -12,6 +12,8 @@ import * as circle from './blocks/circle';
 import * as gridRow from './blocks/grid/grid-row';
 import * as gridColumn from './blocks/grid/grid-column';
 
+import './mods/heading';
+
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
