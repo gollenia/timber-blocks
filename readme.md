@@ -20,18 +20,17 @@ Please not, that all the text styling and so on can easily included with a theme
 :checkered_flag: Planned, but yet not coded Blocks:
 
 - Column
-- Image / Cover
-- Description List
-- Lightbox
-- Modal
-- Icon
-- Slideshow
-- Slider
+- Image / Cover / Lightbox
+- Description List ( with image/icon )
 - Portrait / Round / Circle Thing (needed for a Site I am  currently building)
 
 :question: Maybe coming later:
 
 - Overlay
+- Modal
+- Slideshow
+- Slider
+
 
 # Todo
 tidy up init.php
