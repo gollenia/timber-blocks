@@ -31,7 +31,6 @@ class CircleEdit extends Component {
 		const {
 			image,
             size,
-            text,
             border,
             borderTransparent,
             boxShadow,
