@@ -48,7 +48,9 @@ export default function save( {attributes} ) {
                 <div className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
                     <div style={style} className={classes}>
                         <div className="ctx-inner">
-                        
+                            <span className="ctx-satellite ctx-satellite-big"></span>
+                            <span className="ctx-satellite ctx-satellite-medium"></span>
+                            <span className="ctx-satellite ctx-satellite-small"></span>
                         </div>
                     </div>    
                 </div>
@@ -57,7 +59,9 @@ export default function save( {attributes} ) {
                 <a href={url} className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
                     <div style={style} className={classes}>
                         <div className="ctx-inner">
-                        
+                            <span className="ctx-satellite ctx-satellite-big"></span>
+                            <span className="ctx-satellite ctx-satellite-medium"></span>
+                            <span className="ctx-satellite ctx-satellite-small"></span>
                         </div>
                     </div>    
                 </a>
