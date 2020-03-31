@@ -17,16 +17,16 @@
 			"default": 100
         },
         "border": {
-            "type": "string",
-			"default": ""
+            "type": "boolean",
+			"default": false
         },
         "borderTransparent": {
             "type": "boolean",
             "default": false
         },
         "borderColor": {
-            "type": "boolean",
-			"default": false
+            "type": "string",
+			"default": ""
         },
         "boxShadow": {
             "type": "boolean",
