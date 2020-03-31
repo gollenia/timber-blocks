@@ -1,0 +1,18 @@
+{
+	"name": "ctx-blocks/icon",
+	"category": "common",
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"color": {
+			"type": "string",
+			"default": "white"
+		},
+		"size": {
+			"type": "integer",
+			"default": 16
+		}
+	}
+}
