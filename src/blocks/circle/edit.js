@@ -62,6 +62,11 @@ class CircleEdit extends Component {
                 <Toolbar {...this.props} />
                 <div className={`ctx-circle-wrap ctx-align-${circleAlignment}`}>
                     <div style={style} className={classes}>
+                        { hasSatellites && <Fragment>
+                            <span className="ctx-satellite ctx-satellite-big" style={{backgroundColor: backgroundColor.color}}></span>
+                            <span className="ctx-satellite ctx-satellite-medium" style={{backgroundColor: backgroundColor.color}}></span>
+                            <span className="ctx-satellite ctx-satellite-small" style={{backgroundColor: backgroundColor.color}}></span>
+                        </Fragment> }
                         <div className="ctx-inner">
                             
                         </div>
