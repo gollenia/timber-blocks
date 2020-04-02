@@ -53,7 +53,7 @@ class CircleEdit extends Component {
             paddingTop: border ? `calc(${size}% - 20px)` : `${size}%`,
             backgroundColor: backgroundColor.color,
             borderColor: borderColor.color,
-            backgroundImage: image.url !== "" ? `url('${image.sizes.small.url}')` : "none"
+            backgroundImage: image ? `url('${image.sizes.small.url}')` : "none"
         };
         
         return(

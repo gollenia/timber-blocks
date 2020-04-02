@@ -48,10 +48,6 @@ class Inspector extends Component {
                 label: '100%',
             }
         ];
-        
-        function removeImage () {
-            setAttributes({image: {url:"" }});
-        }
 
 		return (
 			<Fragment>
@@ -139,12 +135,12 @@ class Inspector extends Component {
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { image.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { image.url !== "" && <div>
+                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { image && <div>
                                             <Fragment>
                                             <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> Beitragsbild entfernen</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;

@@ -4,9 +4,7 @@
 	"attributes": {
 		"image": {
 			"type": "object",
-			"default": {
-                "url": ""
-            }
+			"default": null
 		},
 		"backgroundColor": {
 			"type": "string",
