@@ -39,7 +39,7 @@ export default function save( {attributes} ) {
         paddingTop: border ? `${size}%` : `${size}%`,
         backgroundColor: backgroundColor.color,
         borderColor: borderColor.color,
-        backgroundImage: image.url !== "" ? `url('${image.sizes.medium.url}')` : "none"
+        backgroundImage: image.url !== "" ? `url('${image.sizes.qmedium.url}')` : "none"
     };
 		
     return (
