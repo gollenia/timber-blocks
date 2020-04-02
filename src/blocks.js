@@ -7,6 +7,8 @@ import * as alert from './blocks/alert';
 import * as card from './blocks/card';
 import * as accordionCollection from './blocks/accordion/accordion-collection';
 import * as accordionItem from './blocks/accordion/accordion-item';
+import * as descriptionList from './blocks/description/description-list';
+import * as descriptionItem from './blocks/description/description-item';
 import * as section from './blocks/section';
 import * as circle from './blocks/circle';
 import * as gridRow from './blocks/grid/grid-row';
@@ -35,6 +37,8 @@ export const registerBlocks = () => {
 		card,
 		accordionCollection,
 		accordionItem,
+		descriptionList,
+		descriptionItem,
 		section,
 		circle,
 		gridRow,
