@@ -29,6 +29,9 @@ class DescriptionListEdit extends Component {
 		const {
 			content,
 			contentType,
+			image,
+			icon,
+			roundImage,
 			title
 		} = attributes;
 		
@@ -36,7 +39,8 @@ class DescriptionListEdit extends Component {
 
         var classes = classnames(
             className,
-            "ctx-description-" + contentType
+			"ctx-description-" + contentType,
+			"ctx-description-item"
         )
 
       
@@ -47,25 +51,33 @@ class DescriptionListEdit extends Component {
 						{ ...this.props }
 				/>
 				<div className={classes}>
-				<TextControl
-                            value={ title }
-							onChange={ (title) => setAttributes({ title }) }
-							placeholder="Titel eingeben"
-                    />
-				
-				{ contentType !== "date" &&
-				<RichText
-						tagName="p"
-						label={__("Text", 'ctxblocks')}
-						value={ content }
-						onChange={ (value) => setAttributes({ content: value }) }
-						placeholder={__("Nachricht hier einfügen", 'ctxblocks')}
-						keepPlaceholderOnFocus={true}
-					/>
-				}
-				{ contentType === "date" &&
-				<p>{content}</p>
-				}
+					{ image && 
+						<img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+					}
+					{ !image && icon !== "" &&
+						<i className={`ctx-icon ${icon}-icon`}></i>
+					}
+					<div className="ctx-item-content">
+						<TextControl
+									value={ title }
+									onChange={ (value) => setAttributes({ title: value }) }
+									placeholder="Titel eingeben"
+						/>
+					
+						{ contentType !== "date" &&
+							<RichText
+								tagName="p"
+								label={__("Text", 'ctxblocks')}
+								value={ content }
+								onChange={ (value) => setAttributes({ content: value }) }
+								placeholder={__("Nachricht hier einfügen", 'ctxblocks')}
+								keepPlaceholderOnFocus={true}
+							/>
+						}
+						{ contentType === "date" &&
+							<p>{content}</p>
+						}
+					</div>
 				</div>
 			</Fragment>
 		);

@@ -3,8 +3,8 @@
 	"category": "common",
 	"attributes": {
 		"image": {
-			"type": "string",
-			"default": ""
+			"type": "object",
+			"default": null
 		},
 		"title": {
 			"type": "string",
@@ -21,6 +21,10 @@
 		"contentType": {
 			"type": "string",
 			"default": ""
+		},
+		"roundImage": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

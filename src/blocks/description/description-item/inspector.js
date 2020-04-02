@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
-import { DateTimePicker, ToggleControl, SelectControl, PanelBody, PanelRow } from '@wordpress/components';
+import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
+import { DateTimePicker, TextControl, ToggleControl, SelectControl, PanelBody, PanelRow } from '@wordpress/components';
 
 class Inspector extends Component {
 	render() {
@@ -13,14 +13,16 @@ class Inspector extends Component {
 		const {
             contentType,
             content,
-            image
+            image,
+            roundImage,
+            icon
         } = attributes;
 
         const onUpdateDate = ( dateTime ) => {
 			var newDateTime = moment(dateTime).format( 'YYYY-MM-DD HH:mm' );
 			setAttributes( { content: newDateTime } );
         };
-        
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -32,7 +34,7 @@ class Inspector extends Component {
                         <SelectControl
                             label={ __( 'Art des Inhalts' ) }
                             value={ contentType } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => { setAttributes( { contentType: value } ) } }
+                            onChange={ ( value ) => { setAttributes( { contentType: value, content: "", icon: value } ) } }
                             options={ [
                                 { value: '', label: 'Normaler Text' },
                                 { value: 'date', label: 'Datum' },
@@ -59,25 +61,41 @@ class Inspector extends Component {
                         title="Bild"
                         initialOpen={true}
                     >
-                    <MediaUploadCheck>
-                        <MediaUpload
+                        <MediaUploadCheck>
+                            <MediaUpload
                                 onSelect={ ( media ) => setAttributes({image: media}) }
                                 label="Bild"
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { image.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { image.url !== "" && <div>
+                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { image && <div>
                                             <Fragment>
                                             <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({image: null}) }> Bild entfernen</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;
-                                 } }
+                                } }
                             />
-                            </MediaUploadCheck>
+                        </MediaUploadCheck>
+                        <PanelRow>
+                            <ToggleControl
+                                label="Rundes Bild"
+                                help={ roundImage ? 'Bild ist rund.' : 'Bild ist Eckig.' }
+                                checked={ roundImage }
+                                onChange={ (value) => setAttributes( { roundImage: value } ) }
+                            />
+                        </PanelRow>
+                        <PanelRow>
+                            <TextControl
+                                label="Icon"
+                                help="Hier die ID eines Icons eingeben. Da die Icons im Theme festgelegt werden, ist eine Vorschau im Editor nicht gewährleistet."
+                                value={ icon }
+                                onChange={ ( value ) => setAttributes( { icon: value } ) }
+                            />
+                        </PanelRow>
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

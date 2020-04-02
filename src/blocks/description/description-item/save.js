@@ -14,6 +14,9 @@ export default function save( props ) {
 		const {
             className,
             title,
+            image,
+            icon,
+            roundImage,
             content,
             contentType
         } = props.attributes;
@@ -21,27 +24,32 @@ export default function save( props ) {
 
         var classes = classnames(
             className,
-            "ctx-description-" + contentType
-        )
-        
-        const children = props.innerBlocks;
+			"ctx-description-" + contentType,
+			"ctx-description-item"
+        );
         
         var readableDate = "";
         if(contentType==="date") {
-            readableDate = moment(content).format( 'D. MMM YYYY' );
+            readableDate = moment(content).format( 'D. MMMM YYYY' );
         }
 
 		return (
 			<Fragment>
                 <div className={classes}>
-                    <dt>                 
-                        {title}   
-                    </dt>
-                    <dd>
-                        { contentType === "date" && <time datetime={content}>{readableDate}</time>}
-                        { contentType !== "date" && <time datetime={content}>{readableDate}</time>}
-                    </dd>
-                </div>
+					{ image && 
+						<img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+					}
+					{ !image && icon !== "" &&
+						<i className={`ctx-icon ${icon}-icon`}></i>
+					}
+                    <div className="ctx-item-content">
+                        <dt>{title}</dt>
+                        <dd className="ctx-item-content">
+                            { contentType === "date" && <time datetime={content}>{readableDate}</time>}
+                            { contentType !== "date" && <div>{content}</div> }
+                        </dd>
+                    </div>
+				</div>
 			</Fragment>
 		);
 }
