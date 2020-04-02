@@ -1,0 +1,27 @@
+// Style definitions for the whole Project. In contrast to common.scss,
+// this file is included only once.
+
+.ctx-appender__toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 21px;
+    outline: 1px dashed #8d96a0;
+    width: 100%;
+    color: #555d66;
+    background: rgba(237,239,240,.8);
+
+    &:hover {
+        outline: 1px dashed #555d66;
+        color: #191e23;
+        background: rgba(237,239,240,.8) !important;
+        box-shadow: none !important;
+    }
+}
+
+.ctx-blocks-appender {
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-top: 28px;
+}
