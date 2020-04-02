@@ -1,0 +1,10 @@
+{
+	"name": "ctx-blocks/descriptionlist",
+	"category": "common",
+	"attributes": {
+		"dividers": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

@@ -1,0 +1,10 @@
+.wp-block[data-type="ctx-blocks/description-list"] {
+
+    &.is-selected,
+	&.has-child-selected {
+
+		.block-list-appender {
+			display: block;
+		}
+	}
+}
