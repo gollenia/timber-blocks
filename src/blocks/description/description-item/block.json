@@ -1,0 +1,26 @@
+{
+	"name": "ctx-blocks/description-item",
+	"category": "common",
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"contentType": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
