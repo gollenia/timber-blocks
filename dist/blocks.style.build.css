@@ -4,12 +4,63 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+
 /**
  * #.# Editor Styles
  *
@@ -22,6 +73,32 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+
 /**
  * #.# Editor Styles
  *
@@ -34,9 +111,186 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ctx-appender__toggle {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 21px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8); }
+  .ctx-appender__toggle:hover {
+    outline: 1px dashed #555d66;
+    color: #191e23;
+    background: rgba(237, 239, 240, 0.8) !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+
+.ctx-blocks-appender {
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: 28px; }
+
+.ctx-circle {
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative; }
+  .ctx-circle .ctx-inner {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+
+.ctx-satellite {
+  border-radius: 50%;
+  display: block;
+  position: absolute; }
+
+.ctx-satellite-big {
+  width: 40%;
+  height: 40%;
+  left: 0;
+  bottom: 0;
+  margin-left: -40%;
+  margin-bottom: -20%; }
+
+.ctx-satellite-medium {
+  width: 20%;
+  height: 20%;
+  left: 0;
+  top: 0;
+  margin-left: -20%;
+  margin-top: 10%; }
+
+.ctx-satellite-small {
+  width: 30%;
+  height: 30%;
+  right: 0;
+  bottom: 0;
+  margin-right: -30%; }
+
+.ctx-circle.ctx-border {
+  border: 10px solid #fff; }
+  .ctx-circle.ctx-border .ctx-satellite-big {
+    margin-left: -50%;
+    margin-bottom: -25%; }
+  .ctx-circle.ctx-border .ctx-satellite-medium {
+    margin-left: -30%;
+    margin-top: 15%; }
+  .ctx-circle.ctx-border .ctx-satellite-small {
+    margin-right: -40%; }
+
+.ctx-circle.box-shadow {
+  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5); }
+
+.ctx-circle-wrap.ctx-align-left {
+  text-align: left; }
+
+.ctx-circle-wrap.ctx-align-center {
+  text-align: center; }
+
+.ctx-circle-wrap.ctx-align-right {
+  text-align: right; }
