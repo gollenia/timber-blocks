@@ -71,6 +71,8 @@ function ctx_blocks() { // phpcs:ignore
 	$blocks = [
 		'ctx-blocks/accordion-collection',
 		'ctx-blocks/accordion-item',
+		'ctx-blocks/description-list',
+		'ctx-blocks/description-item',
 		'ctx-blocks/button',
 		'ctx-blocks/card',
 		'ctx-blocks/circle',
