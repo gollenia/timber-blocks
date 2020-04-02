@@ -16,6 +16,8 @@ import * as gridColumn from './blocks/grid/grid-column';
 
 import './mods/heading';
 
+import './common/styles/editor.scss';
+import './common/styles/style.scss';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
