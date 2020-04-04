@@ -1,10 +1,11 @@
 .wp-block-ctx-blocks-accordion-item {
 
-    input.components-text-control__input {
-        font-size: 16px;
+    div.ctx-title-holder {
         font-weight: bold;
         border-radius: 0px;
         border: none;
+        padding: 5px;
+        margin: 0px -5px 0px -5px;
     }
 
 }
