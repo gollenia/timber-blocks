@@ -12,25 +12,18 @@ export default function save( props ) {
             noCollapse,
             className
         } = props.attributes;
-
-
-        var classes = [
-            className,
-            tabsOnDesktop ? "btn" : "",
-        ].join(" ");
         
-        
-        var options = [
+        var accordionOptions = [
             multiOpen ? "multiple: true" : "",
             noCollapse ? "collapsible: false" : "",
-        ].join("; ");
+        ].filter(item => item !== "").join("; ");
         
         const children = props.innerBlocks;
         
 		return (
 			<Fragment>
                 { tabsOnDesktop &&
-                    <Fragment>
+                    <div classes={className}>
                         <div className="uk-visible@l">
                             <ul uk-tab="">
                             { map( children, ( { attributes } ) => (
@@ -41,17 +34,17 @@ export default function save( props ) {
                                 <InnerBlocks.Content />
                             </ul>
                         </div>
-                        <ul className="uk-hidden@l" uk-accordion={options}>
+                        <ul className="uk-hidden@l" uk-accordion={accordionOptions}>
                             <InnerBlocks.Content />
                         </ul>
-                    </Fragment>
+                    </div>
                 }
                 { !tabsOnDesktop &&
-                    <Fragment>
-                        <ul uk-accordion={options}>
+                    <div classes={className}>
+                        <ul uk-accordion={accordionOptions}>
                             <InnerBlocks.Content />
                         </ul>
-                    </Fragment>
+                    </div>
                 }
                 
 				
