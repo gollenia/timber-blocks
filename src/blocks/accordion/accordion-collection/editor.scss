@@ -1,8 +1,7 @@
 .wp-block[data-type="ctx-blocks/accordion-collection"] {
-
+	// Allways display "Add Block"-Button
     &.is-selected,
 	&.has-child-selected {
-
 		.block-list-appender {
 			display: block;
 		}
