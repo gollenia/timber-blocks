@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 import { CheckboxControl, RangeControl, PanelBody, SelectControl, RadioControl } from '@wordpress/components';
-import { PanelColorSettings } from '@wordpress/editor';
+import { PanelColorSettings } from '@wordpress/block-editor';
 /**
  * Inspector controls
  */
