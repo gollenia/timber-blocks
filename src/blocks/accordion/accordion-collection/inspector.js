@@ -20,14 +20,14 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Darstellung', 'ctxblocks')}
+                        title={__('Verhalten', 'ctxblocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Auf dem Desktop als Tabs anzeigen", 'ctxblocks')}
+                                label={ __("Auf großen Bildschirmen als Tabs anzeigen", 'ctxblocks')}
                                 checked={ tabsOnDesktop }
-                                onChange={ (event) => setAttributes({ tabsOnDesktop: event }) 
+                                onChange={ (value) => setAttributes({ tabsOnDesktop: value }) 
                                 }
                             />
                         </PanelRow>
@@ -35,7 +35,7 @@ class Inspector extends Component {
                             <ToggleControl
                                 label={ __("Dürfen mehrere Felder gleichzeitig geöffnet werden?", 'ctxblocks')}
                                 checked={ multiOpen }
-                                onChange={ (event) => setAttributes({ multiOpen: event, noCollapse: false }) 
+                                onChange={ (value) => setAttributes({ multiOpen: value, noCollapse: false }) 
                                 }
                             />
                         </PanelRow>
@@ -43,11 +43,10 @@ class Inspector extends Component {
                             <ToggleControl
                                 label={ __("Dürfen alle Felder geschlossen werden?", 'ctxblocks')}
                                 checked={ noCollapse }
-                                onChange={ (event) => setAttributes({ noCollapse: event, multiOpen: false }) 
+                                onChange={ (value) => setAttributes({ noCollapse: value, multiOpen: false }) 
                                 }
                             />
                         </PanelRow>
-                        
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>
