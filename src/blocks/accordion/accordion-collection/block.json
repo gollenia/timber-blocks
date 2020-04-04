@@ -6,10 +6,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"title": {
-			"type": "string",
-			"default": ""
-		},
 		"multiOpen": {
 			"type": "boolean",
 			"default": false
@@ -17,10 +13,6 @@
 		"noCollapse": {
 			"type": "boolean",
 			"default": false
-		},
-		"itemTitles": {
-			"type": "array"
-		}
-
+		}	
 	}
 }
