@@ -31,7 +31,7 @@ export default class AccordionCollectionEdit extends Component {
 		var classes = [
 			className,
 			"accordion"
-		].join(" ");
+		].filter(item => item !== "").join(" ");
 
 		
 		const TEMPLATE = [
