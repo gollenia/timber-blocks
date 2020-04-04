@@ -13,6 +13,7 @@ const settings = {
 	title: __( 'Spalte', 'ctxblocks' ),
 	/* translators: block description */
 	description: __( 'Fügt einen Inhaltsblock ein', 'ctxblocks' ),
+	parent: [ 'ctx-blocks/grid-row' ],
 	icon: icons.column,
 	keywords: [
 		'ctxblocks',
