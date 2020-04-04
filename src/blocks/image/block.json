@@ -2,45 +2,21 @@
 	"name": "ctx-blocks/image",
 	"category": "common",
 	"attributes": {
-		"width": {
-			"type": "integer",
-			"default": 0
-		},
-		"height": {
-			"type": "integer",
-			"default": 0
-        },
         "marginShift": {
             "type": "string",
 			"default": ""
         },
-        "isRound": {
-            "type": "boolean",
-			"default": false
-        },
-        "border": {
-            "type": "boolean",
-			"default": false
-        },
-        "shadow": {
-            "type": "boolean",
-			"default": false
-        },
-        "isCover": {
-			"type": "boolean",
-			"default": false
-		},
 		"hasLightbox": {
 			"type": "boolean",
 			"default": false
-		},
-		"image": {
-			"type": "object",
-			"default": { }
         },
-        "linkUrl": {
+        "lightboxText": {
             "type": "string",
             "default": ""
+        },
+		"image": {
+			"type": "object",
+			"default": null
         },
         "hasOverlay": {
             "type": "boolean",
@@ -52,13 +28,21 @@
         },
         "overlayStyle": {
             "type":"string",
-            "default": ""
+            "default": "light"
+        },
+        "overlayCover": {
+            "type": "boolean",
+            "default": false
         },
         "overlayPosition": {
             "type":"string",
-            "default": ""
+            "default": "bottom"
         },
         "overlayIcon": {
+            "type": "string",
+            "default": ""
+        },
+        "overlayAnimation": {
             "type": "string",
             "default": ""
         }

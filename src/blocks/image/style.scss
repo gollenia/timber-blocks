@@ -1,0 +1,7 @@
+// Dirty hack because Wordpress adds an empty <p></p> after the image. 
+// You can remove it by adding 
+// remove_filter('the_content', 'wpautop');
+// to yout theme.
+.uk-inline > p {
+    display: none;
+}
