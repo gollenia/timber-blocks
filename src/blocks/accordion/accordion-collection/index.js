@@ -3,7 +3,7 @@ import save from './save';
 import icon from './icon';
 import metadata from './block.json';
 
-import './style.scss';
+import './editor.scss';
 
 const { __ } = wp.i18n; 
 const { name, category, attributes } = metadata;
