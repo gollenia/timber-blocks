@@ -3,9 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { URLInput, InspectorControls } from '@wordpress/block-editor';
-import { BaseControl, TextControl, PanelBody, Button, SelectControl, RadioControl, CheckboxControl } from '@wordpress/components';
-import { PanelColorSettings, withColors, getColorClassName } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
+import { TextControl, PanelBody, Button, SelectControl, CheckboxControl } from '@wordpress/components';
 /**
  * Inspector controls
  */
@@ -20,6 +19,9 @@ class Inspector extends Component {
 		const {
             hasLightbox,
             lightboxText,
+            round,
+            border,
+            shadow,
             hasOverlay,
             overlayStyle,
             overlayPosition,
@@ -36,17 +38,32 @@ class Inspector extends Component {
                         title={__('Design-Optionen', 'ctxblocks')}
                         initialOpen={true}
                     >
-                    <SelectControl
-                        label="Überhang"
-                        help="Schiebt das Bild links oder rechts aus der Spalte"
-                        selected={ marginShift }
-                        options={ [
-                            { label: 'Keine Verschiebung', value: '' },
-                            { label: 'Verschiebung nach links', value: 'ctx-left-shift' },
-                            { label: 'Verschiebung nach rechts', value: 'ctx-right-shift' },
-                        ] }
-                        onChange={ ( value ) => { setAttributes( { marginShift: value } ) } }
-                    />
+                        <SelectControl
+                            label="Überhang"
+                            help="Schiebt das Bild links oder rechts aus der Spalte"
+                            selected={ marginShift }
+                            options={ [
+                                { label: 'Keine Verschiebung', value: '' },
+                                { label: 'Verschiebung nach links', value: 'ctx-left-shift' },
+                                { label: 'Verschiebung nach rechts', value: 'ctx-right-shift' },
+                            ] }
+                            onChange={ ( value ) => { setAttributes( { marginShift: value } ) } }
+                        />
+                        <CheckboxControl
+                                label="Runde Form"
+                                checked={round}
+                                onChange={(event) => {setAttributes( { round: event })}}
+                        />
+                        <CheckboxControl
+                            label="Rand"
+                            checked={border}
+                            onChange={(event) => {setAttributes( { border: event })}}
+                        />
+                        <CheckboxControl
+                            label="Schatten"
+                            checked={shadow}
+                            onChange={(event) => {setAttributes( { shadow: event })}}
+                        />
                     </PanelBody>
                     <PanelBody
                         title={__('Overlay', 'ctxblocks')}

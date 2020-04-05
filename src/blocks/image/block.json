@@ -18,6 +18,18 @@
 			"type": "object",
 			"default": null
         },
+        "round": {
+            "type": "boolean",
+			"default": false
+        },
+        "border": {
+            "type": "boolean",
+			"default": false
+        },
+        "shadow": {
+            "type": "boolean",
+			"default": false
+        },
         "hasOverlay": {
             "type": "boolean",
             "default":false
