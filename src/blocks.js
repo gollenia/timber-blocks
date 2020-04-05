@@ -10,11 +10,11 @@ import * as accordionItem from './blocks/accordion/accordion-item';
 import * as descriptionList from './blocks/description/description-list';
 import * as descriptionItem from './blocks/description/description-item';
 import * as section from './blocks/section';
-import * as circle from './blocks/circle';
 import * as gridRow from './blocks/grid/grid-row';
 import * as gridColumn from './blocks/grid/grid-column';
 
-import './mods/heading';
+import './mods/font';
+import './mods/visibility';
 
 import './common/styles/editor.scss';
 import './common/styles/style.scss';
@@ -42,7 +42,6 @@ export const registerBlocks = () => {
 		descriptionList,
 		descriptionItem,
 		section,
-		circle,
 		gridRow,
 		gridColumn,
 		image
