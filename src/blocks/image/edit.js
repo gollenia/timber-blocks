@@ -28,22 +28,31 @@ export default class ImageEdit extends Component {
             overlayStyle,
 			overlayPosition,
 			overlayCover,
+			round,
+			border,
+			shadow,
             overlayIcon,
             marginShift,
 		} = attributes;	
 
-		var classes = classnames(
-			overlayStyle,
-			"ctx-overlay-position-" + overlayPosition,
-			{"ctx-overlay-cover": overlayCover}
-		)
+		var overlayClasses = [
+			overlayStyle || false,
+			`ctx-overlay-position-${overlayPosition}`,
+			overlayCover ? "ctx-overlay-cover" : false,
+		].filter(Boolean).join(" ");
+
+		var imageClasses = [
+			border ? "ctx-border-image" : false,
+			shadow ? "ctx-shadow-image" : false,
+			round ? "ctx-round-image" : false
+		].filter(Boolean).join(" ");
 
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
-				<div className={classes}>
+				<div className={overlayClasses}>
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={ ( media ) => setAttributes({image: media}) }
@@ -63,7 +72,13 @@ export default class ImageEdit extends Component {
 								{ image && 
 									<Fragment>
 										<div className="ctx-image-holder">
-											<img className="" src={image.url} alt="Kein Bild geladen"/>
+											{ round && image.sizes.qmedium &&
+												<img className={imageClasses} src={image.sizes.qmedium.url} alt="Kein Bild geladen"/> 
+											}
+											{ round && !image.sizes.qmedium &&
+												<p>Fehler: Das Bild hat nicht die erforderlichen Maße. Bitte laden Sie es erneut auf den Server.</p> 
+											}
+											{ !round && <img className={imageClasses} src={image.url} alt="Kein Bild geladen"/> }
 											{hasOverlay && 
 												<div className="ctx-overlay">
 													<RichText
