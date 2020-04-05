@@ -3,7 +3,6 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
-//import { } from '@wordpress/components';
 
 export default class AccordionItemEdit extends Component {
 

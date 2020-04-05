@@ -1,5 +1,3 @@
-import { __ } from '@wordpress/i18n'; 
-import { Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
 import map from 'lodash/map';
 
@@ -14,27 +12,25 @@ export default function save( props ) {
         } = props.attributes;
         
         var accordionOptions = [
-            multiOpen ? "multiple: true" : "",
-            noCollapse ? "collapsible: false" : "",
-        ].filter(item => item !== "").join("; ");
+            multiOpen ? "multiple: true" : false,
+            noCollapse ? "collapsible: false" : false,
+        ].filter(Boolean).join("; ");
         
         const children = props.innerBlocks;
         
 		return (
-			<Fragment>
+			<div>
                 { tabsOnDesktop &&
                     <div classes={className}>
-                        <div className="uk-visible@l">
+                        <div className="uk-visible@m">
                             <ul uk-tab="">
-                            { map( children, ( { attributes } ) => (
-                                <li><a href="#">{attributes.title}</a></li>
-                            ) ) }
+                                { map( children, ( { attributes } ) => (<li><a href="#">{attributes.title}</a></li>) ) }
                             </ul>
                             <ul className="uk-switcher uk-margin">
                                 <InnerBlocks.Content />
                             </ul>
                         </div>
-                        <ul className="uk-hidden@l" uk-accordion={accordionOptions}>
+                        <ul className="uk-hidden@m" uk-accordion={accordionOptions}>
                             <InnerBlocks.Content />
                         </ul>
                     </div>
@@ -48,7 +44,7 @@ export default function save( props ) {
                 }
                 
 				
-			</Fragment>
+			</div>
 		);
 }
 

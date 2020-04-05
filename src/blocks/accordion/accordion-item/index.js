@@ -5,9 +5,7 @@ import metadata from './block.json';
 const { withColors } = wp.blockEditor;
 const { compose } = wp.compose;
 
-import './style.scss';
 import './editor.scss';
-
 
 const { __ } = wp.i18n; 
 const { name, category, attributes } = metadata;
