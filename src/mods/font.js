@@ -1,8 +1,6 @@
-import assign from 'lodash';
-
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;
-const { InspectorControls } = wp.editor;
+const { InspectorControls } = wp.blockEditor;
 const { PanelBody, SelectControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
@@ -11,7 +9,7 @@ import classnames from 'classnames';
 
 // Enable spacing control on the following blocks
 const allowedBlocks = [
-	'core/heading',
+	'core/heading', 'core/paragraph'
 ];
 
 // Available spacing control options
@@ -51,7 +49,7 @@ const addFontControlAttribute = ( props, name ) => {
 	return { ...props, attributes };
 };
 
-addFilter( 'blocks.registerBlockType', 'ctx-blocks/core-heading', addFontControlAttribute );
+addFilter( 'blocks.registerBlockType', 'ctx-blocks/core-font', addFontControlAttribute );
 
 
 
@@ -90,7 +88,7 @@ const withFontControl = createHigherOrderComponent( ( BlockEdit ) => {
 	};
 }, 'withFontControl' );
 
-addFilter( 'editor.BlockEdit', 'ctx-blocks/core-heading', withFontControl );
+addFilter( 'editor.BlockEdit', 'ctx-blocks/core-font', withFontControl );
 
 
 const addFontClass = ( extraProps, blockType, attributes ) => {
@@ -101,9 +99,12 @@ const addFontClass = ( extraProps, blockType, attributes ) => {
 		return extraProps;
 	}
 
-	extraProps.className = classnames( extraProps.className, font );
+	 extraProps.className =  [
+		 extraProps.className || false,
+		 font || false
+	 ].filter(Boolean).join(" ");
 
 	return extraProps;
 };
 
-addFilter( 'blocks.getSaveContent.extraProps', 'ctx-blocks/core-heading', addFontClass );
+addFilter( 'blocks.getSaveContent.extraProps', 'ctx-blocks/core-font', addFontClass );
