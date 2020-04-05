@@ -1,7 +1,7 @@
 
 .ctx-blocks-alert {
     padding: 10px;
-    .close {
+    .ctx-close {
       position: absolute;
       top: 0;
       right: 0;
@@ -10,9 +10,6 @@
       span {
           font-size: 2rem;
           line-height: 1.2;
-      }
-      &.hidden {
-          display: none;
       }
     }
   }

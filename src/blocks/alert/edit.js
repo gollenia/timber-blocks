@@ -7,12 +7,14 @@ import {RichText} from '@wordpress/block-editor';
 var Color = require('color');
 
 export default class ButtonEdit extends Component {
+
 	render() {
 		
 		const {
 			attributes,
 			setAttributes,
 			className,
+			title,
 			alertColor
 		} = this.props;
 
@@ -28,18 +30,27 @@ export default class ButtonEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-				<div style={{background: color.lighten(0.5), color: color.darken(0.5)}} className={className + " ctx-blocks-alert"}>
+				<div style={{background: color.lighten(0.5), color: color.darken(0.5)}} className={`${className} ctx-blocks-alert`}>
 					{isDismissable &&
-						<span type="button" className={"close"} data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">×</span>
+						<span type="button" className={"ctx-close"}>
+							<span>×</span>
 						</span>
 					}
+
+					<RichText
+						tagName="h3"
+						label={__("Überschrift", 'ctxblocks')}
+						value={ title }
+						onChange={ (value) => setAttributes({ title: value }) }
+						placeholder={__("Überschrift", 'ctxblocks')}
+						keepPlaceholderOnFocus={true}
+					/>
 					
 					<RichText
 						tagName="p"
 						label={__("Text", 'ctxblocks')}
 						value={ alertText }
-						onChange={ (alertText) => setAttributes({ alertText }) }
+						onChange={ (value) => setAttributes({ alertText: value }) }
 						placeholder={__("Nachricht hier einfügen", 'ctxblocks')}
 						keepPlaceholderOnFocus={true}
 					/>

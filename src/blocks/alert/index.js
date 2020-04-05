@@ -12,17 +12,13 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	/* translators: block name */
 	title: __( 'Alarm', 'ctxblocks' ),
-	/* translators: block description */
-	description: __( 'Informations- oder Warnhinweis für den Besucher', 'ctxblocks' ),
+	description: __( 'Informations- oder Warnhinweis für den Besucher. Die Überschrift ist optional.', 'ctxblocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',
-		/* translators: block keyword */
-		__( 'url', 'ctxblocks' ),
-		/* translators: block keyword (abbreviation for "frequently asked questions") */
-		__( 'link', 'ctxblocks' ),
+		__( 'alert', 'ctxblocks' ),
+		__( 'info', 'ctxblocks' ),
 	],
 	attributes,
 	edit: compose([withColors('alertColor')])(edit),

@@ -1,5 +1,4 @@
 import { __ } from '@wordpress/i18n'; 
-import { Fragment } from '@wordpress/element';
 
 export default function save( {attributes} ) {
 
@@ -7,21 +6,21 @@ export default function save( {attributes} ) {
 			alertText,
 			alertColor,
 			className,
+			title,
 			isDismissable,
 		} = attributes;
 
-		var classes=[
-			className,
+		var classes = [
+			className || false,
 			"uk-alert-" + alertColor
-		].join(" ");
+		].filter(Boolean).join(" ");
 
 		return (
-			<Fragment>
-                <div className={classes} uk-alert="">
-                    { isDismissable && <a type="button" class="uk-alert-close" uk-close=""></a> }
-                    <p dangerouslySetInnerHTML={{ __html: alertText }}></p>
-                </div>
-			</Fragment>
+			<div className={classes} uk-alert="">
+				{ isDismissable && <a type="button" class="uk-alert-close" uk-close=""></a> }
+				{ title !== "" && <h3>{title}</h3>}
+				<p dangerouslySetInnerHTML={{ __html: alertText }}></p>
+			</div>
 		);
 }
 

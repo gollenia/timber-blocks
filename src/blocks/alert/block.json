@@ -9,7 +9,11 @@
 		"alertText": {
 			"type": "string",
 			"default": ""
-        },
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
 		"isDismissable": {
 			"type": "boolean",
 			"default": false

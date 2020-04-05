@@ -21,6 +21,7 @@ class Inspector extends Component {
 				<InspectorControls>
                     <PanelColorSettings
                         title={__("Farbe")}
+                        initialOpen={true}
                         colorSettings={[
                             {
                                 label: "Farbe des Hinweises",
@@ -32,12 +33,12 @@ class Inspector extends Component {
                     />
                     <PanelBody
                         title={__('Verhalten', 'ctxblocks')}
-                        initialOpen={false}
+                        initialOpen={true}
                     >
                         <ToggleControl
                             label={ __("Hinweis kann vom Benutzer geschlossen werden", 'ctxblocks')}
                             checked={ isDismissable }
-                            onChange={ (isDismissable) => setAttributes({ isDismissable }) }
+                            onChange={ (value) => setAttributes({ isDismissable: value }) }
                         />
                         
                     </PanelBody>
