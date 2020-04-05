@@ -5,3 +5,15 @@
 .uk-inline > p {
     display: none;
 }
+
+.ctx-border-image {
+    border: 7px solid #fff;
+}
+
+.ctx-round-image {
+    border-radius: 50%;
+}
+
+.ctx-shadow-image {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
