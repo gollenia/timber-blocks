@@ -21,29 +21,11 @@ class Inspector extends Component {
             url,
             textAlign
         } = attributes;
-        
-        function removeImage () {
-            setAttributes({image: {url:"" }});
-        }
 
 		return (
 			<Fragment>
 				<InspectorControls>
-                    <PanelBody
-                        title="Aussehen"
-                        initialOpen={false}
-                    >
-                        <SelectControl
-                            label="Textausrichtung"
-                            value={ textAlign }
-                            options={ [
-                                { label: 'Links', value: '' },
-                                { label: 'Mitte', value: 'text-center' },
-                                { label: 'Rechts', value: 'text-right' },
-                            ] }
-                            onChange={ ( align ) => { setAttributes( { textAlign: align } ) } }
-                        />
-                    </PanelBody>
+
                     <PanelBody
                         title="Verhalten"
                         initialOpen={false}
@@ -51,7 +33,7 @@ class Inspector extends Component {
                         <CheckboxControl
                             label="Hover-Effekt"
                             value={hover}
-                            onChange={(event) => {setAttributes( { hover: event })}}
+                            onChange={(value) => {setAttributes( { hover: value })}}
                         />
                         <BaseControl
                             label="URL oder Link angeben"
@@ -87,14 +69,13 @@ class Inspector extends Component {
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { image.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { image.url !== "" && <div>
-                                            <Fragment>
-                                            <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { image && 
+                                            <div>
+                                                <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
-                                            </Fragment>
-                                        </div> }
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> Beitragsbild entfernen</button>
+                                            </div> }
                                     </div> ;
                                  } }
                             />

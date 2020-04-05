@@ -2,9 +2,6 @@
 /**
  * External dependencies
  */
-import classnames from 'classnames';
-
-import { __ } from '@wordpress/i18n'; 
 import { Fragment } from '@wordpress/element';
 
 
@@ -22,11 +19,11 @@ export default function save( props ) {
         } = props.attributes;
 
 
-        var classes = classnames(
-            className,
+        var classes = [
+            className || false,
 			"ctx-description-" + contentType,
 			"ctx-description-item"
-        );
+        ].filter(Boolean).join(" ")
         
         var readableDate = "";
         if(contentType==="date") {
@@ -34,23 +31,21 @@ export default function save( props ) {
         }
 
 		return (
-			<Fragment>
-                <div className={classes}>
-					{ image && 
-						<img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
-					}
-					{ !image && icon !== "" &&
-						<i className={`ctx-icon ${icon}-icon`}></i>
-					}
-                    <div className="ctx-item-content">
-                        <dt>{title}</dt>
-                        <dd className="ctx-item-content">
-                            { contentType === "date" && <time datetime={content}>{readableDate}</time>}
-                            { contentType !== "date" && <div>{content}</div> }
-                        </dd>
-                    </div>
-				</div>
-			</Fragment>
+            <div className={classes}>
+                { image && 
+                    <img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+                }
+                { !image && icon !== "" &&
+                    <i className={`ctx-icon ${icon}-icon`}></i>
+                }
+                <div className="ctx-item-content">
+                    <dt>{title}</dt>
+                    <dd className="ctx-item-content">
+                        { contentType === "date" && <time datetime={content}>{readableDate}</time>}
+                        { contentType !== "date" && <div>{content}</div> }
+                    </dd>
+                </div>
+            </div>
 		);
 }
 

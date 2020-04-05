@@ -1,7 +1,3 @@
-import Inspector from './inspector';
-
-import { __ } from '@wordpress/i18n'; 
-import { Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
 
 export default function save( {attributes} ) {
@@ -16,24 +12,19 @@ export default function save( {attributes} ) {
 		} = attributes;
 
 		var classes = [
-            className || '',
-            widthSmall > 0 ? "uk-width-1-" + widthSmall + "@s" : "",
-           widthMedium > 0 ? "uk-width-1-" + widthMedium + "@m" : "",
-           widthLarge > 0 ? "uk-width-1-" + widthLarge + "@l" : "",
-           expand ? "uk-width-expand" : "",
-           auto ? "uk-width-auto" : ""           
-       ].join(" ")
+            className || false,
+            widthSmall > 0 ? "uk-width-1-" + widthSmall + "@s" : false,
+            widthMedium > 0 ? "uk-width-1-" + widthMedium + "@m" : false,
+            widthLarge > 0 ? "uk-width-1-" + widthLarge + "@l" : false,
+            expand ? "uk-width-expand" : false,
+            auto ? "uk-width-auto" : false           
+        ].filter(Boolean).join(" ");
 		
-
         return (
-            <Fragment>
-                    <div class={classes}>
-                        <InnerBlocks.Content />
-                    </div>
-               
-            </Fragment>
+            <div class={classes}>
+                <InnerBlocks.Content />
+            </div>
         );
-
 
 }
 

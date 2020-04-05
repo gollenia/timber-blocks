@@ -1,4 +1,5 @@
 import Inspector from './inspector';
+import Toolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
@@ -18,6 +19,7 @@ export default class SectionEdit extends Component {
 			preserveColor,
 			containerWidth,
 			imagePosition,
+			textAlignment,
 			backgroundImage
 		} = attributes;
 
@@ -25,20 +27,24 @@ export default class SectionEdit extends Component {
 			background: backgroundColor.color, 
 			backgroundSize: "cover", 
 			backgroundPosition: imagePosition, 
-			backgroundImage: backgroundImage.url !== "" ? "url(" + backgroundImage.sizes.large.url + ")" : "none"
+			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none"
 		};
 
 		var classes = [
 			"ctx-section",
 			"alignfull",
-			className,
-			preserveColor
-		].join(" ");
+			className || false,
+			`ctx-text-align-${textAlignment}`,
+			preserveColor ? "ctx-preserve-color" : false
+		].filter(Boolean).join(" ");
 
 		return (
 			<Fragment>
 				<Inspector
-						{ ...this.props }
+					{ ...this.props }
+				/>
+				<Toolbar 
+					{ ...this.props }
 				/>
 
 				<div style={style} className={classes}>

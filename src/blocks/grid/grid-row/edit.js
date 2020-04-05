@@ -16,10 +16,8 @@ export default class Edit extends Component {
 		this.insertNewItem = this.insertNewItem.bind( this );
 	}
 	
-
 	insertNewItem() {
-		console.log(this.props);
-		const { clientId, innerBlocks } = this.props;
+		const { clientId } = this.props;
 		const newEvent = createBlock( 'ctx-blocks/grid-column' );
 		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
 		const childBlocks = parentBlock.innerBlocks;
@@ -29,7 +27,6 @@ export default class Edit extends Component {
 	render() {
 		const {
 			attributes,
-			className,
 		} = this.props;
 
 		const {
@@ -40,13 +37,6 @@ export default class Edit extends Component {
             parallaxEffect,
 			childrenWidthLarge
 		} = attributes;
-
-		// var style = {
-		// 	background: backgroundColor.color, 
-		// 	backgroundSize: "cover", 
-		// 	backgroundPosition: imagePosition, 
-		// 	backgroundImage: "url(" + backgroundImage + ")"
-		// };
 
 		const TEMPLATE = [
 			[

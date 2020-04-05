@@ -1,6 +1,6 @@
 import Inspector from './inspector';
+import Toolbar from './toolbar';
 
-import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
 
@@ -11,7 +11,8 @@ export default class CardEdit extends Component {
 			attributes,
 			className,
 			backgroundColor,
-			textColor
+			textColor,
+			hover
 		} = this.props;
 
 		const {
@@ -44,24 +45,28 @@ export default class CardEdit extends Component {
 
 		var classes = [
 			"ctx-card",
-			textAlign,
-			className
-		].join(" ");
+			hover ? "ctx-hover" : false,
+			`text-${textAlign}`,
+			className || false
+		].filter(Boolean).join(" ");
 		
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
+				<Toolbar
+					{ ...this.props }
+				/>
 				<div style={style} className={classes}>
-					{imagePosition === "top" && image.url !== "" &&
+					{imagePosition === "top" && image &&
 						<img className="card-img-top" src={image.sizes.small.url} alt="Card image cap"/>
 					}
 					<InnerBlocks 
-						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'core/coverImage', 'ctx-blocks/circles']}
+						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'core/coverImage', 'ctx-blocks/image']}
 						template={TEMPLATE}
 					/>
-					{imagePosition === "bottom" && image.url !=="" &&
+					{imagePosition === "bottom" && image &&
 						<img className="card-img-bottom" src={image.sizes.small.url} alt="Card image cap"/>
 					}
 				</div>

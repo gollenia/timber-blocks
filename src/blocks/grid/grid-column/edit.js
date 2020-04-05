@@ -10,12 +10,9 @@ export default class SectionEdit extends Component {
 	render() {
 		const {
 			attributes,
-			className,
 		} = this.props;
 
 		const {
-			widthSmall,
-			widthMedium,
             widthLarge
 		} = attributes;
 

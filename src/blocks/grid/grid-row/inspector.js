@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { RangeControl, CheckboxControl, PanelBody, Button, SelectControl, RadioControl } from '@wordpress/components';
+import { InspectorControls } from '@wordpress/block-editor';
+import { RangeControl, CheckboxControl, PanelBody } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -27,10 +27,6 @@ class Inspector extends Component {
             childrenWidthLarge,
             childrenWidthMedium
         } = attributes;
-        
-        function removeImage () {
-            setAttributes({backgroundImage: ""});
-        }
 
 		return (
 			<Fragment>

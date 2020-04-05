@@ -8,7 +8,7 @@
 		},
 		"backgroundImage": {
 			"type": "object",
-			"default": { "url": "" }
+			"default": null
 		},
 		"preserveColor": {
 			"type": "boolean",
@@ -24,6 +24,10 @@
 		"parallaxEffect": {
 			"type": "integer",
 			"default": 0
+		},
+		"textAlignment": {
+			"type": "string",
+			"default": "left"
 		}
 	}
 }

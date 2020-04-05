@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { URLInputButton, URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup, Text } from '@wordpress/components';
+import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup } from '@wordpress/components';
 import map from 'lodash/map';
 /**
  * Inspector controls
@@ -55,7 +55,7 @@ class Inspector extends Component {
                             label={__("Beschriftung", 'ctxblocks')}
                             value={ title }
                             placeholder="Text auf dem Button"
-                            onChange={ (title) => setAttributes({ title }) }
+                            onChange={ (value) => setAttributes({ title: value }) }
                         />
                         <BaseControl
                             label="URL oder Link angeben"
@@ -69,18 +69,17 @@ class Inspector extends Component {
                         <PanelRow>
                         <label>Größe</label>
                             <ButtonGroup>
-                                
                                 { map( sizeOptions, ( { label, value, key } ) => (
-											<Button
-                                                key={key}
-                                                className={ value === size ? `components-coblocks-map-styles__button components-button--${ value } components-coblocks-map-styles__button--selected` : `components-button--${ value } components-coblocks-map-styles__button` }
-                                                isSmall
-												isPrimary={ value === size }
-												onClick={ () => {
-													setAttributes( { size: value } );
-												} }
-											>{ label }
-											</Button>
+                                    <Button
+                                        key={key}
+                                        className={ value === size ? `components-coblocks-map-styles__button components-button--${ value } components-coblocks-map-styles__button--selected` : `components-button--${ value } components-coblocks-map-styles__button` }
+                                        isSmall
+                                        isPrimary={ value === size }
+                                        onClick={ ( value ) => {
+                                            setAttributes( { size: value } );
+                                        } }
+                                    >{ label }
+                                    </Button>
 								) ) }
                             </ButtonGroup>
                         </PanelRow>
@@ -89,7 +88,7 @@ class Inspector extends Component {
                                 label={ __("Nur Außenlinie zeigen", 'ctxblocks')}
                                 help="Bitte beachten, dass dies keine Standard-Eigenschaft von UiKit ist. Sie müssen das CSS selbst hinzufügen."
                                 checked={ outline }
-                                onChange={ (outline) => setAttributes({ outline }) 
+                                onChange={ (value) => setAttributes({ outline: value }) 
                                 }
                             />
                         </PanelRow>
@@ -97,7 +96,7 @@ class Inspector extends Component {
                             <ToggleControl
                                 label={ __("Als Link anzeigen", 'ctxblocks')}
                                 checked={ isLink }
-                                onChange={ (isLink) => setAttributes({ isLink }) 
+                                onChange={ (value) => setAttributes({ isLink: value }) 
                                 }
                             />
                         </PanelRow>

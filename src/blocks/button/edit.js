@@ -21,11 +21,11 @@ export default class ButtonEdit extends Component {
 		} = attributes
 
 		var classes = [
-			className,
+			className || false,
 			"uk-button",
-			size || "",
-			outline ? "btn-outline" : ""
-		].join(" ");
+			size || false,
+			outline ? "btn-outline" : false
+		].filter(Boolean).join(" ");
 
 		var style = {
             background: isLink ? "none" : ( outline ? "none" : buttonColor.color ),
@@ -33,7 +33,6 @@ export default class ButtonEdit extends Component {
             color: isLink ? "#007bff" : (outline ? buttonColor.color : '#ffffff')
 		}
 		
-
 		return (
 			<Fragment>
 				<Inspector

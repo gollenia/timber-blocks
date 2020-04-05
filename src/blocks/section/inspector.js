@@ -27,10 +27,6 @@ class Inspector extends Component {
 			containerWidth
         } = attributes;
 
-        function removeImage () {
-            setAttributes({backgroundImage: {url:"" }});
-        }
-
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -81,12 +77,12 @@ class Inspector extends Component {
                                 value= { backgroundImage }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { backgroundImage.url === "" && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
-                                        { backgroundImage.url !== "" && <div>
+                                        { !backgroundImage && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { backgroundImage && <div>
                                             <Fragment>
                                             <img className="" src={backgroundImage.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ removeImage }> Beitragsbild entfernen</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({backgroundImage: null}) }> Beitragsbild entfernen</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;
@@ -96,8 +92,9 @@ class Inspector extends Component {
                         <div className="ctx-image-position">
                             <RadioControl
                                 label="Bildausrichtung festlegen"
-                                help="Legen Sie die Position so fest, dass die entscheidenden Bildteile in den Rahmen rücken"
+                                help="Legen Sie die Position so fest, dass die entscheidenden Bildteile sichtbar sind"
                                 selected={ imagePosition }
+                                disabled={!backgroundImage}
                                 options={ [
                                     { label: 'Links Oben', value: 'top left' },
                                     { label: 'Mitte Oben', value: 'top center' },
@@ -116,6 +113,7 @@ class Inspector extends Component {
                             label="Parallaxe-Effekt"
                             max={ 300 }
                             min={ 0 }
+                            disabled={!backgroundImage}
                             onChange={(event) => {setAttributes( { parallaxEffect: event })}}
                             value={ parallaxEffect }
                         />

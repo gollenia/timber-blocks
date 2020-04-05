@@ -6,10 +6,6 @@
 			"type": "string",
 			"default": ""
 		},
-		"textColor": {
-			"type": "string",
-			"default": ""
-		},
 		"url": {
 			"type": "string",
 			"default": ""
@@ -18,17 +14,13 @@
 			"type": "string",
 			"default": ""
 		},
-		"borderColor": {
-			"type": "string",
-			"default": ""
-		},
 		"textAlign": {
 			"type": "string",
-			"default": ""
+			"default": "left"
 		},
 		"image": {
 			"type": "object",
-			"default": { "url": "" }
+			"default": null
 		},
 		"imagePosition": {
 			"type": "string",

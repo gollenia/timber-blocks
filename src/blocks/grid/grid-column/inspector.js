@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { RangeControl, CheckboxControl, PanelBody, Button, SelectControl, RadioControl } from '@wordpress/components';
+import { InspectorControls } from '@wordpress/block-editor';
+import { RangeControl, CheckboxControl, PanelBody } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -25,15 +25,11 @@ class Inspector extends Component {
             auto
         } = attributes;
         
-        function removeImage () {
-            setAttributes({backgroundImage: ""});
-        }
-
 		return (
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title="Optionen"
+                        title="Verhalten"
                         initialOpen={true}
                     >
                         <RangeControl
