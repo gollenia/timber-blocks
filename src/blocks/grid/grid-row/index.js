@@ -9,7 +9,7 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Zeile', 'ctxblocks' ),
+	title: __( 'Spalten', 'ctxblocks' ),
 	description: __( 'Fügt einen Inhaltsblock ein', 'ctxblocks' ),
 	icon: icons.row,
 	keywords: [
