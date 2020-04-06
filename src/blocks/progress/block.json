@@ -1,0 +1,14 @@
+{
+	"name": "ctx-blocks/progress",
+	"category": "common",
+	"attributes": {
+		"max": {
+			"type": "integer",
+			"default": 100
+		},
+		"current": {
+			"type": "integer",
+			"default": 30
+        }
+	}
+}
