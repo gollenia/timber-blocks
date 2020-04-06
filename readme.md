@@ -16,21 +16,13 @@ Please not, that all the text styling and so on can easily included with a theme
 - Buttons
 - Section / Container
 - Grid (including masnory, equal height, seperators, gaps, parallax and different columns on different devices)
-
-:checkered_flag: Planned, but yet not coded Blocks:
-
 - Column
+- Progress-Bar
 - Image / Cover / Lightbox
 - Description List ( with image/icon )
-- Portrait / Round / Circle Thing (needed for a Site I am  currently building)
 
 :question: Maybe coming later:
 
-- Overlay
 - Modal
 - Slideshow
 - Slider
-
-
-# Todo
-tidy up init.php
