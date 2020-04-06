@@ -59,13 +59,13 @@ class Inspector extends Component {
                         <CheckboxControl
                             label="Automatisch expandieren"
                             help="Die Spalte nimmt automatisch den restlichen Platz ein"
-                            value={expand}
+                            checked={expand}
                             onChange={(event) => {setAttributes( { expand: event })}}
                         />
                         <CheckboxControl
                             label="Zusammenfallen"
                             helt="Die Spalte fällt auf die minimale Breite zusammen"
-                            value={auto}
+                            checked={auto}
                             onChange={(event) => {setAttributes( { auto: event })}}
                         />
                     </PanelBody>
