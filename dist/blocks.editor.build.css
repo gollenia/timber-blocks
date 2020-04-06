@@ -4,32 +4,6 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
 /**
  * #.# Editor Styles
  *
@@ -60,111 +34,83 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
 .components-panel__body .block-editor-url-input input {
   width: 100% !important; }
+
+.ctx-image-holder {
+  position: relative; }
+
+.ctx-overlay {
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.ctx-overlay-cover .ctx-overlay {
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  top: 0;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.ctx-overlay-position-bottom .ctx-overlay {
+  left: 0;
+  right: 0;
+  bottom: 8px; }
+
+.ctx-overlay-position-center .ctx-overlay {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.ctx-overlay-position-top .ctx-overlay {
+  left: 0;
+  right: 0;
+  top: 0; }
+
+.uk-overlay-default .ctx-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333; }
+
+.uk-overlay-primary .ctx-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
 .ctx-blocks-alert {
   padding: 10px; }
-  .ctx-blocks-alert .close {
+  .ctx-blocks-alert .ctx-close {
     position: absolute;
     top: 0;
     right: 0;
     padding: 0px 10px;
     color: inherit; }
-    .ctx-blocks-alert .close span {
+    .ctx-blocks-alert .ctx-close span {
       font-size: 2rem;
       line-height: 1.2; }
-    .ctx-blocks-alert .close.hidden {
-      display: none; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
 .text-right {
   text-align: right; }
 
@@ -176,72 +122,63 @@
 
 .ctx-placement {
   margin-top: 14px; }
+
+.ctx-cord-hover:hover {
+  -webkit-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.5); }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
+.wp-block[data-type="ctx-blocks/accordion-collection"].is-selected .block-list-appender, .wp-block[data-type="ctx-blocks/accordion-collection"].has-child-selected .block-list-appender {
+  display: block; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-ctx-blocks-accordion-item div.ctx-title-holder {
+  font-weight: bold;
+  border-radius: 0px;
+  border: none;
+  padding: 5px;
+  margin: 0px -5px 0px -5px; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .components-datetime {
   padding: 0; }
+
+.ctx-description-item {
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -12px;
+  margin-right: -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  border: 1px dashed #555d66; }
+  .ctx-description-item img {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px; }
+    .ctx-description-item img.round {
+      border-radius: 50%; }
+  .ctx-description-item .ctx-item-content {
+    -ms-flex: 1;
+        flex: 1; }
 /**
  * #.# Common SCSS
  *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
-  width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
 .ctx-image-position {
   margin-top: 14px; }
   .ctx-image-position .components-radio-control__option label {
@@ -280,32 +217,31 @@ div[data-type="ctx-blocks/section"] {
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.ctx-appender__toggle {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  padding: 21px;
-  outline: 1px dashed #8d96a0;
+.ctx-cols.dividers {
+  -webkit-column-rule: 1px solid #555d66;
+     -moz-column-rule: 1px solid #555d66;
+          column-rule: 1px solid #555d66; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ctx-progress {
   width: 100%;
-  color: #555d66;
-  background: rgba(237, 239, 240, 0.8); }
-  .ctx-appender__toggle:hover {
-    outline: 1px dashed #555d66;
-    color: #191e23;
-    background: rgba(237, 239, 240, 0.8) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important; }
-
-.ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: 28px; }
-
+  height: 20px;
+  border-radius: 10px;
+  background-color: #cccccf; }
+  .ctx-progress .inner {
+    height: 20px;
+    border-radius: 10px;
+    background-color: #1e87f0; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .ctx-row-header {
   background: #dddddd;
   line-height: 1.2rem;
@@ -379,6 +315,25 @@ div[data-type="ctx-blocks/section"] {
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ctx-col-header {
+  background: #dddddd;
+  line-height: 1.2rem;
+  border: 1px dashed #bbb;
+  margin-bottom: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+  .ctx-col-header label {
+    font-size: 12px;
+    margin-left: 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: bold;
+    color: #444; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .ctx-appender__toggle {
   display: -ms-flexbox;
   display: flex;
@@ -388,7 +343,7 @@ div[data-type="ctx-blocks/section"] {
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-  padding: 21px;
+  padding: 35px;
   outline: 1px dashed #8d96a0;
   width: 100%;
   color: #555d66;
@@ -405,16 +360,8 @@ div[data-type="ctx-blocks/section"] {
   margin-right: -12px;
   margin-top: 28px; }
 
-.ctx-col-header {
-  background: #dddddd;
-  line-height: 1.2rem;
-  border: 1px dashed #bbb;
-  margin-bottom: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px; }
-  .ctx-col-header label {
-    font-size: 12px;
-    margin-left: 10px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    font-weight: bold;
-    color: #444; }
+.ctx-text-align-center {
+  text-align: center; }
+
+.ctx-text-align-right {
+  text-align: right; }
