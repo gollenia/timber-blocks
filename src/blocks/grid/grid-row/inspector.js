@@ -40,7 +40,7 @@ class Inspector extends Component {
                             max={ 6 }
                             min={ 1 }
                             help="Insbesondere Smartphones"
-                            onChange={(event) => {setAttributes( { childrenWidthSmall: event })}}
+                            onChange={(value) => {setAttributes( { childrenWidthSmall: value })}}
                             value={ childrenWidthSmall }
                         />
                         <RangeControl  
@@ -48,7 +48,7 @@ class Inspector extends Component {
                             max={ 6 }
                             min={ 1 }
                             help="Z.B. Tablets"
-                            onChange={(event) => {setAttributes( { childrenWidthMedium: event })}}
+                            onChange={(value) => {setAttributes( { childrenWidthMedium: value })}}
                             value={ childrenWidthMedium }
                         />
                         <RangeControl  
@@ -56,37 +56,37 @@ class Inspector extends Component {
                             max={ 6 }
                             min={ 1 }
                             help="Normale Bildschirme"
-                            onChange={(event) => {setAttributes( { childrenWidthLarge: event })}}
+                            onChange={(value) => {setAttributes( { childrenWidthLarge: value })}}
                             value={ childrenWidthLarge }
                         />
                         <RangeControl
                             label="Abstand zwischen den Spalten"
                             max={ 3 }
                             min={ 0 }
-                            onChange={(event) => {setAttributes( { gapSize: event })}}
+                            onChange={(value) => {setAttributes( { gapSize: value })}}
                             value={ gapSize }
                         />
                         <CheckboxControl
                             label="Trennlinien"
-                            value={divider}
-                            onChange={(event) => {setAttributes( { divider: event })}}
+                            checked={divider}
+                            onChange={(value) => {setAttributes( { divider: value })}}
                         />
                         <CheckboxControl
                             label="Als Mauerwerk darstellen"
-                            value={isMasnory}
-                            onChange={(event) => {setAttributes( { isMasnory: event })}}
+                            checked={isMasnory}
+                            onChange={(value) => {setAttributes( { isMasnory: value })}}
                         />
                         <RangeControl
                             label="Parallax-Effekt"
                             max={ 300 }
                             min={ 0 }
-                            onChange={(event) => {setAttributes( { parallaxEffect: event })}}
+                            onChange={(value) => {setAttributes( { parallaxEffect: value })}}
                             value={ parallaxEffect }
                         />
                         <CheckboxControl
                             label="Alle Spalten auf gleiche Höhe bringen"
-                            value={equalizer}
-                            onChange={(event) => {setAttributes( { equalizer: event })}}
+                            checked={equalizer}
+                            onChange={(value) => {setAttributes( { equalizer: value })}}
                         />
 
                     </PanelBody>
