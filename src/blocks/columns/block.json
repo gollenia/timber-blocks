@@ -1,0 +1,22 @@
+{
+	"name": "ctx-blocks/columns",
+	"category": "layout",
+	"attributes": {
+		"numbersOnSmall": {
+			"type": "integer",
+			"default": 1
+		},
+		"numbersOnMedium": {
+			"type": "integer",
+			"default": 2
+        },
+        "numbersOnLarge": {
+			"type": "integer",
+			"default": 3
+        },
+        "dividers": {
+            "type": "boolean",
+            "default": false
+        }
+	}
+}
