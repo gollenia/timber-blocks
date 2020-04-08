@@ -5,14 +5,10 @@ const { PanelBody, SelectControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
-import classnames from 'classnames';
-
-// Enable spacing control on the following blocks
 const allowedBlocks = [
 	'core/heading', 'core/paragraph'
 ];
 
-// Available spacing control options
 const fontOptions = [
 	{
 		label: __( 'Standard' ),
