@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import classnames from 'classnames';
+
 
 /**
  * Internal dependencies
@@ -46,10 +46,10 @@ class DescriptionListEdit extends Component {
 			dividers
         } = attributes;
 
-        var classes = classnames(
+        var classes = [
             className,
-            { "ctx-divider": dividers },
-        )
+            dividers ? "ctx-divider" : false
+		].filter(Boolean).join(" ")
 
         const TEMPLATE = [
 			[

@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import classnames from 'classnames';
+
 
 /**
  * Internal dependencies
@@ -37,11 +37,11 @@ class DescriptionListEdit extends Component {
 		
 		
 
-        var classes = classnames(
+        var classes = [
             className,
 			"ctx-description-" + contentType,
 			"ctx-description-item"
-        )
+		].filter(Boolean).join(" ");
 
       
 

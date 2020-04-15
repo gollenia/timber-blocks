@@ -1,11 +1,8 @@
-import classnames from 'classnames';
-
 import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { Icon, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { BlockControls, Button, SelectControl, Toolbar } from '@wordpress/components';
 
 export default class ImageEdit extends Component {
 

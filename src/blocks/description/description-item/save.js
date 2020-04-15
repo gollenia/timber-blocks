@@ -1,10 +1,7 @@
-
+import relativeUrl from "../../../common/utils/relurl";
 /**
  * External dependencies
  */
-import { Fragment } from '@wordpress/element';
-
-
 
 export default function save( props ) {
        
@@ -33,7 +30,7 @@ export default function save( props ) {
 		return (
             <div className={classes}>
                 { image && 
-                    <img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+                    <img className={roundImage ? "round" : ""} src={relativeUrl(image.sizes.qsmall.url)}/>
                 }
                 { !image && icon !== "" &&
                     <i className={`ctx-icon ${icon}-icon`}></i>
