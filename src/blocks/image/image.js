@@ -16,8 +16,8 @@ function ImageRenderer(attributes) {
         } = attributes;
 
         var imageClasses = [
-			round ? "ctx-round-image" : false,
-			shadow ? "ctx-shadow-image" : false,
+			round ? "uk-border-circle" : false,
+			shadow ? "uk-box-shadow-large" : false,
 			border ? "ctx-border-image" : false
         ].filter(Boolean).join(" ");
         
