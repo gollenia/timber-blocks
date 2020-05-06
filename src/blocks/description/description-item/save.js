@@ -39,7 +39,7 @@ export default function save( props ) {
                     <dt>{title}</dt>
                     <dd className="ctx-item-content">
                         { contentType === "date" && <time datetime={content}>{readableDate}</time>}
-                        { contentType !== "date" && <div>{content}</div> }
+                        { contentType !== "date" && <div dangerouslySetInnerHTML={{ __html: content }}></div> }
                     </dd>
                 </div>
             </div>
