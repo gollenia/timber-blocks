@@ -16,7 +16,6 @@ const save = ( { attributes } ) => {
 			className,
 			overlayCover,
 			overlayAnimation,
-			overlayIcon,
             marginShift
 		} = attributes;
 
