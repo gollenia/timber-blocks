@@ -1,8 +1,15 @@
+/**
+ * Wordpress dependencies
+ */
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import contrast  from '../../common/utils/contrast';
 
 export default class ButtonEdit extends Component {
 	render() {
@@ -27,10 +34,14 @@ export default class ButtonEdit extends Component {
 			outline ? "btn-outline" : false
 		].filter(Boolean).join(" ");
 
+
+
+		
+
 		var style = {
             background: isLink ? "none" : ( outline ? "none" : buttonColor.color ),
             border: isLink ? "1px solid transparent" : "1px solid " + buttonColor.color,
-            color: isLink ? "#007bff" : (outline ? buttonColor.color : '#ffffff')
+            color: isLink ? buttonColor.color : (outline ? buttonColor.color : contrast(buttonColor.color))
 		}
 		
 		return (
