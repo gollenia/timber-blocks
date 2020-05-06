@@ -20,9 +20,9 @@ Please not, that all the text styling and so on can easily included with a theme
 - Progress-Bar
 - Image / Cover / Lightbox
 - Description List ( with image/icon )
+- Modal
 
 :question: Maybe coming later:
 
-- Modal
 - Slideshow
 - Slider
