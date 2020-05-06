@@ -76,6 +76,7 @@ function ctx_blocks() { // phpcs:ignore
 		'ctx-blocks/button',
 		'ctx-blocks/card',
 		'ctx-blocks/progress',
+		'ctx-blocks/modal',
 		'ctx-blocks/columns',
 		'ctx-blocks/alert',
 		'ctx-blocks/section',

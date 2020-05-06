@@ -1,0 +1,64 @@
+{
+	"name": "ctx-blocks/modal",
+	"category": "layout",
+	"attributes": {
+		"buttonTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "primary"
+		},
+		"buttonSize": {
+			"type": "string",
+			"default": ""
+        },
+		"buttonIsLink": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"uniqueId": {
+			"type": "string",
+			"default": ""
+		},
+		"modalFull": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalContainer": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"modalCloseButton": {
+			"type": "string",
+			"default": "uk-modal-close-default"
+		},
+		"modalCenter": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalScroll": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalHasVideo": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalVideoUrl": {
+			"type": "string",
+			"default": ""
+		}
+
+		
+	}
+}
