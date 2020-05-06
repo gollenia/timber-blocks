@@ -1,6 +1,6 @@
 {
-	"name": "ctx-blocks/descriptionlist",
-	"category": "common",
+	"name": "ctx-blocks/description-list",
+	"category": "formatting",
 	"attributes": {
 		"dividers": {
 			"type": "boolean",
