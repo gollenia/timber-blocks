@@ -24,6 +24,7 @@ export default class ImageEdit extends Component {
             overlayText,
             overlayStyle,
 			overlayPosition,
+			width,
 			overlayCover,
 			round,
 			border,
@@ -70,7 +71,7 @@ export default class ImageEdit extends Component {
 									<Fragment>
 										<div className="ctx-image-holder">
 											{ round && image.sizes.qmedium &&
-												<img className={imageClasses} src={image.sizes.qmedium.url} alt="Kein Bild geladen"/> 
+												<img width={`${width}%`} className={imageClasses} src={image.sizes.qmedium.url} alt="Kein Bild geladen"/> 
 											}
 											{ round && !image.sizes.qmedium &&
 												<p>Fehler: Das Bild hat nicht die erforderlichen Maße. Bitte laden Sie es erneut auf den Server.</p> 

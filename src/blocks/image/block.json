@@ -18,6 +18,10 @@
 			"type": "object",
 			"default": null
         },
+        "width": {
+            "type": "integer",
+            "default": 100
+        },
         "round": {
             "type": "boolean",
 			"default": false

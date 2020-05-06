@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { TextControl, PanelBody, Button, SelectControl, CheckboxControl } from '@wordpress/components';
+import { TextControl, PanelBody, SelectControl, CheckboxControl, RangeControl } from '@wordpress/components';
 /**
  * Inspector controls
  */
@@ -21,6 +21,7 @@ class Inspector extends Component {
             lightboxText,
             round,
             border,
+            width,
             shadow,
             hasOverlay,
             overlayStyle,
@@ -38,6 +39,13 @@ class Inspector extends Component {
                         title={__('Design-Optionen', 'ctxblocks')}
                         initialOpen={true}
                     >
+                        <RangeControl
+                            label="Breite"
+                            value={ width }
+                            onChange={ ( value ) => setAttributes( { width: value } ) }
+                            min={ 0 }
+                            max={ 100 }
+                        />
                         <SelectControl
                             label="Überhang"
                             help="Schiebt das Bild links oder rechts aus der Spalte"

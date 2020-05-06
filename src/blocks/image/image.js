@@ -12,12 +12,13 @@ function ImageRenderer(attributes) {
             round,
             shadow,
             border,
+            width,
             image
         } = attributes;
 
         var imageClasses = [
-			round ? "ctx-round-image" : false,
-			shadow ? "ctx-shadow-image" : false,
+			round ? "uk-border-circle" : false,
+			shadow ? "uk-box-shadow-large" : false,
 			border ? "ctx-border-image" : false
         ].filter(Boolean).join(" ");
         
@@ -37,8 +38,7 @@ function ImageRenderer(attributes) {
                     data-src={relativeUrl(image.sizes.qxlarge.url)}
                     sizes="(min-width: 1920px) 50vw, (min-width: 1080) 70vw, 100vw"
                     data-srcset={srcset}
-                    width={image.width} 
-                    height={image.height} 
+                    width={`${width}%`} 
                     uk-img="" 
                 />
             );
@@ -67,8 +67,7 @@ function ImageRenderer(attributes) {
                 data-src={relativeUrl(image.url)}
                 sizes="(min-width: 1920px) 50vw, (min-width: 1080) 70vw, 100vw"
                 data-srcset={srcset}
-                width={image.width} 
-                height={image.height} 
+                width={`${width}%`} 
                 uk-img=""
             />
         );
