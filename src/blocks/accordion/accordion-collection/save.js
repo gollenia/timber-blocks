@@ -1,4 +1,11 @@
+/**
+ * Wordpress dependencies
+ */
 import { InnerBlocks} from '@wordpress/block-editor';
+
+/**
+ * External dependencies
+ */
 import map from 'lodash/map';
 
 

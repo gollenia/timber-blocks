@@ -1,5 +1,7 @@
 
-import { __ } from '@wordpress/i18n'; 
+/**
+ * Wordpress dependencies
+ */
 import { InnerBlocks} from '@wordpress/block-editor';
 
 export default function save( {attributes} ) {

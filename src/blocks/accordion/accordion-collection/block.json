@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks/accordion-collection",
-	"category": "layout",
+	"category": "formatting",
 	"attributes": {
 		"tabsOnDesktop": {
 			"type": "boolean",

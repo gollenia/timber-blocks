@@ -1,3 +1,6 @@
+/**
+ * Wordpress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
@@ -20,12 +23,13 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Verhalten', 'ctxblocks')}
+                        /* translators: behaviour */
+                        title={__('Verhalten', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Auf großen Bildschirmen als Tabs anzeigen", 'ctxblocks')}
+                                label={ __("Auf großen Bildschirmen als Tabs anzeigen", 'ctx-blocks')}
                                 checked={ tabsOnDesktop }
                                 onChange={ (value) => setAttributes({ tabsOnDesktop: value }) 
                                 }
@@ -33,7 +37,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Dürfen mehrere Felder gleichzeitig geöffnet werden?", 'ctxblocks')}
+                                label={ __("Dürfen mehrere Felder gleichzeitig geöffnet werden?", 'ctx-blocks')}
                                 checked={ multiOpen }
                                 onChange={ (value) => setAttributes({ multiOpen: value, noCollapse: false }) 
                                 }
@@ -41,7 +45,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Dürfen alle Felder geschlossen werden?", 'ctxblocks')}
+                                label={ __("Dürfen alle Felder geschlossen werden?", 'ctx-blocks')}
                                 checked={ noCollapse }
                                 onChange={ (value) => setAttributes({ noCollapse: value, multiOpen: false }) 
                                 }

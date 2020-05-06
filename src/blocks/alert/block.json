@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks/alert",
-	"category": "layout",
+	"category": "formatting",
 	"attributes": {
 		"alertColor": {
 			"type": "string",

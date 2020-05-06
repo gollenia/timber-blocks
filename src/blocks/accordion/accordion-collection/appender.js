@@ -15,12 +15,12 @@ const CustomAppender = ( { onClick = noop } ) => {
 		<div className="ctx-blocks-appender">
 			<Button
 				icon="insert"
-				label={ __( 'Block hinzufügen', 'ctxblocks' ) }
+				label={ __( 'Block hinzufügen', 'ctx-blocks' ) }
 				labelPosition="bottom"
 				className="ctx-appender__toggle"
 				onClick={ onClick }
 			>
-				{ __( 'Block hinzufügen', 'ctxblocks' ) }
+				{ __( 'Block hinzufügen', 'ctx-blocks' ) }
 			</Button>
 		</div>
 	);

@@ -1,3 +1,6 @@
+/**
+ * Wordpress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
@@ -21,11 +24,11 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title="Verhalten"
+                        title={__("Verhalten", "ctx-blocks")}
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label="Beim Laden der Seite geöffnet"
+                            label={__("Beim Laden der Seite geöffnet", "ctx-blocks")}
                             checked={ initialOpen }
                             onChange={ (event) => setAttributes({ initialOpen: event }) }
                         />    

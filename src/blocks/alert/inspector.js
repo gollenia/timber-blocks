@@ -1,3 +1,6 @@
+/**
+ * Wordpress Dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';

@@ -1,6 +1,12 @@
+/**
+ * Internal dependencies.
+ */
 import Inspector from './inspector';
 import CustomAppender from './appender';
 
+/**
+ * Wordpress dependencies.
+ */
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { InnerBlocks } from '@wordpress/block-editor';

@@ -1,9 +1,18 @@
+/**
+ * Internal dependencies
+ */
 import Inspector from './inspector';
 
+/**
+ * Wordpress dependencies
+ */
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import {RichText} from '@wordpress/block-editor';
 
+/**
+ * External dependencies
+ */
 var Color = require('color');
 
 export default class ButtonEdit extends Component {
@@ -39,19 +48,18 @@ export default class ButtonEdit extends Component {
 
 					<RichText
 						tagName="h3"
-						label={__("Überschrift", 'ctxblocks')}
+						label={__("Überschrift", 'ctx-blocks')}
 						value={ title }
 						onChange={ (value) => setAttributes({ title: value }) }
-						placeholder={__("Überschrift", 'ctxblocks')}
+						placeholder={__("Überschrift", 'ctx-blocks')}
 						keepPlaceholderOnFocus={true}
 					/>
 					
 					<RichText
 						tagName="p"
-						label={__("Text", 'ctxblocks')}
 						value={ alertText }
 						onChange={ (value) => setAttributes({ alertText: value }) }
-						placeholder={__("Nachricht hier einfügen", 'ctxblocks')}
+						placeholder={__("Nachricht hier einfügen", 'ctx-blocks')}
 						keepPlaceholderOnFocus={true}
 					/>
 					
