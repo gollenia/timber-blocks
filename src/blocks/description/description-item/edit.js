@@ -58,10 +58,11 @@ class DescriptionListEdit extends Component {
 						<i className={`ctx-icon ${icon}-icon`}></i>
 					}
 					<div className="ctx-item-content">
-						<TextControl
-									value={ title }
-									onChange={ (value) => setAttributes({ title: value }) }
-									placeholder="Titel eingeben"
+						<RichText
+							tagName="b"
+							value={ title }
+							onChange={ (value) => setAttributes({ title: value }) }
+							placeholder="Titel eingeben"
 						/>
 					
 						{ contentType !== "date" &&
@@ -70,7 +71,7 @@ class DescriptionListEdit extends Component {
 								label={__("Text", 'ctxblocks')}
 								value={ content }
 								onChange={ (value) => setAttributes({ content: value }) }
-								placeholder={__("Nachricht hier einfügen", 'ctxblocks')}
+								placeholder={__("Beschreibungstext", 'ctxblocks')}
 								keepPlaceholderOnFocus={true}
 							/>
 						}
