@@ -15,7 +15,7 @@ import {RichText} from '@wordpress/block-editor';
  */
 var Color = require('color');
 
-export default class ButtonEdit extends Component {
+export default class AlertEdit extends Component {
 
 	render() {
 		
