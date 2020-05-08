@@ -1,0 +1,30 @@
+{
+	"name": "ctx-blocks/posts",
+	"category": "widgets",
+	"attributes": {
+		"selectedCategory": {
+			"type": "string"
+		},
+		"selectedType": {
+			"type": "string"
+		},
+		"columnsSmall": {
+			"type": "number"
+		},
+		"columnsMedium": {
+			"type": "number"
+		},
+		"columnsLarge": {
+			"type": "number"
+		},
+		"showImages": {
+			"type": "boolean"
+		},
+		"style": {
+			"type": "string"
+		},
+		"limit": {
+			"type": "number"
+		}
+	}
+}

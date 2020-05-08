@@ -90,7 +90,37 @@ function ctx_blocks() { // phpcs:ignore
 			$value, $register_array
 		);
 	}
+
+	register_block_type(
+		'ctx-blocks/posts',
+		array('style'         => 'ctx_blocks_style',
+		'editor_script' => 'ctx_blocks_editor',
+		'editor_style'  => 'ctx_blocks_editor',
+		'render_callback' => 'render_posts')
+	);
 	
+}
+
+function render_posts($attributes) {
+	// $post = "page";
+	// if($attributes['selectedType'] =="posts") {
+	// 	$type = "post";
+	// }
+	// $query = new WP_Query( array( 'post_type' => $type, 'cat' =>  $attributes['selectedCategory']) );
+	// $posts = array_map(
+	// 	function( $post ) {
+	// 		return (array) $post;
+	// 	},
+	// 	$query->posts
+	// );
+	// $output = "<div class='' uk-grid>";
+	// foreach ($posts as $post) {
+	// 	$output .= "<div class=''>" . $post["post_title"] . "</div>";
+	// }
+	// $output .= "</div>";
+	echo '<pre>';
+	print_r($attributes);
+	echo '</pre>';
 }
 
 function ctx_set_script_translations() {
