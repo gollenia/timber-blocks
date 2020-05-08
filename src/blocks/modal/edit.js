@@ -3,7 +3,7 @@
  */
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-import { contrast } from '../../common/utils/contrast';
+import contrast from '../../common/utils/contrast';
 
 /**
  * Wordpress Dependencies
