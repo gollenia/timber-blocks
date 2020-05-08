@@ -7,6 +7,7 @@ export default function save( {attributes} ) {
             buttonSize,
             buttonAlignment,
             buttonIsLink,
+            buttonColor,
             modalFull,
             modalContainer,
             modalTitle,
@@ -24,7 +25,8 @@ export default function save( {attributes} ) {
                 className || false,
                 "uk-button",
                 buttonSize || false,
-                buttonIsLink ? "uk-button-link" : false
+                buttonIsLink ? "uk-button-link" : false,
+                "uk-button-" + buttonColor
         ].filter(Boolean).join(" ");
         
         var outerModalClasses = "uk-flex-top"
