@@ -21,6 +21,7 @@ Please not, that all the text styling and so on can easily included with a theme
 - Image / Cover / Lightbox
 - Description List ( with image/icon )
 - Modal
+- Posts (dynamic block)
 
 :question: Maybe coming later:
 
