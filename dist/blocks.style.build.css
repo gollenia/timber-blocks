@@ -1,2 +1,60 @@
-.uk-inline>p{display:none}.ctx-border-image{border:7px solid #fff}.ctx-round-image{border-radius:50%}.ctx-shadow-image{-webkit-box-shadow:1px 1px 5px rgba(0,0,0,0.5);box-shadow:1px 1px 5px rgba(0,0,0,0.5)}
-.ctx-description-item{display:-ms-flexbox;display:flex}.ctx-description-item img{width:70px;height:70px;margin-right:15px}.ctx-description-item img.round{border-radius:50%}.ctx-description-item .ctx-item-content{-ms-flex:1;flex:1}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.uk-inline > p {
+  display: none; }
+
+.ctx-border-image {
+  border: 7px solid #fff; }
+
+.ctx-round-image {
+  border-radius: 50%; }
+
+.ctx-shadow-image {
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ctx-description-item {
+  display: -ms-flexbox;
+  display: flex; }
+  .ctx-description-item img {
+    width: 70px;
+    height: 70px;
+    margin-right: 15px; }
+    .ctx-description-item img.round {
+      border-radius: 50%; }
+  .ctx-description-item .ctx-item-content {
+    -ms-flex: 1;
+        flex: 1; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
