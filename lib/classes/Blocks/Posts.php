@@ -54,7 +54,7 @@ class Posts {
         $rendered_object = '<div class="' . $listClasses . '" uk-grid>';
 
         foreach($posts as $post) {
-            $rendered_object .= '<div class="' . $itemClasses . '">';
+            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '">';
             
             if($this->attributes["showImages"]) {
                 $rendered_object .= $this->get_images($post);
@@ -65,7 +65,7 @@ class Posts {
             $rendered_object .=  '<time datetime="' . date_i18n("c", $post->post_date) . '">' . date_i18n("j. F Y", $post->post_date) . '</time>';
             $rendered_object .=  '<p>' . wp_trim_words($post->post_excerpt, $this->attributes['excerptLength']) . '</p>';
             $rendered_object .= '</div>';
-            $rendered_object .= '</div>';
+            $rendered_object .= '</a>';
         }
         
         return $rendered_object;
