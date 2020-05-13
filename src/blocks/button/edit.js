@@ -1,8 +1,6 @@
 /**
  * Wordpress dependencies
  */
-import Inspector from './inspector';
-import Toolbar from './toolbar';
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 
@@ -10,6 +8,8 @@ import { Component, Fragment } from '@wordpress/element';
  * Internal dependencies
  */
 import contrast  from '../../common/utils/contrast';
+import Inspector from './inspector';
+import Toolbar from './toolbar';
 
 export default class ButtonEdit extends Component {
 	render() {

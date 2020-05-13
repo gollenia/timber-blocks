@@ -1,0 +1,17 @@
+{
+    "button": "./blocks/button",
+    "image": "./blocks/image",
+    "alert": "./blocks/alert",
+    "card": "./blocks/card",
+    "accordionCollection": "./blocks/accordion/accordion-collection",
+    "accordionItem": "./blocks/accordion/accordion-item",
+    "descriptionList": "./blocks/description/description-list",
+    "descriptionItem": "./blocks/description/description-item",
+    "section": "./blocks/section",
+    "columns": "./blocks/columns",
+    "posts": "./blocks/posts",
+    "progress": "./blocks/progress",
+    "modal": "./blocks/modal",
+    "gridRow": "./blocks/grid/grid-row",
+    "gridColumn": "./blocks/grid/grid-column"
+}

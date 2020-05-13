@@ -1,0 +1,61 @@
+{
+	"name": "ctx-blocks/posts",
+	"category": "widgets",
+	"attributes": {
+		"columnsSmall": {
+			"type": "number",
+			"default": 1
+		},
+		"columnsMedium": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsLarge": {
+			"type": "number",
+			"default": 3
+		},
+		"showImages": {
+			"type": "boolean",
+			"default": true
+		},
+		"roundImages": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageSize": {
+			"type": "number",
+			"default": 100
+		},
+		"imageBesidesText": {
+			"type": "boolean",
+			"default": false
+		},
+		"style": {
+			"type": "string",
+			"default": "list"
+		},
+		"limit": {
+			"type": "number",
+			"default": 6
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"categories": {
+			"type": "string"
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 20
+		},
+		"textAlignment": {
+			"type": "string",
+			"default": "left"
+		}
+	}
+}
