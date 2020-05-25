@@ -42,7 +42,8 @@ class Posts {
             "ctx-posts",
             "uk-child-width-1-" . $this->attributes['columnsSmall'] . "@s",
             "uk-child-width-1-" . $this->attributes['columnsMedium'] . "@m",
-            "uk-child-width-1-" . $this->attributes['columnsLarge'] . "@l"
+            "uk-child-width-1-" . $this->attributes['columnsLarge'] . "@l",
+            !$this->attributes['imageBesidesText'] ? "uk-grid-match" : false
         ]));
 
         $itemClasses = join(" ", array_filter([
@@ -54,19 +55,21 @@ class Posts {
         $rendered_object = '<div class="' . $listClasses . '" uk-grid>';
 
         foreach($posts as $post) {
-            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '">';
+            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '"><div class="uk-card">';
             
             if($this->attributes["showImages"]) {
                 $rendered_object .= $this->get_images($post);
             }
             
             $rendered_object .= '<div class="ctx-post-content">';
-            $rendered_object .=  '<h4>' . $post->post_title . '</h4>';
+            $rendered_object .=  '<h5>' . $post->post_title . '</h5>';
             $rendered_object .=  '<time datetime="' . date_i18n("c", $post->post_date) . '">' . date_i18n("j. F Y", $post->post_date) . '</time>';
             $rendered_object .=  '<p>' . wp_trim_words($post->post_excerpt, $this->attributes['excerptLength']) . '</p>';
             $rendered_object .= '</div>';
-            $rendered_object .= '</a>';
+            $rendered_object .= '</div></a>';
         }
+
+        $rendered_object .= '</div>';
         
         return $rendered_object;
 
