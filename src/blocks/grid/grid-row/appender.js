@@ -12,6 +12,7 @@ import { Button } from '@wordpress/components';
 const CustomAppender = ( { onClick = noop } ) => {
 	return (
 		<div className="ctx-blocks-appender">
+			<div className="ctx-appender-col-header ctx-hide"></div>
 			<Button
 				icon="insert"
 				label={ __( 'Neue Spalte', 'ctxblocks' ) }
