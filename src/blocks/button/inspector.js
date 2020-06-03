@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup } from '@wordpress/components';
+import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
 import map from 'lodash/map';
 /**
  * Inspector controls
@@ -26,24 +26,7 @@ class Inspector extends Component {
 			outline,
         } = attributes;
         
-        const sizeOptions = [
-            {
-                key: "1",
-                value: 'uk-button-small',
-                label: __( 'Kleiner', 'ctxblocks' ),
-            },
-            {
-                key: "2",
-                value: '',
-                label: __( 'Normal', 'ctxblocks' ),
-            },
-            {
-                key: "3",
-                value: 'uk-button-large',
-                label: __( 'Größer', 'ctxblocks' ),
-            },
-        ];
-
+        
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -67,21 +50,16 @@ class Inspector extends Component {
                         </BaseControl>
                         
                         <PanelRow>
-                        <label>Größe</label>
-                            <ButtonGroup>
-                                { map( sizeOptions, ( { label, value, key } ) => (
-                                    <Button
-                                        key={key}
-                                        className={ value === size ? `components-coblocks-map-styles__button components-button--${ value } components-coblocks-map-styles__button--selected` : `components-button--${ value } components-coblocks-map-styles__button` }
-                                        isSmall
-                                        isPrimary={ value === size }
-                                        onClick={ ( value ) => {
-                                            setAttributes( { size: value } );
-                                        } }
-                                    >{ label }
-                                    </Button>
-								) ) }
-                            </ButtonGroup>
+                        <SelectControl
+                                    label='Größe'
+                                    value={ size }
+                                    options={ [
+                                        { label: 'Normal', value: '' },
+                                        { label: 'Klein', value: 'uk-button-small' },
+                                        { label: 'Groß', value: 'uk-button-large' },
+                                    ] }
+                                    onChange={ ( event ) => { setAttributes( { size: event } ) } }
+                                />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
