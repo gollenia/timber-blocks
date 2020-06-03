@@ -1,7 +1,7 @@
 .ctx-col-header {
-    background: #dddddd;
+    background: rgba(0,0,0,0.1);
     line-height: 1.2rem;
-    border: 1px dashed #bbb;
+    border: 1px dashed rgba(0,0,0,0.3);
     margin-bottom: 25px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -15,7 +15,5 @@
     }
 }
 
-div[data-type="ctx-blocks/grid-column"] {
 
-}
 
