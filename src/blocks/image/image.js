@@ -21,7 +21,19 @@ function ImageRenderer(attributes) {
 			shadow ? "uk-box-shadow-large" : false,
 			border ? "ctx-border-image" : false
         ].filter(Boolean).join(" ");
+
         
+
+        if(image.subtype == "svg+xml") {
+            return(
+            <img 
+                className={imageClasses}
+                data-src={relativeUrl(image.url)}
+                width={`${width}%`} 
+                uk-img=""
+            />);
+        }
+
 
 		if (round && image.sizes.qmedium) {
 
