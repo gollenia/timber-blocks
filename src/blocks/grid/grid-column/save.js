@@ -21,7 +21,7 @@ export default function save( {attributes} ) {
         ].filter(Boolean).join(" ");
 		
         return (
-            <div class={classes}>
+            <div className={classes}>
                 <InnerBlocks.Content />
             </div>
         );
