@@ -55,7 +55,7 @@ class Posts {
         $rendered_object = '<div class="' . $listClasses . '" uk-grid>';
 
         foreach($posts as $post) {
-            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '"><div class="uk-card">';
+            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '"><div class="uk-card uk-card-default">';
             
             if($this->attributes["showImages"]) {
                 $rendered_object .= $this->get_images($post);
