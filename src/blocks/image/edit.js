@@ -76,7 +76,7 @@ export default class ImageEdit extends Component {
 											{ round && !image.sizes.qmedium &&
 												<p>Fehler: Das Bild hat nicht die erforderlichen Maße. Bitte laden Sie es erneut auf den Server.</p> 
 											}
-											{ !round && <img className={imageClasses} src={image.url} alt="Kein Bild geladen"/> }
+											{ !round && <img width={`${width}%`} className={imageClasses} src={image.url} alt="Kein Bild geladen"/> }
 											{hasOverlay && 
 												<div className="ctx-overlay">
 													<RichText
