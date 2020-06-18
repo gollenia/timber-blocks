@@ -22,7 +22,11 @@ function ImageRenderer(attributes) {
 			border ? "ctx-border-image" : false
         ].filter(Boolean).join(" ");
 
-        
+        console.log(image);
+
+        if(!image) {
+            return
+        }
 
         if(image.subtype == "svg+xml") {
             return(
