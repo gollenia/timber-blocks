@@ -15,5 +15,27 @@
     }
 }
 
+div[data-width="1"] {
+    width: 25% !important;
+}
 
+div[data-width="2"] {
+    width: 33% !important;
+}
+
+div[data-width="3"] {
+    width: 50% !important;
+}
+
+div[data-width="4"] {
+    width: 66% !important;
+}
+
+div[data-width="5"] {
+    width: 75% !important;
+}
+
+div[data-width="6"] {
+    width: 100% !important;
+}
 

@@ -15,6 +15,8 @@ export default class Edit extends Component {
 		super( ...arguments );
 		this.insertNewItem = this.insertNewItem.bind( this );
 	}
+
+	
 	
 	insertNewItem() {
 		const { clientId } = this.props;
@@ -23,12 +25,16 @@ export default class Edit extends Component {
 		const childBlocks = parentBlock.innerBlocks;
 		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
 	}
+
+	
 	
 	render() {
+
 		const {
 			attributes,
 		} = this.props;
 
+		
 		const {
 			gapSize,
             equalizer,

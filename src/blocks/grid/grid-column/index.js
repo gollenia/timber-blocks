@@ -18,6 +18,11 @@ const settings = {
 		__( 'url', 'ctxblocks' ),
 		__( 'link', 'ctxblocks' ),
 	],
+	getEditWrapperProps( props ) {
+        return {
+            'data-width': props.widthLarge || false,
+        };
+    },
 	attributes,
 	edit,
 	save

@@ -9,13 +9,23 @@ export default function save( {attributes} ) {
             className,
             expand,
             auto
-		} = attributes;
+        } = attributes;
+        
+        const sizes = [
+            "",
+            "uk-width-1-4",
+            "uk-width-1-3",
+            "uk-width-1-2",
+            "uk-width-2-3",
+            "uk-width-3-4",
+            "uk-width-1-1"
+        ]
 
 		var classes = [
             className || false,
-            widthSmall > 0 ? "uk-width-1-" + widthSmall + "@s" : false,
-            widthMedium > 0 ? "uk-width-1-" + widthMedium + "@m" : false,
-            widthLarge > 0 ? "uk-width-1-" + widthLarge + "@l" : false,
+            widthSmall > 0 ? sizes[widthSmall] + "@s" : false,
+            widthMedium > 0 ? sizes[widthMedium] + "@m" : false,
+            widthLarge > 0 ? sizes[widthLarge] + "@l" : false,
             expand ? "uk-width-expand" : false,
             auto ? "uk-width-auto" : false           
         ].filter(Boolean).join(" ");
