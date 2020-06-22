@@ -1,0 +1,187 @@
+# Copyright (C) 2020 Thomas Gollenia
+# This file is distributed under the same license as the Blocks for UiKit plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blocks for UiKit 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-06-19T19:55:43+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: ctx-blocks\n"
+
+#. Plugin Name of the plugin
+msgid "Blocks for UiKit"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/gollenia/ctx-blocks/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Use Uikit-Features in Gutenberg Block Editor"
+msgstr ""
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.gollenia.at"
+msgstr ""
+
+#: src/blocks/accordion/accordion-collection/appender.js:18
+#: src/blocks/accordion/accordion-collection/appender.js:23
+msgid "Block hinzufügen"
+msgstr ""
+
+#. translators: block name
+#: src/blocks/accordion/accordion-collection/index.js:23
+msgid "Akkordeon"
+msgstr ""
+
+#. translators: block description
+#: src/blocks/accordion/accordion-collection/index.js:25
+msgid "Strukturierte Informationen übersichtlich darstellen"
+msgstr ""
+
+#. translators: block keyword
+#: src/blocks/accordion/accordion-collection/index.js:30
+#: src/blocks/modal/index.js:27
+msgid "url"
+msgstr ""
+
+#. translators: block keyword
+#: src/blocks/accordion/accordion-collection/index.js:32
+#: src/blocks/modal/index.js:28
+msgid "link"
+msgstr ""
+
+#. translators: behaviour
+#: src/blocks/accordion/accordion-collection/inspector.js:27
+#: src/blocks/accordion/accordion-item/inspector.js:27
+msgid "Verhalten"
+msgstr ""
+
+#: src/blocks/accordion/accordion-collection/inspector.js:32
+msgid "Auf großen Bildschirmen als Tabs anzeigen"
+msgstr ""
+
+#: src/blocks/accordion/accordion-collection/inspector.js:40
+msgid "Dürfen mehrere Felder gleichzeitig geöffnet werden?"
+msgstr ""
+
+#: src/blocks/accordion/accordion-collection/inspector.js:48
+msgid "Dürfen alle Felder geschlossen werden?"
+msgstr ""
+
+#: src/blocks/accordion/accordion-item/edit.js:32
+msgid "Text"
+msgstr ""
+
+#: src/blocks/accordion/accordion-item/edit.js:35
+msgid "Titel"
+msgstr ""
+
+#: src/blocks/accordion/accordion-item/inspector.js:31
+msgid "Beim Laden der Seite geöffnet"
+msgstr ""
+
+#: src/blocks/alert/edit.js:51
+#: src/blocks/alert/edit.js:54
+msgid "Überschrift"
+msgstr ""
+
+#: src/blocks/alert/edit.js:62
+msgid "Nachricht hier einfügen"
+msgstr ""
+
+#: src/blocks/alert/index.js:26
+msgid "Alarm"
+msgstr ""
+
+#: src/blocks/alert/index.js:27
+msgid "Informations- oder Warnhinweis für den Besucher. Die Überschrift ist optional."
+msgstr ""
+
+#: src/blocks/alert/index.js:31
+#: src/blocks/posts/index.js:27
+msgid "alert"
+msgstr ""
+
+#: src/blocks/alert/index.js:32
+#: src/blocks/posts/index.js:28
+msgid "info"
+msgstr ""
+
+#: src/blocks/posts/index.js:22
+msgid "Posts"
+msgstr ""
+
+#: src/blocks/posts/index.js:23
+msgid "Zeigt eine Liste von Posts an"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:40
+msgid "Daten"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:58
+msgid "Allgemeine Darstellung"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:63
+msgid "Spalten auf kleinen Bildschirmen"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:66
+msgid "Smartphones"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:76
+msgid "Tablets und kleine Monitore"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:82
+msgid "Spalten auf großen Bildschirmen"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:85
+msgid "Normale Desktop-PCs"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:93
+msgid "Darstellung der Posts"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:98
+msgid "Bilder anzeigen"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:107
+msgid "Bilder rund darstellen"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:114
+msgid "Bilder neben Text"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:120
+msgid "Bildgröße"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:123
+msgid "Prozent der Breite"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:131
+msgid "Länge des Vorschautextes"
+msgstr ""
+
+#: src/blocks/posts/inspector.js:134
+msgid "Anzahl der Wörter"
+msgstr ""

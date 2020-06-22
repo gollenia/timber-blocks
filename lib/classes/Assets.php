@@ -45,6 +45,8 @@ class Assets {
             
         } );
 
+       
+
         return [
             'style'         => 'ctx_blocks_style',
             'editor_script' => 'ctx_blocks_editor',
@@ -53,5 +55,5 @@ class Assets {
     
     }
 
-
+   
 }

@@ -20,16 +20,16 @@ const { name, category, attributes } = metadata;
 
 const settings = {
 	/* translators: block name */
-	title: __( 'Akkordeon', 'ctxblocks' ),
+	title: __( 'Akkordeon', 'ctx-blocks' ),
 	/* translators: block description */
-	description: __( 'Strukturierte Informationen übersichtlich darstellen', 'ctxblocks' ),
+	description: __( 'Strukturierte Informationen übersichtlich darstellen', 'ctx-blocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',
 		/* translators: block keyword */
-		__( 'url', 'ctxblocks' ),
+		__( 'url', 'ctx-blocks' ),
 		/* translators: block keyword */
-		__( 'link', 'ctxblocks' ),
+		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
 	edit,
