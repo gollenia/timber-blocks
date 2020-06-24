@@ -47,15 +47,16 @@ class Posts {
         ]));
 
         $itemClasses = join(" ", array_filter([
-            "ctx-post uk-flex",
+            "ctx-post uk-flex uk-card",
             !$this->attributes['imageBesidesText'] ? 'uk-flex-column' : '',
-            "uk-text-" . $this->attributes['textAlignment']
+            "uk-text-" . $this->attributes['textAlignment'],
+            $this->attributes['excerptLength'] == 0 && $this->attributes['imageBesidesText'] ? 'uk-flex-middle' : false
         ]));
 
         $rendered_object = '<div class="' . $listClasses . '" uk-grid>';
 
         foreach($posts as $post) {
-            $rendered_object .= '<a class="' . $itemClasses . '" href="' . get_permalink($post) . '"><div class="uk-card uk-card-default">';
+            $rendered_object .= '<div><a class="' . $itemClasses . '" href="' . get_permalink($post) . '">';
             
             if($this->attributes["showImages"]) {
                 $rendered_object .= $this->get_images($post);
@@ -64,7 +65,9 @@ class Posts {
             $rendered_object .= '<div class="ctx-post-content">';
             $rendered_object .=  '<h5>' . $post->post_title . '</h5>';
             $rendered_object .=  '<time datetime="' . date_i18n("c", $post->post_date) . '">' . date_i18n("j. F Y", $post->post_date) . '</time>';
-            $rendered_object .=  '<p>' . wp_trim_words($post->post_excerpt, $this->attributes['excerptLength']) . '</p>';
+            if($this->attributes['excerptLength'] > 0) {
+                $rendered_object .=  '<p>' . wp_trim_words($post->post_excerpt, $this->attributes['excerptLength']) . '</p>';
+            }
             $rendered_object .= '</div>';
             $rendered_object .= '</div></a>';
         }
