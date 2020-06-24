@@ -5,7 +5,7 @@
     margin-bottom: 25px;
     padding-top: 5px;
     padding-bottom: 5px;
-    
+    visibility: hidden;
     label {
         font-size: 12px;
         margin-left: 10px;
@@ -26,6 +26,12 @@
             width: 16px;
             opacity: 0.8;
         }
+    }
+}
+
+div[data-type="ctx-blocks/grid-row"]:hover {
+    .ctx-row-header, .ctx-col-header, .block-list-appender {
+        visibility: visible;
     }
 }
 
