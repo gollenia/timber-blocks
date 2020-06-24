@@ -7,3 +7,30 @@
 		}
 	}
 }
+
+.ctx-accordion-grabber label {
+	font-size: 12px;
+	margin-left: 10px;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	font-weight: bold;
+	color: #444;
+  }
+  .ctx-accordion-grabber {
+	background: rgba(0, 0, 0, 0.1);
+	line-height: 1.2rem;
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	margin-bottom: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	visibility: hidden;
+  }
+
+.block-list-appender, .ctx-accordion-grabber {
+	visibility: hidden;
+}
+
+div[data-type="ctx-blocks/accordion-collection"]:hover {
+	.block-list-appender, .ctx-accordion-grabber {
+		visibility: visible;
+	}
+}

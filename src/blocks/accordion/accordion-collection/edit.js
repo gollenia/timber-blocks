@@ -51,6 +51,9 @@ export default class AccordionCollectionEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
+				<div class="ctx-accordion-grabber">
+					<label>Akkordeon</label>
+				</div>
 				<div className={classes}>
 					<InnerBlocks 
 						allowedBlocks={['ctx-blocks/accordion-item']}
