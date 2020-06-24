@@ -34,14 +34,15 @@ export default class ButtonEdit extends Component {
 			outline ? "btn-outline" : false
 		].filter(Boolean).join(" ");
 
-
-
-		
+		var color = "#000";
+		if(buttonColor.dark) {
+			color = "#fff"
+		}
 
 		var style = {
             background: isLink ? "none" : ( outline ? "none" : buttonColor.color ),
             border: isLink ? "1px solid transparent" : "1px solid " + buttonColor.color,
-            color: isLink ? buttonColor.color : (outline ? buttonColor.color : contrast(buttonColor.color))
+            color: isLink ? buttonColor.color : (outline ? buttonColor.color : color)
 		}
 		
 		return (
