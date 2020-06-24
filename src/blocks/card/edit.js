@@ -58,6 +58,9 @@ export default class CardEdit extends Component {
 				<Toolbar
 					{ ...this.props }
 				/>
+				<div class="ctx-grabber">
+					<label>Karte</label>
+				</div>
 				<div style={style} className={classes}>
 					{imagePosition === "top" && image &&
 						<img className="card-img-top" src={image.sizes.small.url} alt="Card image cap"/>
