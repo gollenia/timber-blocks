@@ -4,7 +4,7 @@
 	"attributes": {
 		"alertColor": {
 			"type": "string",
-			"default": "primary"
+			"default": "default"
 		},
 		"alertText": {
 			"type": "string",
