@@ -2,8 +2,8 @@ import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
-import { InnerBlocks} from '@wordpress/block-editor';
-import { Icon} from '@wordpress/components'
+import { InnerBlocks } from '@wordpress/block-editor';
+import { Icon, Button} from '@wordpress/components'
 import CustomAppender from './appender';
 import icons from './icons.js'
 import { createBlock } from '@wordpress/blocks';
@@ -13,17 +13,23 @@ export default class Edit extends Component {
 
 	constructor() {
 		super( ...arguments );
-		this.insertNewItem = this.insertNewItem.bind( this );
+		//this.insertNewItem = this.insertNewItem.bind( this );
 	}
 
 	
 	
-	insertNewItem() {
+	insertNewItem(position = false) {
+		if (!position) {
+			return;
+		}
 		const { clientId } = this.props;
 		const newEvent = createBlock( 'ctx-blocks/grid-column' );
 		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
 		const childBlocks = parentBlock.innerBlocks;
-		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
+		if (position === 99) {
+			position = childBlocks.length
+		}
+		dispatch( 'core/block-editor' ).insertBlock( newEvent, position, clientId );
 	}
 
 	
@@ -58,7 +64,7 @@ export default class Edit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-                    <div className="ctx-hide ctx-row-header">
+                    <div className="ctx-row-header">
                         <label>Reihe</label>
 						<div className="ctx-row-icons">
 							{ parallaxEffect > 0 && <Icon className="ctx-row-icon" icon={icons.parallax}/> }
@@ -67,6 +73,8 @@ export default class Edit extends Component {
 							{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
 						</div>
                     </div>
+					<div>
+					</div>
 					<div className={"ctx-row-flex ctx-row-cols-" + childrenWidthLarge}>
 						<InnerBlocks 	
 							allowedBlocks={['ctx-blocks/grid-column']}
@@ -74,6 +82,7 @@ export default class Edit extends Component {
 							renderAppender={ () => <CustomAppender onClick={ this.insertNewItem } /> }
 						/>
 				    </div>
+
 			</Fragment>
 		);
 	};

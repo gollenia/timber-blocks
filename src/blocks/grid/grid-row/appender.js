@@ -11,18 +11,18 @@ import { Button } from '@wordpress/components';
 
 const CustomAppender = ( { onClick = noop } ) => {
 	return (
-		<div className="ctx-blocks-appender">
-			<div className="ctx-appender-col-header ctx-hide"></div>
+		
 			<Button
+				isSecondary
 				icon="insert"
 				label={ __( 'Neue Spalte', 'ctxblocks' ) }
 				labelPosition="bottom"
-				className="ctx-appender__toggle"
+				
 				onClick={ onClick }
 			>
 				{ __( 'Spalte hinzufügen', 'ctxblocks' ) }
 			</Button>
-		</div>
+	
 	);
 };
 
