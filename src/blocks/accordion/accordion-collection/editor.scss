@@ -6,6 +6,9 @@
 			display: block;
 		}
 	}
+	.block-list-appender, .ctx-accordion-grabber {
+		visibility: hidden;
+	}
 }
 
 .ctx-accordion-grabber label {
@@ -25,9 +28,7 @@
 	visibility: hidden;
   }
 
-.block-list-appender, .ctx-accordion-grabber {
-	visibility: hidden;
-}
+
 
 div[data-type="ctx-blocks/accordion-collection"]:hover {
 	.block-list-appender, .ctx-accordion-grabber {
