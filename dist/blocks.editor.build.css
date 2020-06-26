@@ -163,6 +163,9 @@ div[data-type="ctx-blocks/card"]:hover .ctx-grabber {
 .wp-block[data-type="ctx-blocks/accordion-collection"].is-selected .block-list-appender, .wp-block[data-type="ctx-blocks/accordion-collection"].has-child-selected .block-list-appender {
   display: block; }
 
+.wp-block[data-type="ctx-blocks/accordion-collection"] .block-list-appender, .wp-block[data-type="ctx-blocks/accordion-collection"] .ctx-accordion-grabber {
+  visibility: hidden; }
+
 .ctx-accordion-grabber label {
   font-size: 12px;
   margin-left: 10px;
@@ -177,9 +180,6 @@ div[data-type="ctx-blocks/card"]:hover .ctx-grabber {
   margin-bottom: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
-  visibility: hidden; }
-
-.block-list-appender, .ctx-accordion-grabber {
   visibility: hidden; }
 
 div[data-type="ctx-blocks/accordion-collection"]:hover .block-list-appender, div[data-type="ctx-blocks/accordion-collection"]:hover .ctx-accordion-grabber {
