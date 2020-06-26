@@ -13,23 +13,18 @@ export default class Edit extends Component {
 
 	constructor() {
 		super( ...arguments );
-		//this.insertNewItem = this.insertNewItem.bind( this );
+		this.insertNewItem = this.insertNewItem.bind( this );
 	}
 
 	
 	
-	insertNewItem(position = false) {
-		if (!position) {
-			return;
-		}
+	insertNewItem() {
 		const { clientId } = this.props;
 		const newEvent = createBlock( 'ctx-blocks/grid-column' );
 		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
 		const childBlocks = parentBlock.innerBlocks;
-		if (position === 99) {
-			position = childBlocks.length
-		}
-		dispatch( 'core/block-editor' ).insertBlock( newEvent, position, clientId );
+		
+		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
 	}
 
 	
