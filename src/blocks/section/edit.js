@@ -30,6 +30,8 @@ export default class SectionEdit extends Component {
 			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none"
 		};
 
+
+
 		var classes = [
 			"ctx-section",
 			"alignfull",
