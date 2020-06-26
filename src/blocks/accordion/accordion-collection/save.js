@@ -24,11 +24,12 @@ export default function save( props ) {
         ].filter(Boolean).join("; ");
         
         const children = props.innerBlocks;
+
         
 		return (
-			<div>
+			<div className={className}>
                 { tabsOnDesktop &&
-                    <div classes={className}>
+
                         <div className="uk-visible@m">
                             <ul uk-tab="">
                                 { map( children, ( { attributes } ) => (<li><a href="#">{attributes.title}</a></li>) ) }
@@ -37,17 +38,15 @@ export default function save( props ) {
                                 <InnerBlocks.Content />
                             </ul>
                         </div>
-                        <ul className="uk-hidden@m" uk-accordion={accordionOptions}>
-                            <InnerBlocks.Content />
-                        </ul>
-                    </div>
+                        
+
                 }
                 { !tabsOnDesktop &&
-                    <div classes={className}>
+
                         <ul uk-accordion={accordionOptions}>
                             <InnerBlocks.Content />
                         </ul>
-                    </div>
+
                 }
                 
 				
