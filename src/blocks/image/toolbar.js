@@ -9,14 +9,14 @@ class Toolbar extends Component {
 		} = this.props;
 
 		const {
-            buttonAlignment
+            alignment
         } = attributes;
 
 		return (
 			<BlockControls>
 				<AlignmentToolbar
-					value={ imageAlignment }
-					onChange={ (event) => setAttributes({ buttonAlignment: event }) }
+					value={ alignment }
+					onChange={ (event) => setAttributes({ alignment: event }) }
 				/>
 
 			</BlockControls>

@@ -22,6 +22,10 @@
             "type": "integer",
             "default": 100
         },
+        "alignment": {
+            "type": "string",
+            "default": "left"
+        },
         "round": {
             "type": "boolean",
 			"default": false

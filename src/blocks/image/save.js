@@ -8,6 +8,7 @@ const save = ( { attributes } ) => {
 		const {
 			hasLightbox,
 			lightboxText,
+			alignment,
 			image,
             hasOverlay,
             overlayText,
@@ -42,7 +43,7 @@ const save = ( { attributes } ) => {
 				{ hasOverlay && 
 					<Fragment>
 						{ hasLightbox &&
-							<div className={inlineClass} uk-lightbox="">
+							<div className={`uk-text-${alignment}`} className={inlineClass} uk-lightbox="">
 								<a href={image.url} data-alt={image.alt} data-caption={lightboxText}>
 								{ ImageRenderer(attributes) }
 								{ overlayCover && <div class={`${overlayClasses} uk-overlay-default uk-position-cover`}></div> }
@@ -51,7 +52,7 @@ const save = ( { attributes } ) => {
 							</div>	
 						}
 						{ !hasLightbox &&
-							<div className={inlineClass}>
+							<div className={`uk-text-${alignment}`} className={inlineClass}>
 								{ ImageRenderer(attributes) }
 								{ overlayCover && <div class={`${overlayClasses} uk-overlay-default uk-position-cover`}></div> }
 								<div className={overlayClasses}><p dangerouslySetInnerHTML={{ __html: overlayText }}></p></div>
@@ -62,14 +63,14 @@ const save = ( { attributes } ) => {
 				{ !hasOverlay && 	
 					<Fragment>
 					{ hasLightbox &&
-						<div uk-lightbox="">
+						<div className={`uk-text-${alignment}`} uk-lightbox="">
 							<a href={image.url} data-alt={image.alt} data-caption={lightboxText}>
 							{ ImageRenderer(attributes) }
 							</a>
 						</div>	
 					}
 					{ !hasLightbox &&
-						<div>
+						<div className={`uk-text-${alignment}`}>
 						{ ImageRenderer(attributes) }
 						</div>	
 					}

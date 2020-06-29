@@ -1,4 +1,5 @@
 import Inspector from './inspector';
+import Toolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
@@ -20,6 +21,7 @@ export default class ImageEdit extends Component {
 		const {
             hasLightbox,
 			image,
+			alignment,
             hasOverlay,
             overlayText,
             overlayStyle,
@@ -45,8 +47,16 @@ export default class ImageEdit extends Component {
 			round ? "ctx-round-image" : false
 		].filter(Boolean).join(" ");
 
+		var imageHolderClass = [
+			"ctx-image-holder",
+			alignment
+		].filter(Boolean).join(" ");
+
 		return (
 			<Fragment>
+				<Toolbar
+						{ ...this.props }
+				/>
 				<Inspector
 						{ ...this.props }
 				/>
@@ -69,7 +79,7 @@ export default class ImageEdit extends Component {
 								}
 								{ image && 
 									<Fragment>
-										<div className="ctx-image-holder">
+										<div className={imageHolderClass}>
 											{ round && image.sizes.qmedium &&
 												<img width={`${width}%`} className={imageClasses} src={image.sizes.qmedium.url} alt="Kein Bild geladen"/> 
 											}
