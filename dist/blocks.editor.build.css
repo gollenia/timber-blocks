@@ -48,6 +48,12 @@
 
 .ctx-image-holder {
   position: relative; }
+  .ctx-image-holder.left {
+    text-align: left; }
+  .ctx-image-holder.right {
+    text-align: right; }
+  .ctx-image-holder.center {
+    text-align: center; }
 
 .ctx-overlay {
   left: 0;
