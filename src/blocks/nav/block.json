@@ -1,0 +1,50 @@
+{
+	"name": "ctx-blocks/nav",
+	"category": "widgets",
+	"attributes": {
+		"dropDown": {
+			"type": "boolean",
+			"default": false
+		},
+		"depth": {
+			"type": "number",
+			"default": 1
+		},
+		"showIcons": {
+			"type": "boolean",
+			"default": false
+		},
+		"isPrimary": {
+			"type": "boolean",
+			"default": false
+		},
+		"showActive": {
+			"type": "boolean",
+			"default": true
+		},
+		"parentPage": {
+			"type": "string",
+			"default": 0
+		},
+		"dataType": {
+			"type": "string",
+			"default": "posts"
+		},
+		"limit": {
+			"type": "number",
+			"default": "10"
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"textAlignment": {
+			"type": "string",
+			"default": "left"
+		}
+	}
+}
