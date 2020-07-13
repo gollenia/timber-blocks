@@ -38,7 +38,7 @@ function ImageRenderer(attributes) {
         }
 
 
-		if (round && image.sizes.qmedium) {
+		if (round && image.sizes.qlarge) {
 
             var srcset = [
                 image.sizes.xsmall !== undefined ? relativeUrl(image.sizes.qsmall.url) + " 150w" : false,
@@ -50,7 +50,7 @@ function ImageRenderer(attributes) {
             return (
                 <img 
                     className={imageClasses}
-                    data-src={relativeUrl(image.sizes.qxlarge.url)}
+                    data-src={relativeUrl(image.sizes.qlarge.url)}
                     sizes="(min-width: 1920px) 50vw, (min-width: 1080) 70vw, 100vw"
                     data-srcset={srcset}
                     width={`${width}%`} 
