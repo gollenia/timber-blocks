@@ -10,6 +10,7 @@
     "section": "./blocks/section",
     "columns": "./blocks/columns",
     "posts": "./blocks/posts",
+    "nav": "./blocks/nav",
     "progress": "./blocks/progress",
     "modal": "./blocks/modal",
     "gridRow": "./blocks/grid/grid-row",

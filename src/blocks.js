@@ -10,6 +10,7 @@ import * as accordionItem from './blocks/accordion/accordion-item';
 import * as descriptionList from './blocks/description/description-list';
 import * as descriptionItem from './blocks/description/description-item';
 import * as section from './blocks/section';
+import * as nav from './blocks/nav';
 import * as columns from './blocks/columns';
 import * as posts from './blocks/posts';
 import * as progress from './blocks/progress';
@@ -49,6 +50,7 @@ export const registerBlocks = () => {
 		posts,
 		columns,
 		modal,
+		nav,
 		progress,
 		gridRow,
 		gridColumn,
