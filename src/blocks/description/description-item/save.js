@@ -29,11 +29,18 @@ export default function save( props ) {
 
 		return (
             <div className={classes}>
-                { image && 
-                    <img className={roundImage ? "round" : ""} src={relativeUrl(image.sizes.qsmall.url)}/>
+                { image && image.subtype != "svg+xml" &&
+						<img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+                }
+
+                { image && image.subtype === "svg+xml" &&
+                    <img 
+                        data-src={relativeUrl(image.url)} 
+                        uk-svg=""
+                    />
                 }
                 { !image && icon !== "" &&
-                    <i className={`ctx-icon ${icon}-icon`}></i>
+                    <i className={`ctx-icon ctx-icon-${icon}`}></i>
                 }
                 <div className="ctx-item-content">
                     <dt>{title}</dt>

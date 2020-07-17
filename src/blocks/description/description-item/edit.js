@@ -15,6 +15,7 @@ import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import {RichText} from '@wordpress/block-editor';
 import { TextControl } from '@wordpress/components';
+import relativeUrl from "../../../common/utils/relurl";
 
 class DescriptionListEdit extends Component {
 
