@@ -35,7 +35,7 @@ export default class NavEdit extends Component {
 		this.isStillMounted = true;
 
 		this.fetchRequest = apiFetch( {
-			path: addQueryArgs( '/wp-json/wp/v2/pages?_fields=id,title' ),
+			path: addQueryArgs( '/wp-json/wp/v2/pages?_fields=id,title&per_page=100' ),
 		} ).then(
 			( allPages ) => {
 				if ( this.isStillMounted ) {
@@ -51,7 +51,7 @@ export default class NavEdit extends Component {
 		);
 
 		this.fetchRequest = apiFetch( {
-            path: addQueryArgs( '/wp-json/wp/v2/categories' ),
+            path: addQueryArgs( '/wp-json/wp/v2/categories?per_page=100' ),
         } ).then(
             ( allCategories ) => {
                 if ( this.isStillMounted ) {
