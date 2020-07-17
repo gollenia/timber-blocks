@@ -125,7 +125,7 @@ class Nav {
                 $class .= " uk-parent";
             }
 
-            $rendered_pages .= '<li class="' . $class . '" href="' . ($children ? '#' : get_permalink($page)) . '"><a>' . $page->post_title . '</a>';
+            $rendered_pages .= '<li class="' . $class . '"><a href="' . ($children ? '#' : get_permalink($page)) . '">' . $page->post_title . '</a>';
 
             if($children) {
                 $rendered_pages .= '<ul class="uk-nav-sub">';
