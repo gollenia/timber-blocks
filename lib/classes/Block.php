@@ -26,13 +26,15 @@ class Block {
 
 			if ("php" === pathinfo($file, PATHINFO_EXTENSION)) {
 
+
                 require_once(dirname( plugin_dir_path( __FILE__ ) ) . '/classes/Blocks/' . $file);
                 
                 $block = 'Contexis\\Blocks\\Dynamic\\' . substr($file, 0, -4);
-                
-                add_action( 'init', function() use(&$block, &$args){
+
+
+                //add_action( 'init', function() use(&$block, &$args){
                     new $block($args);
-                });
+                //});
                 
 			}
 		}

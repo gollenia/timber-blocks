@@ -5,21 +5,17 @@ import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 import { ToggleControl, RangeControl, PanelBody, ComboboxControl, SelectControl, PanelRow, Text, QueryControls } from '@wordpress/components';
-
+import apiFetch from '@wordpress/api-fetch';
+import { addQueryArgs } from '@wordpress/url';
 
 class Inspector extends Component {
-
-    setParentPage(value) {
-        this.props.setAttributes({parentPage: value})
-        this.updatePages();
-    }
     
 	render() {
 		const {
 			attributes,
             setAttributes,
-            categoriesList,
-            allPages
+            allPages,
+            allCategories,
 		} = this.props;
 
 		const {
@@ -29,7 +25,7 @@ class Inspector extends Component {
             isPrimary,
             showActive,
             parentPage,
-            categories,
+            parentCategory,
             dataType,
             limit,
             orderBy,
@@ -39,13 +35,21 @@ class Inspector extends Component {
         
         console.log(parentPage);
 
-        let options= [ { value: 0, label: 'Wähle eine Seite'} ];
+        let pageListOptions = [ { value: 0, label: 'Wähle eine Seite'} ];
         if( allPages.length > 0 ) {
 			allPages.forEach((post) => {
-			  options.push({value: post.id, label:post.title.rendered});
+                pageListOptions.push({value: post.id, label:post.title.rendered});
 			});
-		}
+        }
         
+        let categoryListOptions = [ { value: 0, label: 'Wähle eine Kategorie'} ];
+        if( allCategories.length > 0 ) {
+			allCategories.forEach((category) => {
+                categoryListOptions.push({value: category.id, label:category.name});
+			});
+        }
+        
+
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -63,16 +67,16 @@ class Inspector extends Component {
                                 { value: 'categories', label: 'Kategorien' },
                             ] }
                         />
-                        { dataType != "pages" &&
+                        { dataType === "posts" &&
                             <QueryControls
                                 order={ order }
                                 orderBy={ orderBy }
-                                categoriesList={ categoriesList }
-                                selectedCategoryId={ categories }
+                                categoriesList={ allCategories }
+                                selectedCategoryId={ parentCategory }
                                 numberOfItems= {limit}
                                 onOrderChange={ ( value ) => setAttributes( { order: value } ) }
                                 onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
-                                onCategoryChange={ ( value ) => setAttributes( { categories: '' !== value ? value : undefined } ) }
+                                onCategoryChange={ ( value ) => setAttributes( { parentCategory: '' !== value ? value : undefined } ) }
                                 onNumberOfItemsChange={ ( value ) => setAttributes( { limit: value } ) }
                             />
                         }
@@ -80,8 +84,16 @@ class Inspector extends Component {
                         <SelectControl
                             label={ __( 'Elternseite' ) }
                             value={ parentPage } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => { this.setParentPage( value ) } }
-                            options={ options }
+                            onChange={ ( value ) => setAttributes( { parentPage: value } ) }
+                            options={ pageListOptions }
+                        />
+                        }
+                        { dataType === "categories" &&
+                        <SelectControl
+                            label={ __( 'Aus Hauptkategorie' ) }
+                            value={ parentCategory } // e.g: value = [ 'a', 'c' ]
+                            onChange={ ( value ) => setAttributes( { parentCategory: value } ) }
+                            options={ categoryListOptions }
                         />
                         }
                     </PanelBody>

@@ -34,7 +34,6 @@ $blocks = [
 	'ctx-blocks/progress',
 	'ctx-blocks/modal',
 	'ctx-blocks/columns',
-	'ctx-blocks/nav',
 	'ctx-blocks/alert',
 	'ctx-blocks/section',
 	'ctx-blocks/grid-row',

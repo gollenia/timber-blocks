@@ -27,9 +27,11 @@ class Posts {
     public function __construct($args) {
         
         $args['render_callback'] = [$this, "render"];
-        register_block_type(
-            $this->name, $args
-        );
+        add_action( 'init', function() use(&$block, &$args){
+            register_block_type(
+                "ctx-blocks/posts", $args
+            );
+        });
     }
 
     public function render($attrs) {

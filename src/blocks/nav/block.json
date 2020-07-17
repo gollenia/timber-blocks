@@ -23,7 +23,11 @@
 			"default": true
 		},
 		"parentPage": {
-			"type": "string",
+			"type": "number",
+			"default": 0
+		},
+		"parentCategory": {
+			"type": "number",
 			"default": 0
 		},
 		"dataType": {
