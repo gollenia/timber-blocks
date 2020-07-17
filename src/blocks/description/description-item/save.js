@@ -37,6 +37,7 @@ export default function save( props ) {
                     <img 
                         data-src={relativeUrl(image.url)} 
                         uk-svg=""
+                        width="50px"
                     />
                 }
                 { !image && icon !== "" &&

@@ -62,6 +62,7 @@ class DescriptionListEdit extends Component {
 						<img 
 							data-src={relativeUrl(image.url)} 
 							uk-svg=""
+							width="50px"
 						/>
 					}
 
