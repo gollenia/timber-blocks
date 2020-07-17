@@ -71,7 +71,7 @@ class Inspector extends Component {
                                         { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
                                         { image && <div>
                                             <Fragment>
-                                            <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                            <img className="" src={image.url} onClick={open} alt="Kein Bild geladen"/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
                                                 <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({image: null}) }> Bild entfernen</button>
                                             </Fragment>
