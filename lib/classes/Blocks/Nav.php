@@ -98,7 +98,7 @@ class Nav {
                 $class .= "uk-active";
             }
 
-            $rendered_posts .= '<li class="' . $class . '" href="' . get_permalink($post) . '"><a>' . $post->post_title . '</a>';
+            $rendered_posts .= '<li class="' . $class . '"><a href="' . get_permalink($post) . '">' . $post->post_title . '</a>';
 
 
             $rendered_posts .= '</li>';
@@ -160,8 +160,8 @@ class Nav {
                 $class .= " uk-parent";
             }
 
-            $rendered_pages .= '<li class="' . $class . '" href="' . ($children ? '#' : get_permalink($category)) . '"><a>' . $category->name . '</a>';
-
+            $rendered_pages .= '<li class="' . $class . '"><a href="' . ($children ? '#' : get_category_link($category)) . '">' . $category->name . '</a>';
+            var_dump($category);
             if($children) {
                 $rendered_pages .= '<ul class="uk-nav-sub">';
                 foreach($children as $child) {
@@ -169,7 +169,7 @@ class Nav {
                     if (get_the_ID() === $category->ID && $this->attributes['showActive']) {
                         $subclass .= "uk-active";
                     }
-                    $rendered_pages .= '<li class="' . $subclass . '"><a href="' . get_permalink($child) . '">' . $child->post_title . '</a>';
+                    $rendered_pages .= '<li class="' . $subclass . '"><a href="' . get_category_link($child) . '">' . $child->post_title . '</a>';
                 }
                 $rendered_pages .= '</ul>';
             }
