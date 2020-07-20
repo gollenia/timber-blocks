@@ -161,7 +161,7 @@ class Nav {
             }
 
             $rendered_pages .= '<li class="' . $class . '"><a href="' . ($children ? '#' : get_category_link($category)) . '">' . $category->name . '</a>';
-            var_dump($category);
+            
             if($children) {
                 $rendered_pages .= '<ul class="uk-nav-sub">';
                 foreach($children as $child) {
