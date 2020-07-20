@@ -48,6 +48,7 @@ class Nav {
             'uk-nav',
             !$this->attributes['dropDown'] ? false : 'uk-nav-parent-icon',
             $this->attributes['isPrimary'] ? "uk-nav-primary" : "uk-nav-default",
+            $this->attributes['showIcons'] ? "ctx-has-icons" : false,
             $this->attributes['textAlignment'] == 'center' ? 'uk-nav-center' : false
         ]));
 
