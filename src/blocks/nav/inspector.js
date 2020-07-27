@@ -30,10 +30,7 @@ class Inspector extends Component {
             limit,
             orderBy,
             order,
-            textAlignment
         } = attributes;
-        
-        console.log(parentPage);
 
         let pageListOptions = [ { value: 0, label: 'Wähle eine Seite'} ];
         if( allPages.length > 0 ) {
