@@ -108,9 +108,12 @@ class PostsEdit extends Component {
 				{ hasPosts && <div className={postClasses}>
 					{displayPosts.map(post => {     
 
+						
 						var featuredImageUrl = post.featured_media_object ? post.featured_media_object.media_details.url : null;
-						if (post.featured_media_object.media_details.sizes.qlarge) {
-							featuredImageUrl = post.featured_media_object ? post.featured_media_object.media_details.sizes.qlarge.source_url : null;
+						if (post.featured_media_object) {
+							if (post.featured_media_object.media_details.sizes.qlarge) {
+								featuredImageUrl = post.featured_media_object ? post.featured_media_object.media_details.sizes.qlarge.source_url : null;
+							}
 						}
 
 						let excerpt = post.excerpt.rendered;
