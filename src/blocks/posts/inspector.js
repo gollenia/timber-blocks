@@ -23,6 +23,7 @@ class Inspector extends Component {
             columnsMedium,
             columnsLarge,
             showImages,
+            dropShadow,
             imageSize,
             imageBesidesText,
             roundImages,
@@ -93,7 +94,14 @@ class Inspector extends Component {
                         title={__('Darstellung der Posts', 'ctx-blocks')}
                         initialOpen={true}
                     >
-                    <PanelRow>
+                        <PanelRow>
+                            <ToggleControl
+                                label={ __("Schatten bei Hover", 'ctx-blocks')}
+                                checked={ dropShadow }
+                                onChange={ (value) => setAttributes({ dropShadow: value }) }
+                            />
+                        </PanelRow>
+                        <PanelRow>
                             <ToggleControl
                                 label={ __("Bilder anzeigen", 'ctx-blocks')}
                                 checked={ showImages }

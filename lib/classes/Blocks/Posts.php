@@ -12,6 +12,7 @@ class Posts {
           'columnsMedium' => 2,
           'columnsLarge' => 3,
           'showImages' => true,
+          'dropShadow' => false,
           'roundImages' => false,
           'imageSize' => 100,
           'imageBesidesText' => false,
@@ -52,6 +53,7 @@ class Posts {
             "ctx-post uk-flex uk-card",
             !$this->attributes['imageBesidesText'] ? 'uk-flex-column' : '',
             "uk-text-" . $this->attributes['textAlignment'],
+            $this->attributes['dropShadow'] ? "uk-card-hover" : false,
             $this->attributes['excerptLength'] == 0 && $this->attributes['imageBesidesText'] ? 'uk-flex-middle' : false
         ]));
 
@@ -69,6 +71,8 @@ class Posts {
             $rendered_object .=  '<time datetime="' . date_i18n("c", $post->post_date) . '">' . date_i18n("j. F Y", $post->post_date) . '</time>';
             if($this->attributes['excerptLength'] > 0) {
                 $rendered_object .=  '<p>' . wp_trim_words($post->post_excerpt, $this->attributes['excerptLength']) . '</p>';
+            } else {
+                $rendered_object .=  '<p>' . wp_trim_words($post->post_content, $this->attributes['excerptLength']) . '</p>';
             }
             $rendered_object .= '</div>';
             $rendered_object .= '</div></a>';
@@ -77,8 +81,6 @@ class Posts {
         $rendered_object .= '</div>';
         
         return $rendered_object;
-
-        
         
     }
 

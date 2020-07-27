@@ -22,6 +22,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"dropShadow": {
+			"type": "boolean",
+			"default": false
+		},
 		"imageSize": {
 			"type": "number",
 			"default": 100
