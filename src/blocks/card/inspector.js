@@ -18,6 +18,7 @@ class Inspector extends Component {
             image,
             imagePosition,
             hover,
+            transparent,
             url,
             textAlign
         } = attributes;
@@ -36,10 +37,10 @@ class Inspector extends Component {
                             onChange={(value) => {setAttributes( { hover: value })}}
                         />
                         <CheckboxControl
-                            label="Trennlinie"
-                            helt="Die Spalte fällt auf die minimale Breite zusammen"
-                            checked={dividers}
-                            onChange={(value) => {setAttributes( { dividers: value })}}
+                            label="Transparenz-Effekt"
+                            helt="Der Hintergrund scheint verschwommen durch"
+                            checked={transparent}
+                            onChange={(value) => {setAttributes( { transparent: value })}}
                         />
                         <BaseControl
                             label="URL oder Link angeben"

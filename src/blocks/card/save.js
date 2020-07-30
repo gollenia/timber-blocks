@@ -10,6 +10,7 @@ export default function save( {attributes} ) {
 			className,
 			url,
 			hover,
+			transparent,
 			imagePosition,
 			image,
 		} = attributes;
