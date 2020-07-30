@@ -35,6 +35,12 @@ class Inspector extends Component {
                             value={hover}
                             onChange={(value) => {setAttributes( { hover: value })}}
                         />
+                        <CheckboxControl
+                            label="Trennlinie"
+                            helt="Die Spalte fällt auf die minimale Breite zusammen"
+                            checked={dividers}
+                            onChange={(value) => {setAttributes( { dividers: value })}}
+                        />
                         <BaseControl
                             label="URL oder Link angeben"
                         >

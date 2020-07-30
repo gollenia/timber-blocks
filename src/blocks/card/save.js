@@ -18,6 +18,7 @@ export default function save( {attributes} ) {
 			className || false,
 			"uk-card",
 			hover ? "uk-card-hover" : false,
+			transparent ? "ctx-card-transparent" : false,
 			`uk-card-${backgroundColor}`,
 			`uk-text-${textAlign}`
 		].filter(Boolean).join(" ");
