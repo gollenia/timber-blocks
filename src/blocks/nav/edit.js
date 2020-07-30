@@ -56,7 +56,6 @@ export default class NavEdit extends Component {
             ( allCategories ) => {
                 if ( this.isStillMounted ) {
 					this.setState( { allCategories } );
-					console.log(allCategories);
                 }
             }
         ).catch(
