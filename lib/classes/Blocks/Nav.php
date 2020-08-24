@@ -180,7 +180,7 @@ class Nav {
         return $rendered_pages;
     }
 
-    private function get_posts() {
+    private function get_posts() { 
         $args = array(
             'post_type' => 'post',
             'cat' => $this->attributes['parentCategory'],
@@ -195,7 +195,8 @@ class Nav {
     private function get_pages($parent = 0) {
         $args = array(
             'post_type' => 'page',
-            'post_parent' => $parent
+            'post_parent' => $parent,
+            'posts_per_page' => $this->attributes['limit']
         );
         $query = new WP_Query($args);
         
