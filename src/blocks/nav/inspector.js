@@ -46,7 +46,7 @@ class Inspector extends Component {
 			});
         }
         
-
+        
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -81,7 +81,7 @@ class Inspector extends Component {
                         <SelectControl
                             label={ __( 'Elternseite' ) }
                             value={ parentPage } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => setAttributes( { parentPage: value } ) }
+                            onChange={ ( value ) => setAttributes( { parentPage: parseInt(value) } ) }
                             options={ pageListOptions }
                         />
                         }
@@ -89,10 +89,18 @@ class Inspector extends Component {
                         <SelectControl
                             label={ __( 'Aus Hauptkategorie' ) }
                             value={ parentCategory } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => setAttributes( { parentCategory: value } ) }
+                            onChange={ ( value ) => setAttributes( { parentCategory: parseInt(value) } ) }
                             options={ categoryListOptions }
                         />
                         }
+                        <RangeControl
+                                label={__("Limit", 'ctx-blocks')}
+                                max={ 50 }
+                                min={ 1 }
+                                help={__("Wieviele Menü-Punkte sollen maximal gezeigt werden?", 'ctx-blocks')}
+                                onChange={(value) => {setAttributes( { limit: value })}}
+                                value={ limit }
+                            />
                     </PanelBody>
                     <PanelBody
                         title={__('Allgemeine Darstellung', 'ctx-blocks')}
