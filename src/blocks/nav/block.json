@@ -36,7 +36,7 @@
 		},
 		"limit": {
 			"type": "number",
-			"default": "10"
+			"default": 10
 		},
 		"order": {
 			"type": "string",
