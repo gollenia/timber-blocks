@@ -192,7 +192,7 @@ class Nav {
         return $query->posts;
     }
 
-    private function get_pages($parent = 0) {
+    private function get_pages($parent) {
         $args = array(
             'post_type' => 'page',
             'post_parent' => $parent,
