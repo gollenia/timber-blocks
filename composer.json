@@ -1,0 +1,11 @@
+{
+    "require": {
+        "timber/timber": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contexis\\Blocks\\": "lib/Blocks/",
+            "Contexis\\Utils\\": "lib/"
+        }
+    }
+}
