@@ -21,7 +21,7 @@ const settings = {
 	],
 	attributes,
 	edit,
-	save
+	save: () => { return null }
 };
 
 export { name, category, metadata, settings };

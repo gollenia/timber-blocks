@@ -8,4 +8,10 @@
         border-radius: 10px;
         background-color: $blue;
     }
+    span.value {
+        float: right;
+        font-size: small;
+        margin-right: 10px;
+        color: #fff;
+    }
 }

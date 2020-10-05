@@ -26,9 +26,21 @@
 			"type": "object",
 			"default": null
 		},
+		"imageRound": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageWidth": {
+			"type": "integer",
+			"default": 100
+		},
+		"imageBorder": {
+			"type": "boolean",
+			"default": false
+		},
 		"imagePosition": {
 			"type": "string",
-			"default": "top"
+			"default": "col"
 		}
 	}
 }

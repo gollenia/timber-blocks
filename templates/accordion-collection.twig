@@ -1,0 +1,21 @@
+<ul class="" x-data="{ selected:null, multiOpen: {{multiOpen}} }"> 
+    {% for child in children %}
+        <li class="relative mb-4">
+            <a class="bg-{{child.attrs.itemColor|default('white')}}  text-{{child.attrs.itemColor|default('white')}}-contrast cursor-pointer block w-full px-8 py-6 text-left" @click="selected !== {{loop.index}} ? selected = {{loop.index}} : selected = null">
+                <div class="flex items-center justify-between">
+                    <span>
+                        {{child.attrs.title}}
+                    </span>
+                    <span class="ico-plus"></span>
+                </div>
+            </a>
+            <div class="bg-white-transparent bg-{{child.attrs.itemColor}}-transparent relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container{{loop.index}}" x-bind:style="selected == {{loop.index}} ? 'max-height: ' + $refs.container{{loop.index}}.scrollHeight + 'px' : ''">
+                <div class="p-6">
+                    {% for innerBlock in child.innerBlocks %}
+                        {{function("render_block", innerBlock)}}
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

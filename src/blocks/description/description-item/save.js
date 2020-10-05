@@ -11,7 +11,7 @@ export default function save( props ) {
             image,
             icon,
             roundImage,
-            content,
+            text,
             contentType
         } = props.attributes;
 
@@ -24,7 +24,7 @@ export default function save( props ) {
         
         var readableDate = "";
         if(contentType==="date") {
-            readableDate = moment(content).format( 'D. MMMM YYYY' );
+            readableDate = moment(text).format( 'D. MMMM YYYY' );
         }
 
 		return (
@@ -47,8 +47,8 @@ export default function save( props ) {
                 <div className="ctx-item-content">
                     <dt>{title}</dt>
                     <dd className="ctx-item-content">
-                        { contentType === "date" && <time datetime={content}>{readableDate}</time>}
-                        { contentType !== "date" && <div dangerouslySetInnerHTML={{ __html: content }}></div> }
+                        { contentType === "date" && <time datetime={text}>{readableDate}</time>}
+                        { contentType !== "date" && <div dangerouslySetInnerHTML={{ __html: text }}></div> }
                     </dd>
                 </div>
             </div>

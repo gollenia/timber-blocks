@@ -16,18 +16,23 @@ export default class SectionEdit extends Component {
 		} = this.props;
 
 		const {
-			preserveColor,
-			containerWidth,
 			imagePosition,
+			parallaxEffect,
+			paddingTop,
+			paddingBottom,
+			backgroundIsDark,
 			textAlignment,
 			backgroundImage
 		} = attributes;
 
 		var style = {
-			background: backgroundColor.color, 
+			background: backgroundColor.color,
 			backgroundSize: "cover", 
 			backgroundPosition: imagePosition, 
-			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none"
+			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none",
+			color: backgroundIsDark ? "#ffffff" : "#000000",
+			paddingTop: `${paddingTop}0px`,
+			paddingBottom: `${paddingBottom}0px`
 		};
 
 
@@ -35,9 +40,9 @@ export default class SectionEdit extends Component {
 		var classes = [
 			"ctx-section",
 			"alignfull",
+			parallaxEffect ? "parallax" : false,
 			className || false,
 			`ctx-text-align-${textAlignment}`,
-			preserveColor ? "ctx-preserve-color" : false
 		].filter(Boolean).join(" ");
 
 		return (
@@ -50,7 +55,7 @@ export default class SectionEdit extends Component {
 				/>
 
 				<div style={style} className={classes}>
-					<div className={"ctx-container " + containerWidth}>
+					<div className="ctx-container">
 						<InnerBlocks 
 							
 						/>

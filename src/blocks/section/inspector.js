@@ -6,10 +6,12 @@ import { Component, Fragment } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 import { CheckboxControl, RangeControl, PanelBody, SelectControl, RadioControl } from '@wordpress/components';
 import { PanelColorSettings } from '@wordpress/block-editor';
+var Color = require('color');
 /**
  * Inspector controls
  */
 class Inspector extends Component {
+
 
 	render() {
 		const {
@@ -21,45 +23,30 @@ class Inspector extends Component {
 
 		const {
 			backgroundImage,
-            preserveColor,
             imagePosition,
+            paddingTop,
+            paddingBottom,
             parallaxEffect,
-			containerWidth
         } = attributes;
+
+        function setColor(newColor) {
+            setBackgroundColor(newColor) 
+            var color = new Color(newColor);
+            setAttributes({backgroundIsDark: false});
+            if(color.isDark()) {
+                setAttributes({backgroundIsDark: true});
+            }
+        }
 
 		return (
 			<Fragment>
-				<InspectorControls>
-                    <PanelBody
-                        title="Optionen"
-                        initialOpen={true}
-                    >
-                        <SelectControl
-                            label="Containerbreite"
-                            value={ containerWidth }
-                            options={ [
-                                { label: 'Normal', value: '' },
-                                { label: 'Winzig', value: 'uk-container-xsmall' },
-                                { label: 'Klein', value: 'uk-container-small' },
-                                { label: 'Mittel', value: 'uk-container-large' },
-                                { label: 'Groß', value: 'uk-container-xlarge' },
-                                { label: 'Volle Breite', value: 'tuk-container-expand' },
-                            ] }
-                            onChange={ ( align ) => { setAttributes( { textAlign: align } ) } }
-                        />
-                        <CheckboxControl
-                            label="Farben erhalten"
-                            value={preserveColor}
-                            onChange={(event) => {setAttributes( { preserveColor: event })}}
-                        />
-                    </PanelBody>
-              
+				<InspectorControls>            
                     <PanelColorSettings
                         colorSettings={[
                             {
-                                title:"Farben",
-                                label: 'Hintergrundfarbe',
-                                onChange: setBackgroundColor ,
+                                title: __('Colors', 'ctx-blocks'),
+                                label: __('Background Color', 'ctx-blocks'),
+                                onChange: setColor ,
                                 value: backgroundColor.color,
                                 disableCustomColors: true,
                             }
@@ -67,7 +54,7 @@ class Inspector extends Component {
                     />
                         
                     <PanelBody
-                        title={__('Hintergrundbild', 'ctxblocks')}
+                        title={__('Background Image', 'ctxblocks')}
                         initialOpen={true}
                     >
                         <MediaUploadCheck>
@@ -91,8 +78,8 @@ class Inspector extends Component {
                             </MediaUploadCheck>
                         <div className="ctx-image-position">
                             <RadioControl
-                                label="Bildausrichtung festlegen"
-                                help="Legen Sie die Position so fest, dass die entscheidenden Bildteile sichtbar sind"
+                                label={__("Image orientation", "ctx-blocks")}
+                                help={__("Legen Sie die Position so fest, dass die entscheidenden Bildteile sichtbar sind")}
                                 selected={ imagePosition }
                                 disabled={!backgroundImage}
                                 options={ [
@@ -109,13 +96,30 @@ class Inspector extends Component {
                                 onChange={ ( position ) => { setAttributes( { imagePosition: position } ) } }
                             />
                         </div>
-                        <RangeControl
-                            label="Parallaxe-Effekt"
-                            max={ 300 }
-                            min={ 0 }
+                        <CheckboxControl
+                            label={__("Parallax-Effect", "ctx-blocks")}
                             disabled={!backgroundImage}
                             onChange={(event) => {setAttributes( { parallaxEffect: event })}}
-                            value={ parallaxEffect }
+                            checked={ parallaxEffect }
+                        />
+                    </PanelBody>
+                    <PanelBody
+                        title={__('padding', 'ctxblocks')}
+                        initialOpen={false}
+                    >
+                        <RangeControl
+                            label={__("Padding Top", "ctx_blocks")}
+                            value={ paddingTop }
+                            onChange={(event) => {setAttributes( { paddingTop: event })}}
+                            min={ 0 }
+                            max={ 11 }
+                        />
+                        <RangeControl
+                            label={__("Padding Bottom", "ctx_blocks")}
+                            value={ paddingBottom }
+                            onChange={(event) => {setAttributes( { paddingBottom: event })}}
+                            min={ 0 }
+                            max={ 11 }
                         />
                     </PanelBody>
                 </InspectorControls>

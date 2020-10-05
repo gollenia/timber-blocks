@@ -8,23 +8,29 @@ export default class ColumnEdit extends Component {
 	render() {
 		const {
 			attributes,
+			colorBar,
+			colorBackground
 		} = this.props;
 
 		const {
-			max,
-			current
+			percent,
+			showValue,
+			title
 		} = attributes;
 
-		var currentWidth = `${current / max * 100}%`;
+		
 
 		return (
 			<Fragment>
 				<Inspector
 						{ ...this.props }
 				/>
-				<div className="ctx-progress outer">
-					<div style={{width: currentWidth}} className="inner"></div>
-				</div>    
+				<div style={{backgroundColor: colorBackground.color}} className="ctx-progress outer">
+					<div style={{width: `${percent}%`, backgroundColor: colorBar.color}} className="inner">
+						{ showValue && <span className="value">{percent}%</span> }
+					</div>
+				</div>
+				<span>{title}</span> 
 			</Fragment>
 		);
 	};

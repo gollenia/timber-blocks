@@ -1,0 +1,16 @@
+<div class="bg-{{backgroundColor}}-500">
+    {% if imagePosition == "bottom" %}
+    <div class="p-4">{{content|raw}}</div>
+    {% endif %}
+
+    <img src={{image.url}} srcset="
+        {{image.sizesz.small.url}} {{image.sizesz.small.width}},
+        {{image.sizesz.medium.url}} {{image.sizesz.medium.width}},
+        {{image.sizesz.large.url}} {{image.sizesz.large.width}},
+        sizes = "(min-width: 1600px) 1200px, (min-width: 1400px) 1100px, (min-width:1000px) 900px, 100vw"             
+    >
+
+    {% if imagePosition == "top" %}
+    <div class="p-8 mb-8">{{content|raw}}</div>
+    {% endif %}
+</div>

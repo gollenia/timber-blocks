@@ -28,7 +28,7 @@ class DescriptionListEdit extends Component {
 		} = this.props;
 
 		const {
-			content,
+			text,
 			contentType,
 			image,
 			icon,
@@ -82,14 +82,14 @@ class DescriptionListEdit extends Component {
 							<RichText
 								tagName="p"
 								label={__("Text", 'ctxblocks')}
-								value={ content }
-								onChange={ (value) => setAttributes({ content: value }) }
+								value={ text }
+								onChange={ (value) => setAttributes({ text: value }) }
 								placeholder={__("Beschreibungstext", 'ctxblocks')}
 								keepPlaceholderOnFocus={true}
 							/>
 						}
 						{ contentType === "date" &&
-							<p>{content}</p>
+							<p>{text}</p>
 						}
 					</div>
 				</div>

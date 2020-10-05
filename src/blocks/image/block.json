@@ -50,6 +50,14 @@
             "type":"string",
             "default": "light"
         },
+        "overlayIsDark": {
+            "type":"boolean",
+            "default": false
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "white"
+        },
         "overlayCover": {
             "type": "boolean",
             "default": false

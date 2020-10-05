@@ -3,8 +3,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
-import { TextControl, PanelBody } from '@wordpress/components';
+import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { RangeControl, CheckboxControl, PanelBody, TextControl, PanelRow } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -15,30 +15,70 @@ class Inspector extends Component {
 		const {
 			attributes,
             setAttributes,
+            setColorBar,
+            colorBar,
+            setColorBackground,
+            colorBackground,
         } = this.props;
 
 		const {
-            max,
-            current
+            percent,
+            title,
+            showValue
         } = attributes;
         
 		return (
 			<Fragment>
 				<InspectorControls>
+                    <PanelColorSettings
+                        title={__("Colors")}
+                        colorSettings={[
+                            {
+                                label: __('Color for low values', 'ctx_blocks'),
+                                onChange: setColorBar ,
+                                value: colorBar.color,
+                                disableCustomColors: true,
+                            },
+                            {
+                                label: __('Color for medium values', 'ctx_blocks'),
+                                onChange: setColorBackground,
+                                value: colorBackground.color,
+                                disableCustomColors: true,
+                            }
+                        ]}
+                    />
                     <PanelBody
-                        title="Werte"
+                        title={__("Values", "ctx_blocks")}
                         initialOpen={true}
                     >
-                        <TextControl
-                            label={__("Maximum", 'ctxblocks')}
-                            value={ max }
-                            onChange={ (value) => setAttributes({ max: parseInt(value) }) }
+                        <RangeControl
+                            label={__("Progresss Bar Value", "ctx_blocks")}
+                            value={ percent }
+                            onChange={(event) => {setAttributes( { percent: event })}}
+                            min={ 0 }
+                            max={ 100 }
                         />
+                        
+                    </PanelBody>
+                    <PanelBody
+                        title={__("Labels", "ctx_blocks")}
+                        initialOpen={true}
+                    >
+                        <PanelRow>
                         <TextControl
-                            label={__("Aktueller Wert", 'ctxblocks')}
-                            value={ current }
-                            onChange={ (value) => setAttributes({ current: parseInt(value) }) }
+                            label={__("Description", 'ctx_blocks')}
+                            value={ title }
+                            placeholder={__("Text under Progress Bar", "ctx_blocks")}
+                            onChange={ (event) => setAttributes({ title: event }) }
                         />
+                        </PanelRow>
+                        <PanelRow>
+                        <CheckboxControl 
+                            label={__("Show Value", "ctx_blocks")}
+                            checked={ showValue }
+                            onChange={ (event) => setAttributes({ showValue: event })}
+                        />
+                        </PanelRow>
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

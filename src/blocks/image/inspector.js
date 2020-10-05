@@ -5,6 +5,8 @@ import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 import { TextControl, PanelBody, SelectControl, CheckboxControl, RangeControl } from '@wordpress/components';
+import { PanelColorSettings } from '@wordpress/block-editor';
+var Color = require('color');
 /**
  * Inspector controls
  */
@@ -14,6 +16,8 @@ class Inspector extends Component {
 		const {
 			attributes,
             setAttributes,
+            overlayColor,
+            setOverlayColor,
         } = this.props;
 
 		const {
@@ -25,12 +29,23 @@ class Inspector extends Component {
             shadow,
             hasOverlay,
             overlayStyle,
+            overlayIsDark,
             overlayPosition,
             overlayCover,
             overlayAnimation,
             overlayIcon,
             marginShift,
         } = attributes;
+
+        function setColor(newColor) {
+            
+            setOverlayColor(newColor) 
+            var color = new Color(newColor);
+            attributes.overlayIsDark = false;
+            if(color.isDark()) {
+                attributes.overlayIsDark = true;
+            }
+        }
 
 		return (
 			<Fragment>
@@ -73,6 +88,17 @@ class Inspector extends Component {
                             onChange={(event) => {setAttributes( { shadow: event })}}
                         />
                     </PanelBody>
+                    <PanelColorSettings
+                        colorSettings={[
+                            {
+                                title:"Overlay-Farbe",
+                                label: 'Farbe, wenn ein Overlay eingestellt ist',
+                                onChange: setColor ,
+                                value: overlayColor.color,
+                                disableCustomColors: true,
+                            }
+                        ]}
+                    />
                     <PanelBody
                         title={__('Overlay', 'ctxblocks')}
                         initialOpen={true}

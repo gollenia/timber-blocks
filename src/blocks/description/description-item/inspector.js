@@ -12,7 +12,7 @@ class Inspector extends Component {
 
 		const {
             contentType,
-            content,
+            text,
             image,
             roundImage,
             icon
@@ -20,7 +20,7 @@ class Inspector extends Component {
 
         const onUpdateDate = ( dateTime ) => {
 			var newDateTime = moment(dateTime).format( 'YYYY-MM-DD HH:mm' );
-			setAttributes( { content: newDateTime } );
+			setAttributes( { text: newDateTime } );
         };
 
 		return (
@@ -34,7 +34,7 @@ class Inspector extends Component {
                         <SelectControl
                             label={ __( 'Art des Inhalts' ) }
                             value={ contentType } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => { setAttributes( { contentType: value, content: "", icon: value } ) } }
+                            onChange={ ( value ) => { setAttributes( { contentType: value, text: "", icon: value } ) } }
                             options={ [
                                 { value: '', label: 'Normaler Text' },
                                 { value: 'date', label: 'Datum' },
@@ -48,7 +48,7 @@ class Inspector extends Component {
                         { contentType === "date" &&
                         <div class="ctx-date-select">
                             <DateTimePicker
-                                currentDate={ content }
+                                currentDate={ text }
                                 onChange={ ( val ) => onUpdateDate( val ) }
                                 is12Hour={ false }
                             />

@@ -96,7 +96,7 @@ export default class NavEdit extends Component {
 				<Fragment>
 					<ServerSideRender
 						block="ctx-blocks/nav"
-						attributes={ this.props.attributes }
+						attributes={ this.state.attributes }
             		/>
 				</Fragment>
 			</Fragment>		

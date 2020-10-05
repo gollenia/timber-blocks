@@ -19,14 +19,9 @@ export default function save( {attributes} ) {
             "bg-" + itemColor
         ].join(" ")
     
-		return (
-            <li className={classes}>
-                <a className="uk-accordion-title" href="#">{title}</a>
-                <div className="uk-accordion-content">
-                    <InnerBlocks.Content />
-                </div>
-            </li>
-		);
+		return (<InnerBlocks.Content />);
+
+		
 }
 
 

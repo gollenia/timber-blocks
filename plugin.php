@@ -16,31 +16,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once plugin_dir_path( __FILE__ ) . 'lib/classes/Assets.php';
-require_once plugin_dir_path( __FILE__ ) . 'lib/classes/ImageSizes.php';
-require_once plugin_dir_path( __FILE__ ) . 'lib/classes/Block.php';
-
-Contexis\Blocks\ImageSizes::register();
-$args = Contexis\Blocks\Assets::register();
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 
-$blocks = [
-	'ctx-blocks/accordion-collection',
-	'ctx-blocks/accordion-item',
-	'ctx-blocks/description-list',
-	'ctx-blocks/description-item',
-	'ctx-blocks/button',
-	'ctx-blocks/card',
-	'ctx-blocks/progress',
-	'ctx-blocks/modal',
-	'ctx-blocks/columns',
-	'ctx-blocks/alert',
-	'ctx-blocks/section',
-	'ctx-blocks/grid-row',
-	'ctx-blocks/grid-column',
-	'ctx-blocks/image',
-];
 
-Contexis\Blocks\Block::registerSimpleBlocks($blocks, $args);
-Contexis\Blocks\Block::registerDynamicBlocks($args);
+Contexis\Utils\ImageSizes::register();
+$args = Contexis\Utils\Assets::register();
 
+
+
+
+//$timber = new \Timber\Timber();
+
+
+
+
+//Timber::$dirname = array( plugin_dir_path( __FILE__ ) . 'templates' );
+
+//Contexis\Blocks\Block::registerSimpleBlocks($blocks, $args);
+//v::register_blocks($args, $timber);
+
+
+
+$standard_blocks = new \Contexis\Blocks\Block($args);
+$standard_blocks->register();
+
+
+$nav_block = new \Contexis\Blocks\Nav($args);
+$nav_block->register();
+
+$post_block = new \Contexis\Blocks\Posts($args);
+$post_block->register();

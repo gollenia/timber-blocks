@@ -15,14 +15,15 @@ export default class ImageEdit extends Component {
 			setAttributes,
 			attributes,
 			clientId,
-			className
+			className,
+			overlayColor
 		} = this.props;
 
 		const {
             hasLightbox,
 			image,
 			alignment,
-            hasOverlay,
+			hasOverlay,
             overlayText,
             overlayStyle,
 			overlayPosition,
@@ -35,11 +36,17 @@ export default class ImageEdit extends Component {
             marginShift,
 		} = attributes;	
 
+		var style = {
+			background: overlayColor.color
+		};
+
 		var overlayClasses = [
 			overlayStyle || false,
 			`ctx-overlay-position-${overlayPosition}`,
 			overlayCover ? "ctx-overlay-cover" : false,
 		].filter(Boolean).join(" ");
+
+
 
 		var imageClasses = [
 			border ? "ctx-border-image" : false,
@@ -88,7 +95,7 @@ export default class ImageEdit extends Component {
 											}
 											{ !round && <img width={`${width}%`} className={imageClasses} src={image.url} alt="Kein Bild geladen"/> }
 											{hasOverlay && 
-												<div className="ctx-overlay">
+												<div style={style} className="ctx-overlay">
 													<RichText
 														tagName="div"
 														label={__("Text", 'ctxblocks')}

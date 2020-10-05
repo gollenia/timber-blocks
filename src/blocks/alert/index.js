@@ -33,7 +33,7 @@ const settings = {
 	],
 	attributes,
 	edit: compose([withColors('alertColor')])(edit),
-	save
+	save: () => { return null; }
 };
 
 

@@ -2,6 +2,7 @@ import edit from './edit';
 import save from './save';
 import icon from './icon';
 import metadata from './block.json';
+import { InnerBlocks} from '@wordpress/block-editor';
 const { withColors } = wp.blockEditor;
 const { compose } = wp.compose;
 
@@ -25,7 +26,7 @@ const settings = {
 	},
 	attributes,
 	edit: compose([withColors('backgroundColor')])(edit),
-	save
+	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
 export { name, category, metadata, settings };

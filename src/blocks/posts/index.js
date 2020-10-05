@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import edit from './edit';
-import icon from './icon';
+import icons from './icons';
 import metadata from './block.json';
 
 /**
@@ -21,7 +21,7 @@ const { name, category, attributes } = metadata;
 const settings = {
 	title: __( 'Posts', 'ctx-blocks' ),
 	description: __( 'Zeigt eine Liste von Posts an', 'ctx-blocks' ),
-	icon,
+	icon: icons.posts,
 	keywords: [
 		'ctxblocks',
 		__( 'alert', 'ctx-blocks' ),

@@ -64,7 +64,8 @@ class PostsEdit extends Component {
             columnsSmall,
 			columnsMedium,
 			excerptLength,
-			imageBesidesText,
+			showDate,
+			style,
 			textAlignment,
 			imageSize,
 			roundImages,
@@ -85,7 +86,7 @@ class PostsEdit extends Component {
 			`cols-small-${columnsSmall}`,
 			`cols-medium-${columnsMedium}`,
 			`cols-large-${columnsLarge}`,
-			imageBesidesText ? "ctx-image-side" : "ctx-image-top",
+			style === "list" ? "ctx-image-side" : "ctx-image-top",
 			"posts",
 			`ctx-text-align-${textAlignment}`
 		].filter(Boolean).join(" ");
@@ -139,7 +140,9 @@ class PostsEdit extends Component {
 								}
 								<div className="ctx-post-content">
 									<h4>{post.title.rendered.trim()}</h4>
-									<time>{date}</time>
+									{ showDate &&
+										<time>{date}</time>
+									}
 									{ excerptLength > 0 &&
 										<p>
 											<RawHTML key="html">

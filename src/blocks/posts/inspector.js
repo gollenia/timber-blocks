@@ -5,7 +5,8 @@ import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 import { ToggleControl, RangeControl, PanelBody, SelectControl, PanelRow, Text, QueryControls } from '@wordpress/components';
-
+import { Icon, Button} from '@wordpress/components'
+import icons from './icons.js'
 
 class Inspector extends Component {
 
@@ -25,7 +26,8 @@ class Inspector extends Component {
             showImages,
             dropShadow,
             imageSize,
-            imageBesidesText,
+            style,
+            showDate,
             roundImages,
             excerptLength,
             categories,
@@ -108,6 +110,22 @@ class Inspector extends Component {
                                 onChange={ (value) => setAttributes({ showImages: value }) }
                             />
                         </PanelRow>
+                        <PanelRow>
+                            <label className="components-base-control__label" for="inspector-range-control-4">Stil</label>
+                            <div className="styleSelector">
+                                
+                                    <Button onClick={ () => setAttributes({ style: "list" }) } className={style == "list" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.list}/>
+                                        <div>Liste</div>
+                                    </Button>
+                                    <Button onClick={ () => setAttributes({ style: "cards" }) } className={style == "cards" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.cards}/>
+                                        <div>Karten</div>
+                                    </Button>
+                                
+                            </div>
+                            
+                        </PanelRow>
                         { showImages &&
                         <Fragment>
                             <PanelRow>
@@ -119,9 +137,9 @@ class Inspector extends Component {
                             </PanelRow>
                             <PanelRow>
                                 <ToggleControl
-                                    label={ __("Bilder neben Text", 'ctx-blocks')}
-                                    checked={ imageBesidesText }
-                                    onChange={ (value) => setAttributes({ imageBesidesText: value }) }
+                                    label={ __("Datum anzeigen", 'ctx-blocks')}
+                                    checked={ showDate }
+                                    onChange={ (value) => setAttributes({ showDate: value }) }
                                 />
                             </PanelRow>
                             <RangeControl

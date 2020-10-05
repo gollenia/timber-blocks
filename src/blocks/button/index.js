@@ -21,7 +21,7 @@ const settings = {
 	],
 	attributes,
 	edit: compose([withColors('buttonColor')])(edit),
-	save
+	save() { return null; }
 };
 
 

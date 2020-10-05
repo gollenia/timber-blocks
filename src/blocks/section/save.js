@@ -12,6 +12,7 @@ export default function save( {attributes} ) {
         parallaxEffect,
         textAlignment,
         preserveColor,
+        backgroundIsDark,
         containerWidth
     } = attributes;
 
@@ -19,12 +20,12 @@ export default function save( {attributes} ) {
         className,
         "uk-section",
         `uk-text-${textAlignment}`,
-        preserveColor ? "uk-preserve-color" : false,
         !backgroundImage ? ("uk-section-" + backgroundColor) : "uk-background-cover"
     ].filter(Boolean).join(" ")
 
     var style = {
-        backgroundPosition: imagePosition
+        backgroundPosition: imagePosition,
+        color: backgroundIsDark ? "#fff" : "#000"
     }
 
     var srcset = false;

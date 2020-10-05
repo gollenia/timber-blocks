@@ -14,7 +14,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"content": {
+		"text": {
 			"type": "string",
 			"default": ""
 		},

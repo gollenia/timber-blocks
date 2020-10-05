@@ -61,15 +61,10 @@ class Inspector extends Component {
                         />
                         <RangeControl
                             label="Abstand zwischen den Spalten"
-                            max={ 3 }
+                            max={ 12 }
                             min={ 0 }
                             onChange={(value) => {setAttributes( { gapSize: value })}}
                             value={ gapSize }
-                        />
-                        <CheckboxControl
-                            label="Trennlinien"
-                            checked={divider}
-                            onChange={(value) => {setAttributes( { divider: value })}}
                         />
                         <CheckboxControl
                             label="Als Mauerwerk darstellen"

@@ -2,6 +2,8 @@ import edit from './edit';
 import save from './save';
 import icon from './icon';
 import metadata from './block.json';
+const { withColors } = wp.blockEditor;
+const { compose } = wp.compose;
 
 import './editor.scss';
 
@@ -18,8 +20,8 @@ const settings = {
 		__( 'value', 'ctxblocks' ),
 	],
 	attributes,
-	edit,
-	save
+	edit: compose([withColors('colorBar', 'colorBackground')])(edit),
+	save: () => { return null; }
 };
 
 

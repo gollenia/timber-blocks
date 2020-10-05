@@ -30,9 +30,9 @@
 			"type": "number",
 			"default": 100
 		},
-		"imageBesidesText": {
+		"showDate": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
 		"style": {
 			"type": "string",
@@ -51,7 +51,8 @@
 			"default": "date"
 		},
 		"categories": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"excerptLength": {
 			"type": "number",

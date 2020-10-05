@@ -28,14 +28,13 @@
 
 
   .ctx-section {
-    padding-top: 70px;
-    padding-bottom: 70px;
     .ctx-hide {
       opacity: 0;
     }
     &:hover .ctx-hide {
       opacity: 1;
     }
+    
   }
   div[data-type="ctx-blocks/section"] {
     max-width: 100%;

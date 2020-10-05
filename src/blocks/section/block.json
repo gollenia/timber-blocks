@@ -6,28 +6,33 @@
 			"type": "string",
 			"default": "default"
 		},
+		"backgroundIsDark": {
+            "type":"boolean",
+            "default": false
+        },
 		"backgroundImage": {
 			"type": "object",
 			"default": null
-		},
-		"preserveColor": {
-			"type": "boolean",
-			"default": false
-		},
-		"containerWidth": {
-			"type": "string"
 		},
 		"imagePosition": {
 			"type": "string",
 			"default": "center"
 		},
 		"parallaxEffect": {
-			"type": "integer",
-			"default": 0
+			"type": "boolean",
+			"default": false
 		},
 		"textAlignment": {
 			"type": "string",
 			"default": "left"
+		},
+		"paddingTop": {
+			"type": "integer",
+			"default": 10
+		},
+		"paddingBottom": {
+			"type": "integer",
+			"default": 10
 		}
 	}
 }

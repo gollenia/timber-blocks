@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { URLInput, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { BaseControl, PanelBody, SelectControl, CheckboxControl } from '@wordpress/components';
+import { BaseControl, PanelBody, PanelRow, SelectControl, ToggleControl, RangeControl } from '@wordpress/components';
 import { PanelColorSettings } from '@wordpress/block-editor';
 
 class Inspector extends Component {
@@ -19,6 +19,9 @@ class Inspector extends Component {
             imagePosition,
             hover,
             transparent,
+            imageRound,
+            imageWidth,
+            imageBorder,
             url,
             textAlign
         } = attributes;
@@ -31,12 +34,12 @@ class Inspector extends Component {
                         title="Verhalten"
                         initialOpen={false}
                     >
-                        <CheckboxControl
+                        <ToggleControl
                             label="Hover-Effekt"
-                            value={hover}
+                            checked={hover}
                             onChange={(value) => {setAttributes( { hover: value })}}
                         />
-                        <CheckboxControl
+                        <ToggleControl
                             label="Transparenz-Effekt"
                             helt="Der Hintergrund scheint verschwommen durch"
                             checked={transparent}
@@ -92,12 +95,37 @@ class Inspector extends Component {
                                     label="Bildplatzierung"
                                     value={ imagePosition }
                                     options={ [
-                                        { label: 'Oben', value: 'top' },
-                                        { label: 'Unten', value: 'bottom' },
+                                        { label: 'Oben', value: 'col' },
+                                        { label: 'Unten', value: 'col-reverse' },
+                                        { label: 'Rechts', value: 'row-reverse' },
+                                        { label: 'Links', value: 'row' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { imagePosition: event } ) } }
                                 />
-                        </div>
+                            </div>
+                            <PanelRow>
+                                <ToggleControl
+                                    label="Bild rund anzeigen"
+                                    checked={imageRound}
+                                    onChange={(value) => {setAttributes( { imageRound: value })}}
+                                />
+                            </PanelRow>
+                            <PanelRow>
+                            <ToggleControl
+                                    label="Bild mit Rand darstellen"
+                                    checked={imageBorder}
+                                    onChange={(value) => {setAttributes( { imageBorder: value })}}
+                                />
+                                </PanelRow>
+                            <PanelRow>
+                            <RangeControl
+                                label={__("Bildgröße", 'ctx-blocks')}
+                                max={ 100 }
+                                min={ 10 }
+                                onChange={(value) => {setAttributes( { imageWidth: value })}}
+                                value={ imageWidth }
+                            />
+                            </PanelRow>
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

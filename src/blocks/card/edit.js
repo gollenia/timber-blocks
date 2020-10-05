@@ -11,6 +11,7 @@ export default class CardEdit extends Component {
 			attributes,
 			className,
 			backgroundColor,
+			
 			textColor,
 			hover
 		} = this.props;
@@ -18,6 +19,9 @@ export default class CardEdit extends Component {
 		const {
 			imagePosition,
 			textAlign,
+			imageRound,
+			imageWidth,
+			imageBorder,
 			image
 		} = attributes;
 
@@ -26,7 +30,7 @@ export default class CardEdit extends Component {
 				'core/heading', 
 				{
 					placeholder: 'Titel',
-					className: 'uk-card-title'
+					className: 'card-header'
 				}
 			],
 			[
@@ -45,8 +49,11 @@ export default class CardEdit extends Component {
 
 		var classes = [
 			"ctx-card",
+			imageRound ? "ctx-image-round" : "",
+			imageBorder ? "ctx-image-border" : "",
 			hover ? "ctx-hover" : false,
 			`text-${textAlign}`,
+			`image-${imagePosition}`,
 			className || false
 		].filter(Boolean).join(" ");
 		
@@ -62,16 +69,19 @@ export default class CardEdit extends Component {
 					<label>Karte</label>
 				</div>
 				<div style={style} className={classes}>
-					{imagePosition === "top" && image &&
-						<img className="card-img-top" src={image.sizes.small.url} alt="Card image cap"/>
+					{ image &&
+						<img 
+						width={ imagePosition == "top" || imagePosition == "bottom" ? `${imageWidth}%` : ''} 
+						height={ imagePosition == "left" || imagePosition == "right" ? `${imageWidth}%` : ''} 
+						src={imageRound ? image.sizes.qmedium.url : image.sizes.small.url} alt="Card image cap"/>
 					}
+					<div className="content">
 					<InnerBlocks 
 						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
 						template={TEMPLATE}
 					/>
-					{imagePosition === "bottom" && image &&
-						<img className="card-img-bottom" src={image.sizes.small.url} alt="Card image cap"/>
-					}
+					</div>
+					
 				</div>
 				
 			</Fragment>

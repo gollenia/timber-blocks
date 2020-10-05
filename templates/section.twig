@@ -1,0 +1,9 @@
+{% set paddings = ['0', '1', '2', '3', '4', '5', '6', '8', '10', '12', '16', '20'] %}
+
+<div class="{{parallaxEffect ? "bg-fixed"}} pt-{{paddings[paddingTop]}} pb-{{paddings[paddingBottom]}} bg-{{backgroundColor}} text-{{backgroundColor}}-contrast text-{{textAlignment}} bg-cover bg-center"
+    {% if backgroundImage %}
+        style="overflow: hidden; background-size: cover; background-image: url('{{backgroundImage.sizes.full.url}}'); {{parallaxEffect ? " transform: translateZ(-5px) scale(1.2);" : ""}} "
+    {% endif %}
+>
+    <div class="max-w-screen-xl mx-4 md:mx-8 md:mx-auto">{{ content|raw }}</div>
+</div>

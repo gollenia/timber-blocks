@@ -22,8 +22,8 @@ const settings = {
 		__( 'link', 'ctxblocks' ),
 	],
 	attributes,
-	edit,
-	save
+	edit: compose([withColors('overlayColor')])(edit),
+	save: () => { return null }
 };
 
 export { name, category, metadata, settings };

@@ -2,13 +2,25 @@
 	"name": "ctx-blocks/progress",
 	"category": "common",
 	"attributes": {
-		"max": {
-			"type": "integer",
-			"default": 100
-		},
-		"current": {
-			"type": "integer",
+		"percent": {
+			"type": "percent",
 			"default": 30
-        }
+		},
+		"colorBar": {
+			"type": "string",
+			"default": "blue"
+		},
+		"colorBackground": {
+			"type": "string",
+			"default": "lightgray"
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"showValue": {
+			"type": "boolean",
+			"default": true
+		}
 	}
 }

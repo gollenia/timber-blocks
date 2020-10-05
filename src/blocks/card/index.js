@@ -4,6 +4,8 @@ import icon from './icon';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
 const { compose } = wp.compose;
+import { InnerBlocks } from '@wordpress/block-editor';
+
 
 import './editor.scss';
 
@@ -21,7 +23,7 @@ const settings = {
 	],
 	attributes,
 	edit: compose([withColors('textColor', 'backgroundColor', 'borderColor')])(edit),
-	save
+	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
 export { name, category, metadata, settings };

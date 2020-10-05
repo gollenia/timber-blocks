@@ -1,0 +1,21 @@
+
+<div class="grid grid-cols-{{columnsSmall}} md:grid-cols-{{columnsMedium}} lg:grid-cols-{{columnsLarge}}">
+    {% for item in posts %}
+            
+            <a 
+                class="{% if function("get_the_ID") == item.ID %}text-blue{% endif %} block flex items-center px-2 py-1 {{ style == "list" ? "flex-row" : "flex-col" }}"            
+                href="{{ function("get_permalink", item.ID) }}"
+            >
+            {% if showImages %}
+                <img width="{{imageSize}}%" class="{{roundImages ? "rounded-full"}}" src="{{ item.thumbnail.src('qlarge') }}">
+            {% endif %}
+                <div class="flex flex-col">
+                    <span class="inline-block">{{item.post_title}}</span>
+                    <p>
+                        {{item.post_excerpt|excerpt(excerptLength)}}
+                    </p>
+                </div>
+            </a>
+        
+    {% endfor %}
+</div>
