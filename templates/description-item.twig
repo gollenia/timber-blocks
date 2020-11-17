@@ -1,5 +1,9 @@
-<li class="flex py-2">
-    <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.sizes.qmedium.url}}">
+<li class="flex py-2 items-center">
+    {% if image.subtype == 'svg+xml' %}
+        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.url}}">
+    {% else %}
+        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.sizes.qmedium.url}}">
+    {% endif %}
     <div class="">
     <h5>{{title}}</h5>
     <p>{{text}}</p>
