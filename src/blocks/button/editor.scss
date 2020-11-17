@@ -5,7 +5,7 @@
  * which makes it higher in priority.
  */
 
- .uk-button  {
+ .ctx-button  {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -24,12 +24,12 @@
     width: 100% !important;
 }
 
-.uk-button-large {
+.ctx-button.large {
     padding: 10px 40px !important;
     font-size: 1.3rem !important;
 }
 
-.uk-button-small {
+.ctx-button.small {
     padding: 0 15px !important;
     line-height: 28px !important;
     font-size: 0.7rem !important;
