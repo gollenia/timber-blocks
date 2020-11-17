@@ -10,7 +10,7 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
-.uk-button {
+.ctx-button {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -29,11 +29,11 @@
 .components-panel__body .block-editor-url-input input {
   width: 100% !important; }
 
-.uk-button-large {
+.ctx-button.large {
   padding: 10px 40px !important;
   font-size: 1.3rem !important; }
 
-.uk-button-small {
+.ctx-button.small {
   padding: 0 15px !important;
   line-height: 28px !important;
   font-size: 0.7rem !important; }
@@ -127,9 +127,13 @@
  * that are used across the project.
 */
 .text-right {
+  -ms-flex-align: end;
+      align-items: flex-end;
   text-align: right; }
 
 .text-center {
+  -ms-flex-align: center;
+      align-items: center;
   text-align: center; }
 
 .components-panel__body .block-editor-url-input input {
@@ -168,26 +172,57 @@ div[data-type="ctx-blocks/card"]:hover .ctx-grabber {
   border: 3px solid #fff; }
 
 .ctx-card {
+  padding-left: 20px;
+  padding-right: 20px;
   display: -ms-flexbox;
   display: flex; }
-  .ctx-card.image-col-reverse {
+  .ctx-card .image-side {
+    background-size: cover;
+    background-position: center; }
+  .ctx-card.image-bottom {
     -ms-flex-direction: column-reverse;
         flex-direction: column-reverse; }
-  .ctx-card.image-col {
+    .ctx-card.image-bottom.ctx-image-round {
+      padding-bottom: 20px; }
+  .ctx-card.image-top {
     -ms-flex-direction: column;
         flex-direction: column; }
-  .ctx-card.image-row {
+    .ctx-card.image-top.ctx-image-round {
+      padding-top: 20px; }
+  .ctx-card.image-left {
     -ms-flex-direction: row;
-        flex-direction: row; }
-    .ctx-card.image-row img {
-      max-width: 50%; }
-  .ctx-card.image-row-reverse {
+        flex-direction: row;
+    padding-left: 0px;
+    -ms-flex-align: center;
+        align-items: center; }
+    .ctx-card.image-left .image-side, .ctx-card.image-left img {
+      margin-right: 10px; }
+    .ctx-card.image-left .image-side {
+      -ms-flex-item-align: stretch;
+          align-self: stretch; }
+    .ctx-card.image-left.ctx-image-round {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+  .ctx-card.image-right {
     -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse; }
-    .ctx-card.image-row-reverse img {
-      max-width: 50%; }
+        flex-direction: row-reverse;
+    padding-right: 0px;
+    -ms-flex-align: center;
+        align-items: center; }
+    .ctx-card.image-right .image-side, .ctx-card.image-right img {
+      margin-left: 10px; }
+    .ctx-card.image-right .image-side {
+      -ms-flex-item-align: stretch;
+          align-self: stretch; }
+    .ctx-card.image-right.ctx-image-round {
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
   .ctx-card .content {
-    display: block; }
+    display: block;
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
 /**
  * #.# Common SCSS
  *
@@ -242,12 +277,10 @@ div[data-type="ctx-blocks/accordion-collection"]:hover .block-list-appender, div
 .ctx-description-item {
   display: -ms-flexbox;
   display: flex;
-  margin-left: -12px;
-  margin-right: -12px;
-  padding-left: 12px;
-  padding-right: 12px;
+  -ms-flex-align: center;
+      align-items: center;
   padding-top: 12px;
-  border: 1px dashed #555d66; }
+  padding-bottom: 12px; }
   .ctx-description-item img {
     width: 70px;
     height: 70px;
@@ -420,7 +453,7 @@ div[data-type="ctx-blocks/section"] {
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
-.uk-button {
+.ctx-button {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -460,7 +493,7 @@ div[data-type="ctx-blocks/section"] {
   padding: 50px;
   -webkit-box-shadow: 0px 3px 20px #000;
           box-shadow: 0px 3px 20px #000;
-  z-index: 2; }
+  z-index: 999; }
 /**
  * #.# Common SCSS
  *
@@ -500,37 +533,89 @@ div[data-type="ctx-blocks/section"] {
 div[data-type="ctx-blocks/grid-row"]:hover .ctx-row-header, div[data-type="ctx-blocks/grid-row"]:hover .ctx-col-header, div[data-type="ctx-blocks/grid-row"]:hover .block-list-appender {
   visibility: visible; }
 
-.ctx-row-flex > div > div {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+.ctx-row-cols-1 > div > div {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
-.ctx-row-flex > div > div > div {
-  margin-left: 0 !important;
-  margin-right: 0 !important; }
+.ctx-row-cols-gap-1 > div > div {
+  gap: 4px; }
 
-.ctx-row-cols-1 > div > div > div {
-  width: 100%; }
+.ctx-row-cols-2 > div > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-.ctx-row-cols-2 > div > div > div {
-  width: 50%; }
+.ctx-row-cols-gap-2 > div > div {
+  gap: 8px; }
 
-.ctx-row-cols-3 > div > div > div {
-  width: 33%; }
+.ctx-row-cols-3 > div > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-.ctx-row-cols-4 > div > div > div {
-  width: 25%; }
+.ctx-row-cols-gap-3 > div > div {
+  gap: 12px; }
 
-.ctx-row-cols-5 > div > div > div {
-  width: 20%; }
+.ctx-row-cols-4 > div > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-.ctx-row-cols-6 > div > div > div {
-  width: 16%; }
+.ctx-row-cols-gap-4 > div > div {
+  gap: 16px; }
 
-.ctx-col {
-  margin-left: 2px;
-  margin-right: 2px; }
+.ctx-row-cols-5 > div > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-5 > div > div {
+  gap: 20px; }
+
+.ctx-row-cols-6 > div > div {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-6 > div > div {
+  gap: 24px; }
+
+.ctx-row-cols-7 > div > div {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-7 > div > div {
+  gap: 28px; }
+
+.ctx-row-cols-8 > div > div {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-8 > div > div {
+  gap: 32px; }
+
+.ctx-row-cols-9 > div > div {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-9 > div > div {
+  gap: 36px; }
+
+.ctx-row-cols-10 > div > div {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-10 > div > div {
+  gap: 40px; }
+
+.ctx-row-cols-11 > div > div {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-11 > div > div {
+  gap: 44px; }
+
+.ctx-row-cols-12 > div > div {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+.ctx-row-cols-gap-12 > div > div {
+  gap: 48px; }
 
 .ctx-row-flex .block-list-appender {
   display: block !important;
@@ -583,22 +668,43 @@ div[data-type="ctx-blocks/grid-row"] {
     color: #444; }
 
 div[data-width="1"] {
-  width: 25% !important; }
+  grid-column: span 1/span 1 !important; }
 
 div[data-width="2"] {
-  width: 33% !important; }
+  grid-column: span 2/span 2 !important; }
 
 div[data-width="3"] {
-  width: 50% !important; }
+  grid-column: span 3/span 3 !important; }
 
 div[data-width="4"] {
-  width: 66% !important; }
+  grid-column: span 4/span 4 !important; }
 
 div[data-width="5"] {
-  width: 75% !important; }
+  grid-column: span 5/span 5 !important; }
 
 div[data-width="6"] {
-  width: 100% !important; }
+  grid-column: span 6/span 6 !important; }
+
+div[data-width="7"] {
+  grid-column: span 7/span 7 !important; }
+
+div[data-width="8"] {
+  grid-column: span 8/span 8 !important; }
+
+div[data-width="9"] {
+  grid-column: span 9/span 9 !important; }
+
+div[data-width="10"] {
+  grid-column: span 10/span 10 !important; }
+
+div[data-width="11"] {
+  grid-column: span 11/span 11 !important; }
+
+div[data-width="12"] {
+  grid-column: span 12/span 12 !important; }
+
+div[data-type="ctx-blocks/grid-column"] {
+  margin: 0 !important; }
 /**
  * #.# Common SCSS
  *
@@ -608,8 +714,6 @@ div[data-width="6"] {
 .ctx-appender__toggle {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
   -ms-flex-align: center;
       align-items: center;
   -ms-flex-pack: center;
@@ -627,8 +731,6 @@ div[data-width="6"] {
             box-shadow: none !important; }
 
 .ctx-blocks-appender {
-  margin-left: -12px;
-  margin-right: -12px;
   margin-top: 28px; }
 
 .ctx-text-align-center {
