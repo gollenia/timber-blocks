@@ -55,8 +55,8 @@ class Inspector extends Component {
                                     value={ size }
                                     options={ [
                                         { label: 'Normal', value: '' },
-                                        { label: 'Klein', value: 'uk-button-small' },
-                                        { label: 'Groß', value: 'uk-button-large' },
+                                        { label: 'Klein', value: 'small' },
+                                        { label: 'Groß', value: 'large' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { size: event } ) } }
                                 />
