@@ -4,12 +4,10 @@
 
 .ctx-description-item {
     display: flex;
-    margin-left: -12px;
-    margin-right: -12px;
-    padding-left: 12px;
-    padding-right: 12px;
+    align-items: center;
     padding-top: 12px;
-    border: 1px dashed $dark-gray;
+    padding-bottom: 12px;;
+    
     img {
         width: 70px;
         height: 70px;
