@@ -53,9 +53,11 @@ export default class CardEdit extends Component {
 			imageBorder ? "ctx-image-border" : "",
 			hover ? "ctx-hover" : false,
 			`text-${textAlign}`,
-			`image-${imagePosition}`,
-			className || false
+			`image-${imagePosition}`
 		].filter(Boolean).join(" ");
+
+		var imageSide = ( imagePosition == "left" || imagePosition == "right");
+		var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
 		
 		return (
 			<Fragment>
@@ -69,17 +71,40 @@ export default class CardEdit extends Component {
 					<label>Karte</label>
 				</div>
 				<div style={style} className={classes}>
-					{ image &&
+					{ image && imageRound && !isSVG &&
+						<img
+							style={{
+								width: `${imageWidth}%`,
+								height: `${imageWidth}%`
+							}} 
+							src={image.sizes.qmedium.url} alt={image.filename}
+						/>
+					}
+					{ image && !imageRound && imageSide && !isSVG &&
+						<div className="image-side"
+							style={{
+								backgroundImage: `url(${image.sizes.medium.url})`,
+								width: `${imageWidth}%`
+							}}
+						>
+
+						</div>
+					}
+					{ image && !imageRound && !imageSide && !isSVG &&
 						<img 
-						width={ imagePosition == "top" || imagePosition == "bottom" ? `${imageWidth}%` : ''} 
-						height={ imagePosition == "left" || imagePosition == "right" ? `${imageWidth}%` : ''} 
-						src={imageRound ? image.sizes.qmedium.url : image.sizes.small.url} alt="Card image cap"/>
+						width={`${imageWidth}%`} 
+						src={image.sizes.medium.url} alt={image.filename}/>
+					}
+					{ isSVG && 
+						<img 
+						width={`${imageWidth}%`} 
+						src={image.url} alt={image.filename}/>
 					}
 					<div className="content">
-					<InnerBlocks 
-						allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
-						template={TEMPLATE}
-					/>
+						<InnerBlocks 
+							allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
+							template={TEMPLATE}
+						/>
 					</div>
 					
 				</div>
