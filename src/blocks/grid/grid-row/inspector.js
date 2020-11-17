@@ -20,10 +20,7 @@ class Inspector extends Component {
 		const {
 			gapSize,
             equalizer,
-            divider,
-            isMasnory,
-            parallaxEffect,
-            childrenWidthSmall,
+            
             childrenWidthLarge,
             childrenWidthMedium
         } = attributes;
@@ -35,14 +32,6 @@ class Inspector extends Component {
                         title="Optionen"
                         initialOpen={true}
                     >
-                        <RangeControl
-                            label="Spalten auf kleinen Bildschirmen"
-                            max={ 6 }
-                            min={ 1 }
-                            help="Insbesondere Smartphones"
-                            onChange={(value) => {setAttributes( { childrenWidthSmall: value })}}
-                            value={ childrenWidthSmall }
-                        />
                         <RangeControl  
                             label="Spalten auf mittleren Bildschirmen"
                             max={ 6 }
@@ -65,18 +54,6 @@ class Inspector extends Component {
                             min={ 0 }
                             onChange={(value) => {setAttributes( { gapSize: value })}}
                             value={ gapSize }
-                        />
-                        <CheckboxControl
-                            label="Als Mauerwerk darstellen"
-                            checked={isMasnory}
-                            onChange={(value) => {setAttributes( { isMasnory: value })}}
-                        />
-                        <RangeControl
-                            label="Parallax-Effekt"
-                            max={ 300 }
-                            min={ 0 }
-                            onChange={(value) => {setAttributes( { parallaxEffect: value })}}
-                            value={ parallaxEffect }
                         />
                         <CheckboxControl
                             label="Alle Spalten auf gleiche Höhe bringen"

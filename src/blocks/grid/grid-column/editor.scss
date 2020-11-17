@@ -16,28 +16,15 @@
     }
 }
 
-
-div[data-width="1"] {
-    width: 25% !important;
+@for $i from 1 through 12 {
+    div[data-width="#{$i}"] {
+        grid-column: span $i/span $i!important;
+    }
 }
 
-div[data-width="2"] {
-    width: 33% !important;
+// remove .wp_block margin:auto
+div[data-type="ctx-blocks/grid-column"] {
+    margin: 0 !important;
 }
 
-div[data-width="3"] {
-    width: 50% !important;
-}
-
-div[data-width="4"] {
-    width: 66% !important;
-}
-
-div[data-width="5"] {
-    width: 75% !important;
-}
-
-div[data-width="6"] {
-    width: 100% !important;
-}
 

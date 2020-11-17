@@ -35,41 +35,17 @@ div[data-type="ctx-blocks/grid-row"]:hover {
     }
 }
 
+@for $i from 1 through 12 {
+    .ctx-row-cols-#{$i} > div > div {
+        display: grid;
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
 
-.ctx-row-flex > div > div {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.ctx-row-flex > div > div > div {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-
-.ctx-row-cols-1 > div > div > div {
-    width: 100%
-}
-.ctx-row-cols-2 > div > div > div {
-    width: 50%
-}
-.ctx-row-cols-3 > div > div > div {
-    width: 33%
-}
-.ctx-row-cols-4 > div > div > div {
-    width: 25%
-}
-.ctx-row-cols-5 > div > div > div {
-    width: 20%
-}
-.ctx-row-cols-6 > div > div > div {
-    width: 16%
+    .ctx-row-cols-gap-#{$i} > div > div {
+        gap: $i * 4px
+    }
 }
 
-.ctx-col {
-    margin-left: 2px;
-    margin-right: 2px;
-}
 
 .ctx-row-flex {
 

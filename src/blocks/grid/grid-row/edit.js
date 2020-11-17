@@ -40,8 +40,6 @@ export default class Edit extends Component {
 			gapSize,
             equalizer,
             divider,
-            isMasnory,
-            parallaxEffect,
 			childrenWidthLarge
 		} = attributes;
 
@@ -60,17 +58,15 @@ export default class Edit extends Component {
 						{ ...this.props }
 				/>
                     <div className="ctx-row-header">
-                        <label>Reihe</label>
+                        <label>{`Reihe (${childrenWidthLarge} Spalten)`}</label>
 						<div className="ctx-row-icons">
-							{ parallaxEffect > 0 && <Icon className="ctx-row-icon" icon={icons.parallax}/> }
-							{ isMasnory && <Icon className="ctx-row-icon" icon={icons.masnory}/> }
 							{ equalizer && <Icon className="ctx-row-icon" icon={icons.equalizer}/> }
 							{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
 						</div>
                     </div>
 					<div>
 					</div>
-					<div className={"ctx-row-flex ctx-row-cols-" + childrenWidthLarge}>
+					<div className={`ctx-row ctx-row-cols-gap-${gapSize} ctx-row-cols-${childrenWidthLarge}`}>
 						<InnerBlocks 	
 							allowedBlocks={['ctx-blocks/grid-column']}
 							template={TEMPLATE}	
