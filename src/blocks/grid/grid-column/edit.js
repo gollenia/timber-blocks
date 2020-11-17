@@ -22,12 +22,18 @@ export default class SectionEdit extends Component {
 
 		const sizes = [
             "Auto",
-            "1/4",
-            "1/3",
-            "1/2",
-            "2/3",
-            "3/4",
-            "Ganz"
+            "1",
+            "2",
+            "3",
+            "4",
+			"5",
+			"6",
+			"7",
+			"8",
+			"9",
+			"10",
+			"11",
+			"12",
         ]
 
 		return (
