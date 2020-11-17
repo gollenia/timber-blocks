@@ -3,7 +3,6 @@
 
 .ctx-appender__toggle {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 35px;
@@ -21,8 +20,6 @@
 }
 
 .ctx-blocks-appender {
-    margin-left: -12px;
-    margin-right: -12px;
     margin-top: 28px;
 }
 
