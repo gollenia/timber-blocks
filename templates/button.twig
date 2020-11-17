@@ -1,5 +1,21 @@
+<div class="text-{{buttonAlignment}}">
 {% if outline %}
-<a class="bg-{{buttonColor}}-500 hover:bg-{{buttonColor}}-300 rounded-tl-sm rounded-br-lg" href="">{{title}}</a>
+<a class="{{fullWidth ? "width-full"}} bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} border border-primary hover:border-primary hover:text-{{buttonColor}}-contrast
+    {{ size == "small" ? "px-2 py-1 text-xs" }}
+    {{ size ?: "px-3 py-2" }}
+    {{ size == "large" ? "px-4 py-3 text-lg" }} {{size}}
+" href="">{{title}}</a>
+{% elseif isLink %}
+<a class="{{fullWidth ? "width-full"}} bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} hover:text-{{buttonColor}}-contrast
+{{ size == "small" ? "px-2 py-1 text-xs" }}
+{{ size ?: "px-3 py-2" }}
+{{ size == "large" ? "px-4 py-3 text-lg" }} {{size}}
+" href="">{{title}}</a>
 {% else %}
-<a class="bg-{{buttonColor}}-500 hover:bg-{{buttonColor}}-300 rounded-tl-sm rounded-br-lg" href="">{{title}}</a>
+<a class="bg-{{buttonColor}} text-{{buttonColor}}-contrast hover:bg-{{buttonColor}}-darker 
+{{ size == "small" ? "px-2 py-1 text-xs" }}
+{{ size ?: "px-4 py-2" }}
+{{ size == "large" ? "px-6 py-3 text-lg" }} {{size}}
+" href="">{{title}}</a>
 {% endif %}
+</div>
