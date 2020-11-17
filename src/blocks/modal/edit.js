@@ -44,7 +44,7 @@ class ModalEdit extends Component {
 
 		var buttonClasses = [
 			className || false,
-			"uk-button",
+			"ctx-button",
 			buttonSize || false,
 		].filter(Boolean).join(" ");
 
@@ -88,7 +88,7 @@ class ModalEdit extends Component {
                                 width="1920" 
                                 height="1080" 
                                 frameborder="0" 
-                                uk-video="" uk-responsive="">
+                                >
                             </iframe>
                         }
 						{!modalHasVideo &&

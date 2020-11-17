@@ -5,7 +5,7 @@
  * which makes it higher in priority.
  */
 
- .uk-button  {
+ .ctx-button  {
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -43,7 +43,7 @@
     background: #fff;
     padding: 50px;
     box-shadow: 0px 3px 20px #000;
-    z-index: 2;
+    z-index: 999;
 }
 
 
