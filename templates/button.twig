@@ -6,13 +6,13 @@
     {{ size == "large" ? "px-4 py-3 text-lg" }} {{size}}
 " href="">{{title}}</a>
 {% elseif isLink %}
-<a class="{{fullWidth ? "width-full"}} bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} hover:text-{{buttonColor}}-contrast
+<a class="{{fullWidth ? "width-full"}} inline-block bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} hover:text-{{buttonColor}}-contrast
 {{ size == "small" ? "px-2 py-1 text-xs" }}
 {{ size ?: "px-3 py-2" }}
 {{ size == "large" ? "px-4 py-3 text-lg" }} {{size}}
 " href="">{{title}}</a>
 {% else %}
-<a class="bg-{{buttonColor}} text-{{buttonColor}}-contrast hover:bg-{{buttonColor}}-darker 
+<a class="bg-{{buttonColor}} inline-block text-{{buttonColor}}-contrast hover:bg-{{buttonColor}}-darker 
 {{ size == "small" ? "px-2 py-1 text-xs" }}
 {{ size ?: "px-4 py-2" }}
 {{ size == "large" ? "px-6 py-3 text-lg" }} {{size}}
