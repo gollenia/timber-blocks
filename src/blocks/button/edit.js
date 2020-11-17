@@ -29,7 +29,7 @@ export default class ButtonEdit extends Component {
 
 		var classes = [
 			className || false,
-			"uk-button",
+			"ctx-button",
 			size || false,
 			outline ? "btn-outline" : false
 		].filter(Boolean).join(" ");
