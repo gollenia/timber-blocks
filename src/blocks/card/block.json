@@ -40,7 +40,7 @@
 		},
 		"imagePosition": {
 			"type": "string",
-			"default": "col"
+			"default": "top"
 		}
 	}
 }
