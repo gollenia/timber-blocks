@@ -60,8 +60,7 @@ class DescriptionListEdit extends Component {
 
 					{ image && image.subtype === "svg+xml" &&
 						<img 
-							data-src={relativeUrl(image.url)} 
-							uk-svg=""
+							src={relativeUrl(image.url)} 
 							width="50"
 							height="50"
 						/>
