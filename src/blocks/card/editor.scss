@@ -1,8 +1,10 @@
 .text-right {
+  align-items: flex-end;
   text-align: right;
 }
 
 .text-center {
+  align-items: center;
   text-align: center;
 }
 
@@ -53,31 +55,69 @@ div[data-type="ctx-blocks/card"]:hover {
 }
 
 .ctx-card {
+  padding-left: 20px;
+  padding-right: 20px;
   display:flex;
 
-  &.image-col-reverse {
+  .image-side {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &.image-bottom {
     flex-direction: column-reverse;
+    &.ctx-image-round {
+      padding-bottom: 20px;
+    }
   }
 
-  &.image-col {
+  &.image-top {
     flex-direction: column;
+    &.ctx-image-round {
+      padding-top: 20px;
+    }
   }
 
-  &.image-row {
+  &.image-left {
     flex-direction: row;
-    img {
-      max-width: 50%;
+    padding-left: 0px;
+    align-items: center;
+    .image-side, img {
+      margin-right: 10px;
     }
+    .image-side {
+      align-self: stretch;
+    }
+    &.ctx-image-round {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+   
   }
 
-  &.image-row-reverse {
+  &.image-right {
     flex-direction: row-reverse;
-    img {
-      max-width: 50%;
+    padding-right: 0px;
+    align-items: center;
+    .image-side, img {
+      margin-left: 10px;
     }
+    .image-side {
+      align-self: stretch;
+    }
+    &.ctx-image-round {
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
   }
+
+
   .content {
     display: block;
+    flex-grow: 1;
   }
 }
 

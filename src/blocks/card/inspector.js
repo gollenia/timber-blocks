@@ -26,6 +26,7 @@ class Inspector extends Component {
             textAlign
         } = attributes;
 
+        var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
 		return (
 			<Fragment>
 				<InspectorControls>
@@ -82,7 +83,12 @@ class Inspector extends Component {
                                         { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
                                         { image && 
                                             <div>
-                                                <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                                { !isSVG &&
+                                                    <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                                }
+                                                { isSVG &&
+                                                    <img className="" src={image.url} onClick={open} alt="Kein Bild geladen"/>
+                                                }
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
                                                 <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> Beitragsbild entfernen</button>
                                             </div> }
@@ -95,10 +101,10 @@ class Inspector extends Component {
                                     label="Bildplatzierung"
                                     value={ imagePosition }
                                     options={ [
-                                        { label: 'Oben', value: 'col' },
-                                        { label: 'Unten', value: 'col-reverse' },
-                                        { label: 'Rechts', value: 'row-reverse' },
-                                        { label: 'Links', value: 'row' },
+                                        { label: 'Oben', value: 'top' },
+                                        { label: 'Unten', value: 'bottom' },
+                                        { label: 'Rechts', value: 'right' },
+                                        { label: 'Links', value: 'left' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { imagePosition: event } ) } }
                                 />
@@ -115,11 +121,12 @@ class Inspector extends Component {
                                     label="Bild mit Rand darstellen"
                                     checked={imageBorder}
                                     onChange={(value) => {setAttributes( { imageBorder: value })}}
+                                    disable={!imageRound }
                                 />
                                 </PanelRow>
                             <PanelRow>
                             <RangeControl
-                                label={__("Bildgröße", 'ctx-blocks')}
+                                label={__("Bildgröße in %", 'ctx-blocks')}
                                 max={ 100 }
                                 min={ 10 }
                                 onChange={(value) => {setAttributes( { imageWidth: value })}}
