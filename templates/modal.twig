@@ -1,6 +1,6 @@
 
 
-<div x-data="{'showModal': false}" @keydown.escape="showModal = false" class="">
+<div x-data="{'showModal': false}" @keydown.escape="showModal = false" class="modal">
     <div x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform" x-on:click.away="imgModalSrc = ''" class="p-2 transition-all fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center bg-blur items-center bg-black bg-opacity-75">
         <div @click.away="showModal = false" x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
           <div class="z-50">

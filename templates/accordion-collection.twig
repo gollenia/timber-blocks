@@ -1,4 +1,4 @@
-<ul class="" x-data="{ selected:null, multiOpen: {{multiOpen}} }"> 
+<ul class="accordion-collecion" x-data="{ selected:null, multiOpen: {{multiOpen}} }"> 
     {% for child in children %}
         <li class="relative mb-4">
             <a class="bg-{{child.attrs.itemColor|default('white')}}  text-{{child.attrs.itemColor|default('white')}}-contrast cursor-pointer block w-full px-8 py-6 text-left" @click="selected !== {{loop.index}} ? selected = {{loop.index}} : selected = null">

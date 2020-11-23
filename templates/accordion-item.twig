@@ -1,7 +1,7 @@
 
 {% set id = random(1000, 9000) %}
 
-<li class="relative">
+<li class="accordion-item relative">
     <a class="w-full px-8 py-6 text-left" @click="selected !== {{id}} ? selected = {{id}} : selected = null">
     <div class="flex items-center justify-between">
         <span>
