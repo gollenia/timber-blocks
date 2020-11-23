@@ -24,13 +24,12 @@ class Nav extends Block {
         }
         
         return \Timber\Timber::compile($template, $attributes);
-
-        
         
     }
 
 
     private function get_posts($attributes) { 
+        
         $args = array(
             'post_type' => 'post',
             'cat' => $attributes['parentCategory'],
@@ -50,7 +49,7 @@ class Nav extends Block {
             'posts_per_page' => $attributes['limit']
         );
         $query = new WP_Query($args);
-        
+
         return $query->posts;
         
     }
