@@ -494,6 +494,15 @@ div[data-type="ctx-blocks/section"] {
   -webkit-box-shadow: 0px 3px 20px #000;
           box-shadow: 0px 3px 20px #000;
   z-index: 999; }
+
+.ctx-button.large {
+  padding: 10px 40px !important;
+  font-size: 1.3rem !important; }
+
+.ctx-button.small {
+  padding: 0 15px !important;
+  line-height: 28px !important;
+  font-size: 0.7rem !important; }
 /**
  * #.# Common SCSS
  *
