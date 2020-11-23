@@ -77,13 +77,13 @@ export default class CardEdit extends Component {
 								width: `${imageWidth}%`,
 								height: `${imageWidth}%`
 							}} 
-							src={image.sizes.qmedium.url} alt={image.filename}
+							src={image.sizes.qsmall.url} alt={image.filename}
 						/>
 					}
 					{ image && !imageRound && imageSide && !isSVG &&
 						<div className="image-side"
 							style={{
-								backgroundImage: `url(${image.sizes.medium.url})`,
+								backgroundImage: `url(${image.sizes.small.url})`,
 								width: `${imageWidth}%`
 							}}
 						>
@@ -93,7 +93,7 @@ export default class CardEdit extends Component {
 					{ image && !imageRound && !imageSide && !isSVG &&
 						<img 
 						width={`${imageWidth}%`} 
-						src={image.sizes.medium.url} alt={image.filename}/>
+						src={image.sizes.small.url} alt={image.filename}/>
 					}
 					{ isSVG && 
 						<img 
