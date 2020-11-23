@@ -20,7 +20,6 @@ class Inspector extends Component {
 		const {
 			gapSize,
             equalizer,
-            
             childrenWidthLarge,
             childrenWidthMedium
         } = attributes;
