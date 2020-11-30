@@ -23,7 +23,7 @@ export default class AccordionCollectionEdit extends Component {
 	insertNewItem() {
 		const { clientId } = this.props;
 		const newEvent = createBlock( 'ctx-blocks/accordion-item' );
-		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
+		const parentBlock = select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ];
 		const childBlocks = parentBlock.innerBlocks;
 		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
 	}
