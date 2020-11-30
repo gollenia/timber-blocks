@@ -44,7 +44,30 @@ div[data-type="ctx-blocks/grid-row"]:hover {
     .ctx-row-cols-gap-#{$i} > div > div {
         gap: $i * 4px
     }
+
+    .ctx-row-flow-col.ctx-row-flow-rows-#{$i} > div > div {
+        grid-template-rows: repeat($i, minmax(0, 1fr));
+    }
 }
+
+
+
+
+
+.ctx-row-flow-row {
+    > div > div { grid-auto-flow: row }; 
+    &.ctx-row-flow-dense {
+        > div > div { grid-auto-flow: row dense; }
+    }
+}
+
+.ctx-row-flow-col {
+    > div > div { grid-auto-flow: column };
+    &.ctx-col-flow-dense {
+        > div > div { grid-auto-flow: column dense };
+    }
+}
+
 
 
 .ctx-row-flex {

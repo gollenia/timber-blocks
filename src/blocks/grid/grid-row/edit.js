@@ -21,7 +21,7 @@ export default class Edit extends Component {
 	insertNewItem() {
 		const { clientId } = this.props;
 		const newEvent = createBlock( 'ctx-blocks/grid-column' );
-		const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
+		const parentBlock = select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ];
 		const childBlocks = parentBlock.innerBlocks;
 		
 		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
@@ -39,7 +39,11 @@ export default class Edit extends Component {
 		const {
 			gapSize,
             equalizer,
-            divider,
+			divider,
+			autoFlow,
+			autoFlowRows,
+            autoFlowDense,
+            autoFlowDirection,
 			childrenWidthLarge
 		} = attributes;
 
@@ -51,6 +55,14 @@ export default class Edit extends Component {
 				'ctx-blocks/grid-column'
 			]
 		];
+
+		var classes = [
+			`ctx-row ctx-row-cols-gap-${gapSize}`,
+			`ctx-row-cols-${childrenWidthLarge}`,
+			autoFlow ? `ctx-row-flow-${autoFlowDirection}` : false,
+			autoFlowDense ? 'ctx-row-flow-dense' : false,
+			autoFlowDirection == "col" ? `ctx-row-flow-rows-${autoFlowRows}` : false,
+		].filter(Boolean).join(" ");
 
 		return (
 			<Fragment>
@@ -66,7 +78,7 @@ export default class Edit extends Component {
                     </div>
 					<div>
 					</div>
-					<div className={`ctx-row ctx-row-cols-gap-${gapSize} ctx-row-cols-${childrenWidthLarge}`}>
+					<div className={classes}>
 						<InnerBlocks 	
 							allowedBlocks={['ctx-blocks/grid-column']}
 							template={TEMPLATE}	

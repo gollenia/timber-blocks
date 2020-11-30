@@ -26,14 +26,22 @@
 			"type": "integer",
 			"default": 3
         },
-        "parallaxEffect": {
-			"type":"integer",
-            "default": 0
-        },
-        "isMasnory": {
-            "type": "boolean",
+        "autoFlow": {
+			"type": "boolean",
             "default": false
-        }
+		},
+        "autoFlowDense": {
+			"type": "boolean",
+            "default": false
+		},
+		"autoFlowDirection": {
+			"type": "string",
+            "default": "row"
+		},
+		"autoFlowRows": {
+			"type": "integer",
+            "default": "3"
+		}
         
 	}
 }
