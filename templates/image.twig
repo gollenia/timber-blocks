@@ -25,7 +25,7 @@
   {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
 {% else %}
 
-<div style="margin-top: {{marginShift}}" class="image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
+<div style="margin-top: {{marginShift}}" class="{{alignment == "center" ? "m-auto"}} image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
     {% if hasOverlay %}
         <div 
             x-transition:enter-end="opacity-100 -translate-y-0 transform" 
@@ -44,7 +44,7 @@
     <a @click="$dispatch('img-modal', {  imgModalSrc: '{{image.url}}', imgModalDesc: '{{lightboxText}}' })" class="cursor-pointer">
     {% endif %}
 
-        <img style="width: {{width}}%;" alt="{{image.description}}" class="object-fit {{round ? "rounded-full" : ""}}" src="{{round ? image.sizes.qlarge.url : image.url}}">
+        <img style="width: {{width}}%;" alt="{{image.description}}" class="object-fit inline-block {{round ? "rounded-full" : ""}}" src="{{round ? image.sizes.qlarge.url : image.url}}">
     
     
     {{ hasLightbox ? "</a>" : "" }}
