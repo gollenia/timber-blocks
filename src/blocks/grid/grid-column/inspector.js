@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { RangeControl, CheckboxControl, PanelBody } from '@wordpress/components';
+import { RangeControl, CheckboxControl, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -22,7 +22,8 @@ class Inspector extends Component {
             widthLarge,
             widthMedium,
             expand,
-            auto
+            auto,
+            mobilePosition
         } = attributes;
 
         
@@ -69,8 +70,22 @@ class Inspector extends Component {
                             label="Zusammenfallen"
                             helt="Die Spalte fällt auf die minimale Breite zusammen"
                             checked={auto}
-                            onChange={(event) => {setAttributes( { auto: event })}}
+                            on
+                            Change={(event) => {setAttributes( { auto: event })}}
                         />
+                        <PanelRow>
+                        <SelectControl
+                                    label='Position auf Mobilgeräten'
+                                    help='Das Element kann auf Mobilgeräten ganz an den Anfang oder ans Ende verschoben werden.'
+                                    value={ mobilePosition }
+                                    options={ [
+                                        { label: 'Normal', value: '' },
+                                        { label: 'Anfang', value: 'first' },
+                                        { label: 'Ende', value: 'last' },
+                                    ] }
+                                    onChange={ ( event ) => { setAttributes( { mobilePosition: event } ) } }
+                                />
+                        </PanelRow>
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

@@ -21,6 +21,10 @@
 		"auto": {
 			"type": "boolean",
 			"default": false
+		},
+		"mobilePosition": {
+			"type": "string",
+            "default": ""
 		}
 	}
 }
