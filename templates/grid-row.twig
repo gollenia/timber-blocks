@@ -1,3 +1,14 @@
-{%- set gaps = ['0', '1','2','3','4','5','6','8','10','12', '16', '20']  -%}
+{%- set gaps = ['0', '1','2','3','4','5','6','8','10','12', '16', '20', '32']  -%}
 
-<div class="grid-row {{equalizer ? "equalizer" : ""}} grid grid-cols-{{childrenWidthSmall}} md:grid-cols-{{childrenWidthMedium}} xl:grid-cols-{{childrenWidthLarge}} gap-{{gaps[gapSize]}}">{{content|raw}}</div>
+<div class="
+    grid-row {{equalizer ? "equalizer" : ""}} 
+    grid grid-cols-{{childrenWidthSmall}} 
+    md:grid-cols-{{childrenWidthMedium}} 
+    xl:grid-cols-{{childrenWidthLarge}} 
+    gap-{{gaps[gapSize]}}
+    {{ autoFlow ? "lg:grid-flow-" ~ autoFlowDirection }}{{ autoFlowDense ? "-dense" }}
+    {{ autoFlow ? " lg:grid-rows-" ~ autoFlowRows }}
+
+">
+    {{content|raw}}
+</div>
