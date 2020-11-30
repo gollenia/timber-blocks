@@ -1,5 +1,4 @@
 import edit from './edit';
-import save from './save';
 import icons from './icons';
 import metadata from './block.json';
 import { InnerBlocks } from '@wordpress/block-editor';

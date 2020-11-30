@@ -1,5 +1,4 @@
 import edit from './edit';
-import save from './save';
 import icon from './icon';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
