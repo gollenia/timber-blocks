@@ -1,6 +1,11 @@
+/**
+ * Wordpress dependencies.
+ */
 import { registerBlockType } from '@wordpress/blocks';
 
-
+/**
+ * Blocks dependencies.
+ */
 import * as button from './blocks/button';
 import * as image from './blocks/image';
 import * as alert from './blocks/alert';
@@ -18,11 +23,19 @@ import * as modal from './blocks/modal';
 import * as gridRow from './blocks/grid/grid-row';
 import * as gridColumn from './blocks/grid/grid-column';
 
-import './mods/font';
-import './mods/visibility';
+/**
+ * Core Block modification dependencies.
+ */
+import './mods/additionalFonts';
+import './mods/mobileVisibility';
+import './mods/baseBlocksClasses';
 
+/**
+ * Stylesheets
+ */
 import './common/styles/editor.scss';
 import './common/styles/style.scss';
+
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
