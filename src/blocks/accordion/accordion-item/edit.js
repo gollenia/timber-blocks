@@ -19,6 +19,11 @@ export default class AccordionItemEdit extends Component {
 		const {
 			title
 		} = attributes;
+		
+		var colorDark = itemColor.dark;
+		var classes = [
+			colorDark ? "text-white" : "text-black"
+		].filter(Boolean).join(" ");
 
 		return (
 			<Fragment>
@@ -26,13 +31,13 @@ export default class AccordionItemEdit extends Component {
 						{ ...this.props }
 				/>
 				<div className={className}>
-					<div className="ctx-title-holder" style={{background: itemColor.color}}>
+					<div className={`${classes} ctx-title-holder`} style={{background: itemColor.color}}>
 						<RichText
 							tagName="div"
 							label={__("Text", 'ctx-blocks')}
 							value={ title }
 							onChange={ (value) => setAttributes({ title: value }) }
-							placeholder={__("Titel", 'ctx-blocks')}
+							placeholder={__("Titel eingeben", 'ctx-blocks')}
 							keepPlaceholderOnFocus={true}
 						/>
 					</div>
