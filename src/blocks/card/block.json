@@ -41,6 +41,14 @@
 		"imagePosition": {
 			"type": "string",
 			"default": "top"
+		},
+		"isFirst": {
+			"type": "boolean",
+			"default": false
+		},
+		"isLast": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

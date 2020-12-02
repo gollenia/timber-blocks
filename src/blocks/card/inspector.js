@@ -23,7 +23,9 @@ class Inspector extends Component {
             imageWidth,
             imageBorder,
             url,
-            textAlign
+            textAlign,
+            isFirst,
+            isLast
         } = attributes;
 
         var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
@@ -133,6 +135,26 @@ class Inspector extends Component {
                                 value={ imageWidth }
                             />
                             </PanelRow>
+                    </PanelBody>
+                    <PanelBody
+                        title={__("Layoutoptionen, 'ctx-blocks'")}
+                        initialOpen={false}
+                    >
+                        <PanelRow>
+                            <ToggleControl
+                                label="Gilt als erstes Element"
+                                checked={isFirst}
+                                onChange={(value) => {setAttributes( { isFirst: value })}}
+                            />  
+                        </PanelRow>
+                        <PanelRow>
+                            <ToggleControl
+                                label="Gilt als letztes Element"
+                                checked={isLast}
+                                onChange={(value) => {setAttributes( { isLast: value })}}
+                            />
+                        </PanelRow>
+
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

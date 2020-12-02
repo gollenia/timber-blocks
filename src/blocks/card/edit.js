@@ -20,6 +20,8 @@ export default class CardEdit extends Component {
 			imagePosition,
 			textAlign,
 			imageRound,
+			isFirst,
+			isLast,
 			imageWidth,
 			imageBorder,
 			image
@@ -30,7 +32,8 @@ export default class CardEdit extends Component {
 				'core/heading', 
 				{
 					placeholder: 'Titel',
-					className: 'card-header'
+					className: 'card-header',
+					level: 4
 				}
 			],
 			[
@@ -49,8 +52,10 @@ export default class CardEdit extends Component {
 
 		var classes = [
 			"ctx-card",
-			imageRound ? "ctx-image-round" : "",
-			imageBorder ? "ctx-image-border" : "",
+			imageRound ? "ctx-image-round" : false,
+			imageBorder ? "ctx-image-border" : false,
+			isFirst ? "ctx-is-first" : false,
+			isLast ? "ctx-is-last" : false,
 			hover ? "ctx-hover" : false,
 			`text-${textAlign}`,
 			`image-${imagePosition}`
