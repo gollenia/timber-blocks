@@ -12,6 +12,8 @@ class="card flex
     {{imagePosition == "bottom" ? "flex-col-reverse"}} 
     {{imagePosition == "left" ? "flex-row items-center"}} 
     {{imagePosition == "right" ? "flex-row-reverse items-center"}} 
+    {{ isFirst ? " is-first"}}
+    {{ isLast ? " is-last"}}
     bg-{{backgroundColor}}{{transparent ? "-transparent bg-blur"}} {{hover ? "hover:shadow-2xl" : ""}}
     "
 >
