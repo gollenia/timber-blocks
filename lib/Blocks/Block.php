@@ -19,7 +19,7 @@ class Block implements BlockInterface {
         "alert",
         "button",
         "card",
-        "columns",
+        //"columns",
         "description/description-item",
         "description/description-list",
         "grid/grid-column",

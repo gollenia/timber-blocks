@@ -25,19 +25,6 @@ $args = Contexis\Utils\Assets::register();
 
 
 
-
-//$timber = new \Timber\Timber();
-
-
-
-
-//Timber::$dirname = array( plugin_dir_path( __FILE__ ) . 'templates' );
-
-//Contexis\Blocks\Block::registerSimpleBlocks($blocks, $args);
-//v::register_blocks($args, $timber);
-
-
-
 $standard_blocks = new \Contexis\Blocks\Block($args);
 $standard_blocks->register();
 

@@ -8,7 +8,6 @@
     "descriptionList": "./blocks/description/description-list",
     "descriptionItem": "./blocks/description/description-item",
     "section": "./blocks/section",
-    "columns": "./blocks/columns",
     "posts": "./blocks/posts",
     "nav": "./blocks/nav",
     "progress": "./blocks/progress",
