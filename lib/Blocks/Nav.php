@@ -18,10 +18,6 @@ class Nav extends Block {
         $attributes['data'] = $this->{$get_data}($attributes);
 
         $template = $this->get_template($full_data->name);
-
-        if( WP_DEBUG == true && !wp_is_json_request() ) { 
-            echo "<script>console.log(" . json_encode($attributes) . ");</script>";
-        }
         
         return \Timber\Timber::compile($template, $attributes);
         
@@ -40,6 +36,7 @@ class Nav extends Block {
         $query = new WP_Query($args);
         return $query->posts;
     }
+
 
     private function get_pages($attributes) {
         
