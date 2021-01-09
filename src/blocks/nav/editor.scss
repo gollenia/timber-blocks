@@ -1,0 +1,15 @@
+div[data-type="ctx-blocks/nav"] {
+    ul {
+        list-style-type: none;
+    }
+    li a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 7px 0px;
+
+        span {
+            margin-left: 8px;
+        }
+    }
+}
