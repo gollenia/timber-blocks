@@ -49,8 +49,6 @@ class Block implements BlockInterface {
     }
 
     public function get_meta($block) :array{
-
-        
         $filename = plugin_dir_path( __FILE__ ) . "../../src/blocks/" . $block . "/block.json";
         
         if(!file_exists($filename)) {
@@ -73,12 +71,8 @@ class Block implements BlockInterface {
                 register_block_type(
                     $blocks[$i]["name"], $args
                 );
-        }
-        });
-        
-            
-           
-        
+            }
+        });    
     }
 
     public function render($attributes, $content, $full_data) : string {
@@ -88,10 +82,6 @@ class Block implements BlockInterface {
 
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
-        }
-
-        if( WP_DEBUG == true && !wp_is_json_request() ) { 
-            echo "<script>console.log(" . json_encode($full_data) . ");</script>";
         }
         
         return \Timber\Timber::compile($template, $attributes); 
