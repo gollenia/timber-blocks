@@ -25,7 +25,7 @@ $args = Contexis\Utils\Assets::register();
 
 
 
-$standard_blocks = new \Contexis\Blocks\Block($args);
+$standard_blocks = new \Contexis\Blocks\Block($args); 
 $standard_blocks->register();
 
 
