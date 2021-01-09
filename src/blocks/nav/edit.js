@@ -16,7 +16,8 @@ import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { isUndefined, pickBy, some } from 'lodash';
 import { Spinner } from '@wordpress/components'
-const { serverSideRender: ServerSideRender } = wp;
+//const { serverSideRender: ServerSideRender } = wp;
+import ServerSideRender from '@wordpress/server-side-render';
 
 
 export default class NavEdit extends Component {
@@ -79,9 +80,11 @@ export default class NavEdit extends Component {
 
 		const { 
 			allCategories,
-			allPages
-		} = this.state;		
+			allPages,
+		} = this.state;	
 
+		const { attributes } = this.props;	
+		
 		return (
 			
 			<Fragment>
@@ -96,7 +99,8 @@ export default class NavEdit extends Component {
 				<Fragment>
 					<ServerSideRender
 						block="ctx-blocks/nav"
-						attributes={ this.state.attributes }
+						attributes={ attributes }
+						httpMethod='POST'
             		/>
 				</Fragment>
 			</Fragment>		
