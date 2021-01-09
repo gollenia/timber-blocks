@@ -8,7 +8,8 @@ const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
 const forbiddenBlocks = [
-	'core/shortcode'
+	'core/shortcode',
+	'ctx-blocks/nav'
 ];
 
 const addVisibilityControlAttribute = ( props, name ) => {
