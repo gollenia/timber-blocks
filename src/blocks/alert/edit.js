@@ -48,10 +48,10 @@ export default class AlertEdit extends Component {
 
 					<RichText
 						tagName="h3"
-						label={__("Überschrift", 'ctx-blocks')}
+						label={__("Title", 'ctx-blocks')}
 						value={ title }
 						onChange={ (value) => setAttributes({ title: value }) }
-						placeholder={__("Überschrift", 'ctx-blocks')}
+						placeholder={__("Title", 'ctx-blocks')}
 						keepPlaceholderOnFocus={true}
 					/>
 					
@@ -59,7 +59,7 @@ export default class AlertEdit extends Component {
 						tagName="p"
 						value={ alertText }
 						onChange={ (value) => setAttributes({ alertText: value }) }
-						placeholder={__("Nachricht hier einfügen", 'ctx-blocks')}
+						placeholder={__("Type message here...", 'ctx-blocks')}
 						keepPlaceholderOnFocus={true}
 					/>
 					

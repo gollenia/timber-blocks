@@ -18,12 +18,12 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Darstellung', 'ctxblocks')}
+                        title={__('Appearance', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Linien zwischen den Listeneinträgen zeigen", 'ctxblocks')}
+                                label={ __("Lines as separators", 'ctx-blocks')}
                                 checked={ dividers }
                                 onChange={ (event) => setAttributes({ dividers: event }) 
                                 }

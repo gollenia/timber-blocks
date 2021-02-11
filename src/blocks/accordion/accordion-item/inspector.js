@@ -24,20 +24,20 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__("Verhalten", "ctx-blocks")}
+                        title={__("Appearance", "ctx-blocks")}
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label={__("Beim Laden der Seite geöffnet", "ctx-blocks")}
+                            label={__("Open at page load", "ctx-blocks")}
                             checked={ initialOpen }
                             onChange={ (event) => setAttributes({ initialOpen: event }) }
                         />    
                     </PanelBody>
                     <PanelColorSettings
-                        title="Farbe"
+                        title={__('Color', 'ctx-blocks')}
                         colorSettings={[
                             {
-                                label: 'Farbe',
+                                label: __('Color', 'ctx-blocks'),
                                 onChange: setItemColor ,
                                 value: itemColor.color,
                                 disableCustomColors: true,

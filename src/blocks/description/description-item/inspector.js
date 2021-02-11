@@ -27,20 +27,20 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Darstellung', 'ctxblocks')}
+                        title={__('Appearance', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
                         <SelectControl
-                            label={ __( 'Art des Inhalts' ) }
+                            label={ __( 'Type of content', 'ctx-blocks') }
                             value={ contentType } // e.g: value = [ 'a', 'c' ]
                             onChange={ ( value ) => { setAttributes( { contentType: value, text: "", icon: value } ) } }
                             options={ [
-                                { value: '', label: 'Normaler Text' },
-                                { value: 'date', label: 'Datum' },
-                                { value: 'time', label: 'Uhrzeit' },
-                                { value: 'place', label: 'Ort' },
-                                { value: 'person', label: 'Person'}
+                                { value: '', label: __("Other", 'ctx-blocks') },
+                                { value: 'date', label: __("Date", 'ctx-blocks') },
+                                { value: 'time', label: __("Time", 'ctx-blocks') },
+                                { value: 'place', label: __("Place", 'ctx-blocks') },
+                                { value: 'person', label: __("Person", 'ctx-blocks')}
                             ] }
                         />
                         </PanelRow>
@@ -58,7 +58,7 @@ class Inspector extends Component {
                         
                     </PanelBody>
                     <PanelBody
-                        title="Bild"
+                        title={__("Image", 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <MediaUploadCheck>
@@ -68,12 +68,12 @@ class Inspector extends Component {
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>{__('Choose image', 'ctx-blocks')}</button> }
                                         { image && <div>
                                             <Fragment>
                                             <img className="" src={image.url} onClick={open} alt="Kein Bild geladen"/>
-                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({image: null}) }> Bild entfernen</button>
+                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>{__("Replace image", 'ctx-blocks')}</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({image: null}) }> {__("Remove image", 'ctx-blocks')}</button>
                                             </Fragment>
                                         </div> }
                                     </div> ;
@@ -82,16 +82,14 @@ class Inspector extends Component {
                         </MediaUploadCheck>
                         <PanelRow>
                             <ToggleControl
-                                label="Rundes Bild"
-                                help={ roundImage ? 'Bild ist rund.' : 'Bild ist Eckig.' }
+                                label={__("Rounded", 'ctx-blocks')}
                                 checked={ roundImage }
                                 onChange={ (value) => setAttributes( { roundImage: value } ) }
                             />
                         </PanelRow>
                         <PanelRow>
                             <TextControl
-                                label="Icon"
-                                help="Hier die ID eines Icons eingeben. Da die Icons im Theme festgelegt werden, ist eine Vorschau im Editor nicht gewährleistet."
+                                label={__("Icon", 'ctx-blocks')}
                                 value={ icon }
                                 onChange={ ( value ) => setAttributes( { icon: value } ) }
                             />

@@ -31,13 +31,13 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Einstellungen', 'ctxblocks')}
+                        title={__('Appearance', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <TextControl
-                            label={__("Beschriftung", 'ctxblocks')}
+                            label={__("Caption", 'ctx-blocks')}
                             value={ title }
-                            placeholder="Text auf dem Button"
+                            placeholder={__("Text on button", 'ctx-blocks')}
                             onChange={ (value) => setAttributes({ title: value }) }
                         />
                         <BaseControl
@@ -45,26 +45,25 @@ class Inspector extends Component {
                         >
                             <URLInput
                                 value={ url }
-                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Click here' } ) }
+                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here', 'ctx-blocks') } ) }
                             />
                         </BaseControl>
                         
                         <PanelRow>
                         <SelectControl
-                                    label='Größe'
+                                    label={__('Size', 'ctx-blocks')}
                                     value={ size }
                                     options={ [
-                                        { label: 'Normal', value: '' },
-                                        { label: 'Klein', value: 'small' },
-                                        { label: 'Groß', value: 'large' },
+                                        { label: __('Normal', 'ctx-blocks'), value: '' },
+                                        { label: __('Small', 'ctx-blocks'), value: 'small' },
+                                        { label: __('Large', 'ctx-blocks'), value: 'large' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { size: event } ) } }
                                 />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Nur Außenlinie zeigen", 'ctxblocks')}
-                                help="Bitte beachten, dass dies keine Standard-Eigenschaft von UiKit ist. Sie müssen das CSS selbst hinzufügen."
+                                label={ __("Outline-Button", 'ctx-blocks')}
                                 checked={ outline }
                                 onChange={ (value) => setAttributes({ outline: value }) 
                                 }
@@ -72,7 +71,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Als Link anzeigen", 'ctxblocks')}
+                                label={ __("Link only", 'ctx-blocks')}
                                 checked={ isLink }
                                 onChange={ (value) => setAttributes({ isLink: value }) 
                                 }
@@ -81,10 +80,10 @@ class Inspector extends Component {
                         
                     </PanelBody>
                     <PanelColorSettings
-                            title="Farbe"
+                            title={__('Color Settings', 'ctx-blocks')}
                             colorSettings={[
                                 {
-                                    label: 'Legen Sie eine Farbe für den Button fest',
+                                    label: __('Set a background color for the button', 'ctx-blocks'),
                                     onChange: setButtonColor ,
                                     value: buttonColor.color,
                                     disableCustomColors: true,

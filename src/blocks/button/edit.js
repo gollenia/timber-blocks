@@ -55,7 +55,7 @@ export default class ButtonEdit extends Component {
 				/>
 				<div style={{textAlign: buttonAlignment}}>
 					<a style={style} type="button" className={classes}>
-						{title === "" && <Fragment>Beschriftung hinzufügen</Fragment>}
+						{title === "" && <Fragment>{__('Add a title', 'ctx-blocks')}</Fragment>}
 						{title !== "" && <Fragment>{title}</Fragment>}
 					</a>
 				</div>

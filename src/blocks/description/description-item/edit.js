@@ -74,16 +74,16 @@ class DescriptionListEdit extends Component {
 							tagName="b"
 							value={ title }
 							onChange={ (value) => setAttributes({ title: value }) }
-							placeholder="Titel eingeben"
+							placeholder={__("Title", 'ctx-blocks')}
 						/>
 					
 						{ contentType !== "date" &&
 							<RichText
 								tagName="p"
-								label={__("Text", 'ctxblocks')}
+								label={__("Text", 'ctx-blocks')}
 								value={ text }
 								onChange={ (value) => setAttributes({ text: value }) }
-								placeholder={__("Beschreibungstext", 'ctxblocks')}
+								placeholder={__("Description", 'ctx-blocks')}
 								keepPlaceholderOnFocus={true}
 							/>
 						}

@@ -34,36 +34,35 @@ class Inspector extends Component {
 				<InspectorControls>
 
                     <PanelBody
-                        title="Verhalten"
+                        title={__('Appearance', 'ctx-blocks')}
                         initialOpen={false}
                     >
                         <ToggleControl
-                            label="Hover-Effekt"
+                            label={__('Highlight on mouse over', 'ctx-blocks')}
                             checked={hover}
                             onChange={(value) => {setAttributes( { hover: value })}}
                         />
                         <ToggleControl
-                            label="Transparenz-Effekt"
-                            helt="Der Hintergrund scheint verschwommen durch"
+                            label={__("Transparent", 'ctx-blocks')}
                             checked={transparent}
                             onChange={(value) => {setAttributes( { transparent: value })}}
                         />
                         <BaseControl
-                            label="URL oder Link angeben"
+                            label={__('Link', 'ctx-blocks')}
                         >
                             <URLInput
                                 value={ url }
-                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || 'Hier klicken' } ) }
+                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here...', 'ctx-blocks') } ) }
                             />
                         </BaseControl>
                         </PanelBody>
 
                     <PanelColorSettings
-                        title="Farbe"
+                        title={__('Color settings', 'ctx-blocks')}
                         initialOpen={false}
                         colorSettings={[
                             {
-                                label: 'Hintergrundfarbe',
+                                label: __('Background color', 'ctx-blocks'),
                                 onChange: setBackgroundColor ,
                                 value: backgroundColor.color,
                                 disableCustomColors: true,
@@ -72,27 +71,27 @@ class Inspector extends Component {
                     />
                         
                     <PanelBody
-                        title={__('Bild', 'ctxblocks')}
+                        title={__('Image', 'ctx-blocks')}
                         initialOpen={false}
                     >
                         <MediaUploadCheck>
                         <MediaUpload
                                 onSelect={ ( media ) => setAttributes({image: media}) }
-                                label="Bild"
+                                label={__('Image', 'ctx-blocks')}
                                 value= { image }
                                 render={ ( { open } ) => {
                                     return <div className="editor-post-featured-image ctx-image-select">
-                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>Bild auswählen</button> }
+                                        { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>{__('Choose image', 'ctx-blocks')}</button> }
                                         { image && 
                                             <div>
                                                 { !isSVG &&
-                                                    <img className="" src={image.sizes.small.url} onClick={open} alt="Kein Bild geladen"/>
+                                                    <img className="" src={image.sizes.small.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 }
                                                 { isSVG &&
-                                                    <img className="" src={image.url} onClick={open} alt="Kein Bild geladen"/>
+                                                    <img className="" src={image.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 }
-                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>Bild ersetzen</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> Beitragsbild entfernen</button>
+                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>{__("Replace image", 'ctx-blocks')}</button>
+                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> {__("Remove image", 'ctx-blocks')}</button>
                                             </div> }
                                     </div> ;
                                  } }
@@ -100,27 +99,27 @@ class Inspector extends Component {
                             </MediaUploadCheck>
                             <div className="ctx-placement">
                                 <SelectControl
-                                    label="Bildplatzierung"
+                                    label={__("Alignment", 'ctx-blocks')}
                                     value={ imagePosition }
                                     options={ [
-                                        { label: 'Oben', value: 'top' },
-                                        { label: 'Unten', value: 'bottom' },
-                                        { label: 'Rechts', value: 'right' },
-                                        { label: 'Links', value: 'left' },
+                                        { label: __("Top", 'ctx-blocks'), value: 'top' },
+                                        { label: __("Bottom", 'ctx-blocks'), value: 'bottom' },
+                                        { label: __("Right", 'ctx-blocks'), value: 'right' },
+                                        { label: __("Left", 'ctx-blocks'), value: 'left' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { imagePosition: event } ) } }
                                 />
                             </div>
                             <PanelRow>
                                 <ToggleControl
-                                    label="Bild rund anzeigen"
+                                    label={__("Rounded", 'ctx-blocks')}
                                     checked={imageRound}
                                     onChange={(value) => {setAttributes( { imageRound: value })}}
                                 />
                             </PanelRow>
                             <PanelRow>
                             <ToggleControl
-                                    label="Bild mit Rand darstellen"
+                                    label={__("Show border", 'ctx-blocks')}
                                     checked={imageBorder}
                                     onChange={(value) => {setAttributes( { imageBorder: value })}}
                                     disable={!imageRound }
@@ -128,7 +127,7 @@ class Inspector extends Component {
                                 </PanelRow>
                             <PanelRow>
                             <RangeControl
-                                label={__("Bildgröße in %", 'ctx-blocks')}
+                                label={__("Image size in percent", 'ctx-blocks')}
                                 max={ 100 }
                                 min={ 10 }
                                 onChange={(value) => {setAttributes( { imageWidth: value })}}
@@ -137,19 +136,19 @@ class Inspector extends Component {
                             </PanelRow>
                     </PanelBody>
                     <PanelBody
-                        title={__("Layoutoptionen, 'ctx-blocks'")}
+                        title={__("Layout settings, 'ctx-blocks'")}
                         initialOpen={false}
                     >
                         <PanelRow>
                             <ToggleControl
-                                label="Gilt als erstes Element"
+                                label="Is first element"
                                 checked={isFirst}
                                 onChange={(value) => {setAttributes( { isFirst: value })}}
                             />  
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label="Gilt als letztes Element"
+                                label="Is last element"
                                 checked={isLast}
                                 onChange={(value) => {setAttributes( { isLast: value })}}
                             />

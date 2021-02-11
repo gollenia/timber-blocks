@@ -31,7 +31,7 @@ export default class CardEdit extends Component {
 			[
 				'core/heading', 
 				{
-					placeholder: 'Titel',
+					placeholder: __('Title', 'ctx-blocks'),
 					className: 'card-header',
 					level: 4
 				}
@@ -39,7 +39,7 @@ export default class CardEdit extends Component {
 			[
 				'core/paragraph',
 				{
-					placeholder: 'Beschreibung oder Inhalt',
+					placeholder: __('Your content goes here...', 'ctx-blocks'),
 					className: 'card-text'
 				}
 			]
@@ -73,7 +73,7 @@ export default class CardEdit extends Component {
 					{ ...this.props }
 				/>
 				<div class="ctx-grabber">
-					<label>Karte</label>
+					<label>{__('Card', 'ctx-blocks')}</label>
 				</div>
 				<div style={style} className={classes}>
 					{ image && imageRound && !isSVG &&
