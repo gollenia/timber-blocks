@@ -24,12 +24,12 @@ class Inspector extends Component {
 				<InspectorControls>
                     <PanelBody
                         /* translators: behaviour */
-                        title={__('Verhalten', 'ctx-blocks')}
+                        title={__('Appearance', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Auf großen Bildschirmen als Tabs anzeigen", 'ctx-blocks')}
+                                label={ __("Show as tabs on large screens", 'ctx-blocks')}
                                 checked={ tabsOnDesktop }
                                 onChange={ (value) => setAttributes({ tabsOnDesktop: value }) 
                                 }
@@ -37,7 +37,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Dürfen mehrere Felder gleichzeitig geöffnet werden?", 'ctx-blocks')}
+                                label={ __("Open multiple accordions", 'ctx-blocks')}
                                 checked={ multiOpen }
                                 onChange={ (value) => setAttributes({ multiOpen: value, noCollapse: false }) 
                                 }
@@ -45,7 +45,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Dürfen alle Felder geschlossen werden?", 'ctx-blocks')}
+                                label={ __("All accordions closable", 'ctx-blocks')}
                                 checked={ noCollapse }
                                 onChange={ (value) => setAttributes({ noCollapse: value, multiOpen: false }) 
                                 }
