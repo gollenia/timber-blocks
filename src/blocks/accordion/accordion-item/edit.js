@@ -37,7 +37,7 @@ export default class AccordionItemEdit extends Component {
 							label={__("Text", 'ctx-blocks')}
 							value={ title }
 							onChange={ (value) => setAttributes({ title: value }) }
-							placeholder={__("Titel eingeben", 'ctx-blocks')}
+							placeholder={__("Set a title", 'ctx-blocks')}
 							keepPlaceholderOnFocus={true}
 						/>
 					</div>
