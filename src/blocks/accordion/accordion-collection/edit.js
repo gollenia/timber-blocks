@@ -52,7 +52,7 @@ export default class AccordionCollectionEdit extends Component {
 						{ ...this.props }
 				/>
 				<div class="ctx-accordion-grabber">
-					<label>Akkordeon</label>
+					<label>{__('Accordion', 'ctx-blocks')}</label>
 				</div>
 				<div className={classes}>
 					<InnerBlocks 
