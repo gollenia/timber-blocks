@@ -22,29 +22,30 @@ class Inspector extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
+                    <PanelBody
+                        title={__('Appearance', 'ctx-blocks')}
+                        initialOpen={true}
+                    >
+                        <ToggleControl
+                            label={ __("User can dismiss the alert", 'ctx-blocks')}
+                            checked={ isDismissable }
+                            onChange={ (value) => setAttributes({ isDismissable: value }) }
+                        />
+                        
+                    </PanelBody>
                     <PanelColorSettings
-                        title={__("Farbe")}
+                        title={__("Color", 'ctx-blocks')}
                         initialOpen={true}
                         colorSettings={[
                             {
-                                label: "Farbe des Hinweises",
+                                label: __("Background color of the alert", 'ctx-blocks'),
                                 onChange: setAlertColor,
                                 value: alertColor.color,
                                 disableCustomColors: true,
                             },
                         ]}
                     />
-                    <PanelBody
-                        title={__('Verhalten', 'ctxblocks')}
-                        initialOpen={true}
-                    >
-                        <ToggleControl
-                            label={ __("Hinweis kann vom Benutzer geschlossen werden", 'ctxblocks')}
-                            checked={ isDismissable }
-                            onChange={ (value) => setAttributes({ isDismissable: value }) }
-                        />
-                        
-                    </PanelBody>
+                    
                 </InspectorControls>
 			</Fragment>
 		);
