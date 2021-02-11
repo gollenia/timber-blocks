@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Blocks for UiKit
+ * Plugin Name: Blocks for Tailwind
  * Plugin URI: https://github.com/gollenia/ctx-blocks/
- * Description: Use Uikit-Features in Gutenberg Block Editor
+ * Description: Twig-powered blocks with TailwindCSS
  * Author: Thomas Gollenia
  * Author URI: https://www.gollenia.at
  * Version: 1.0.1
