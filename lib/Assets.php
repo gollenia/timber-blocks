@@ -41,6 +41,8 @@ class Assets {
                     // Add more data here that you want to access from `cgbGlobal` object.
                 ]
             );
+
+            wp_set_script_translations('ctx-blocks-editor', 'ctx-blocks');
         
             
         } );
