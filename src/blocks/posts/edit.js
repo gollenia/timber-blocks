@@ -32,7 +32,7 @@ class PostsEdit extends Component {
 		
 		this.isStillMounted = true;
 		this.fetchRequest = apiFetch( {
-			path: addQueryArgs( '/wp-json/wp/v2/categories' ),
+			path: addQueryArgs( '/wp/v2/categories' ),
 		} ).then(
 			( categoriesList ) => {
 				if ( this.isStillMounted ) {

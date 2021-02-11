@@ -75,7 +75,7 @@ class Posts extends Block {
 
     private function get_posts($attributes) {
         $args = array(
-            'cat' => $attributes['categories'] || null,
+            'cat' => $attributes['categories'],
             'posts_per_page' => $attributes['limit'],
             'orderby' => $attributes['orderBy'],
             'order'   => $attributes['order']

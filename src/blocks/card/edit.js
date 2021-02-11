@@ -1,6 +1,6 @@
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-
+import { __ } from '@wordpress/i18n'; 
 import { Component, Fragment } from '@wordpress/element';
 import { InnerBlocks} from '@wordpress/block-editor';
 
