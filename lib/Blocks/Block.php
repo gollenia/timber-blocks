@@ -72,6 +72,7 @@ class Block implements BlockInterface {
                     $blocks[$i]["name"], $args
                 );
             }
+            
         });    
     }
 
