@@ -51,39 +51,28 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Design-Optionen', 'ctxblocks')}
+                        title={__('Design', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <RangeControl
-                            label="Breite"
+                            label={__('Width', 'ctx-blocks')}
                             value={ width }
                             onChange={ ( value ) => setAttributes( { width: value } ) }
                             min={ 0 }
                             max={ 100 }
                         />
-                        <SelectControl
-                            label="Überhang"
-                            help="Schiebt das Bild links oder rechts aus der Spalte"
-                            selected={ marginShift }
-                            options={ [
-                                { label: 'Keine Verschiebung', value: '' },
-                                { label: 'Verschiebung nach links', value: 'ctx-left-shift' },
-                                { label: 'Verschiebung nach rechts', value: 'ctx-right-shift' },
-                            ] }
-                            onChange={ ( value ) => { setAttributes( { marginShift: value } ) } }
-                        />
                         <CheckboxControl
-                                label="Runde Form"
+                                label={__('Circular', 'ctx-blocks')}
                                 checked={round}
                                 onChange={(event) => {setAttributes( { round: event })}}
                         />
                         <CheckboxControl
-                            label="Rand"
+                            label={__('Border', 'ctx-blocks')}
                             checked={border}
                             onChange={(event) => {setAttributes( { border: event })}}
                         />
                         <CheckboxControl
-                            label="Schatten"
+                            label={__('Shadow', 'ctx-blocks')}
                             checked={shadow}
                             onChange={(event) => {setAttributes( { shadow: event })}}
                         />
@@ -91,8 +80,7 @@ class Inspector extends Component {
                     <PanelColorSettings
                         colorSettings={[
                             {
-                                title:"Overlay-Farbe",
-                                label: 'Farbe, wenn ein Overlay eingestellt ist',
+                                title:__('Overlay color', 'ctx-blocks'),
                                 onChange: setColor ,
                                 value: overlayColor.color,
                                 disableCustomColors: true,
@@ -100,40 +88,39 @@ class Inspector extends Component {
                         ]}
                     />
                     <PanelBody
-                        title={__('Overlay', 'ctxblocks')}
+                        title={__('Overlay', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label="Bild hat ein Overlay"
+                            label={__('Show overlay', 'ctx-blocks')}
                             checked={hasOverlay}
                             onChange={(event) => {setAttributes( { hasOverlay: event })}}
                         />
                         <CheckboxControl
-                            label="Über das ganze Bild"
+                            label={__('Stretch overlay over image', 'ctx-blocks')}
                             disabled={!hasOverlay}
                             checked={overlayCover}
                             onChange={(event) => {setAttributes( { overlayCover: event })}}
                         />
                         <SelectControl
-                            label="Position"
+                            label={__('Position', 'ctx-blocks')}
                             disabled={!hasOverlay}
                             value={ overlayPosition }
                             options={ [
-                                { label: 'Unten', value: 'bottom' },
-                                { label: 'Mitte', value: 'center' },
-                                { label: 'Oben', value: 'top' },
+                                { label: __('Bottom', 'ctx-blocks'), value: 'bottom' },
+                                { label: __('Center', 'ctx-blocks'), value: 'center' },
+                                { label: __('Top', 'ctx-blocks'), value: 'top' },
                             ] }
                             onChange={ ( event ) => { setAttributes( { overlayPosition: event } ) } }
                         />
                         <SelectControl
-                            label="Farbe"
+                            label={__('Color', 'ctx-blocks')}
                             disabled={!hasOverlay}
                             value={ overlayStyle }
-                            help="Die Farbe kann, abhängig vom gewählten Theme, abweichen."
                             options={ [
-                                { label: 'Kein besonderer Stil', value: '' },
-                                { label: 'Hell', value: 'uk-overlay-default' },
-                                { label: 'Dunkel', value: 'uk-overlay-primary' },
+                                { label:  __('Default', 'ctx-blocks'), value: '' },
+                                { label:  __('Light', 'ctx-blocks'), value: 'uk-overlay-default' },
+                                { label:  __('Dark', 'ctx-blocks'), value: 'uk-overlay-primary' },
                             ] }
                             onChange={ ( event ) => { setAttributes( { overlayStyle: event } ) } }
                         />
@@ -142,14 +129,14 @@ class Inspector extends Component {
                             disabled={!hasOverlay}
                             value={ overlayAnimation }
                             options={ [
-                                { label: 'Keine', value: '' },
-                                { label: 'Einblenden', value: 'fade' },
-                                { label: 'Vergrößern', value: 'scale-up' },
-                                { label: 'Verkleinern', value: 'scale-down' },
-                                { label: 'Von unten', value: 'slide-bottom' },
-                                { label: 'Von oben', value: 'slide-top' },
-                                { label: 'Von rechts', value: 'slide-right' },
-                                { label: 'Von links', value: 'slide-left' },
+                                { label:  __('No Animation', 'ctx-blocks'), value: '' },
+                                { label:  __('Fade in', 'ctx-blocks'), value: 'fade' },
+                                { label:  __('Zoom in', 'ctx-blocks'), value: 'scale-up' },
+                                { label:  __('Zoom out', 'ctx-blocks'), value: 'scale-down' },
+                                { label:  __('Swipe from bottom', 'ctx-blocks'), value: 'slide-bottom' },
+                                { label:  __('Swipe from top', 'ctx-blocks'), value: 'slide-top' },
+                                { label:  __('Swipe from right', 'ctx-blocks'), value: 'slide-right' },
+                                { label:  __('Swipe from left', 'ctx-blocks'), value: 'slide-left' },
                                 
                             ] }
                             onChange={ ( event ) => { setAttributes( { overlayAnimation: event } ) } }
@@ -158,17 +145,17 @@ class Inspector extends Component {
                     </PanelBody>
 
                     <PanelBody
-                        title={__('Interaktion', 'ctxblocks')}
+                        title={__('Lightbox', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label="Lightbox"
-                            help="Beim Klicken vergrößern"
+                            label={__('Show lightbox', 'ctx-blocks')}
+                            help={__('When the image is clicked, a larger versiion is displayd in a window', 'ctx-blocks')}
                             value={hasLightbox}
                             onChange={(event) => {setAttributes( { hasLightbox: event })}}
                         />
                         <TextControl
-                            label="Beschriftung"
+                            label={__('Caption', 'ctx-blocks')}
                             value={lightboxText}
                             onChange={(event) =>{ setAttributes( {lightboxText: event })}}
                         />
