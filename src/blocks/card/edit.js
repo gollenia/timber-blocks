@@ -107,7 +107,7 @@ export default class CardEdit extends Component {
 					}
 					<div className="content">
 						<InnerBlocks 
-							allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
+							allowedBlocks={['core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
 							template={TEMPLATE}
 						/>
 					</div>
