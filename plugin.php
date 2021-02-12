@@ -5,7 +5,7 @@
  * Description: Twig-powered blocks with TailwindCSS
  * Author: Thomas Gollenia
  * Author URI: https://www.gollenia.at
- * Version: 1.0.1
+ * Version: 1.1.9
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * @package CTX
