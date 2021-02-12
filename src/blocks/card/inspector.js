@@ -19,11 +19,7 @@ class Inspector extends Component {
             imagePosition,
             hover,
             transparent,
-            imageRound,
-            imageWidth,
-            imageBorder,
             url,
-            textAlign,
             isFirst,
             isLast
         } = attributes;
@@ -97,7 +93,7 @@ class Inspector extends Component {
                                  } }
                             />
                             </MediaUploadCheck>
-                            <div className="ctx-placement">
+                            <PanelRow>
                                 <SelectControl
                                     label={__("Alignment", 'ctx-blocks')}
                                     value={ imagePosition }
@@ -109,34 +105,10 @@ class Inspector extends Component {
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { imagePosition: event } ) } }
                                 />
-                            </div>
-                            <PanelRow>
-                                <ToggleControl
-                                    label={__("Rounded", 'ctx-blocks')}
-                                    checked={imageRound}
-                                    onChange={(value) => {setAttributes( { imageRound: value })}}
-                                />
-                            </PanelRow>
-                            <PanelRow>
-                            <ToggleControl
-                                    label={__("Show border", 'ctx-blocks')}
-                                    checked={imageBorder}
-                                    onChange={(value) => {setAttributes( { imageBorder: value })}}
-                                    disable={!imageRound }
-                                />
-                                </PanelRow>
-                            <PanelRow>
-                            <RangeControl
-                                label={__("Image size in percent", 'ctx-blocks')}
-                                max={ 100 }
-                                min={ 10 }
-                                onChange={(value) => {setAttributes( { imageWidth: value })}}
-                                value={ imageWidth }
-                            />
                             </PanelRow>
                     </PanelBody>
                     <PanelBody
-                        title={__("Layout settings, 'ctx-blocks'")}
+                        title={__("Layout settings", 'ctx-blocks')}
                         initialOpen={false}
                     >
                         <PanelRow>
