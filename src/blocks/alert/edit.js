@@ -23,12 +23,12 @@ export default class AlertEdit extends Component {
 			attributes,
 			setAttributes,
 			className,
-			title,
 			alertColor
 		} = this.props;
 
 		const {
 			alertText,
+			title,
 			isDismissable
 		} = attributes;
 
@@ -51,7 +51,7 @@ export default class AlertEdit extends Component {
 						label={__("Title", 'ctx-blocks')}
 						value={ title }
 						onChange={ (value) => setAttributes({ title: value }) }
-						placeholder={__("Title", 'ctx-blocks')}
+						placeholder={__("Alert Title", 'ctx-blocks')}
 						keepPlaceholderOnFocus={true}
 					/>
 					
