@@ -29,6 +29,7 @@ export default class ImageEdit extends Component {
 			overlayPosition,
 			width,
 			overlayCover,
+			roundCorners,
 			round,
 			border,
 			shadow,
@@ -46,10 +47,9 @@ export default class ImageEdit extends Component {
 			overlayCover ? "ctx-overlay-cover" : false,
 		].filter(Boolean).join(" ");
 
-
-
 		var imageClasses = [
 			border ? "ctx-border-image" : false,
+			roundCorners ? "ctx-round-corners" : false,
 			shadow ? "ctx-shadow-image" : false,
 			round ? "ctx-round-image" : false
 		].filter(Boolean).join(" ");

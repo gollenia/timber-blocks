@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks/posts",
-	"category": "widgets",
+	"category": "widgets", 
 	"attributes": {
 		"columnsSmall": {
 			"type": "number",

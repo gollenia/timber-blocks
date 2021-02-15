@@ -30,6 +30,7 @@ class Inspector extends Component {
             hasOverlay,
             overlayStyle,
             overlayIsDark,
+            roundCorners,
             overlayPosition,
             overlayCover,
             overlayAnimation,
@@ -51,7 +52,7 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelBody
-                        title={__('Design-Optionen', 'ctxblocks')}
+                        title={__('Design', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <RangeControl
@@ -61,29 +62,24 @@ class Inspector extends Component {
                             min={ 0 }
                             max={ 100 }
                         />
-                        <SelectControl
-                            label="Überhang"
-                            help="Schiebt das Bild links oder rechts aus der Spalte"
-                            selected={ marginShift }
-                            options={ [
-                                { label: 'Keine Verschiebung', value: '' },
-                                { label: 'Verschiebung nach links', value: 'ctx-left-shift' },
-                                { label: 'Verschiebung nach rechts', value: 'ctx-right-shift' },
-                            ] }
-                            onChange={ ( value ) => { setAttributes( { marginShift: value } ) } }
-                        />
+                        
                         <CheckboxControl
-                                label="Runde Form"
+                                label={__('Circular Image', 'ctx-blocks')}
                                 checked={round}
                                 onChange={(event) => {setAttributes( { round: event })}}
                         />
                         <CheckboxControl
-                            label="Rand"
+                                label={__('Round corners', 'ctx-blocks')}
+                                checked={roundCorners}
+                                onChange={(event) => {setAttributes( { roundCorners: event })}}
+                        />
+                        <CheckboxControl
+                            label={__('Border', 'ctx-blocks')}
                             checked={border}
                             onChange={(event) => {setAttributes( { border: event })}}
                         />
                         <CheckboxControl
-                            label="Schatten"
+                            label={__('Shadow', 'ctx-blocks')}
                             checked={shadow}
                             onChange={(event) => {setAttributes( { shadow: event })}}
                         />
