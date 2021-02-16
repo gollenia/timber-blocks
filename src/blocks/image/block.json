@@ -42,41 +42,9 @@
             "type": "boolean",
 			"default": false
         },
-        "hasOverlay": {
-            "type": "boolean",
-            "default":false
-        },
-        "overlayText": {
-            "type": "string",
-            "default": ""
-        },
-        "overlayStyle": {
-            "type":"string",
-            "default": "light"
-        },
-        "overlayIsDark": {
-            "type":"boolean",
-            "default": false
-        },
-        "overlayColor": {
-            "type": "string",
-            "default": "white"
-        },
-        "overlayCover": {
+        "flip": {
             "type": "boolean",
             "default": false
-        },
-        "overlayPosition": {
-            "type":"string",
-            "default": "bottom"
-        },
-        "overlayIcon": {
-            "type": "string",
-            "default": ""
-        },
-        "overlayAnimation": {
-            "type": "string",
-            "default": ""
         }
 	}
 }
