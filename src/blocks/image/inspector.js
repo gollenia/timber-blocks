@@ -16,37 +16,18 @@ class Inspector extends Component {
 		const {
 			attributes,
             setAttributes,
-            overlayColor,
-            setOverlayColor,
         } = this.props;
 
 		const {
             hasLightbox,
-            lightboxText,
             round,
             border,
             width,
             shadow,
-            hasOverlay,
-            overlayStyle,
-            overlayIsDark,
+            flip,
             roundCorners,
-            overlayPosition,
-            overlayCover,
-            overlayAnimation,
-            overlayIcon,
-            marginShift,
         } = attributes;
 
-        function setColor(newColor) {
-            
-            setOverlayColor(newColor) 
-            var color = new Color(newColor);
-            attributes.overlayIsDark = false;
-            if(color.isDark()) {
-                attributes.overlayIsDark = true;
-            }
-        }
 
 		return (
 			<Fragment>
@@ -56,7 +37,7 @@ class Inspector extends Component {
                         initialOpen={true}
                     >
                         <RangeControl
-                            label="Breite"
+                            label={__('Width in percent', 'ctx-blocks')}
                             value={ width }
                             onChange={ ( value ) => setAttributes( { width: value } ) }
                             min={ 0 }
@@ -83,92 +64,22 @@ class Inspector extends Component {
                             checked={shadow}
                             onChange={(event) => {setAttributes( { shadow: event })}}
                         />
+                        <CheckboxControl
+                            label={__('Flip', 'ctx-blocks')}
+                            checked={flip}
+                            onChange={(event) => {setAttributes( { flip: event })}}
+                        />
                     </PanelBody>
-                    <PanelColorSettings
-                        colorSettings={[
-                            {
-                                title:"Overlay-Farbe",
-                                label: 'Farbe, wenn ein Overlay eingestellt ist',
-                                onChange: setColor ,
-                                value: overlayColor.color,
-                                disableCustomColors: true,
-                            }
-                        ]}
-                    />
                     <PanelBody
-                        title={__('Overlay', 'ctxblocks')}
+                        title={__('Behaviour', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <CheckboxControl
-                            label="Bild hat ein Overlay"
-                            checked={hasOverlay}
-                            onChange={(event) => {setAttributes( { hasOverlay: event })}}
-                        />
-                        <CheckboxControl
-                            label="Über das ganze Bild"
-                            disabled={!hasOverlay}
-                            checked={overlayCover}
-                            onChange={(event) => {setAttributes( { overlayCover: event })}}
-                        />
-                        <SelectControl
-                            label="Position"
-                            disabled={!hasOverlay}
-                            value={ overlayPosition }
-                            options={ [
-                                { label: 'Unten', value: 'bottom' },
-                                { label: 'Mitte', value: 'center' },
-                                { label: 'Oben', value: 'top' },
-                            ] }
-                            onChange={ ( event ) => { setAttributes( { overlayPosition: event } ) } }
-                        />
-                        <SelectControl
-                            label="Farbe"
-                            disabled={!hasOverlay}
-                            value={ overlayStyle }
-                            help="Die Farbe kann, abhängig vom gewählten Theme, abweichen."
-                            options={ [
-                                { label: 'Kein besonderer Stil', value: '' },
-                                { label: 'Hell', value: 'uk-overlay-default' },
-                                { label: 'Dunkel', value: 'uk-overlay-primary' },
-                            ] }
-                            onChange={ ( event ) => { setAttributes( { overlayStyle: event } ) } }
-                        />
-                        <SelectControl
-                            label="Animation"
-                            disabled={!hasOverlay}
-                            value={ overlayAnimation }
-                            options={ [
-                                { label: 'Keine', value: '' },
-                                { label: 'Einblenden', value: 'fade' },
-                                { label: 'Vergrößern', value: 'scale-up' },
-                                { label: 'Verkleinern', value: 'scale-down' },
-                                { label: 'Von unten', value: 'slide-bottom' },
-                                { label: 'Von oben', value: 'slide-top' },
-                                { label: 'Von rechts', value: 'slide-right' },
-                                { label: 'Von links', value: 'slide-left' },
-                                
-                            ] }
-                            onChange={ ( event ) => { setAttributes( { overlayAnimation: event } ) } }
-                        />
-
-                    </PanelBody>
-
-                    <PanelBody
-                        title={__('Interaktion', 'ctxblocks')}
-                        initialOpen={true}
-                    >
-                        <CheckboxControl
-                            label="Lightbox"
-                            help="Beim Klicken vergrößern"
+                            label={__("Lightbox", "ctx-blocks")}
+                            help={__("Show image in fullscreen", 'ctx-blocks')}
                             value={hasLightbox}
                             onChange={(event) => {setAttributes( { hasLightbox: event })}}
-                        />
-                        <TextControl
-                            label="Beschriftung"
-                            value={lightboxText}
-                            onChange={(event) =>{ setAttributes( {lightboxText: event })}}
-                        />
-                        
+                        />                       
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>

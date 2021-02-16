@@ -16,38 +16,22 @@ export default class ImageEdit extends Component {
 			attributes,
 			clientId,
 			className,
-			overlayColor
 		} = this.props;
 
 		const {
-            hasLightbox,
 			image,
 			alignment,
-			hasOverlay,
-            overlayText,
-            overlayStyle,
-			overlayPosition,
 			width,
-			overlayCover,
 			roundCorners,
 			round,
 			border,
 			shadow,
-            overlayIcon,
-            marginShift,
+			flip
 		} = attributes;	
 
-		var style = {
-			background: overlayColor.color
-		};
-
-		var overlayClasses = [
-			overlayStyle || false,
-			`ctx-overlay-position-${overlayPosition}`,
-			overlayCover ? "ctx-overlay-cover" : false,
-		].filter(Boolean).join(" ");
-
+	
 		var imageClasses = [
+			flip ? "ctx-flip-image" : false,
 			border ? "ctx-border-image" : false,
 			roundCorners ? "ctx-round-corners" : false,
 			shadow ? "ctx-shadow-image" : false,
@@ -67,7 +51,7 @@ export default class ImageEdit extends Component {
 				<Inspector
 						{ ...this.props }
 				/>
-				<div className={overlayClasses}>
+				
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={ ( media ) => setAttributes({image: media}) }
@@ -94,18 +78,6 @@ export default class ImageEdit extends Component {
 												<p>{__("The image is too small to be rendered. Please upload a larger image", 'ctx-blocks')}</p> 
 											}
 											{ !round && <img width={`${width}%`} className={imageClasses} src={image.url} alt={__("No image loaded", 'ctx-blocks')} /> }
-											{hasOverlay && 
-												<div style={style} className="ctx-overlay">
-													<RichText
-														tagName="div"
-														label={__("Text", 'ctx-blocks')}
-														value={ overlayText }
-														onChange={ (value) => setAttributes({ overlayText: value }) }
-														placeholder={__("Write text here...", 'ctx-blocks')}
-														keepPlaceholderOnFocus={true}
-													/>
-												</div>
-											}
 										</div> 
 										<button type="button" className="components-button is-secondary" onClick={ open }>{__("Replace image", 'ctx-blocks')}</button>
 									</Fragment>
@@ -114,7 +86,7 @@ export default class ImageEdit extends Component {
 							} }
 					/>
 				</MediaUploadCheck>
-				</div>
+				
 				
 			</Fragment>
 		);

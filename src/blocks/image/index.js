@@ -12,13 +12,13 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Bild', 'ctxblocks' ),
-	description: __( 'Fügt ein Bild ein', 'ctxblocks' ),
+	title: __( 'Image', 'ctx-blocks' ),
+	description: __( 'Insert image', 'ctx-blocks' ),
 	icon,
 	keywords: [
 		'ctxblocks',
-		__( 'url', 'ctxblocks' ),
-		__( 'link', 'ctxblocks' ),
+		__( 'url', 'ctx-blocks' ),
+		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
 	edit: compose([withColors('overlayColor')])(edit),
