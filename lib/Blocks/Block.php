@@ -81,6 +81,8 @@ class Block implements BlockInterface {
 
         $attributes['content'] = $content;
 
+        //echo "<script>console.log(" . json_encode($attributes) . ");</script>";
+
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
         }
