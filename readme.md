@@ -6,7 +6,7 @@ It's based on [Create Guten Block](https://github.com/ahmadawais/create-guten-bl
 
 ## What's inside?
 
-Please not, that all the text styling and so on can easily included with a theme (look at kids-team Theme for further notes)
+Please note, that all the text styling and so on can easily be included with a theme in a plugin folder
 
 :heavy_check_mark: Momentarily, the plugin features the following Blocks:
 
@@ -18,13 +18,8 @@ Please not, that all the text styling and so on can easily included with a theme
 - Grid (including masnory, equal height, seperators, gaps, parallax and different columns on different devices)
 - Column
 - Progress-Bar
-- Image / Cover / Lightbox
+- Image (with Lightbox)
 - Description List ( with image/icon )
 - Modal
 - Posts (dynamic block)
-- Navigation
-
-:question: Maybe coming later:
-
-- Slideshow
-- Slider
+- Navigation (dynamic block)
