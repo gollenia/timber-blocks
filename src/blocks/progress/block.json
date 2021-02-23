@@ -3,7 +3,7 @@
 	"category": "common",
 	"attributes": {
 		"percent": {
-			"type": "percent",
+			"type": "integer",
 			"default": 30
 		},
 		"colorBar": {
