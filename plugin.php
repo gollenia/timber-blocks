@@ -23,6 +23,7 @@ require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 Contexis\Utils\ImageSizes::register();
 $args = Contexis\Utils\Assets::register();
 
+add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
 
 
 $standard_blocks = new \Contexis\Blocks\Block($args); 
