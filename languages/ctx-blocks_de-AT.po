@@ -1145,7 +1145,7 @@ msgstr "Feste Laufweite"
 #: build/index.js:6138
 #: src/mods/additionalFonts.js:22
 msgid "Fancy"
-msgstr "Zierschrift
+msgstr "Zierschrift"
 
 #: build/index.js:6141
 #: src/mods/additionalFonts.js:26
