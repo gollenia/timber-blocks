@@ -1,9 +1,6 @@
 import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
-const { withColors } = wp.blockEditor;
-const { compose } = wp.compose;
-
 
 import './editor.scss';
 import './style.scss';
@@ -22,7 +19,7 @@ const settings = {
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: compose([withColors('overlayColor')])(Edit),
+	edit: Edit,
 	save: () => { return null }
 };
 

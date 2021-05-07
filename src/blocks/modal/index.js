@@ -5,6 +5,7 @@ import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 import { InnerBlocks } from '@wordpress/block-editor';
+const { withColors } = wp.blockEditor;
 
 
 import './editor.scss';
@@ -30,7 +31,7 @@ const settings = {
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: Edit,
+	edit: withColors({buttonColor: 'buttonColor'})(Edit),
 	save: () => { return (<InnerBlocks.Content />); }
 };
 

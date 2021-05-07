@@ -3,7 +3,7 @@ import icon from './icon';
 import metadata from './block.json';
 import { InnerBlocks} from '@wordpress/block-editor';
 const { withColors } = wp.blockEditor;
-const { compose } = wp.compose;
+
 
 import './editor.scss';
 
@@ -25,7 +25,8 @@ const settings = {
 		default: "alignfull"
 	},
 	attributes,
-	edit: compose([withColors('backgroundColor')])(Edit),
+	
+	edit: withColors({backgroundColor: 'backgroundColor'})(Edit),
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
