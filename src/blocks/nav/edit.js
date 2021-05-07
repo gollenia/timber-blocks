@@ -2,13 +2,12 @@
  * Internal dependencies
  */
 
-import Toolbar from './toolbar';
 
 /**
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { useSelect, getCurrentPostId } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 
 import { store as coreStore } from '@wordpress/core-data';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
