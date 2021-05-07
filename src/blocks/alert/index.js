@@ -9,7 +9,7 @@ import metadata from './block.json';
  * Wordpress dependencies
  */
 const { withColors } = wp.blockEditor;
-const { compose } = wp.compose;
+
 
 import './style.scss';
 import './editor.scss';
