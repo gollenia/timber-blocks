@@ -11,19 +11,19 @@ const allowedBlocks = [
 
 const fontOptions = [
 	{
-		label: __( 'Standard' ),
+		label: __( 'Standard', 'ctx-blocks' ),
 		value: '',
 	},
 	{
-		label: __( 'Monospace' ),
+		label: __( 'Monospace', 'ctx-blocks' ),
 		value: 'mono',
 	},
 	{
-		label: __( 'Script' ),
+		label: __( 'Fancy', 'ctx-blocks' ),
 		value: 'script',
 	},
 	{
-		label: __( 'Serif' ),
+		label: __( 'Serif', 'ctx-blocks' ),
 		value: 'serif',
 	},
 ];
@@ -68,11 +68,11 @@ const withFontControl = createHigherOrderComponent( ( BlockEdit ) => {
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Schrifteinstellung' ) }
+						title={ __( 'Font settings', 'ctx-base' ) }
 						initialOpen={ false }
 					>
 						<SelectControl
-							label={ __( 'Schriftart' ) }
+							label={ __( 'Select font', 'ctx-base' ) }
 							value={ font }
 							options={ fontOptions }
 							onChange={ ( value ) => { setAttributes( { font: value,} );} }

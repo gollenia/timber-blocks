@@ -14,13 +14,29 @@
 			"type": "integer",
 			"default": 0
 		},
-		"expand": {
-			"type": "boolean",
-			"default": false
+		"startSmall": {
+			"type": "integer",
+			"default": 0
 		},
-		"auto": {
-			"type": "boolean",
-			"default": false
+		"startMedium": {
+			"type": "integer",
+			"default": 0
+        },
+        "startLarge": {
+			"type": "integer",
+			"default": 0
+		},
+		"endSmall": {
+			"type": "integer",
+			"default": 0
+		},
+		"endMedium": {
+			"type": "integer",
+			"default": 0
+        },
+        "endLarge": {
+			"type": "integer",
+			"default": 0
 		},
 		"mobilePosition": {
 			"type": "string",

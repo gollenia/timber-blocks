@@ -7,44 +7,22 @@
  * Internal dependencies
  */
 import Inspector from './inspector';
-import CustomAppender from './appender';
+
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
-import { InnerBlocks } from '@wordpress/block-editor';
-import { createBlock } from '@wordpress/blocks';
-import { dispatch, select } from '@wordpress/data';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-
-class DescriptionListEdit extends Component {
-
-    constructor() {
-        super( ...arguments );
-        this.insertNewItem = this.insertNewItem.bind( this );
-    }
-    
-    insertNewItem() {
-        const { clientId } = this.props;
-        const newEvent = createBlock( 'ctx-blocks/description-item' );
-        const parentBlock = select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ];
-        const childBlocks = parentBlock.innerBlocks;
-        dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
-    }
-
-    render() {
-
+export default function Edit({...props}) {
 
         const {
-            attributes,
+            attributes: {
+				dividers
+			},
 			className,
-		} = this.props;
-
-		const {
-			dividers
-        } = attributes;
+		} = props;
 
         var classes = [
             className,
@@ -57,21 +35,21 @@ class DescriptionListEdit extends Component {
 			]
 		];
 
+		const blockProps = useBlockProps( { className: classes } );
+
 		return (
-			<Fragment>
+			<div {...blockProps}>
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
-				<div className={classes}>
+				<div>
 					<InnerBlocks 
 						allowedBlocks={['ctx-blocks/description-item']}
 						template={TEMPLATE}
-						renderAppender={ () => <CustomAppender onClick={ this.insertNewItem } /> }
 					/>	
 				</div>
-			</Fragment>
+			</div>
 		);
-    };
+
 }
 
-export default DescriptionListEdit;

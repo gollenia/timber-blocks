@@ -36,16 +36,16 @@ div[data-type="ctx-blocks/grid-row"]:hover {
 }
 
 @for $i from 1 through 12 {
-    .ctx-row-cols-#{$i} > div > div {
+    .ctx-row-cols-#{$i} > div > div.block-editor-block-list__layout {
         display: grid;
         grid-template-columns: repeat($i, minmax(0, 1fr));
     }
 
-    .ctx-row-cols-gap-#{$i} > div > div {
+    .ctx-row-cols-gap-#{$i} > div > div.block-editor-block-list__layout  {
         gap: $i * 4px
     }
 
-    .ctx-row-flow-col.ctx-row-flow-rows-#{$i} > div > div {
+    .ctx-row-flow-col.ctx-row-flow-rows-#{$i} > div > div.block-editor-block-list__layout   {
         grid-template-rows: repeat($i, minmax(0, 1fr));
     }
 }

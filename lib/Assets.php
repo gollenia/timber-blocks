@@ -7,52 +7,50 @@ class Assets {
         
 
         add_action( 'init', function() {
-            wp_register_style(
-                'ctx_blocks_style',
-                plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ),
-                is_admin() ? array( 'wp-editor' ) : null,
-                null
-            );
-            
-            // Register block editor styles for backend.
-            wp_register_style(
-                'ctx_blocks_editor', // Handle.
-                plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), 
-                array( 'wp-edit-blocks' ), 
-                null 
-            );
-        
-            // Register block editor script for backend.
-            wp_register_script(
-                'ctx_blocks_editor', // Handle.
-                plugins_url( 'dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-                array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-                null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
-                true // Enqueue the script in the footer.
-            );
-        
-            // WP Localized globals. Use dynamic PHP stuff in JavaScript via `ctxGlobal` object.
-            wp_localize_script(
-                'ctx_blocks_editor',
-                'ctxGlobal', // Array containing dynamic data for a JS Global.
-                [
-                    'pluginDirPath' => plugin_dir_path( __DIR__ ),
-                    'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
-                    // Add more data here that you want to access from `cgbGlobal` object.
-                ]
-            );
+            $dir = __DIR__;
 
-            wp_set_script_translations('ctx-blocks-editor', 'ctx-blocks');
-        
+            $script_asset_path = "$dir/../build/index.asset.php";
+            if ( ! file_exists( $script_asset_path ) ) {
+                  throw new \Error(
+                          'You need to run `npm start` or `npm run build` for the "create-block/ctx-blocks" block first.'
+                 );
+            }
+            $index_js     = '../build/index.js';
+            $script_asset = require( $script_asset_path );
+            wp_register_script(
+                  'create-block-ctx-blocks-block-editor',
+                  plugins_url( $index_js, __FILE__ ),
+                  $script_asset['dependencies'],
+                  $script_asset['version']
+            );
+            wp_set_script_translations( 'create-block-ctx-blocks-block-editor', 'ctx-blocks', plugin_dir_path( __FILE__ ) . '../languages' );
+            
+            $editor_css = '../build/index.css';
+
+            wp_register_style(
+                     'create-block-ctx-blocks-block-editor',
+                     plugins_url( $editor_css, __FILE__ ),
+                     array(),
+                     filemtime( "$dir/$editor_css" )
+            );
+    
+             $style_css = '../build/style-index.css';
+             wp_register_style(
+                     'create-block-ctx-blocks-block',
+                     plugins_url( $style_css, __FILE__ ),
+                     array(),
+                     filemtime( "$dir/$style_css" )
+             );
+    
             
         } );
 
        
 
         return [
-            'style'         => 'ctx_blocks_style',
-            'editor_script' => 'ctx_blocks_editor',
-            'editor_style'  => 'ctx_blocks_editor',
+            'style'         => 'create-block-ctx-blocks-block',
+            'editor_script' => 'create-block-ctx-blocks-block-editor',
+            'editor_style'  => 'create-block-ctx-blocks-block-editor',
         ];
     
     }

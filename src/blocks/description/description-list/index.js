@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import edit from './edit';
+import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 import { InnerBlocks } from '@wordpress/block-editor';
@@ -13,17 +13,18 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Beschreibungsliste', 'ctxblocks' ),
-	description: __( 'Liste mit oder ohne Bilder', 'ctxblocks' ),
+	title: __( 'Description list', 'ctx-blocks' ),
+	description: __( 'List of items', 'ctx-blocks' ),
 	icon,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
-		__( 'url', 'ctxblocks' ),
-        __( 'link', 'ctxblocks' ),
-        __( 'image', 'ctxblocks' ),
+		__( 'url', 'ctx-blocks' ),
+        __( 'link', 'ctx-blocks' ),
+        __( 'image', 'ctx-blocks' ),
 	],
 	attributes,
-	edit,
+	edit: Edit,
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 

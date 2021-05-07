@@ -14,8 +14,6 @@ interface BlockInterface
 class Block implements BlockInterface {
 
     public $blocks = [
-        "accordion/accordion-collection",
-        "accordion/accordion-item",
         "alert",
         "button",
         "card",

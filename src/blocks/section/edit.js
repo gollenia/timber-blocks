@@ -2,40 +2,36 @@ import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import { InnerBlocks} from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
-export default class SectionEdit extends Component {
+export default function Edit({...props}) {
 
-	
-	render() {
 		const {
-			attributes,
+			attributes: {
+				imagePosition,
+				parallaxEffect,
+				paddingTop,
+				paddingBottom,
+				textAlignment,
+				backgroundImage
+			},
 			className,
 			backgroundColor
-		} = this.props;
+		} = props;
 
-		const {
-			imagePosition,
-			parallaxEffect,
-			paddingTop,
-			paddingBottom,
-			backgroundIsDark,
-			textAlignment,
-			backgroundImage
-		} = attributes;
 
+		var textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
+
+		
 		var style = {
 			background: backgroundColor.color,
 			backgroundSize: "cover", 
 			backgroundPosition: imagePosition, 
 			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none",
-			color: backgroundIsDark ? "#ffffff" : "#000000",
+			color: textColor,
 			paddingTop: `${paddingTop}0px`,
 			paddingBottom: `${paddingBottom}0px`
-		};
-
-
+		};		
 
 		var classes = [
 			"ctx-section",
@@ -45,16 +41,18 @@ export default class SectionEdit extends Component {
 			`ctx-text-align-${textAlignment}`,
 		].filter(Boolean).join(" ");
 
+		const blockProps = useBlockProps({className: classes, style: style});
+
 		return (
-			<Fragment>
+			<>
 				<Inspector
-					{ ...this.props }
+					{ ...props }
 				/>
 				<Toolbar 
-					{ ...this.props }
+					{ ...props }
 				/>
 
-				<div style={style} className={classes}>
+				<div {...blockProps}>
 					<div className="ctx-container">
 						<InnerBlocks 
 							
@@ -62,8 +60,7 @@ export default class SectionEdit extends Component {
 					</div>
 				</div>
 				
-			</Fragment>
+			</>
 		);
-	};
 
 }

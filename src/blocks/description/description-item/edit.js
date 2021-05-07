@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-
-
-/**
  * Internal dependencies
  */
 import Inspector from './inspector';
@@ -12,31 +7,24 @@ import Inspector from './inspector';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
-import {RichText} from '@wordpress/block-editor';
-import { TextControl } from '@wordpress/components';
+import { useBlockProps, RichText} from '@wordpress/block-editor';
 import relativeUrl from "../../../common/utils/relurl";
 
-class DescriptionListEdit extends Component {
-
-    render() {
-
+export default function Edit({...props}) {
         const {
-			attributes,
+			attributes: {
+				text,
+				contentType,
+				image,
+				icon,
+				roundImage,
+				title
+			},
 			setAttributes,
 			className,
-		} = this.props;
+		} = props;
 
-		const {
-			text,
-			contentType,
-			image,
-			icon,
-			roundImage,
-			title
-		} = attributes;
-		
-		
+
 
         var classes = [
             className,
@@ -44,14 +32,14 @@ class DescriptionListEdit extends Component {
 			"ctx-description-item"
 		].filter(Boolean).join(" ");
 
-      
+        
 
 		return (
-			<Fragment>
+			<>
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
-				<div className={classes}>
+				<div { ...useBlockProps( { className: classes }) } >
 
 			
 					{ image && image.subtype != "svg+xml" &&
@@ -92,9 +80,6 @@ class DescriptionListEdit extends Component {
 						}
 					</div>
 				</div>
-			</Fragment>
+			</>
 		);
-    };
 }
-
-export default DescriptionListEdit;

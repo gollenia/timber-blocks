@@ -1,15 +1,15 @@
-div[data-type="ctx-blocks/nav"] {
-    ul {
+.wp-block-ctx-blocks-nav {
+    
         list-style-type: none;
-    }
-    li a {
-        text-decoration: none;
+        margin-left: 0px !important;
+        padding-left: 0px !important;
+
+    li.nav-item {
         display: flex;
         align-items: center;
-        padding: 7px 0px;
 
-        span {
-            margin-left: 8px;
+        &.active {
+            color: #007cba;
         }
     }
 }

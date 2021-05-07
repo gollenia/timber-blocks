@@ -31,16 +31,16 @@ class Inspector extends Component {
 			<Fragment>
 				<InspectorControls>
                     <PanelColorSettings
-                        title={__("Colors")}
+                        title={__("Colors", "ctx-blocks")}
                         colorSettings={[
                             {
-                                label: __('Color for low values', 'ctx_blocks'),
+                                label: __('Color for low values', 'ctx-blocks'),
                                 onChange: setColorBar ,
                                 value: colorBar.color,
                                 disableCustomColors: true,
                             },
                             {
-                                label: __('Color for medium values', 'ctx_blocks'),
+                                label: __('Color for medium values', 'ctx-blocks'),
                                 onChange: setColorBackground,
                                 value: colorBackground.color,
                                 disableCustomColors: true,
@@ -48,11 +48,11 @@ class Inspector extends Component {
                         ]}
                     />
                     <PanelBody
-                        title={__("Values", "ctx_blocks")}
+                        title={__("Values", "ctx-blocks")}
                         initialOpen={true}
                     >
                         <RangeControl
-                            label={__("Progresss Bar Value", "ctx_blocks")}
+                            label={__("Progresss Bar Value", "ctx-blocks")}
                             value={ percent }
                             onChange={(event) => {setAttributes( { percent: event })}}
                             min={ 0 }
@@ -61,20 +61,20 @@ class Inspector extends Component {
                         
                     </PanelBody>
                     <PanelBody
-                        title={__("Labels", "ctx_blocks")}
+                        title={__("Labels", "ctx-blocks")}
                         initialOpen={true}
                     >
                         <PanelRow>
                         <TextControl
-                            label={__("Description", 'ctx_blocks')}
+                            label={__("Description", 'ctx-blocks')}
                             value={ title }
-                            placeholder={__("Text under Progress Bar", "ctx_blocks")}
+                            placeholder={__("Text under Progress Bar", "ctx-blocks")}
                             onChange={ (event) => setAttributes({ title: event }) }
                         />
                         </PanelRow>
                         <PanelRow>
                         <CheckboxControl 
-                            label={__("Show Value", "ctx_blocks")}
+                            label={__("Show Value", "ctx-blocks")}
                             checked={ showValue }
                             onChange={ (event) => setAttributes({ showValue: event })}
                         />

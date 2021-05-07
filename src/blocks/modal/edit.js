@@ -9,38 +9,27 @@ import contrast from '../../common/utils/contrast';
  * Wordpress Dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import { InnerBlocks, RichText} from '@wordpress/block-editor';
-const { withColors } = wp.blockEditor;
-const { compose } = wp.compose;
+import { useBlockProps, InnerBlocks, RichText} from '@wordpress/block-editor';
 
-class ModalEdit extends Component {
+export default function Edit({...props}) {
 
-	constructor() {
-		super(...arguments);
-		this.state = {
-			showModal: false
-		};
-	}
-
-	render() {
 		const {
-			attributes,
+			attributes: {
+				buttonTitle,
+				buttonSize,
+				buttonIsLink,
+				uniqueId,
+				buttonAlignment,
+				modalHasVideo,
+				modalVideoUrl,
+				modalTitle
+			},
 			setAttributes,
 			buttonColor,
 			className
-		} = this.props;
+		} = props;
 
-		const {
-			buttonTitle,
-			buttonSize,
-			buttonIsLink,
-			uniqueId,
-			buttonAlignment,
-			modalHasVideo,
-			modalVideoUrl,
-			modalTitle
-		} = attributes	
+		var showModal = false;
 
 		var buttonClasses = [
 			className || false,
@@ -56,51 +45,55 @@ class ModalEdit extends Component {
 		if(uniqueId == "") {
 			setAttributes({ uniqueId: "id" + (new Date()).getTime() });
 		}
+
+		blockProps = useBlockProps();
 		
 		return (
-			<Fragment>
+			<div {...blockProps}>
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
 				<Toolbar
-						{ ...this.props }
+						{ ...props }
 				/>
 				<div style={{textAlign: buttonAlignment}}>
-					<a style={buttonStyle} type="button" className={buttonClasses} onClick={() => this.setState( { showModal: true } )}>
-						{buttonTitle === "" && <Fragment>Beschriftung hinzufügen</Fragment>}
-						{buttonTitle !== "" && <Fragment>{buttonTitle}</Fragment>}
+					<a style={buttonStyle} type="button" className={buttonClasses} onClick={showModal != showModal}>
+						{buttonTitle === "" && <>{__("Add button title", "ctx-blocks")}</>}
+						{buttonTitle !== "" && <>{buttonTitle}</>}
 					</a>
 				</div>
-				<div className="backdrop" style={this.state.showModal ? {} : { display: 'none' }} onClick={() => this.setState( { showModal: false } )}></div>
-				<div className="modal" style={this.state.showModal ? {} : { display: 'none' }}>
-					{!modalHasVideo &&
-					<div className="modal-title">
-						<RichText	
-							tagName="h3"
-							value={ modalTitle }
-							onChange={ (value) => setAttributes({ modalTitle: value }) }
-							placeholder="Titel eingeben"
-						/>
-					</div> }
-					<div className="modal-body">
-						{modalHasVideo && <iframe 
-                                src={modalVideoUrl} 
-                                width="1920" 
-                                height="1080" 
-                                frameborder="0" 
-                                >
-                            </iframe>
-                        }
+				{ showModal &&
+				<div className="backdrop" onClick={showModal = false}>
+				
+					<div className="modal">
 						{!modalHasVideo &&
-						<InnerBlocks 
-							allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/shortcode', 'ctx-blocks/button', 'ctx-blocks/image']}
-						/>}
-					</div>
-				</div>  
-			</Fragment>
+						<div className="modal-title">
+							<RichText	
+								tagName="h3"
+								value={ modalTitle }
+								onChange={ (value) => setAttributes({ modalTitle: value }) }
+								placeholder={__("Modal title", "ctx-blocks")}
+							/>
+						</div> }
+						<div className="modal-body">
+							{modalHasVideo && <iframe 
+									src={modalVideoUrl} 
+									width="1920" 
+									height="1080" 
+									frameborder="0" 
+									>
+								</iframe>
+							}
+							{!modalHasVideo &&
+							<InnerBlocks 
+								allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/shortcode', 'ctx-blocks/button', 'ctx-blocks/image']}
+							/>}
+						</div>
+					</div>  
+				
+				</div>
+			}
+			</div>
 		);
-	};
 
 }
-
-export default  compose([withColors('buttonColor')])(ModalEdit);

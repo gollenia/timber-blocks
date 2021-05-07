@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import edit from './edit';
+import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 
@@ -22,16 +22,17 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Alarm', 'ctx-blocks' ),
-	description: __( 'Informations- oder Warnhinweis für den Besucher. Die Überschrift ist optional.', 'ctx-blocks' ),
+	title: __( 'Alert', 'ctx-blocks' ),
+	description: __( 'Show an information or warning to the user', 'ctx-blocks' ),
 	icon,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
 		__( 'alert', 'ctx-blocks' ),
 		__( 'info', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: compose([withColors('alertColor')])(edit),
+	edit: withColors({alertColor: 'alertColor'})(Edit),
 	save: () => { return null; }
 };
 

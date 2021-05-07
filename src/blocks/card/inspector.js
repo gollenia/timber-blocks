@@ -1,38 +1,40 @@
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { URLInput, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { BaseControl, PanelBody, PanelRow, SelectControl, ToggleControl, RangeControl } from '@wordpress/components';
+import { BaseControl, PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
+import { Icon, Button} from '@wordpress/components'
 import { PanelColorSettings } from '@wordpress/block-editor';
+import icons from './icons.js'
 
 class Inspector extends Component {
 
 	render() {
 		const {
-			attributes,
+			attributes: {
+                image,
+                imagePosition,
+                hover,
+                transparent,
+                url,
+                isFirst,
+                isLast
+            },
             setAttributes,
             backgroundColor,
             setBackgroundColor,
         } = this.props;
 
-		const {
-            image,
-            imagePosition,
-            hover,
-            transparent,
-            url,
-            isFirst,
-            isLast
-        } = attributes;
 
         var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
 		return (
-			<Fragment>
+			
 				<InspectorControls>
 
                     <PanelBody
                         title={__('Appearance', 'ctx-blocks')}
                         initialOpen={false}
                     >
+                        
                         <ToggleControl
                             label={__('Highlight on mouse over', 'ctx-blocks')}
                             checked={hover}
@@ -86,26 +88,38 @@ class Inspector extends Component {
                                                 { isSVG &&
                                                     <img className="" src={image.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 }
-                                                <button type="button" className="components-button is-button is-default is-large" onClick={ open }>{__("Replace image", 'ctx-blocks')}</button>
-                                                <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({ image: null }) }> {__("Remove image", 'ctx-blocks')}</button>
+                                                <PanelRow>
+                                                <Button type="button" isSecondary  onClick={ open }>{__("Replace image", 'ctx-blocks')}</Button>
+                                                <Button type="button" isDestructive  onClick={ () => setAttributes({ image: null }) }> {__("Remove image", 'ctx-blocks')}</Button>
+                                                </PanelRow>
                                             </div> }
                                     </div> ;
                                  } }
                             />
                             </MediaUploadCheck>
                             <PanelRow>
-                                <SelectControl
-                                    label={__("Alignment", 'ctx-blocks')}
-                                    value={ imagePosition }
-                                    options={ [
-                                        { label: __("Top", 'ctx-blocks'), value: 'top' },
-                                        { label: __("Bottom", 'ctx-blocks'), value: 'bottom' },
-                                        { label: __("Right", 'ctx-blocks'), value: 'right' },
-                                        { label: __("Left", 'ctx-blocks'), value: 'left' },
-                                    ] }
-                                    onChange={ ( event ) => { setAttributes( { imagePosition: event } ) } }
-                                />
-                            </PanelRow>
+                            <div>
+                            <label className="components-base-control__label" for="inspector-range-control-4">{__("Image position", 'ctx-blocks')}</label>
+                            <div className="imagePositionSelector">
+                                    <Button onClick={ () => setAttributes({ imagePosition: "top" }) } className={imagePosition == "top" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.topimage}/>
+                                        <div>{__("top", 'ctx-blocks')}</div>
+                                    </Button>
+                                    <Button onClick={ () => setAttributes({ imagePosition: "bottom" }) } className={imagePosition == "bottom" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.bottomimage}/>
+                                        <div>{__("bottom", 'ctx-blocks')}</div>
+                                    </Button>
+                                    <Button onClick={ () => setAttributes({ imagePosition: "left" }) } className={imagePosition == "left" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.leftimage}/>
+                                        <div>{__("left", 'ctx-blocks')}</div>
+                                    </Button>
+                                    <Button onClick={ () => setAttributes({ imagePosition: "right" }) } className={imagePosition == "right" ? "active" : ""}>
+                                        <Icon size="64" className="icon" icon={icons.rightimage}/>
+                                        <div>{__("right", 'ctx-blocks')}</div>
+                                    </Button>
+                            </div>
+                            </div>
+                        </PanelRow>
                     </PanelBody>
                     <PanelBody
                         title={__("Layout settings", 'ctx-blocks')}
@@ -113,14 +127,14 @@ class Inspector extends Component {
                     >
                         <PanelRow>
                             <ToggleControl
-                                label="Is first element"
+                                label={__("Is first element", 'ctx-blocks')}
                                 checked={isFirst}
                                 onChange={(value) => {setAttributes( { isFirst: value })}}
                             />  
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label="Is last element"
+                                label={__("Is last element", 'ctx-blocks')}
                                 checked={isLast}
                                 onChange={(value) => {setAttributes( { isLast: value })}}
                             />
@@ -128,7 +142,7 @@ class Inspector extends Component {
 
                     </PanelBody>
                 </InspectorControls>
-			</Fragment>
+
 		);
 	}
 }

@@ -1,38 +1,40 @@
 import Inspector from './inspector';
+import { useBlockProps, RichText  } from '@wordpress/block-editor';
 
-import { Component, Fragment } from '@wordpress/element';
+export default function Edit({...props}) {
 
 
-export default class ColumnEdit extends Component {
-
-	render() {
 		const {
-			attributes,
+			attributes: {
+				percent,
+				showValue,
+				title
+			},
 			colorBar,
 			colorBackground
-		} = this.props;
+		} = props;
 
-		const {
-			percent,
-			showValue,
-			title
-		} = attributes;
-
-		
+		blockProps = useBlockProps({className: "ctx-progress outer", style: {backgroundColor: colorBackground.color}})
 
 		return (
-			<Fragment>
+			<>
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
-				<div style={{backgroundColor: colorBackground.color}} className="ctx-progress outer">
+				<div {...blockProps}>
 					<div style={{width: `${percent}%`, backgroundColor: colorBar.color}} className="inner">
 						{ showValue && <span className="value">{percent}%</span> }
 					</div>
 				</div>
-				<span>{title}</span> 
-			</Fragment>
+				<RichText
+						tagName="span"
+						value={ title }
+						onChange={ (value) => setAttributes({ title: value }) }
+						placeholder={__("Add description here...", 'ctx-blocks')}
+						keepPlaceholderOnFocus={true}
+					/>
+			</>
 		);
-	};
+
 
 }

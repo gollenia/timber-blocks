@@ -1,4 +1,4 @@
-import edit from './edit';
+import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
@@ -15,13 +15,14 @@ const settings = {
 	title: __( 'Image', 'ctx-blocks' ),
 	description: __( 'Insert image', 'ctx-blocks' ),
 	icon,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
 		__( 'url', 'ctx-blocks' ),
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: compose([withColors('overlayColor')])(edit),
+	edit: compose([withColors('overlayColor')])(Edit),
 	save: () => { return null }
 };
 

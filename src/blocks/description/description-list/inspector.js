@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
 import { ToggleControl, PanelBody, PanelRow } from '@wordpress/components';
 
@@ -15,7 +15,7 @@ class Inspector extends Component {
         } = attributes;
         
 		return (
-			<Fragment>
+
 				<InspectorControls>
                     <PanelBody
                         title={__('Appearance', 'ctx-blocks')}
@@ -32,7 +32,7 @@ class Inspector extends Component {
                         
                     </PanelBody>
                 </InspectorControls>
-			</Fragment>
+	
 		);
 	}
 }

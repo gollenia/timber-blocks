@@ -4,9 +4,9 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { TextControl, PanelBody, SelectControl, CheckboxControl, RangeControl } from '@wordpress/components';
-import { PanelColorSettings } from '@wordpress/block-editor';
-var Color = require('color');
+import { PanelBody, CheckboxControl, RangeControl } from '@wordpress/components';
+
+
 /**
  * Inspector controls
  */

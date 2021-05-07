@@ -1,4 +1,4 @@
-import edit from './edit';
+import Edit from './edit';
 import icons from './icons';
 import metadata from './block.json';
 import { InnerBlocks } from '@wordpress/block-editor';
@@ -10,20 +10,21 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Spalten', 'ctxblocks' ),
-	description: __( 'Fügt einen Inhaltsblock ein', 'ctxblocks' ),
+	title: __( 'Columns', 'ctx-blocks' ),
+	description: __( 'Divide content into multiple columns', 'ctx-blocks' ),
 	icon: icons.row,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
-		__( 'url', 'ctxblocks' ),
-		__( 'link', 'ctxblocks' ),
+		__( 'url', 'ctx-blocks' ),
+		__( 'link', 'ctx-blocks' ),
 	],
 	supports: {
 		align: ["full"],
 		default: "alignfull"
 	},
 	attributes,
-	edit,
+	edit: Edit,
 	save: () => { return (<InnerBlocks.Content /> ); }
 };
 

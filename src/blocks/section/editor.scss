@@ -27,18 +27,16 @@
   }
 
 
-  .ctx-section {
-    .ctx-hide {
-      opacity: 0;
-    }
-    &:hover .ctx-hide {
-      opacity: 1;
-    }
     
-  }
+  
   div[data-type="ctx-blocks/section"] {
     max-width: 100%;
     width:100%;
+    .ctx-container {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   

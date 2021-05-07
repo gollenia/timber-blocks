@@ -122,3 +122,20 @@ div[data-type="ctx-blocks/card"]:hover {
   }
 }
 
+.imagePositionSelector {
+margin-top: 10px;
+margin-bottom: 20px;
+Button {
+  flex-direction: column;
+  height: 70px;
+  background: #eee;
+  width: 56px;
+  font-size: 11px;
+  border: 2px solid #eee;
+  margin-left: 5px;
+
+  &.active {
+      border: 2px solid #007cba;
+  }
+}
+}

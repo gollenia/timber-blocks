@@ -1,56 +1,32 @@
 import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import { InnerBlocks} from '@wordpress/block-editor';
-import { dispatch, select } from '@wordpress/data';
+import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
-export default class SectionEdit extends Component {
 
-	
-	render() {
+export default function Edit ({...props}) {
+
 		const {
-			attributes,
-		} = this.props;
+			attributes: { widthLarge },
+		} = props;
 
+		const size = widthLarge == 0 ? "Auto" : widthLarge;
 
-
-		
-		const {
-            widthLarge
-		} = attributes;
-
-		const sizes = [
-            "Auto",
-            "1",
-            "2",
-            "3",
-            "4",
-			"5",
-			"6",
-			"7",
-			"8",
-			"9",
-			"10",
-			"11",
-			"12",
-        ]
+		const blockProps = useBlockProps({className: `ctx-col ctx-cols-${widthLarge}`})
 
 		return (
-			<Fragment>
+			<>
 				
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
-				<div className={`ctx-col ctx-cols-${widthLarge}`}>
+				<div {...blockProps}>
                     <div className="ctx-col-header ctx-hide">
-                        <label>{`Spalte (Breite: ${sizes[widthLarge]})`}</label>
+                        <label>{__('Column (width: ', 'ctx-blocks') + size + ')'}</label>
                     </div>
 					<InnerBlocks 		
 					/>
 				</div>    
-			</Fragment>
+			</>
 		);
-	};
-
 }

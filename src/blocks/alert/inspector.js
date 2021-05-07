@@ -2,25 +2,24 @@
  * Wordpress Dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { ToggleControl, PanelBody } from '@wordpress/components';
 
 class Inspector extends Component {
 	render() {
 		const {
-			attributes,
+			attributes: {
+                isDismissable
+            },
             setAttributes,
             alertColor,
             setAlertColor,
 		} = this.props;
 
-		const {
-  			isDismissable,
-		} = attributes;
-
+		
 		return (
-			<Fragment>
+			
 				<InspectorControls>
                     <PanelBody
                         title={__('Appearance', 'ctx-blocks')}
@@ -47,7 +46,7 @@ class Inspector extends Component {
                     />
                     
                 </InspectorControls>
-			</Fragment>
+			
 		);
 	}
 }

@@ -7,39 +7,35 @@ import Inspector from './inspector';
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
-import {RichText} from '@wordpress/block-editor';
+import { useBlockProps, RichText} from '@wordpress/block-editor';
 
-/**
- * External dependencies
- */
-var Color = require('color');
 
-export default class AlertEdit extends Component {
+export default function Edit({...props}) {
 
-	render() {
-		
 		const {
-			attributes,
+			attributes: {
+				alertText,
+				title,
+				isDismissable
+			},
 			setAttributes,
 			className,
 			alertColor
-		} = this.props;
+		} = props;
 
-		const {
-			alertText,
-			title,
-			isDismissable
-		} = attributes;
+		var textColor = props.colorUtils.getMostReadableColor(alertColor.color);
 
-		var color = Color(alertColor.color);
+		const blockProps = useBlockProps({
+			className: `${className} ctx-blocks-alert`,
+			style:{background: alertColor.color, color: textColor}
+		})
 
 		return (
-			<Fragment>
+			<>
 				<Inspector
-						{ ...this.props }
+						{ ...props }
 				/>
-				<div style={{background: color.lighten(0.5), color: color.darken(0.5)}} className={`${className} ctx-blocks-alert`}>
+				<div { ...blockProps } >
 					{isDismissable &&
 						<span type="button" className={"ctx-close"}>
 							<span>×</span>
@@ -52,7 +48,7 @@ export default class AlertEdit extends Component {
 						value={ title }
 						onChange={ (value) => setAttributes({ title: value }) }
 						placeholder={__("Alert Title", 'ctx-blocks')}
-						keepPlaceholderOnFocus={true}
+						keepPlaceholderOnFocus={false}
 					/>
 					
 					<RichText
@@ -60,12 +56,11 @@ export default class AlertEdit extends Component {
 						value={ alertText }
 						onChange={ (value) => setAttributes({ alertText: value }) }
 						placeholder={__("Type message here...", 'ctx-blocks')}
-						keepPlaceholderOnFocus={true}
+						keepPlaceholderOnFocus={false}
 					/>
 					
 				</div>
-			</Fragment>
+			</>
 		);
-	};
 
 }

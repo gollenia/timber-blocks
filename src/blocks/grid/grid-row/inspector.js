@@ -2,9 +2,9 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { RangeControl, CheckboxControl, PanelBody, SelectControl, PanelRow } from '@wordpress/components';
+import { RangeControl, CheckboxControl, PanelBody } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -13,95 +13,74 @@ class Inspector extends Component {
 
 	render() {
 		const {
-			attributes,
+			attributes: {
+                gapSize,
+                equalizer,
+                divider,
+                flowColumns,
+                childrenWidthLarge,
+                childrenWidthSmall,
+                childrenWidthMedium
+            },
             setAttributes,
         } = this.props;
 
-		const {
-			gapSize,
-            equalizer,
-            autoFlow,
-            autoFlowDense,
-            autoFlowRows,
-            autoFlowDirection,
-            childrenWidthLarge,
-            childrenWidthMedium
-        } = attributes;
-
 		return (
-			<Fragment>
+
 				<InspectorControls>
                     <PanelBody
-                        title="Optionen"
+                        title={__("Appearance", 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <RangeControl  
-                            label="Spalten auf mittleren Bildschirmen"
+                            label={__("Columns on mobile devices", 'ctx-blocks')}
+                            max={ 3 }
+                            min={ 1 }
+                            onChange={(value) => {setAttributes( { childrenWidthSmall: value })}}
+                            value={ childrenWidthSmall }
+                        />
+                        <RangeControl  
+                            label={__("Columns on tablets and medium screens", 'ctx-blocks')}
                             max={ 6 }
                             min={ 1 }
-                            help="Z.B. Tablets"
                             onChange={(value) => {setAttributes( { childrenWidthMedium: value })}}
                             value={ childrenWidthMedium }
                         />
                         <RangeControl  
-                            label="Spalten auf großen Geräten"
+                            label={__("Columns on desktops", 'ctx-blocks')}
                             max={ 6 }
                             min={ 1 }
-                            help="Normale Bildschirme"
                             onChange={(value) => {setAttributes( { childrenWidthLarge: value })}}
                             value={ childrenWidthLarge }
                         />
                         <RangeControl
-                            label="Abstand zwischen den Spalten"
+                            label={__("Gaps between columns", 'ctx-blocks')}
                             max={ 12 }
                             min={ 0 }
                             onChange={(value) => {setAttributes( { gapSize: value })}}
                             value={ gapSize }
                         />
                         <CheckboxControl
-                            label="Alle Spalten auf gleiche Höhe bringen"
+                            label={__("Make all columns same height", 'ctx-blocks')}
                             checked={equalizer}
                             onChange={(value) => {setAttributes( { equalizer: value })}}
                         />
-                         
+                        <CheckboxControl
+                            label={__("Arrange in columns", 'ctx-blocks')}
+                            help={__("Let children flow in columns first", 'ctx-blocks')}
+                            checked={flowColumns}
+                            onChange={(value) => {setAttributes( { flowColumns: value })}}
+                        />
+                        <CheckboxControl
+                            label={__("Separate columns with borders", 'ctx-blocks')}
+                            checked={divider}
+                            onChange={(value) => {setAttributes( { divider: value })}}
+                        />
 
                     </PanelBody>
-                    <PanelBody
-                        title="Auto Flow"
-                        initialOpen={false}
-                    >
-                        <CheckboxControl
-                            label="Auto Flow aktivieren"
-                            checked={autoFlow}
-                            onChange={(value) => {setAttributes( { autoFlow: value })}}
-                        />
-                        <SelectControl
-                            label='Anordnung'
-                            value={ autoFlowDirection }
-                            disabled={!autoFlow}
-                            options={ [
-                                { label: 'Reihen', value: 'row' },
-                                { label: 'Spalten', value: 'col' },
-                            ] }
-                            onChange={ ( event ) => { setAttributes( { autoFlowDirection: event } ) } }
-                        />
-                        <CheckboxControl
-                            label="Abstände minimieren"
-                            checked={autoFlowDense}
-                            disabled={!autoFlow}
-                            onChange={(value) => {setAttributes( { autoFlowDense: value })}}
-                        />
-                        <RangeControl  
-                            label="Anzahl der Reihen"
-                            max={ 12 }
-                            min={ 1 }
-                            disabled={!autoFlow && autoFlowDirection == 'col'}
-                            onChange={(value) => {setAttributes( { autoFlowRows: value })}}
-                            value={ autoFlowRows }
-                        />
-                    </PanelBody>
+                    
                 </InspectorControls>
-			</Fragment>
+	
 		);
 	}
 }

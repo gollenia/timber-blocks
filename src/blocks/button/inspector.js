@@ -2,46 +2,39 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { BaseControl, ToggleControl, TextControl, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
-import map from 'lodash/map';
+import { BaseControl, ToggleControl, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
+
 /**
  * Inspector controls
  */
 class Inspector extends Component {
 	render() {
 		const {
-			attributes,
+			attributes: {
+                fullWidth,
+                url,
+                size,
+                isLink,
+                outline,
+            },
             setAttributes,
             buttonColor,
             setButtonColor
 		} = this.props;
-
-		const {
-            title,
-			url,
-            size,
-            isLink,
-			outline,
-        } = attributes;
-        
+      
         
 		return (
-			<Fragment>
+			
 				<InspectorControls>
                     <PanelBody
                         title={__('Appearance', 'ctx-blocks')}
                         initialOpen={true}
                     >
-                        <TextControl
-                            label={__("Caption", 'ctx-blocks')}
-                            value={ title }
-                            placeholder={__("Text on button", 'ctx-blocks')}
-                            onChange={ (value) => setAttributes({ title: value }) }
-                        />
+                        
                         <BaseControl
-                            label="URL oder Link angeben"
+                            label={__("Add a URL or a link", 'ctx-blocks')}
                         >
                             <URLInput
                                 value={ url }
@@ -77,7 +70,14 @@ class Inspector extends Component {
                                 }
                             />
                         </PanelRow>
-                        
+                        <PanelRow>
+                            <ToggleControl
+                                label={ __("Full width", 'ctx-blocks')}
+                                checked={ fullWidth }
+                                onChange={ (value) => setAttributes({ fullWidth: value }) 
+                                }
+                            />
+                        </PanelRow>
                     </PanelBody>
                     <PanelColorSettings
                             title={__('Color Settings', 'ctx-blocks')}
@@ -91,7 +91,7 @@ class Inspector extends Component {
                             ]}
                         />
                 </InspectorControls>
-			</Fragment>
+			
 		);
 	}
 }

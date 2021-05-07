@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
+import { Component } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
 import { DateTimePicker, TextControl, ToggleControl, SelectControl, PanelBody, PanelRow } from '@wordpress/components';
 
@@ -24,7 +24,7 @@ class Inspector extends Component {
         };
 
 		return (
-			<Fragment>
+
 				<InspectorControls>
                     <PanelBody
                         title={__('Appearance', 'ctx-blocks')}
@@ -70,11 +70,11 @@ class Inspector extends Component {
                                     return <div className="editor-post-featured-image ctx-image-select">
                                         { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>{__('Choose image', 'ctx-blocks')}</button> }
                                         { image && <div>
-                                            <Fragment>
-                                            <img className="" src={image.url} onClick={open} alt="Kein Bild geladen"/>
+                                      
+                                            <img className="" src={image.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>{__("Replace image", 'ctx-blocks')}</button>
                                                 <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({image: null}) }> {__("Remove image", 'ctx-blocks')}</button>
-                                            </Fragment>
+                                         
                                         </div> }
                                     </div> ;
                                 } }
@@ -96,7 +96,7 @@ class Inspector extends Component {
                         </PanelRow>
                     </PanelBody>
                 </InspectorControls>
-			</Fragment>
+
 		);
 	}
 }

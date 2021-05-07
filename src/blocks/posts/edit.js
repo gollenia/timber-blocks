@@ -1,200 +1,314 @@
 /**
  * Internal dependencies
  */
-import Inspector from './inspector';
-import Toolbar from './toolbar';
+
+
+import { InspectorControls, AlignmentToolbar, BlockControls, useBlockProps } from '@wordpress/block-editor';
+import { ToggleControl, RangeControl, PanelBody, PanelRow, QueryControls } from '@wordpress/components';
+import { Icon, Button} from '@wordpress/components'
+import { format } from '@wordpress/date'
+import icons from './icons.js'
+
+
+import { get } from 'lodash';
 
 /**
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment, RawHTML } from '@wordpress/element';
-//import {RichText} from '@wordpress/block-editor';
-import apiFetch from '@wordpress/api-fetch';
-import { addQueryArgs } from '@wordpress/url';
-import { compose } from '@wordpress/compose';
-import { withSelect } from '@wordpress/data';
-import { isUndefined, pickBy, some } from 'lodash';
-import { Spinner } from '@wordpress/components'
+import { useSelect } from '@wordpress/data';
 
 
-class PostsEdit extends Component {
+import { store as coreStore } from '@wordpress/core-data';
+import { boolean } from 'joi';
 
-	constructor() {
-		super(...arguments);
-		this.state = {
-			posts: [],
-			categoriesList: []
+
+const CATEGORIES_LIST_QUERY = {
+	per_page: -1,
+};
+const USERS_LIST_QUERY = {
+	per_page: -1,
+};
+
+
+export default function Edit({ attributes, setAttributes }) {
+
+	const {
+		limit,
+		columnsSmall,
+		columnsMedium,
+		columnsLarge,
+		showImages,
+		dropShadow,
+		imageSize,
+		style,
+		textAlignment,
+		showDate,
+		roundImages,
+		excerptLength,
+		category,
+		order,
+		orderBy
+	} = attributes;
+
+	const { categoryList } = useSelect( ( select ) => {
+		const { getEntityRecords } = select( coreStore );
+		const query = { hide_empty: true };
+		return {
+			categoryList: getEntityRecords( 'taxonomy', 'category', query ),
 		};
-	}
+	}, [] );
 
-	componentDidMount() {
-		
-		this.isStillMounted = true;
-		this.fetchRequest = apiFetch( {
-			path: addQueryArgs( '/wp/v2/categories' ),
-		} ).then(
-			( categoriesList ) => {
-				if ( this.isStillMounted ) {
-					this.setState( { categoriesList } );
-				}
-			}
-		).catch(
-			() => {
-				if ( this.isStillMounted ) {
-					this.setState( { categoriesList: [] } );
-				}
-			}
-		);
-	}
 
-	componentWillUnmount() {
-		this.isStillMounted = false;
-	}
-
-	render() {
-		
-		const {
-			attributes,
-			latestPosts
-		} = this.props;
-
-		const {
-            limit,
-            columnsSmall,
-			columnsMedium,
-			excerptLength,
-			showDate,
-			style,
-			textAlignment,
-			imageSize,
-			roundImages,
-            columnsLarge,
-            showImages,
-        } = attributes;
-
-		const { categoriesList } = this.state;		
-
-		const hasPosts = Array.isArray( latestPosts ) && latestPosts.length;
-
-		const displayPosts = Array.isArray( latestPosts ) && latestPosts.length > limit ? latestPosts.slice( 0, limit ) : latestPosts;
-
-		const hasFeaturedImage = some( displayPosts, 'featured_media_object' );
-
-		const postClasses = [
-			roundImages ? "ctx-round-image" : false,
-			`cols-small-${columnsSmall}`,
-			`cols-medium-${columnsMedium}`,
-			`cols-large-${columnsLarge}`,
-			style === "list" ? "ctx-image-side" : "ctx-image-top",
-			"posts",
-			`ctx-text-align-${textAlignment}`
-		].filter(Boolean).join(" ");
-
-		return (
-			
-			<Fragment>
-				<Inspector
-						{ ...this.props }
-						categoriesList={ categoriesList }
-						postCount={ latestPosts && latestPosts.length }
-						hasFeaturedImage={ hasFeaturedImage }
-						hasPosts={ hasPosts }
-				/>
-				<Toolbar
-						{ ...this.props }
-				/>
-				<Fragment>
-				{ !hasPosts && <div><Spinner /> Suche nach Beiträgen...</div> }
-				{ hasPosts && <div className={postClasses}>
-					{displayPosts.map(post => {     
-
-						
-						var featuredImageUrl = post.featured_media_object ? post.featured_media_object.media_details.url : null;
-						if (post.featured_media_object) {
-							if (post.featured_media_object.media_details.sizes.qlarge) {
-								featuredImageUrl = post.featured_media_object ? post.featured_media_object.media_details.sizes.qlarge.source_url : null;
-							}
-						}
-
-						let excerpt = post.excerpt.rendered;
-						if ( post.excerpt.raw === '' ) {
-							excerpt = post.content.raw;
-						}
-
-						const rawDate = new Date(post.date);
-						const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
-						const date = rawDate.toLocaleDateString(navigator.language, options);
-
-						const excerptElement = document.createElement( 'div' );
-						excerptElement.innerHTML = excerpt;
-						excerpt = excerptElement.textContent || excerptElement.innerText || ''
-						
-						return( 
-							<div className="ctx-post">
-								
-								{ showImages && featuredImageUrl &&
-									<div style={{width: `${imageSize}%`}} className="ctx-post-image">
-										<img  src={featuredImageUrl}></img>
-									</div>
-								}
-								<div className="ctx-post-content">
-									<h4>{post.title.rendered.trim()}</h4>
-									{ showDate &&
-										<time>{date}</time>
-									}
-									{ excerptLength > 0 &&
-										<p>
-											<RawHTML key="html">
-												{ excerptLength < excerpt.trim().split( ' ' ).length ?
-													excerpt.trim().split( ' ', excerptLength ).join( ' ' ) + '…' :
-													excerpt.trim().split( ' ' ).join( ' ' ) 
-												}
-											</RawHTML>
-										</p>
-									}
-									</div>
-							</div>
-						);
-					})}
-				</div>}
-				</Fragment>
-				
-			
-			</Fragment>
-		);
-	};
-
-}
-
-export default compose( [
-	withSelect( ( select, props ) => {
-		const { 
-			order, 
-			orderBy, 
-			categories,
-			limit
-		} = props.attributes;
-		const { getEntityRecords } = select( 'core' );
-		const latestPostsQuery = pickBy( {
-			categories,
+	const postList = useSelect( ( select ) => {
+		const { getEntityRecords, getMedia } = select( coreStore );		
+		const categories = category == "" ? [] : [category]
+		const query = { 
+			categories: categories, 
+			per_page: limit, 
 			order,
 			orderby: orderBy,
-			per_page: limit,
-		}, ( value ) => ! isUndefined( value ) );
-
-		let latestPosts = getEntityRecords( 'postType', 'post', latestPostsQuery );
-		if ( latestPosts ) {
-			latestPosts = latestPosts.map( ( post ) => {
-				return {
-					...post,
-					featured_media_object: post.featured_media && select( 'core' ).getMedia( post.featured_media ),
-				};
-			} );
+		};
+		const posts = getEntityRecords( 'postType', 'post', query );
+		
+		if(! Array.isArray( posts )) {
+			return posts;
 		}
 
-		return {
-			latestPosts,
-		};
-	} ),
-] )( PostsEdit );
+		return posts.map( ( post ) => {
+				if ( ! post.featured_media ) return post;
+
+				const image = getMedia( post.featured_media );
+				
+				let url = get(
+					image,
+					[
+						'media_details',
+						'sizes',
+						'qlarge',
+						'source_url',
+					],
+					null
+				);
+				if ( ! url ) {
+					url = get( image, 'source_url', null );
+				}
+				const featuredImageInfo = {
+					url,
+					// eslint-disable-next-line camelcase
+					alt: image?.alt_text,
+				};
+				return { ...post, featuredImageInfo };
+		  }) 
+		
+	}, [ category, limit, order, orderBy] );
+
+
+	const getCategoriesList = ( ) => {
+		if ( ! categoryList?.length ) {
+			return [];
+		}
+
+		return categoryList;
+	};
+
+	const getPosts = ( ) => {
+		if ( ! postList?.length ) {
+			return [];
+		}
+
+		return postList;
+	};
+
+	
+
+	const blockProps = useBlockProps({
+		className: [
+			"columns-" + columnsLarge,
+			showImages ? "hasImage" : false,
+			dropShadow ? "hover" : false,
+			"style-" + style,
+			"text-" + textAlignment,
+			roundImages ? "round-images" : false
+		].filter(Boolean).join(" ")
+	});
+
+	const inspectorControls = (
+		<InspectorControls>
+				<PanelBody
+					title={__('Daten', 'ctx-blocks')}
+					initialOpen={true}
+				>
+					<QueryControls
+						order={ order }
+						orderBy={ orderBy }
+						categoriesList={ getCategoriesList() }
+						selectedCategoryId={ category }
+						numberOfItems= {limit}
+						onOrderChange={ ( value ) => setAttributes( { order: value } ) }
+						onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
+						onCategoryChange={ ( value ) => setAttributes( { category: value } ) }
+						onNumberOfItemsChange={ ( value ) => setAttributes( { limit: value } ) }
+					/>
+					
+				</PanelBody>
+				<PanelBody
+					title={__('Appearance', 'ctx-blocks')}
+					initialOpen={true}
+				>
+					
+					<RangeControl
+						label={__("Columns on small screens", 'ctx-blocks')}
+						max={ 6 }
+						min={ 1 }
+						help={__("ex. Smartphones", 'ctx-blocks')}
+						onChange={(value) => {setAttributes( { columnsSmall: value })}}
+						value={ columnsSmall }
+					/>
+				
+			
+					<RangeControl
+						label={__("Columns on medium screens")}
+						max={ 6 }
+						min={ 1 }
+						help={__("Tablets and smaller screens", 'ctx-blocks')}
+						onChange={(value) => {setAttributes( { columnsMedium: value })}}
+						value={ columnsMedium }
+					/>
+		
+					<RangeControl
+						label={__("Columns on large screens", 'ctx-blocks')}
+						max={ 6 }
+						min={ 1 }
+						help={__("Desktop screens", 'ctx-blocks')}
+						onChange={(value) => {setAttributes( { columnsLarge: value })}}
+						value={ columnsLarge }
+					/>
+					
+				</PanelBody>
+
+				<PanelBody
+					title={__('Posts', 'ctx-blocks')}
+					initialOpen={true}
+				>
+					<PanelRow>
+						<ToggleControl
+							label={ __("Hover-effect", 'ctx-blocks')}
+							checked={ dropShadow }
+							onChange={ (value) => setAttributes({ dropShadow: value }) }
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
+							label={ __("Show post images", 'ctx-blocks')}
+							checked={ showImages }
+							onChange={ (value) => setAttributes({ showImages: value }) }
+						/>
+					</PanelRow>
+					<PanelRow>
+						<label className="components-base-control__label" for="inspector-range-control-4">Stil</label>
+						<div className="styleSelector">
+								<Button onClick={ () => setAttributes({ style: "list" }) } className={style == "list" ? "active" : ""}>
+									<Icon size="64" className="icon" icon={icons.list}/>
+									<div>Liste</div>
+								</Button>
+								<Button onClick={ () => setAttributes({ style: "cards" }) } className={style == "cards" ? "active" : ""}>
+									<Icon size="64" className="icon" icon={icons.cards}/>
+									<div>Karten</div>
+								</Button>
+						</div>
+						
+					</PanelRow>
+					{ showImages &&
+					<Fragment>
+						<PanelRow>
+							<ToggleControl
+								label={ __("Round images", 'ctx-blocks')}
+								checked={ roundImages }
+								onChange={ (value) => setAttributes({ roundImages: value }) }
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label={ __("Show date", 'ctx-blocks')}
+								checked={ showDate }
+								onChange={ (value) => setAttributes({ showDate: value }) }
+							/>
+						</PanelRow>
+						<RangeControl
+							label={__("Image size", 'ctx-blocks')}
+							max={ 100 }
+							min={ 0 }
+							help={__("Percent of width", 'ctx-blocks')}
+							onChange={(value) => {setAttributes( { imageSize: value })}}
+							value={ imageSize }
+						/>
+						
+					</Fragment>
+					}
+					<RangeControl
+						label={__("Length of preview text", 'ctx-blocks')}
+						max={ 200 }
+						min={ 0 }
+						help={__("Number of words", 'ctx-blocks')}
+						onChange={(value) => {setAttributes( { excerptLength: value })}}
+						value={ excerptLength }
+					/>
+				</PanelBody>
+			</InspectorControls>
+	)
+
+	return (
+		
+		<>
+			{ inspectorControls }
+			<BlockControls>
+				<AlignmentToolbar
+					value={ textAlignment }
+					onChange={ (event) => setAttributes({ textAlignment: event }) }
+				/>
+			</BlockControls>
+			<div { ...blockProps }>
+				
+					{getPosts().map((post, index) => {
+					
+					// unfortunatedly the excerpt sometimes comes only prerendered, which diusturbs trimming to excerpt length
+					let excerpt = post.excerpt.raw == "" ? post.excerpt.rendered : post.excerpt.raw;
+					if(post.excerpt.raw == "") {
+						const excerptElement = document.createElement( 'div' );
+						excerptElement.innerHTML = excerpt;
+						excerpt = excerptElement.textContent || excerptElement.innerText || '';
+					}
+
+
+					const postExcerpt = excerptLength < excerpt.trim().split( ' ' ).length ? (
+							<>
+								{ excerpt
+									.trim()
+									.split( ' ', excerptLength )
+									.join( ' ' ) }
+								{ /* translators: excerpt truncation character, default …  */ }
+								{ __( ' … ' ) }
+								<a href={ post.link } rel="noopener noreferrer">
+									{ __( 'Read more' ) }
+								</a>
+							</>
+						) : (
+							excerpt
+						);
+
+					return <div className="post-card" key={index}>
+						{showImages && <img src={post.featuredImageInfo.url} />}
+						<div className="content">
+						<h4>{post.title.rendered}</h4>
+						{ showDate && <span>{format("j. F Y", post.date)}</span> }
+						{ style == "cards" && <p>{postExcerpt}</p>}
+						</div>
+					</div>
+					})}
+				
+			</div>
+		</>
+	);
+
+}

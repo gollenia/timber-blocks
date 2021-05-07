@@ -1,7 +1,3 @@
-/**
- * External dependencies.
- */
-import { noop } from 'lodash';
 
 /**
  * WordPress dependencies.
@@ -9,18 +5,18 @@ import { noop } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
 
-const CustomAppender = ( { onClick = noop } ) => {
+const CustomAppender = ( { onClick } ) => {
 	return (
 		
 			<Button
 				isSecondary
 				icon="insert"
-				label={ __( 'Neue Spalte', 'ctxblocks' ) }
+				label={ __( 'New column', 'ctx-blocks' ) }
 				labelPosition="bottom"
 				
 				onClick={ onClick }
 			>
-				{ __( 'Spalte hinzufügen', 'ctxblocks' ) }
+				{ __( 'Add column', 'ctx-blocks' ) }
 			</Button>
 	
 	);

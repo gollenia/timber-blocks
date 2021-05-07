@@ -20,8 +20,9 @@ const { name, category, attributes } = metadata;
 
 const settings = {
 	title: __( 'Navigation', 'ctx-blocks' ),
-	description: __( 'Zeigt eine Liste von Kategorien oder Seiten an', 'ctx-blocks' ),
+	description: __( 'Shows a list of pages or posts in a given category or parent page', 'ctx-blocks' ),
 	icon,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
 		__( 'pages', 'ctx-blocks' ),

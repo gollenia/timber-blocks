@@ -1,4 +1,4 @@
-import edit from './edit';
+import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
@@ -10,16 +10,17 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Fortschrittsbalken', 'ctxblocks' ),
-	description: __( 'Zeigt an, wie viel von einem bestimmten Wert bereits erreicht ist.', 'ctxblocks' ),
+	title: __( 'Progress Bar', 'ctx-blocks' ),
+	description: __( 'Shows a progress bar with a percentual value', 'ctx-blocks' ),
+	apiVersion: 2,
 	icon,
 	keywords: [
 		'ctxblocks',
-		__( 'progress', 'ctxblocks' ),
-		__( 'value', 'ctxblocks' ),
+		__( 'progress', 'ctx-blocks' ),
+		__( 'value', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: compose([withColors('colorBar', 'colorBackground')])(edit),
+	edit: compose([withColors('colorBar', 'colorBackground')])(Edit),
 	save: () => { return null; }
 };
 

@@ -1,7 +1,7 @@
 /**
  * Internal Dependencies
  */
-import edit from './edit';
+import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
 import { InnerBlocks } from '@wordpress/block-editor';
@@ -20,16 +20,17 @@ const { __ } = wp.i18n;
 const { name, category, attributes } = metadata;
 
 const settings = {
-	title: __( 'Modal', 'ctxblocks' ),
-	description: __( 'Modal, dass auf Knopfdruck geöffnet werden kann', 'ctxblocks' ),
+	title: __( 'Modal', 'ctx-blocks' ),
+	description: __( 'Window to be displayed on button press', 'ctx-blocks' ),
 	icon,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
 		__( 'url', 'ctx-blocks' ),
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit,
+	edit: Edit,
 	save: () => { return (<InnerBlocks.Content />); }
 };
 

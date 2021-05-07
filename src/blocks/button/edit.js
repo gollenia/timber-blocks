@@ -2,65 +2,65 @@
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { Component, Fragment } from '@wordpress/element';
+import { Fragment } from '@wordpress/element';
+import { useBlockProps, RichText  } from '@wordpress/block-editor';
+
 
 /**
  * Internal dependencies
  */
-import contrast  from '../../common/utils/contrast';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
-export default class ButtonEdit extends Component {
-	render() {
-		const {
-			attributes,
-			buttonColor,
-			className,
-		} = this.props;
-
-		const {
+export default function Edit( {...props} ) {
+	const {
+		attributes: {
 			title,
 			size,
 			isLink,
 			outline,
-			buttonAlignment
-		} = attributes
+			buttonAlignment,
+		},
+		setAttributes,
+		buttonColor,
+		className,
+	} = props;
 
-		var classes = [
+	var classes = [
 			className || false,
 			"ctx-button",
 			size || false,
 			outline ? "btn-outline" : false
-		].filter(Boolean).join(" ");
+	].filter(Boolean).join(" ");
 
-		var color = "#000";
-		if(buttonColor.dark) {
-			color = "#fff"
-		}
+	var textColor = props.colorUtils.getMostReadableColor(buttonColor.color);
 
-		var style = {
-            background: isLink ? "none" : ( outline ? "none" : buttonColor.color ),
-            border: isLink ? "1px solid transparent" : "1px solid " + buttonColor.color,
-            color: isLink ? buttonColor.color : (outline ? buttonColor.color : color)
-		}
-		
-		return (
-			<Fragment>
-				<Inspector
-						{ ...this.props }
-				/>
-				<Toolbar
-						{ ...this.props }
-				/>
-				<div style={{textAlign: buttonAlignment}}>
-					<a style={style} type="button" className={classes}>
-						{title === "" && <Fragment>{__('Add a title', 'ctx-blocks')}</Fragment>}
-						{title !== "" && <Fragment>{title}</Fragment>}
-					</a>
-				</div>
-			</Fragment>
-		);
-	};
+	var style = {
+          background: buttonColor.color,
+          border: isLink ? "1px solid transparent" : "1px solid " + buttonColor.color,
+          color: isLink ? buttonColor.color : (outline ? buttonColor.color : textColor),
+		display: 'inline-block'
+	}
 
+	return (
+		<Fragment>
+			<Inspector
+					{ ...props }
+			/>
+			<Toolbar
+					{ ...props }
+			/>
+			<div { ...useBlockProps() } style={{textAlign: buttonAlignment}}>
+			<span style={style} className={ classes }>
+			<RichText
+				tagName="span"
+				value={ title }
+				onChange={ (value) => setAttributes({ title: value }) }
+				placeholder={ __( 'Button title', 'ctx-blocks' ) }
+				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+			/>
+			</span>
+			</div>
+		</Fragment>
+	);
 }

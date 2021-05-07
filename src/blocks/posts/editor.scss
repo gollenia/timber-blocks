@@ -30,34 +30,52 @@
 .ctx-post {
     display: flex;
     h4 {
-        margin-bottom: 0 !important
+        
     }
+    background: #fff;
 }
 
-.ctx-image-side  {
+.style-list  {
     h4 {
-        margin-top: 0 !important
+        margin-left: 10px;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
     }
     .ctx-post-image {
         flex-shrink: 0;
-        margin-right: 20px;;
+        margin-right: 20px;
+    }
+    img {
+        width: 30%;
+    }
+    .post-card {
+        align-items: center;
+    }
+    span {
+        color: #999;
+        font-size: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
-.ctx-image-top {
-    .ctx-post {
-        flex-direction: column;
-        padding-left: 5px;
-        padding-right: 5px;
-        background: #fff;
-        img {
-            margin-left: -5px;
-            margin-right: -5px;
-        }
+.style-cards {
+    p, span {
+        margin: 0px !important;
+        padding: 0px 10px;
+    }
+    h4 {
+        margin: 5px 0px !important;
+        padding: 0px 10px;
+    }
+    span {
+        color: #999;
+        font-size: 14px;
     }
 }
 
 .ctx-round-image img {
     border-radius: 100%;
+    width: 70%;
 }
 
 .ctx-text-align-center {
@@ -86,5 +104,51 @@
 
     &.active {
         border: 2px solid #007cba;
+    }
+}
+
+
+@for $i from 1 through 12 {
+    .wp-block-ctx-blocks-posts.columns-#{$i} {
+        display: grid;
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
+
+
+.wp-block-ctx-blocks-posts {
+    grid-gap: 1em;
+    div.post-card {
+        background-color: #fff;
+        h3, p { padding:10px; }
+    }
+    &.hover {
+        div.post-card:hover {
+            box-shadow: 0px 1px 16px #999;
+        }
+    }
+    &.style-cards {
+        &.round-images {
+            div.post-card { padding: 10px; text-align: center;}
+            img {
+                margin-top: 20px; margin-bottom: 20px;
+                border-radius: 50%;
+            }
+            h3, p { margin:-10px; }
+        }
+    }
+    
+    &.style-list {
+        div.post-card {
+            display: flex;
+            flex-direction: row;
+            img {
+                object-fit: cover;
+            }
+        }
+        &.round-images img {
+            margin-top: 10px; margin-bottom: 10px; margin-left: 10px;
+            border-radius: 50%;
+        }
     }
 }

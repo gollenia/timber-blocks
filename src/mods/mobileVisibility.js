@@ -52,16 +52,16 @@ const withVisibilityControl = createHigherOrderComponent( ( BlockEdit ) => {
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Sichtbarkeit' ) }
+						title={ __( 'Visibility', 'ctx-blocks' ) }
 						initialOpen={ false }
 					>
 						<ToggleControl
-							label={ __( 'Auf großen Bildschirmen ausblenden' ) }
+							label={ __( 'Hide on large screens', 'ctx-blocks' ) }
 							checked={ hiddenDesktop }
 							onChange={ ( value ) => { setAttributes( { hiddenDesktop: value,} );} }
 						/>
                         <ToggleControl
-							label={ __( 'Auf Smartphones ausblenden' ) }
+							label={ __( 'Hide on mobile devices', 'ctx-blocks' ) }
 							checked={ hiddenMobile }
 							onChange={ ( value ) => { setAttributes( { hiddenMobile: value,} );} }
 						/>

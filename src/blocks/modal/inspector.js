@@ -2,61 +2,55 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component, Fragment } from '@wordpress/element';
-import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { BaseControl, ToggleControl, SelectControl, TextControl, PanelBody, PanelRow, Button, ButtonGroup } from '@wordpress/components';
-import map from 'lodash/map';
+import { Component } from '@wordpress/element';
+import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { ToggleControl, SelectControl, TextControl, PanelBody, PanelRow } from '@wordpress/components';
+
 /**
  * Inspector controls
  */
 class Inspector extends Component {
 	render() {
 		const {
-			attributes,
+			attributes: {
+                buttonTitle,
+                buttonSize,
+                buttonIsLink,
+                modalFull,
+                modalContainer,
+                modalCloseButton,
+                modalCenter,
+                modalScroll,
+                modalHasVideo,
+                modalVideoUrl
+            },
             setAttributes,
             buttonColor,
             setButtonColor
-		} = this.props;
-
-		const {
-            buttonTitle,
-            buttonSize,
-            buttonIsLink,
-            modalFull,
-            modalContainer,
-            modalTitle,
-            modalCloseButton,
-            modalCenter,
-            modalScroll,
-            modalHasVideo,
-            modalVideoUrl
-        } = attributes;
-        
-        
+		} = this.props;       
 
 		return (
-			<Fragment>
+			
 				<InspectorControls>
                     <PanelBody
-                        title={__('Button-Einstellungen', 'ctxblocks')}
+                        title={__('Button settings', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <TextControl
-                            label={__("Beschriftung", 'ctxblocks')}
+                            label={__("Description", 'ctx-blocks')}
                             value={ buttonTitle }
-                            placeholder="Text auf dem Button"
                             onChange={ (value) => setAttributes({ buttonTitle: value }) }
                         />
                         
                         
                         <PanelRow>
                         <SelectControl
-                                    label='Größe'
+                                    label='Size'
                                     value={ buttonSize }
                                     options={ [
-                                        { label: 'Normal', value: '' },
-                                        { label: 'Klein', value: 'small' },
-                                        { label: 'Groß', value: 'large' },
+                                        { label: __('Default', "ctx-blocks"), value: '' },
+                                        { label: __('Small', "ctx-blocks"), value: 'small' },
+                                        { label: __('Large', "ctx-blocks"), value: 'large' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { buttonSize: event } ) } }
                                 />
@@ -64,7 +58,7 @@ class Inspector extends Component {
                         
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Als Link anzeigen", 'ctxblocks')}
+                                label={ __("Show as link", 'ctx-blocks')}
                                 checked={ buttonIsLink }
                                 onChange={ (value) => setAttributes({ buttonIsLink: value }) 
                                 }
@@ -73,10 +67,10 @@ class Inspector extends Component {
                         
                     </PanelBody>
                     <PanelColorSettings
-                            title="Button-Farbe"
+                            title={ __("Button color", "ctx-blocks") }
                             colorSettings={[
                                 {
-                                    label: 'Legen Sie eine Farbe für den Button fest',
+                                    label: __("Select a color for the button", "ctx-blocks"),
                                     onChange: setButtonColor ,
                                     value: buttonColor.color,
                                     disableCustomColors: true,
@@ -84,25 +78,24 @@ class Inspector extends Component {
                             ]}
                     />
                     <PanelBody
-                        title={__('Modal-Einstellungen', 'ctxblocks')}
+                        title={__('Window settings', 'ctx-blocks')}
                         initialOpen={true}
                     >
                        
                         <PanelRow>
                             <SelectControl
-                                    label='"Schliessen"-Knopf'
+                                    label={ __('Close button', "ctx-blocks")}
                                     value={ modalCloseButton }
                                     options={ [
-                                        { label: 'Normal', value: 'uk-modal-close-default' },
-                                        { label: 'Ohne', value: 'uk-hidden' },
-                                        { label: 'Außerhalb', value: 'uk-modal-close-outside' },
+                                        { label: 'Default', value: '' },
+                                        { label: 'No close button', value: 'hidden' },
                                     ] }
                                     onChange={ ( event ) => { setAttributes( { modalCloseButton: event } ) } }
                                 />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Auf Container begrenzen", 'ctxblocks')}
+                                label={ __("Limit to container size", 'ctx-blocks')}
                                 checked={ modalContainer }
                                 onChange={ (value) => setAttributes({ modalContainer: value }) 
                                 }
@@ -110,7 +103,7 @@ class Inspector extends Component {
                             </PanelRow>
                             <PanelRow>
                             <ToggleControl
-                                label={ __("Horizonzal zentriert anzeigen", 'ctxblocks')}
+                                label={ __("Align centered", 'ctx-blocks')}
                                 checked={ modalCenter }
                                 onChange={ (value) => setAttributes({ modalCenter: value }) 
                                 }
@@ -118,7 +111,7 @@ class Inspector extends Component {
                             </PanelRow>
                             <PanelRow>
                             <ToggleControl
-                                label={ __("Volle Bildschirmgröße", 'ctxblocks')}
+                                label={ __("Full screen size", 'ctx-blocks')}
                                 checked={ modalFull }
                                 onChange={ (value) => setAttributes({ modalFull: value }) 
                                 }
@@ -126,7 +119,7 @@ class Inspector extends Component {
                             </PanelRow>
                             <PanelRow>
                             <ToggleControl
-                                label={ __("Scroll-Leiste anzeigen", 'ctxblocks')}
+                                label={ __("Show scroll bar", 'ctx-blocks')}
                                 checked={ modalScroll }
                                 onChange={ (value) => setAttributes({ modalScroll: value }) 
                                 }
@@ -134,7 +127,7 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl
-                                label={ __("Video einbetten", 'ctxblocks')}
+                                label={ __("Embed video", 'ctx-blocks')}
                                 checked={ modalHasVideo }
                                 onChange={ (value) => setAttributes({ modalHasVideo: value }) 
                                 }
@@ -142,16 +135,16 @@ class Inspector extends Component {
                         </PanelRow>
                         <PanelRow>
                             <TextControl
-                                label={__("Video-Url", 'ctxblocks')}
+                                label={__("Video URL", 'ctx-blocks')}
                                 disabled={!modalHasVideo}
                                 value={ modalVideoUrl }
-                                placeholder="Text auf dem Button"
+                                placeholder=""
                                 onChange={ (value) => setAttributes({ modalVideoUrl: value }) }
                             />
                         </PanelRow>
                     </PanelBody>
                 </InspectorControls>
-			</Fragment>
+			
 		);
 	}
 }

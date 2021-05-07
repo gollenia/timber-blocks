@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import edit from './edit';
+import Edit from './edit';
 import icons from './icons';
 import metadata from './block.json';
 
@@ -20,15 +20,16 @@ const { name, category, attributes } = metadata;
 
 const settings = {
 	title: __( 'Posts', 'ctx-blocks' ),
-	description: __( 'Zeigt eine Liste von Posts an', 'ctx-blocks' ),
+	description: __( 'Shows a list or cards of Posts', 'ctx-blocks' ),
 	icon: icons.posts,
+	apiVersion: 2,
 	keywords: [
 		'ctxblocks',
 		__( 'alert', 'ctx-blocks' ),
 		__( 'info', 'ctx-blocks' ),
 	],
 	attributes,
-	edit,
+	edit: Edit,
 	save() { return null; }
 };
 

@@ -26,21 +26,9 @@
 			"type": "integer",
 			"default": 3
         },
-        "autoFlow": {
+		"flowColumns": {
 			"type": "boolean",
             "default": false
-		},
-        "autoFlowDense": {
-			"type": "boolean",
-            "default": false
-		},
-		"autoFlowDirection": {
-			"type": "string",
-            "default": "row"
-		},
-		"autoFlowRows": {
-			"type": "integer",
-            "default": "3"
 		}
         
 	}
