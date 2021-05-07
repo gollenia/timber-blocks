@@ -1,12 +1,14 @@
-<li class="description-item flex py-2 items-center">
+<li class="description-item">
     {% if image.subtype == 'svg+xml' %}
-        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.url}}">
+        <figure>
+        {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
+        </figure>
     {% else %}
-        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.sizes.qmedium.url}}">
+        <img src="{{image.sizes.qmedium.url}}">
     {% endif %}
     <div class="">
-    <h5>{{title}}</h5>
-    <p>{{text}}</p>
+        <b>{{title}}</b>
+        <span class="block">{{text}}</span>
     </div>
 </li>
 

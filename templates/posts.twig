@@ -1,18 +1,30 @@
 
-<div class="posts grid grid-cols-{{columnsSmall}} md:grid-cols-{{columnsMedium}} lg:grid-cols-{{columnsLarge}}">
+<div class="posts gap-12 grid grid-cols-{{columnsSmall}} md:grid-cols-{{columnsMedium}} lg:grid-cols-{{columnsLarge}}">
     {% for item in posts %}
             
             <a 
-                class="{% if function("get_the_ID") == item.ID %}text-blue{% endif %} block flex items-center px-2 py-1 {{ style == "list" ? "flex-row" : "flex-col" }}"            
+                class="
+                overflow-hidden
+                {% if dropShadow %}hover {% endif %}
+                {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
+                card items-center bg-white
+                {{ style == "list" ? "flex-row" : "flex-col" }}
+                {{loop.first ? "rounded-tl-3xl"}}
+                {{loop.last ? "rounded-br-3xl"}}
+                "            
                 href="{{ function("get_permalink", item.ID) }}"
             >
             {% if showImages %}
-                <img width="{{imageSize}}%" class="{{roundImages ? "rounded-full"}}" src="{{ item.thumbnail.src('qlarge') }}">
+                <img width="{{imageSize}}%" class="{{roundImages ? "rounded-full" : "object-cover h-64 w-full" }}" src="{{roundImages ? item.thumbnail.src('qlarge') : item.thumbnail.src('qlarge') }}">
             {% endif %}
-                <div class="flex flex-col">
-                    <span class="inline-block">{{item.post_title}}</span>
-                    <p>
+                <div class="flex flex-grow flex-col p-8 w-full">
+                    <span class="block font-bold text-primary inline-block">{{item.post_title}}</span>
+                    {% if showDate %}<span class="block text-gray">{{item.post_date|date("j. M. Y")}}</span>{% endif %}
+                    <p class="text-black">
                         {{item.post_excerpt|excerpt(excerptLength)}}
+                    </p>
+                    <p class="text-right mt-auto">
+                        <span class="button primary">Weiterlesen</span>
                     </p>
                 </div>
             </a>

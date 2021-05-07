@@ -1,22 +1,7 @@
+{% set bg = get_color_by_slug(backgroundColor) %}
 
-
-{% if url %}
-<a href="{{url}}" 
-{% else %}
-<div 
-{% endif %}
-class="card flex 
-    {{textAlign == "center" ? "items-center text-center"}} 
-    {{textAlign == "right" ? "items-end text-right"}}
-    {{imagePosition == "top" ? "flex-col"}} 
-    {{imagePosition == "bottom" ? "flex-col-reverse"}} 
-    {{imagePosition == "left" ? "flex-row items-center"}} 
-    {{imagePosition == "right" ? "flex-row-reverse items-center"}} 
-    {{ isFirst ? " is-first"}}
-    {{ isLast ? " is-last"}}
-    bg-{{backgroundColor}}{{transparent ? "-transparent bg-blur"}} {{hover ? "hover:shadow-2xl" : ""}}
-    "
->
+<{{ url ? "a href='" ~ url ~ "'" : "div"}} style="background: {{bg.color}}{{transparent ? "aa"}}"
+class="card {{bg.brightness}} image-{{imagePosition}} items-{{textAlign}} text-{{textAlign}} {{ isFirst ? "first "}} {{ isLast ? "last"}} {{transparent ? " bg-blur"}} {{hover ? "hover"}}">
 
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
@@ -30,43 +15,10 @@ class="card flex
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
-            {% if imageRound %}
-            <img class="rounded-full 
-                    {{imagePosition == "top" ? "mb-0 m-4 lg:m-6"}} 
-                    {{imagePosition == "bottom" ? "mt-0 m-4 lg:m-6"}} 
-                    {{imagePosition == "left" ? "mr-0 ml-4 lg:ml-6 my-4 lg:my-6"}} 
-                    {{imagePosition == "right" ? "ml-0 mr-4 lg:mr-6 my-4 lg:my-6"}} 
-                    " 
-                src={{image.url}} srcset="
-                    {{image.sizes.qsmall.url}} {{image.sizes.qsmall.width}}w,
-                    {{image.sizes.qmedium.url}} {{image.sizes.qmedium.width}}w,
-                    {{image.sizes.qlarge.url}} {{image.sizes.qlarge.width}}w"
-                sizes = "(min-width: 1600px) 1200px, (min-width: 1400px) 1100px, (min-width:1000px) 900px, 100vw"
-                style="width: {{imageWidth}}%;"
-            >
-            {% else %}
-                {% if imagePosition == "left" or imagePosition == "right" %}
-                    <div style="width: {{imageWidth}}%; background-image: url('{{image.url}}')" class="self-stretch bg-cover bg-center"></div>
-                {% elseif imagePosition == "top" or imagePosition == "bottom" %}
-                    <img src={{image.url}} srcset="
-                    {{image.sizes.small.url}} {{image.sizes.small.width}}w,
-                    {{image.sizes.medium.url}} {{image.sizes.medium.width}}w,
-                    {{image.sizes.large.url}} {{image.sizes.large.width}}w"
-                    sizes = "(min-width: 1600px) 1200px, (min-width: 1400px) 1100px, (min-width:1000px) 900px, 100vw"
-                    width="{{imageWidth =="99" ? "100" : imageWidth}}%"
-                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}}"
-                    >
-                {% endif %}
-            {% endif %}
+                <img class="card-image" src="{{image.sizes.medium.url}}">
         {% endif %}
     {% endif %}
+    <span></span>
+    <div class="card-content">{{content|raw}}</div>
 
-    <div class="block flex-1
-    p-4 md:p-6 text-{{backgroundColor}}-contrast">{{content|raw}}</div>
-
-    
-{% if url %}
-</a>
-{% else %}
-</div> 
-{% endif %}
+{{ url ? "</a>" : "</div>"}}

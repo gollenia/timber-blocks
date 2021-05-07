@@ -1,21 +1,23 @@
-<div class="text-{{buttonAlignment}} py-4">
+{% set bg = get_color_by_slug(buttonColor) %}
+
+<div class="mt-auto text-{{buttonAlignment}} py-4">
 {% if outline %}
-<a class="{{fullWidth ? "width-full"}} inline-block bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} border border-primary hover:border-primary hover:text-{{buttonColor}}-contrast
-    {{ size == "small" ? "px-2 py-1 text-xs" }}
-    {{ size ?: "px-3 py-2" }}
-    {{ size == "large" ? "px-4 py-3 text-lg" }} 
+<a style="border-color: {{bg.color}}; color: {{bg.color}};" 
+    onmouseover="this.style.backgroundColor='{{bg.color}}';"
+    onmouseout="this.style.backgroundColor='transparent'"
+    class="outline {{bg.brightness}} button bg-transparent hover:text-{{buttonColor}}-contrast
+    {{ size == "small" ? "button-sm" }}
+    {{ size == "large" ? "button-lg" }} 
 " href="{{url}}">{{title}}</a>
 {% elseif isLink %}
-<a class="{{fullWidth ? "width-full"}} inline-block bg-none hover:bg-{{buttonColor}} text-{{buttonColor}} hover:text-{{buttonColor}}-contrast
-{{ size == "small" ? "px-2 py-1 text-xs" }}
-{{ size ?: "px-3 py-2" }}
-{{ size == "large" ? "px-4 py-3 text-lg" }} 
+<a style="color: {{bg.color}}" class="button bg-none
+    {{ size == "small" ? "button-sm" }}
+    {{ size == "large" ? "button-lg" }} 
 " href="{{url}}">{{title}}</a>
 {% else %}
-<a class="bg-{{buttonColor}} inline-block text-{{buttonColor}}-contrast hover:bg-{{buttonColor}}-darker 
-{{ size == "small" ? "px-2 py-1 text-xs" }}
-{{ size ?: "px-4 py-2" }}
-{{ size == "large" ? "px-6 py-3 text-lg" }}
+<a style="background: {{bg.color}}; border-color: {{bg.color}};" class="{{bg.brightness}} button
+    {{ size == "small" ? "button-sm" }}
+    {{ size == "large" ? "button-lg" }} 
 " href="{{url}}">{{title}}</a>
 {% endif %}
 </div>
