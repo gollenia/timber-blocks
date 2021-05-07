@@ -5,20 +5,23 @@ import Inspector from './inspector';
 import Toolbar from './toolbar';
 import contrast from '../../common/utils/contrast';
 
+import {useState} from '@wordpress/element';
+
 /**
  * Wordpress Dependencies
  */
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks, RichText} from '@wordpress/block-editor';
 
-export default function Edit({...props}) {
+const ALLOWED_BLOCKS = ['core/paragraph', 'core/heading', 'core/list', 'core/shortcode', 'ctx-blocks/button', 'ctx-blocks/image']
+
+export default function ModalEdit({...props}) {
 
 		const {
 			attributes: {
 				buttonTitle,
 				buttonSize,
 				buttonIsLink,
-				uniqueId,
 				buttonAlignment,
 				modalHasVideo,
 				modalVideoUrl,
@@ -29,7 +32,9 @@ export default function Edit({...props}) {
 			className
 		} = props;
 
-		var showModal = false;
+		const [showModal, setShowModal] = useState( false );
+
+		
 
 		var buttonClasses = [
 			className || false,
@@ -42,11 +47,8 @@ export default function Edit({...props}) {
 			color: buttonIsLink ? buttonColor.color : contrast(buttonColor.color) 
 		}
 
-		if(uniqueId == "") {
-			setAttributes({ uniqueId: "id" + (new Date()).getTime() });
-		}
 
-		blockProps = useBlockProps();
+		const blockProps = useBlockProps();
 		
 		return (
 			<div {...blockProps}>
@@ -57,13 +59,13 @@ export default function Edit({...props}) {
 						{ ...props }
 				/>
 				<div style={{textAlign: buttonAlignment}}>
-					<a style={buttonStyle} type="button" className={buttonClasses} onClick={showModal != showModal}>
+					<a style={buttonStyle} type="button" className={buttonClasses} onClick={() => {setShowModal(true)}}>
 						{buttonTitle === "" && <>{__("Add button title", "ctx-blocks")}</>}
 						{buttonTitle !== "" && <>{buttonTitle}</>}
 					</a>
 				</div>
 				{ showModal &&
-				<div className="backdrop" onClick={showModal = false}>
+				<div className="backdrop" onClick={() => {setShowModal(false)}}>
 				
 					<div className="modal">
 						{!modalHasVideo &&
@@ -86,7 +88,7 @@ export default function Edit({...props}) {
 							}
 							{!modalHasVideo &&
 							<InnerBlocks 
-								allowedBlocks={['core/paragraph', 'core/heading', 'core/list', 'core/shortcode', 'ctx-blocks/button', 'ctx-blocks/image']}
+								allowedBlocks={ALLOWED_BLOCKS}
 							/>}
 						</div>
 					</div>  
