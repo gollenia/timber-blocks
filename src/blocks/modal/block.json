@@ -22,10 +22,6 @@
 			"type": "string",
 			"default": "left"
 		},
-		"uniqueId": {
-			"type": "string",
-			"default": ""
-		},
 		"modalFull": {
 			"type": "boolean",
 			"default": false
