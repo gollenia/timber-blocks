@@ -3,22 +3,16 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import { Icon } from '@wordpress/components'
-import CustomAppender from './appender';
 import icons from './icons.js'
-import { createBlock } from '@wordpress/blocks';
-import { dispatch, select } from '@wordpress/data';
 
-export default function Edit({...props}) {
 
-	const insertNewItem = (clientId) => {
-		const newEvent = createBlock( 'ctx-blocks/grid-column' );
-		const parentBlock = select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ];
-		const childBlocks = parentBlock.innerBlocks;
-		dispatch( 'core/block-editor' ).insertBlock( newEvent, childBlocks.length, clientId );
-	}
+const ALLOWED_BLOCKS = ['ctx-blocks/grid-column']
+
+export default function GridRowEdit({...props}) {
+
+	
 
 	const {
-		clientId,
 		attributes: {
 			gapSize,
 			equalizer,
@@ -37,6 +31,8 @@ export default function Edit({...props}) {
 			'ctx-blocks/grid-column'
 		]
 	];
+
+	
 
 	var classes = [
 		`ctx-row ctx-row-cols-gap-${gapSize}`,
@@ -62,11 +58,10 @@ export default function Edit({...props}) {
 						{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
 					</div>
 				</div>
-				<div>
-				</div>
+				
 				<div className={classes}>
 					<InnerBlocks 	
-						allowedBlocks={['ctx-blocks/grid-column']}
+						allowedBlocks={ALLOWED_BLOCKS}
 						template={TEMPLATE}	
 						orientation="horizontal"
 					/>
