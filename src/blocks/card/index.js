@@ -2,7 +2,7 @@ import Edit from './edit';
 import icons from './icons';
 import metadata from './block.json';
 const { withColors } = wp.blockEditor;
-const { compose } = wp.compose;
+
 import { InnerBlocks } from '@wordpress/block-editor';
 
 
@@ -22,7 +22,8 @@ const settings = {
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: compose([withColors('backgroundColor')])(Edit),
+	edit: withColors({backgroundColor: 'backgroundColor'})(Edit),
+	
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
