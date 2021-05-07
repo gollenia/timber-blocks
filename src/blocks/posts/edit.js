@@ -168,7 +168,7 @@ export default function Edit({ attributes, setAttributes }) {
 				
 			
 					<RangeControl
-						label={__("Columns on medium screens")}
+						label={__("Columns on medium screens", 'ctx-blocks')}
 						max={ 6 }
 						min={ 1 }
 						help={__("Tablets and smaller screens", 'ctx-blocks')}
@@ -206,7 +206,7 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</PanelRow>
 					<PanelRow>
-						<label className="components-base-control__label" for="inspector-range-control-4">Stil</label>
+						<label className="components-base-control__label" htmlFor="inspector-range-control-4">Stil</label>
 						<div className="styleSelector">
 								<Button onClick={ () => setAttributes({ style: "list" }) } className={style == "list" ? "active" : ""}>
 									<Icon size="64" className="icon" icon={icons.list}/>
