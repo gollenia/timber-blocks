@@ -12,7 +12,7 @@ import { useBlockProps, RichText  } from '@wordpress/block-editor';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
-export default function Edit( {...props} ) {
+export default function ButtonEdit( {...props} ) {
 	const {
 		attributes: {
 			title,
