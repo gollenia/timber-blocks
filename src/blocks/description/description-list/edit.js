@@ -15,6 +15,8 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
+const ALLOWED_BLOCKS = ['ctx-blocks/description-item']
+
 export default function Edit({...props}) {
 
         const {
@@ -44,7 +46,7 @@ export default function Edit({...props}) {
 				/>
 				<div>
 					<InnerBlocks 
-						allowedBlocks={['ctx-blocks/description-item']}
+						allowedBlocks={ALLOWED_BLOCKS}
 						template={TEMPLATE}
 					/>	
 				</div>

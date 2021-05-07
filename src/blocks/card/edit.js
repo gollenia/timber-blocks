@@ -3,6 +3,8 @@ import Toolbar from './toolbar';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
+const ALLOWED_BLOCKS = ['core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
+
 export default function Edit({...props}) {
 
 		const {
@@ -62,7 +64,7 @@ export default function Edit({...props}) {
 					{ ...props }
 				/>
 				<div {...useBlockProps() } >
-					<div class="ctx-grabber">
+					<div className="ctx-grabber">
 						<label>{__('Card', 'ctx-blocks')}</label>
 					</div>
 					<div style={style} className={classes}>
@@ -89,7 +91,7 @@ export default function Edit({...props}) {
 						}
 						<div className="content">
 							<InnerBlocks 
-								allowedBlocks={['core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']}
+								allowedBlocks={ALLOWED_BLOCKS}
 								template={TEMPLATE}
 							/>
 						</div>
