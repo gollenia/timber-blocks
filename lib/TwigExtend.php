@@ -25,4 +25,6 @@ class TwigExtend {
 
         return $color;
     }
+
+   
 }
