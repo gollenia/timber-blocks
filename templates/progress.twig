@@ -1,8 +1,67 @@
-<div class="progress shadow w-full bg-{{colorBackground}}">
-    <div class="text-right bg-{{colorBar}} text-xs leading-none py-1 text-center text-white" style="width: {{percent}}%">
-        <span class="inline-block pr-2">{{percent}}%</span>
+{% set bg = get_color_by_slug(colorBackground) %}
+{% set fg = get_color_by_slug(colorBar) %}
+{% set percent = currentValue > maxValue ? 100 : (currentValue * 100 / maxValue)|round() %}
+{% set fullPercent = (currentValue * 100 / maxValue)|round() %}
+{% set id=random(2) %}
+
+
+<div id="progress-{{id}}" class="flex justify-between">
+    <div @scroll="alert();" style="color: {{fg.color}}" class="">
+        <div class="text-xs">{{currentDescription}}</div>
+        <div class="text-xl">{{ prefixedUnit ? unit : ""}} {{currentValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}} {{ not prefixedUnit ? unit : ""}}</div>
+    </div>
+    <div style="color: {{bg.color}}" >
+    <div class="text-xs">{{maxDescription}}</div>
+        <div class="text-xl">{{ prefixedUnit ? unit : ""}} {{maxValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}} {{ not prefixedUnit ? unit : ""}}</div>
     </div>
 </div>
-<span>
-    {{title}}
-</span>
+<div style="background: {{bg.color}}" class="progress rounded-full w-full">
+    <div id="bar-{{id}}" style="transition: width 4s ease-out; width: 0%; background: {{fg.color}}" class="rounded-full text-right text-xs leading-none py-1 text-center text-white">
+        <span id="value-{{id}}" class="inline-block pr-2">{{fullPercent}}%</span>
+    </div>
+</div>
+
+
+<script>
+
+decimalPlaces = {{decimalPlaces}}
+var isLoaded = false;
+
+function animateValue(id, start, end, duration) {
+    if (start === end) return;
+    var range = end - start;
+    var current = start;
+    var increment = end > start? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    var obj = document.getElementById(id);
+    var timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current + "%";
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+const replaceDecimalDot = ( value ) => {
+	return decimalPlaces ? value.replace(/.([^.]*)$/,'\,$1') : value;
+}
+
+var update = function(){
+	var element = document.querySelector('#progress-{{id}}');
+	var position = element.getBoundingClientRect();
+	// checking whether fully visible
+	if(position.top >= 0 && position.bottom <= window.innerHeight) {
+		var el = document.querySelector('#bar-{{id}}');
+        if(!isLoaded) {
+            el.style.width = "{{percent}}%"
+            animateValue("value-{{id}}", 0, {{fullPercent}}, 3000);
+        }
+        isLoaded = false;
+	}
+ 
+};
+window.addEventListener("scroll", update);
+window.addEventListener("resize", update);
+update();
+</script>

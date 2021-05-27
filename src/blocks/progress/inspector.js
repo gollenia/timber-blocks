@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { RangeControl, CheckboxControl, PanelBody, TextControl, PanelRow } from '@wordpress/components';
+import { RangeControl, CheckboxControl, PanelBody, TextControl, PanelRow,  __experimentalNumberControl as NumberControl } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -13,7 +13,16 @@ class Inspector extends Component {
 
 	render() {
 		const {
-			attributes,
+			attributes: {
+                title,
+                maxValue,
+                currentValue,
+                showValues,
+                unit,
+                prefixedUnit,
+                thousandSeparators,
+                decimalPlaces
+            },
             setAttributes,
             setColorBar,
             colorBar,
@@ -21,11 +30,6 @@ class Inspector extends Component {
             colorBackground,
         } = this.props;
 
-		const {
-            percent,
-            title,
-            showValue
-        } = attributes;
         
 		return (
 			<Fragment>
@@ -51,34 +55,65 @@ class Inspector extends Component {
                         title={__("Values", "ctx-blocks")}
                         initialOpen={true}
                     >
-                        <RangeControl
-                            label={__("Progresss Bar Value", "ctx-blocks")}
-                            value={ percent }
-                            onChange={(event) => {setAttributes( { percent: event })}}
-                            min={ 0 }
-                            max={ 100 }
+                        <NumberControl
+                            label={__("Max value", 'ctx-blocks')}
+                            value={ maxValue }
+                            onChange={ (event) => setAttributes({ maxValue: event }) }
                         />
+                        <NumberControl
+                            label={__("Current value", 'ctx-blocks')}
+                            value={ currentValue }
+                            onChange={ (event) => setAttributes({ currentValue: event }) }
+                        />
+                       
                         
                     </PanelBody>
                     <PanelBody
                         title={__("Labels", "ctx-blocks")}
                         initialOpen={true}
                     >
-                        <PanelRow>
-                        <TextControl
-                            label={__("Description", 'ctx-blocks')}
-                            value={ title }
-                            placeholder={__("Text under Progress Bar", "ctx-blocks")}
-                            onChange={ (event) => setAttributes({ title: event }) }
-                        />
-                        </PanelRow>
+                       
                         <PanelRow>
                         <CheckboxControl 
-                            label={__("Show Value", "ctx-blocks")}
-                            checked={ showValue }
-                            onChange={ (event) => setAttributes({ showValue: event })}
+                            label={__("Show Values", "ctx-blocks")}
+                            checked={ showValues }
+                            onChange={ (event) => setAttributes({ showValues: event })}
                         />
                         </PanelRow>
+                        { showValues && <PanelRow>
+                        <CheckboxControl 
+                            label={__("Separate Thousands", "ctx-blocks")}
+                            checked={ thousandSeparators }
+                            onChange={ (event) => setAttributes({ thousandSeparators: event })}
+                            hidden={ !showValues }
+                        />
+                        </PanelRow> }
+                        { showValues && <PanelRow>
+                            <RangeControl
+                                label={__("Decimal places", "ctx-blocks")}
+                                value={ decimalPlaces }
+                                onChange={(event) => {setAttributes( { decimalPlaces: event })}}
+                                min={ 0 }
+                                max={ 4 }
+                                hidden={ !showValues }
+                            />
+                        </PanelRow>}
+                        { showValues && <PanelRow>
+                            <TextControl
+                                label={__("Unit", 'ctx-blocks')}
+                                value={ unit }
+                                onChange={ (event) => setAttributes({ unit: event }) }
+                                hidden={ !showValues }
+                            />
+                        </PanelRow>}
+                        { ( showValues || unit != "" ) && <PanelRow>
+                        <CheckboxControl 
+                            label={__("Show unit before Value", "ctx-blocks")}
+                            checked={ prefixedUnit }
+                            onChange={ (event) => setAttributes({ prefixedUnit: event })}
+                            hidden={ unit == "" || !showValues }
+                        />
+                        </PanelRow> }
                     </PanelBody>
                 </InspectorControls>
 			</Fragment>
