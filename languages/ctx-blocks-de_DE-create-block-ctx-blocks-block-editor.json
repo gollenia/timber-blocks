@@ -529,13 +529,31 @@
             "Farben"
          ],
          "Color for low values": [
-            "Farbe für niedrige Werte"
+            "Balkenfarbe"
          ],
          "Color for medium values": [
-            "Farbe für mittlere Werte"
+            "Hintergrund"
          ],
          "Values": [
             "Werte"
+         ],
+         "Max value": [
+            "Maximalwert"
+         ],
+         "Current value": [
+            "Aktueller Wert"
+         ],
+         "Separate Thousands": [
+            "Tausender-Trennpunkte"
+         ],
+         "Decimal places": [
+            "Dezimalstellen"
+         ],
+         "Unit": [
+            "Einheit"
+         ],
+         "Show unit before Value": [
+            "Einheit vor dem Wert anzeigen"
          ],
          "Progresss Bar Value": [
             "Aktueller Wert"
@@ -546,8 +564,8 @@
          "Text under Progress Bar": [
             "Text unter dem Forschrittsbalken"
          ],
-         "Show Value": [
-            "Wer anzeigen"
+         "Show Values": [
+            "Werte anzeigen"
          ],
          "Section": [
             "Sektion"
