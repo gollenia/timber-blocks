@@ -2,9 +2,33 @@
 	"name": "ctx-blocks/progress",
 	"category": "common",
 	"attributes": {
-		"percent": {
+		"maxValue": {
+			"type": "string",
+			"default": "30"
+		},
+		"currentValue": {
+			"type": "string",
+			"default": "100"
+		},
+		"showValues": {
+			"type": "boolean",
+			"default": true
+		},
+		"unit": {
+			"type": "string",
+			"default": ""
+		},
+		"prefixedUnit": {
+			"type": "boolean",
+			"default": false
+		},
+		"thousandSeparators": {
+			"type": "boolean",
+			"default": false
+		},
+		"decimalPlaces": {
 			"type": "integer",
-			"default": 30
+			"default": 0
 		},
 		"colorBar": {
 			"type": "string",
@@ -18,9 +42,13 @@
 			"type": "string",
 			"default": ""
 		},
-		"showValue": {
-			"type": "boolean",
-			"default": true
+		"currentDescription": {
+			"type": "string",
+			"default": ""
+		},
+		"maxDescription": {
+			"type": "string",
+			"default": ""
 		}
 	}
 }
