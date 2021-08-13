@@ -2,7 +2,7 @@
 	"name": "ctx-blocks",
 	"version": "0.1.0",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
-	"author": "The WordPress Contributors",
+	"author": "kids-team Österreich",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -15,10 +15,12 @@
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^5.3.0",
-		"@wordpress/blocks": "^8.0.0",
-		"@wordpress/i18n": "^3.19.0"
+		"@wordpress/blocks": "^11.0.0",
+		"@wordpress/i18n": "^4.2.1"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^14.0.1"
+		"@wordpress/scripts": "^17.1.0",
+		"postcss-cli": "^8.0.0"
 	}
 }
+ 
