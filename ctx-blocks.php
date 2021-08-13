@@ -22,7 +22,7 @@ add_action( 'init', ['Contexis\\Utils\\Assets', 'register'] );
 $args = Contexis\Utils\Assets::register();
 
 // Register custom image sizes
-Contexis\Utils\ImageSizes::register();
+//Contexis\Utils\ImageSizes::register();
 
 // Add Twig functions
 add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
