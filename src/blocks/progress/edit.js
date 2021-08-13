@@ -33,7 +33,7 @@ export default function Edit({...props}) {
 			return parseInt(currentValue) > parseInt(maxValue) ? 100 : (currentValue * 100 / maxValue);
 		}
 
-		const fullPercent = (currentValue * 100 / maxValue);
+		const fullPercent = Math.round((currentValue * 100 / maxValue));
 
 		const textColor = props.colorUtils.getMostReadableColor(colorBar.color);
 
@@ -56,7 +56,7 @@ export default function Edit({...props}) {
 							value={ currentDescription }
 							onChange={ (value) => setAttributes({ currentDescription: value }) }
 							placeholder={__("Current value description...", 'ctx-blocks')}
-							keepPlaceholderOnFocus={true}
+							
 						/>
 						<div className="cur-value">{ (unit != "" && prefixedUnit) && <>{unit}</> } {decimalPlaces > 0 ? replaceDecimalDot(currentValueString) : currentValueString} { (unit != "" && !prefixedUnit) && <>{unit}</> }</div>
 					</div> 
@@ -67,7 +67,7 @@ export default function Edit({...props}) {
 							value={ maxDescription }
 							onChange={ (value) => setAttributes({ maxDescription: value }) }
 							placeholder={__("Max value description...", 'ctx-blocks')}
-							keepPlaceholderOnFocus={true}
+							
 						/>
 						<div className="max-value">{ (unit != "" && prefixedUnit) && <>{unit}</> } {decimalPlaces > 0 ? replaceDecimalDot(maxValueString) : maxValueString} { (unit != "" && !prefixedUnit) && <>{unit}</> }</div>
 					</div>

@@ -72,7 +72,7 @@ export default function Edit({...props}) {
 								value={ text }
 								onChange={ (value) => setAttributes({ text: value }) }
 								placeholder={__("Description", 'ctx-blocks')}
-								keepPlaceholderOnFocus={true}
+								
 							/>
 						}
 						{ contentType === "date" &&
