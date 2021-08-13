@@ -51,7 +51,7 @@ class Block implements BlockInterface {
         
         if(!file_exists($filename)) {
             
-            return false;
+            return [];
         }
         $string = file_get_contents($filename);
         return json_decode($string, true);
