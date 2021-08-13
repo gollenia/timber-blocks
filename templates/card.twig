@@ -15,7 +15,7 @@ class="card {{bg.brightness}} image-{{imagePosition}} items-{{textAlign}} text-{
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
-                <img class="card-image" src="{{image.sizes.medium.url}}">
+                <img class="card-image" src="{{image.sizes.large.url}}">
         {% endif %}
     {% endif %}
     <span></span>
