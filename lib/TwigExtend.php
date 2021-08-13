@@ -4,7 +4,7 @@ namespace Contexis\Utils;
 class TwigExtend {
 
     public static function add_to_twig($twig) {
-        $twig->addFunction( new \Timber\Twig_Function( 'get_color_by_slug', [__CLASS__,'get_color_by_slug'] ) );
+        $twig->addFunction( new \Twig\TwigFunction( 'get_color_by_slug', [__CLASS__,'get_color_by_slug'] ) );
         return $twig;
     }
 
