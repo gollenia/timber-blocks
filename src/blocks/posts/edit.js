@@ -85,7 +85,7 @@ export default function Edit({ attributes, setAttributes }) {
 					[
 						'media_details',
 						'sizes',
-						'qlarge',
+						'medium',
 						'source_url',
 					],
 					null

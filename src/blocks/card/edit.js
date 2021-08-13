@@ -72,7 +72,7 @@ export default function Edit({...props}) {
 						{ image && imageSide && !isSVG &&
 							<div className="image-side"
 								style={{
-									backgroundImage: `url(${image.sizes.small.url})`,
+									backgroundImage: `url(${image.sizes.large.url})`,
 									width: `${imageWidth}%`
 								}}
 							>
@@ -82,7 +82,7 @@ export default function Edit({...props}) {
 						{ image && !imageSide && !isSVG &&
 							<img 
 							width={`${imageWidth}%`} 
-							src={image.sizes.small.url} alt={image.filename}/>
+							src={image.sizes.large.url} alt={image.filename}/>
 						}
 						{ isSVG && 
 							<img 

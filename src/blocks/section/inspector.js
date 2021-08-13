@@ -56,7 +56,7 @@ class Inspector extends Component {
                                         { !backgroundImage && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>{__("Select image", "ctx-blocks")}</button> }
                                         { backgroundImage && <div>
                                        
-                                            <img className="" src={backgroundImage.sizes.small.url} onClick={open} alt={__("No image loaded", "ctx-blocks")}/>
+                                            <img className="" src={backgroundImage.sizes.medium.url} onClick={open} alt={__("No image loaded", "ctx-blocks")}/>
                                                 <button type="button" className="components-button is-button is-default is-large" onClick={ open }>{__("Replace image", "ctx-blocks")}</button>
                                                 <button type="button" className="components-button is-link is-destructive" onClick={ () => setAttributes({backgroundImage: null}) }> {__("Remove image", "ctx-blocks")}</button>
                                           

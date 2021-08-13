@@ -64,10 +64,10 @@ export default function Edit({...props}) {
 								{ image && 
 									<>
 										<div className={imageHolderClass}>
-											{ round && image.sizes.qmedium &&
-												<img width={`${width}%`} className={imageClasses} src={image.sizes.qmedium.url} alt={__("No image loaded", 'ctx-blocks')}/> 
+											{ round && image.sizes.medium &&
+												<img width={`${width}%`} className={imageClasses} src={image.sizes.medium.url} alt={__("No image loaded", 'ctx-blocks')}/> 
 											}
-											{ round && !image.sizes.qmedium &&
+											{ round && !image.sizes.medium &&
 												<p>{__("The image is too small to be rendered. Please upload a larger image", 'ctx-blocks')}</p> 
 											}
 											{ !round && <img width={`${width}%`} className={imageClasses} src={image.url} alt={__("No image loaded", 'ctx-blocks')} /> }

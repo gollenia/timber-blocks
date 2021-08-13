@@ -83,7 +83,7 @@ class Inspector extends Component {
                                         { image && 
                                             <div>
                                                 { !isSVG &&
-                                                    <img className="" src={image.sizes.small.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
+                                                    <img className="" src={image.sizes.medium.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 }
                                                 { isSVG &&
                                                     <img className="" src={image.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
