@@ -48,7 +48,7 @@ export default function AlertEdit({...props}) {
 						value={ title }
 						onChange={ (value) => setAttributes({ title: value }) }
 						placeholder={__("Alert Title", 'ctx-blocks')}
-						keepPlaceholderOnFocus={false}
+						
 					/>
 					
 					<RichText
@@ -56,7 +56,7 @@ export default function AlertEdit({...props}) {
 						value={ alertText }
 						onChange={ (value) => setAttributes({ alertText: value }) }
 						placeholder={__("Type message here...", 'ctx-blocks')}
-						keepPlaceholderOnFocus={false}
+						
 					/>
 					
 				</div>
