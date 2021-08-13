@@ -1,57 +1,25 @@
-=== Ctx Blocks ===
-Contributors:      The WordPress Contributors
-Tags:              block
-Requires at least: 5.6.0
-Tested up to:      5.6.0
-Stable tag:        0.1.0
-Requires PHP:      7.0.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+=== CTX Blocks ===
 
-Example block written with ESNext standard and JSX support – build step required.
+Timber-Empowered blocks
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+Templating with Timber/Twig is a breeze. I was always disappointed that there are no blocks that can easily be redesigend with a simple template language like twig. If you have ever heard of [Timber](https://upstatement.com/timber/), you brobably know what I mean.
+Especially when it comes to integration of blocks into an existing theme/CSS-Framework, you have a lot of effort.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Plugins like simple-blocks where not an option for me as it heavily relies on database and is not easily scalable across multible sites. That's why I whrote this very plugin.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+For installation, you will need SSH access to your server and an installed composer environment. Simply run these commands to install the plugin:
 
-e.g.
+```sh
+git clone https://github.com/gollenia/ctx-blocks.git
+cd ctx-blocks
+composer install
+```
+Of course, you still have to activate the plugin in your Wordpress installation. For the modal to work, you will need some javascript, i used alpine
 
-1. Upload the plugin files to the `/wp-content/plugins/ctx-blocks` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+== Adopt blocks to your design ==
 
-
-== Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
-== Changelog ==
-
-= 0.1.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+This plugin is made for developers, not for end-users. That's why I didn't put it on the Wordpress Plugin Database. To adopt Blocks, copy the files in the template folder to `your-theme/plugins/ctx-blocks` and modify them to your needs. When installed, they use tailwind classes, but use whatever CSS framework you like. Please have a look at the [Twig Docs](https://twig.symfony.com/doc/2.x/) aswell as the [Documentation on Timber](https://timber.github.io/docs/v2)
