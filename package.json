@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks",
-	"version": "0.1.0",
+	"version": "1.4.0",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"author": "kids-team Österreich",
 	"license": "GPL-2.0-or-later",
