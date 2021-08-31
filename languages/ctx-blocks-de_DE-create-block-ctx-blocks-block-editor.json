@@ -54,8 +54,14 @@
          "Button": [
             "Button"
          ],
+         "Buttons": [
+            "Buttons"
+         ],
          "Contains a link or a function": [
             "Enthält einen Link oder eine Funktion"
+         ],
+         "Inserts a group of buttons.": [
+            "Fügt eine Button-Gruppe ein"
          ],
          "url": [
             "URL"
