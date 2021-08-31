@@ -1,0 +1,40 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+ .ctx-button  {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+// Hässlicher Hack, da das URL-Feld sonst mit 300px Breite angezeigt wird.
+.components-panel__body .block-editor-url-input input {
+    width: 100% !important;
+}
+
+.ctx-button.large {
+    padding: 10px 40px !important;
+    font-size: 1.3rem !important;
+}
+
+.ctx-button.small {
+    padding: 0 15px !important;
+    line-height: 28px !important;
+    font-size: 0.7rem !important;
+}
+
+
+
+

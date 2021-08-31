@@ -1,0 +1,18 @@
+{
+	"name": "ctx-blocks/button-group",
+	"category": "layout",
+	"attributes": {
+		"textAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"paddingTop": {
+			"type": "integer",
+			"default": 10
+		},
+		"paddingBottom": {
+			"type": "integer",
+			"default": 10
+		}
+	}
+}

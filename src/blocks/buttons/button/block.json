@@ -1,0 +1,39 @@
+{
+	"name": "ctx-blocks/button",
+	"category": "common",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "primary"
+		},
+		"size": {
+			"type": "string",
+			"default": ""
+        },
+        "url": {
+			"type": "string",
+			"default": ""
+		},
+		"outline": {
+			"type": "boolean",
+			"default": false
+		},
+		"isLink": {
+			"type": "boolean",
+			"default": false
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonAlignment": {
+			"type": "string",
+			"default": "left"
+		}
+		
+	}
+}
