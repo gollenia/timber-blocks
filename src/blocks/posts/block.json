@@ -34,6 +34,14 @@
 			"type": "boolean",
 			"default": true
 		},
+        "showCategory": {
+			"type": "boolean",
+			"default": true
+		},
+        "showTag": {
+			"type": "boolean",
+			"default": true
+		},
 		"style": {
 			"type": "string",
 			"default": "list"

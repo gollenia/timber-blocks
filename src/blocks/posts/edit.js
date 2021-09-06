@@ -1,8 +1,6 @@
 /**
  * Internal dependencies
  */
-
-
 import { InspectorControls, AlignmentToolbar, BlockControls, useBlockProps } from '@wordpress/block-editor';
 import { ToggleControl, RangeControl, PanelBody, PanelRow, QueryControls } from '@wordpress/components';
 import { Icon, Button} from '@wordpress/components'
@@ -17,18 +15,7 @@ import { get } from 'lodash';
  */
 import { __ } from '@wordpress/i18n'; 
 import { useSelect } from '@wordpress/data';
-
-
 import { store as coreStore } from '@wordpress/core-data';
-import { boolean } from 'joi';
-
-
-const CATEGORIES_LIST_QUERY = {
-	per_page: -1,
-};
-const USERS_LIST_QUERY = {
-	per_page: -1,
-};
 
 
 export default function Edit({ attributes, setAttributes }) {
@@ -42,6 +29,8 @@ export default function Edit({ attributes, setAttributes }) {
 		dropShadow,
 		imageSize,
 		style,
+        showTag,
+        showCategory,
 		textAlignment,
 		showDate,
 		roundImages,
@@ -235,6 +224,20 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={ (value) => setAttributes({ showDate: value }) }
 							/>
 						</PanelRow>
+                        <PanelRow>
+							<ToggleControl
+								label={ __("Show Tag", 'ctx-blocks')}
+								checked={ showTag }
+								onChange={ (value) => setAttributes({ showTag: value }) }
+							/>
+						</PanelRow>
+                        <PanelRow>
+							<ToggleControl
+								label={ __("Show Category", 'ctx-blocks')}
+								checked={ showCategory }
+								onChange={ (value) => setAttributes({ showCategory: value }) }
+							/>
+						</PanelRow>
 						<RangeControl
 							label={__("Image size", 'ctx-blocks')}
 							max={ 100 }
@@ -287,8 +290,7 @@ export default function Edit({ attributes, setAttributes }) {
 									.trim()
 									.split( ' ', excerptLength )
 									.join( ' ' ) }
-								{ /* translators: excerpt truncation character, default …  */ }
-								{ __( ' … ' ) }
+								{ __( '…' ) }
 								<a href={ post.link } rel="noopener noreferrer">
 									{ __( 'Read more' ) }
 								</a>
