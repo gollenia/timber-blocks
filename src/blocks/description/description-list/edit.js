@@ -15,7 +15,7 @@ import Inspector from './inspector';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = ['ctx-blocks/description-item']
+const ALLOWED_BLOCKS = ['ctx-blocks/description-item'] 
 
 export default function Edit({...props}) {
 
