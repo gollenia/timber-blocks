@@ -5,6 +5,11 @@
  * which makes it higher in priority.
  */
 
+ .wp-block-ctx-blocks-button {
+     margin-left: 0px !important;
+     margin-right: 0px !important;
+ }
+
  .ctx-button  {
     display: inline-block;
     font-weight: 400;
@@ -16,7 +21,6 @@
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
 }
 
 // Hässlicher Hack, da das URL-Feld sonst mit 300px Breite angezeigt wird.
@@ -36,5 +40,46 @@
 }
 
 
+// Ugly Hack to limit URL input width.
+.components-panel__body .block-editor-url-input input {
+    width: 100% !important;
+}
 
+.backdrop {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.ctx-modal {
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0px 3px 20px #000;
+    z-index: 2;
+    &.full {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        box-shadow: none !important;
+    }
+}
+
+
+
+.ctx-button.large {
+    padding: 10px 40px !important;
+    font-size: 1.3rem !important;
+}
+
+.ctx-button.small {
+    padding: 0 15px !important;
+    line-height: 28px !important;
+    font-size: 0.7rem !important;
+}
 

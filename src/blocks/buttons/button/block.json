@@ -30,9 +30,17 @@
 			"type": "boolean",
 			"default": false
 		},
-		"buttonAlignment": {
+        "modalFull": {
+			"type": "boolean",
+			"default": false
+		},
+		"modalTitle": {
 			"type": "string",
-			"default": "left"
+			"default": ""
+		},
+        "hasModal": {
+			"type": "boolean",
+			"default": false
 		}
 		
 	}

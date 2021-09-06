@@ -83,15 +83,12 @@ class Inspector extends Component {
                     >
                        
                         <PanelRow>
-                            <SelectControl
-                                    label={ __('Close button', "ctx-blocks")}
-                                    value={ modalCloseButton }
-                                    options={ [
-                                        { label: 'Default', value: '' },
-                                        { label: 'No close button', value: 'hidden' },
-                                    ] }
-                                    onChange={ ( event ) => { setAttributes( { modalCloseButton: event } ) } }
-                                />
+                        <ToggleControl
+                                label={ __("Show scroll bar", 'ctx-blocks')}
+                                checked={ modalCloseButton }
+                                onChange={ (value) => setAttributes({ modalCloseButton: value }) 
+                                }
+                            />
                         </PanelRow>
                         <PanelRow>
                             <ToggleControl

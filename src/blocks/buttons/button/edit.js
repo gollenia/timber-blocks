@@ -2,21 +2,25 @@
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-import { Fragment } from '@wordpress/element';
-import { useBlockProps, RichText  } from '@wordpress/block-editor';
 
+import { useBlockProps, RichText, InnerBlocks  } from '@wordpress/block-editor';
 
+import {useState} from '@wordpress/element';
 /**
  * Internal dependencies
  */
 import Inspector from './inspector';
 
 export default function ButtonEdit( {...props} ) {
+
 	const {
 		attributes: {
 			title,
 			size,
 			isLink,
+            modalTitle,
+            modalFull,
+            hasModal,
 			outline,
 		},
 		setAttributes,
@@ -24,18 +28,28 @@ export default function ButtonEdit( {...props} ) {
 		className,
 	} = props;
 
-	var classes = [
+    const TEMPLATE = [
+        [ 'core/heading', { placeholder: __('Heading or Greeting', 'ctx-blocks')} ],
+        [ 'core/paragraph', { placeholder: __('Some fancy text to display', 'ctx-blocks') } ],
+    ];
+
+    const [showModal, setShowModal] = useState( false );
+
+	const classes = [
 			className || false,
 			"ctx-button",
 			size || false,
 			outline ? "btn-outline" : false
 	].filter(Boolean).join(" ");
+
+    const modalClasses = [
+        modalFull ? "full" : false,
+        "ctx-modal"
+    ].filter(Boolean).join(" ");
     
-	var textColor = buttonColor.brightness == "dark" ? "#ffffff" : "#000000";
+	const textColor = buttonColor.brightness == "dark" ? "#ffffff" : "#000000";
 
-    console.log(buttonColor)
-
-	var style = {
+	const style = {
           background: !outline && !isLink ? buttonColor.color : 'transparent',
           boxShadow: outline ? "inset 0px 0px 0px 2px " + buttonColor.color : 'none',
           color: isLink || outline ? buttonColor.color :  textColor,
@@ -43,11 +57,11 @@ export default function ButtonEdit( {...props} ) {
 	}
 
 	return (
-		<Fragment>
+		<div { ...useBlockProps() }>
 			<Inspector
 					{ ...props }
 			/>
-			<span { ...useBlockProps() } style={style} className={ classes }>
+			<span style={style} className={ classes } onClick={() => {setShowModal(true)}}>
 			<RichText
 				tagName="span"
 				value={ title }
@@ -56,6 +70,29 @@ export default function ButtonEdit( {...props} ) {
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 			/>
 			</span>
-		</Fragment>
+
+            { hasModal && showModal &&
+				<div className="backdrop" onClick={() => {setShowModal(false)}}>
+				
+					<div className={modalClasses} onClick={(event) => { event.stopPropagation(); event.preventDefault();}}>
+						
+						<div className="ctx-modal-title">
+							<RichText	
+								tagName="span"
+								value={ modalTitle }
+								onChange={ (value) => setAttributes({ modalTitle: value }) }
+								placeholder={__("Modal title", "ctx-blocks")}
+							/>
+						</div> 
+						<div className="ctx-modal-body">
+							<InnerBlocks 
+                                template={ TEMPLATE }
+							/>
+						</div>
+					</div>  
+				
+				</div>
+            }
+		</div>
 	);
 }

@@ -3,6 +3,7 @@ import Toolbar from './toolbar';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
+
 export default function Edit({...props}) {
 
     const ALLOWED_BLOCKS = ['ctx-blocks/button'];
@@ -25,7 +26,7 @@ export default function Edit({...props}) {
     };		
 
     var classes = [
-        "ctx-section",
+        "ctx-buttons",
         "ctx-buttons-" + textAlignment
     ].filter(Boolean).join(" ");
 
@@ -41,6 +42,7 @@ export default function Edit({...props}) {
                     <InnerBlocks 
 						allowedBlocks={ALLOWED_BLOCKS}
 						template={TEMPLATE}
+                        orientation="horizontal"
 					/>
             </div>
             

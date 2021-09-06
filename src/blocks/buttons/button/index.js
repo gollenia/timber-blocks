@@ -1,6 +1,7 @@
 import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
+import { InnerBlocks } from '@wordpress/block-editor';
 const { withColors } = wp.blockEditor;
 
 import './editor.scss';
@@ -20,7 +21,7 @@ const settings = {
 	],
 	attributes,
 	edit: withColors({buttonColor: 'buttonColor'})(Edit),
-	save() { return null; }
+	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
 

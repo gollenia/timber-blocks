@@ -1,15 +1,28 @@
   
-.ctx-buttons-right .ctx-button {
-    margin-left: 10px;
-}
-
-
 .ctx-buttons-left .ctx-button {
     margin-right: 10px;
 }
 
 
-.ctx-buttons-center .ctx-button {
-    margin-left: 5px;
-    margin-right: 5px;
+.ctx-buttons-right > .block-editor-inner-blocks > .block-editor-block-list__layout {
+    justify-content: flex-end;
+    .ctx-button {
+        margin-left: 10px;
+    }
+}
+
+.ctx-buttons-center > .block-editor-inner-blocks > .block-editor-block-list__layout {
+    justify-content: center;
+    .ctx-button {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+.ctx-buttons > .block-editor-inner-blocks > .block-editor-block-list__layout {
+    display: flex;
+}
+
+.ctx-buttons > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-list-appender {
+    margin: 0 !important;
 }

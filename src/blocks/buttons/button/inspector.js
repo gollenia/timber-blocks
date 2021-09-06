@@ -16,6 +16,8 @@ class Inspector extends Component {
                 fullWidth,
                 url,
                 size,
+                hasModal,
+                modalFull,
                 isLink,
                 outline,
             },
@@ -24,6 +26,14 @@ class Inspector extends Component {
             setButtonColor
 		} = this.props;
       
+        function setAction(action) {
+            const value = action == "modal" ? true : false;
+            setAttributes({hasModal: value})
+        }
+
+        const currentAction = () => {
+            return hasModal ? "modal" : "link";
+        }
         
 		return (
 			
@@ -33,14 +43,7 @@ class Inspector extends Component {
                         initialOpen={true}
                     >
                         
-                        <BaseControl
-                            label={__("Add a URL or a link", 'ctx-blocks')}
-                        >
-                            <URLInput
-                                value={ url }
-                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here', 'ctx-blocks') } ) }
-                            />
-                        </BaseControl>
+                        
                         
                         <PanelRow>
                         <SelectControl
@@ -78,6 +81,40 @@ class Inspector extends Component {
                                 }
                             />
                         </PanelRow>
+                    </PanelBody>
+                    <PanelBody
+                        title={__('Behaviour', 'ctx-blocks')}
+                        initialOpen={true}
+                    >
+                        <SelectControl
+                            label={__('Action', 'ctx-blocks')}
+                            value={ currentAction() }
+                            options={ [
+                                { label: __('Link', 'ctx-blocks'), value: 'link' },
+                                { label: __('Modal', 'ctx-blocks'), value: 'modal' },
+                            ] }
+                            onChange={ ( event ) => { setAction( event ) } }
+                        />
+                    
+
+                        { !hasModal && <BaseControl
+                            label={__("Add a URL or a link", 'ctx-blocks')}
+                        >
+                            <URLInput
+                                value={ url }
+                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here', 'ctx-blocks') } ) }
+                            />
+                        </BaseControl> }
+
+                        { hasModal &&
+                            <ToggleControl
+                            label={ __("Full screen size", 'ctx-blocks')}
+                            checked={ modalFull }
+                            onChange={ (value) => setAttributes({ modalFull: value }) 
+                            }
+                        />
+                        }
+                    
                     </PanelBody>
                     <PanelColorSettings
                             title={__('Color Settings', 'ctx-blocks')}

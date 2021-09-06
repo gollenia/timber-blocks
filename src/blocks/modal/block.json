@@ -53,7 +53,11 @@
 		"modalVideoUrl": {
 			"type": "string",
 			"default": ""
-		}
+		},
+        "buttonUrl": {
+            "type": "string",
+			"default": ""
+        }
 
 		
 	}

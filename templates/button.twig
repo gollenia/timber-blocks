@@ -1,23 +1,40 @@
 {% set bg = get_color_by_slug(buttonColor) %}
 
-<div class="mt-auto text-{{buttonAlignment}} py-4">
-{% if outline %}
-<a style="border-color: {{bg.color}}; color: {{bg.color}};" 
-    onmouseover="this.style.backgroundColor='{{bg.color}}';"
-    onmouseout="this.style.backgroundColor='transparent'"
-    class="outline {{bg.brightness}} button bg-transparent hover:text-{{buttonColor}}-contrast
-    {{ size == "small" ? "button-sm" }}
-    {{ size == "large" ? "button-lg" }} 
-" href="{{url}}">{{title}}</a>
-{% elseif isLink %}
-<a style="color: {{bg.color}}" class="button bg-none
-    {{ size == "small" ? "button-sm" }}
-    {{ size == "large" ? "button-lg" }} 
-" href="{{url}}">{{title}}</a>
-{% else %}
-<a style="background: {{bg.color}}; border-color: {{bg.color}};" class="{{bg.brightness}} button
-    {{ size == "small" ? "button-sm" }}
-    {{ size == "large" ? "button-lg" }} 
-" href="{{url}}">{{title}}</a>
-{% endif %}
+<div {% if hasModal %}x-data="{'showModal': false}"{% endif %}>
+<a 
+    class="button {{ isLink ? "link" }} {{ outline ? "outline" }} {{ size == "small" ? "button-sm" }} {{ size == "large" ? "button-lg" }}"
+    style="color: {{ isLink or outline ? bg.color : bg.contrast }}; background: {{ isLink or outline ? "transparent" : bg.color }}"
+    href="{{ hasModal ? "#" :  href="{{url}}" }}"
+    onmouseover="{{ outline ? "this.style.backgroundColor='{{bg.color}}';" : ""}}"
+    onmouseout="{{outline ? "this.style.backgroundColor='transparent'" : "" }}"
+    {% if hasModal %}@click="showModal = true"{% endif %}
+>
+{{title}}
+</a>
+<div style="display: none" x-show="showModal" 
+        x-transition:enter="enter" 
+        x-transition:enter-start="enter-start" 
+        x-transition:enter-end="enter-end" 
+        x-transition:leave="leave" 
+        x-transition:leave-start="leave-start" 
+        x-on:click.away="imgModalSrc = ''" 
+        class="modal {{modalFull ? 'fullscreen' : 'window'}}">
+        <div class="modal-dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
+            <div class="dialog-header">
+                <div class="dialog-title"><h2>{{modalTitle}}</h2></div>
+                <button @click="showModal = false" class="close"></button>
+            </div>
+            <div class="dialog-content">
+                {{content}}
+            </div>
+        </div>
+    </div>
+
+    </div>
 </div>
+
+    
+
+
+{% endif %}
+ 
