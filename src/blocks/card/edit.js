@@ -1,11 +1,12 @@
 import Inspector from './inspector';
 import Toolbar from './toolbar';
+import { has } from 'lodash';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
 const ALLOWED_BLOCKS = ['core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
 
-export default function Edit({...props}) {
+export default function CardEdit({...props}) {
 
 		const {
 			attributes: {
@@ -13,11 +14,14 @@ export default function Edit({...props}) {
 				textAlign,
 				isFirst,
 				isLast,
+                label,
+                badge,
 				imageWidth,
 				hover,
 				image
 			},
 			backgroundColor,
+            secondaryColor
 		} = props;
 
 		const TEMPLATE = [
@@ -43,6 +47,11 @@ export default function Edit({...props}) {
 			color: props.colorUtils.getMostReadableColor(backgroundColor.color, ['#ffffff', '#000000'])
 		};
 
+        var secondaryStyle = {
+			background: secondaryColor.color, 
+			color: props.colorUtils.getMostReadableColor(secondaryColor.color, ['#ffffff', '#000000'])
+		};
+
 		var classes = [
 			"ctx-card",
 			isFirst ? "ctx-is-first" : false,
@@ -51,9 +60,9 @@ export default function Edit({...props}) {
 			`text-${textAlign}`,
 			`image-${imagePosition}`
 		].filter(Boolean).join(" ");
-
 		var imageSide = ( imagePosition == "left" || imagePosition == "right");
 		var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
+        const imageUrl = image == null ? false : (!(has(image, 'sizes.medium')) || isSVG ? image.url : image.sizes.medium.url);
 		
 		return (
 			<>
@@ -68,35 +77,20 @@ export default function Edit({...props}) {
 						<label>{__('Card', 'ctx-blocks')}</label>
 					</div>
 					<div style={style} className={classes}>
-						
-						{ image && imageSide && !isSVG &&
-							<div className="image-side"
-								style={{
-									backgroundImage: `url(${image.sizes.large.url})`,
-									width: `${imageWidth}%`
-								}}
-							>
-
-							</div>
-						}
-						{ image && !imageSide && !isSVG &&
-							<img 
+                        { badge != "" && <b className="badge" style={secondaryStyle}><b>{badge}</b></b> }
+						{ imageUrl && <img 
 							width={`${imageWidth}%`} 
-							src={image.sizes.large.url} alt={image.filename}/>
-						}
-						{ isSVG && 
-							<img 
-							width={`${imageWidth}%`} 
-							src={image.url} alt={image.filename}/>
-						}
-						<div className="content">
-							<InnerBlocks 
-								allowedBlocks={ALLOWED_BLOCKS}
-								template={TEMPLATE}
-							/>
-						</div>
-						
+							src={imageUrl} alt={image.filename}
+                        /> }
+                        <div className="card-content">
+                            { label != "" && <label style={secondaryStyle}>{label}</label> }
+                            <InnerBlocks 
+                                allowedBlocks={ALLOWED_BLOCKS}
+                                template={TEMPLATE}
+                            />
+                        </div>
 					</div>
+					
 				</div>
 			</>
 		);

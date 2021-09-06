@@ -1,8 +1,9 @@
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { URLInput, MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { BaseControl, PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
+import { BaseControl, PanelBody, PanelRow, ToggleControl, TextControl } from '@wordpress/components';
 import { Icon, Button} from '@wordpress/components'
+import { has } from 'lodash';
 import { PanelColorSettings } from '@wordpress/block-editor';
 import icons from './icons.js'
 
@@ -16,16 +17,22 @@ class Inspector extends Component {
                 hover,
                 transparent,
                 url,
+                label,
+                badge,
                 isFirst,
                 isLast
             },
             setAttributes,
             backgroundColor,
             setBackgroundColor,
+            secondaryColor,
+            setSecondaryColor,
         } = this.props;
 
 
-        var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
+        const isSVG = ( image != null ? image.subtype == "svg+xml" : false );
+        const imageUrl = image == null ? false : (!(has(image, 'sizes.medium')) || isSVG ? image.url : image.sizes.medium.url);
+
 		return (
 			
 				<InspectorControls>
@@ -45,14 +52,26 @@ class Inspector extends Component {
                             checked={transparent}
                             onChange={(value) => {setAttributes( { transparent: value })}}
                         />
-                        <BaseControl
-                            label={__('Link', 'ctx-blocks')}
-                        >
-                            <URLInput
-                                value={ url }
-                                onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here...', 'ctx-blocks') } ) }
-                            />
-                        </BaseControl>
+                        <PanelRow>
+                            <BaseControl
+                                label={__('Link', 'ctx-blocks')}
+                            >
+                                <URLInput
+                                    value={ url }
+                                    onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here...', 'ctx-blocks') } ) }
+                                />
+                            </BaseControl>
+                        </PanelRow>
+                        <TextControl
+                            label={__('label', 'ctx-blocks')}
+                            value={label}
+                            onChange={(value) => {setAttributes( { label: value })}}
+                        />
+                        <TextControl
+                            label={__('badge', 'ctx-blocks')}
+                            value={badge}
+                            onChange={(value) => {setAttributes( { badge: value })}}
+                        />
                         </PanelBody>
 
                     <PanelColorSettings
@@ -63,6 +82,12 @@ class Inspector extends Component {
                                 label: __('Background color', 'ctx-blocks'),
                                 onChange: setBackgroundColor ,
                                 value: backgroundColor.color,
+                                disableCustomColors: true,
+                            },
+                            {
+                                label: __('Secondary color', 'ctx-blocks'),
+                                onChange: setSecondaryColor ,
+                                value: secondaryColor.color,
                                 disableCustomColors: true,
                             }
                         ]}
@@ -82,12 +107,7 @@ class Inspector extends Component {
                                         { !image && <button type="button" className="components-button editor-post-featured-image__toggle" onClick={ open }>{__('Choose image', 'ctx-blocks')}</button> }
                                         { image && 
                                             <div>
-                                                { !isSVG &&
-                                                    <img className="" src={image.sizes.medium.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
-                                                }
-                                                { isSVG &&
-                                                    <img className="" src={image.url} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
-                                                }
+                                                <img className="" src={imageUrl} onClick={open} alt={__("No image loaded", 'ctx-blocks')}/>
                                                 <PanelRow>
                                                 <Button type="button" isSecondary  onClick={ open }>{__("Replace image", 'ctx-blocks')}</Button>
                                                 <Button type="button" isDestructive  onClick={ () => setAttributes({ image: null }) }> {__("Remove image", 'ctx-blocks')}</Button>
@@ -99,7 +119,7 @@ class Inspector extends Component {
                             </MediaUploadCheck>
                             <PanelRow>
                             <div>
-                            <label className="components-base-control__label" for="inspector-range-control-4">{__("Image position", 'ctx-blocks')}</label>
+                            <label className="components-base-control__label" htmlFor="inspector-range-control-4">{__("Image position", 'ctx-blocks')}</label>
                             <div className="imagePositionSelector">
                                     <Button onClick={ () => setAttributes({ imagePosition: "top" }) } className={imagePosition == "top" ? "active" : ""}>
                                         <Icon size="64" className="icon" icon={icons.topimage}/>

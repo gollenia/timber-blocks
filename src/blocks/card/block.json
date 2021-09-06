@@ -6,6 +6,10 @@
 			"type": "string",
 			"default": ""
 		},
+        "secondaryColor": {
+			"type": "string",
+			"default": ""
+		},
 		"transparent": {
 			"type": "boolean",
 			"default": false
@@ -49,6 +53,14 @@
 		"isLast": {
 			"type": "boolean",
 			"default": false
-		}
+		},
+        "label": {
+            "type": "string",
+			"default": ""
+        },
+        "badge": {
+            "type": "string",
+			"default": ""
+        }
 	}
 }

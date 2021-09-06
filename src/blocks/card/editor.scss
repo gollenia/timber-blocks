@@ -1,126 +1,147 @@
 .text-right {
-  align-items: flex-end;
-  text-align: right;
+    align-items: flex-end;
+    text-align: right;
 }
 
 .text-center {
-  align-items: center;
-  text-align: center;
+    align-items: center;
+    text-align: center;
 }
 
 // ugly hack for URL-Input-Field width
 .components-panel__body .block-editor-url-input input {
-  width: 100% !important;
+    width: 100% !important;
 }
 
 .ctx-placement {
-  margin-top: 14px;
+    margin-top: 14px;
 }
 
 .ctx-card-hover:hover {
-  box-shadow: 0px 1px 7px rgba(0,0,0,0.5);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.5);
 }
 
 
 
 .ctx-grabber label {
-  font-size: 12px;
-  margin-left: 10px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  font-weight: bold;
-  color: #444;
+    font-size: 12px;
+    margin-left: 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: bold;
+    color: #444;
 }
 .ctx-grabber {
-  background: rgba(0, 0, 0, 0.1);
-  line-height: 1.2rem;
-  border: 1px dashed rgba(0, 0, 0, 0.3);
-  margin-bottom: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  visibility: hidden;
+    background: rgba(0, 0, 0, 0.1);
+    line-height: 1.2rem;
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    visibility: hidden;
 }
 
 div[data-type="ctx-blocks/card"]:hover {
-.ctx-grabber {
-  visibility: visible;
-}
+    .ctx-grabber {
+        visibility: visible;
+    }
 }
 
 .ctx-image-round img {
-  border-radius: 100%;
+    border-radius: 100%;
 }
 
 .ctx-image-border img {
-  border: 3px solid #fff;
+    border: 3px solid #fff;
 }
 
 .ctx-card {
-  
+  position: relative;
   display:flex;
-
-  .image-side {
-    background-size: cover;
-    background-position: center;
-  }
 
   &.image-bottom {
     flex-direction: column-reverse;
-    &.ctx-image-round {
-      padding-bottom: 20px;
+    img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    .badge {
+        right: 10px;
+        bottom: 10px;
     }
   }
 
   &.image-top {
+    label {
+        left: 10px;
+    }
     flex-direction: column;
-    &.ctx-image-round {
-      padding-top: 20px;
+    img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    .badge {
+        right: 10px;
+        top: 10px;
     }
   }
 
   &.image-left {
     flex-direction: row;
-    padding-left: 0px;
     align-items: center;
-    .image-side, img {
-      margin-right: 10px;
+    img {
+        width: 33%;
+        aspect-ratio: 1/1;
+        height: revert;
+        align-self: stretch;
+        object-fit: cover;
     }
-    .image-side {
-      align-self: stretch;
+    .badge {
+        left: 10px;
+        top: 10px;
     }
-    &.ctx-image-round {
-      padding-left: 20px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-   
   }
 
   &.image-right {
     flex-direction: row-reverse;
-    padding-right: 0px;
     align-items: center;
-    .image-side, img {
-      margin-left: 10px;
+    img {
+        width: 33%;
+        aspect-ratio: 1/1;
+        height: revert;
+        align-self: stretch;
+        object-fit: cover;
     }
-    .image-side {
-      align-self: stretch;
+    .badge {
+        right: 10px;
+        top: 10px;
+        
     }
-    &.ctx-image-round {
-      padding-right: 20px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-    
   }
 
+  label {
+      position: absolute;
+      top: 0;
+      margin-top: -11px;
+      padding: 1px 5px;
+  }
 
-  .content {
-    display: block;
-    flex-grow: 1;
-    padding-left: 10px;
-  padding-right: 10px;
+  b.badge {
+        position: absolute;
+        border-radius: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        aspect-ratio: 1/1;
   }
 }
+.card-content {
+    padding: 15px;
+    position: relative;
+}
+  
 
 .imagePositionSelector {
 margin-top: 10px;

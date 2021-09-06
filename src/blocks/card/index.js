@@ -22,7 +22,7 @@ const settings = {
 		__( 'link', 'ctx-blocks' ),
 	],
 	attributes,
-	edit: withColors({backgroundColor: 'backgroundColor'})(Edit),
+	edit: withColors({backgroundColor: 'backgroundColor', secondaryColor: 'secondaryColor'})(Edit),
 	
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
