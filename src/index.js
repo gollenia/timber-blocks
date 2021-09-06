@@ -27,8 +27,7 @@ import * as gridColumn from './blocks/grid/grid-column';
  * Core Block modification dependencies.
  */
 import './mods/additionalFonts';
-import './mods/mobileVisibility';
-import './mods/baseBlocksClasses';
+
 
 /**
  * Stylesheets
