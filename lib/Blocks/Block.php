@@ -15,7 +15,8 @@ class Block implements BlockInterface {
 
     public $blocks = [
         "alert",
-        "button",
+        "buttons/button",
+        "buttons/button-group",
         "card",
         //"columns",
         "description/description-item",
@@ -77,6 +78,8 @@ class Block implements BlockInterface {
     public function render($attributes, $content, $full_data) : string {
         $template = $this->get_template($full_data->name);
 
+        if(!$template) { return null; }
+
         $attributes['content'] = $content;
 
         //echo "<script>console.log(" . json_encode($attributes) . ");</script>";
@@ -95,7 +98,11 @@ class Block implements BlockInterface {
             return get_template_directory() . '/plugins/ctx-blocks/' . $filename;
         }
 
-        return plugin_dir_path( __FILE__ ) . '../../templates/' . $filename;
+        if(file_exists(plugin_dir_path( __FILE__ ) . '../../templates/' . $filename)) {
+            return plugin_dir_path( __FILE__ ) . '../../templates/' . $filename;
+        }
+
+        return false;
     }
 
 }
