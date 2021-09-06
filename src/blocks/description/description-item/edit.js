@@ -43,7 +43,7 @@ export default function Edit({...props}) {
 
 			
 					{ image && image.subtype != "svg+xml" &&
-						<img className={roundImage ? "round" : ""} src={image.sizes.qsmall.url}/>
+						<img className={roundImage ? "round" : ""} src={image.sizes.thumbnail.url}/>
 					}
 
 					{ image && image.subtype === "svg+xml" &&
