@@ -26,6 +26,7 @@ class Inspector extends Component {
             backgroundColor,
             setBackgroundColor,
         } = this.props;
+        
 
 		return (
 
