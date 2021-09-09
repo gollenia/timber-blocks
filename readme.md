@@ -26,6 +26,11 @@ This plugin is made for developers, not for end-users. That's why I didn't put i
 
 ### Changelog
 
+##### 1.5.1
+* core/spacer now has auto-height feature for equalizing cards
+* cards now support button-groups
+* visibility switch has tailwind classes
+
 ##### 1.5
 * Cards now support labels and badges
 * New Block: Button Group
