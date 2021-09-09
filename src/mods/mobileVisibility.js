@@ -1,5 +1,3 @@
-import assign from 'lodash';
-
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;
 const { InspectorControls } = wp.blockEditor;
@@ -84,8 +82,8 @@ const addVisibilityClass = ( extraProps, blockType, attributes ) => {
 	}
 
     extraProps.className = [
-        hiddenDesktop ? "uk-hidden@m" : false,
-        hiddenMobile ? "uk-visible@m" : false,
+        hiddenDesktop ? "md:hidden" : false,
+        hiddenMobile ? "hidden md:visible" : false,
         extraProps.className || false
 	].filter(Boolean).join(" ")
 	
