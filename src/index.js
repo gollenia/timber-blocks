@@ -27,6 +27,8 @@ import * as gridColumn from './blocks/grid/grid-column';
  * Core Block modification dependencies.
  */
 import './mods/additionalFonts';
+import './mods/baseBlocksClasses';
+import './mods/spacerAutoOption';
 
 
 /**
@@ -34,6 +36,7 @@ import './mods/additionalFonts';
  */
 import './common/styles/editor.scss';
 import './common/styles/style.scss';
+import './mods/baseBlocksClasses';
 
 
 const registerBlock = ( block ) => {
