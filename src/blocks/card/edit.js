@@ -4,7 +4,7 @@ import { has } from 'lodash';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = ['core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button', 'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
+const ALLOWED_BLOCKS = ['core/spacer', 'core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button-group', 'ctx-blocks/button',  'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
 
 export default function CardEdit({...props}) {
 
