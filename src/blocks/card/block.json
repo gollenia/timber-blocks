@@ -14,6 +14,10 @@
 			"type": "boolean",
 			"default": false
 		},
+        "shadow": {
+			"type": "boolean",
+			"default": true
+		},
 		"url": {
 			"type": "string",
 			"default": ""

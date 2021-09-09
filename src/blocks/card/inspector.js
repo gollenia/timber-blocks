@@ -18,6 +18,7 @@ class Inspector extends Component {
                 transparent,
                 url,
                 label,
+                shadow,
                 badge,
                 isFirst,
                 isLast
@@ -46,6 +47,11 @@ class Inspector extends Component {
                             label={__('Highlight on mouse over', 'ctx-blocks')}
                             checked={hover}
                             onChange={(value) => {setAttributes( { hover: value })}}
+                        />
+                        <ToggleControl
+                            label={__('Shadow', 'ctx-blocks')}
+                            checked={shadow}
+                            onChange={(value) => {setAttributes( { shadow: value })}}
                         />
                         <ToggleControl
                             label={__("Transparent", 'ctx-blocks')}
