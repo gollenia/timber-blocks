@@ -24,8 +24,12 @@
 		},
 		"dropShadow": {
 			"type": "boolean",
-			"default": false
+			"default": true
 		},
+        "hover": {
+            "type": "boolean",
+			"default": true
+        },
 		"imageSize": {
 			"type": "number",
 			"default": 100
