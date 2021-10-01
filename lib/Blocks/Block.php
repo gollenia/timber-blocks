@@ -6,7 +6,7 @@ interface BlockInterface
 {
     public function __construct($args);
     public function register() : void;
-    public function render($attributes, $content, $full_data) : string;
+    public function render($attributes, $content, $full_data);
     public function get_template($name) : string;
     public function get_meta($block);
 }
@@ -18,15 +18,12 @@ class Block implements BlockInterface {
         "buttons/button",
         "buttons/button-group",
         "card",
-        //"columns",
         "description/description-item",
         "description/description-list",
         "grid/grid-column",
         "grid/grid-row",
         "image",
         "modal",
-        //"nav",
-        //"posts",
         "progress",
         "section",
     ];
@@ -75,7 +72,7 @@ class Block implements BlockInterface {
         });    
     }
 
-    public function render($attributes, $content, $full_data) : string {
+    public function render($attributes, $content, $full_data) {
         $template = $this->get_template($full_data->name);
 
         if(!$template) { return null; }
