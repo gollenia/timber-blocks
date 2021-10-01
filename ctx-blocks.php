@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     CTX-Blocks
  * Description:     Common blocks utilizing tailwindcss and alipne.js
- * Version:         1.5.1
+ * Version:         1.5.2
  * Author:          Thomas Gllenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
