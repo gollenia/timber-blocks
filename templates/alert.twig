@@ -1,6 +1,7 @@
 {% set bg = get_color_by_slug(alertColor) %}
 
-<div style="background: {{bg.color}};" class="{{bg.brightness}} alert">
-    <h3 class="core-block">{{title}}</h3>
-    <p class="core-block">{{alertText}}</p>
+<div x-data="{alert: true}" x-show="alert" style="background: {{bg.color}};" class="{{bg.brightness}}  alert">
+{{ isDismissable ? "<i class='close' @click='alert = false'>close</i>" }}
+    {% if title %}<h3 class="core-block">{{title}}</h3>{% endif %}
+    {% if alertText %}<p class="core-block">{{alertText}}</p>{% endif %}
 </div>
