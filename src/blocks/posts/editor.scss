@@ -1,6 +1,9 @@
 .posts {
     display: grid;
     gap: 10px;
+    .shadow {
+        box-shadow: 0px 1px 2px #777;
+    }
 }
 
 .cols-large-1 {

@@ -29,6 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 		dropShadow,
 		imageSize,
 		style,
+        hover,
         showTag,
         showCategory,
 		textAlignment,
@@ -115,7 +116,8 @@ export default function Edit({ attributes, setAttributes }) {
 		className: [
 			"columns-" + columnsLarge,
 			showImages ? "hasImage" : false,
-			dropShadow ? "hover" : false,
+			dropShadow ? "shadow" : false,
+
 			"style-" + style,
 			"text-" + textAlignment,
 			roundImages ? "round-images" : false
@@ -125,7 +127,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const inspectorControls = (
 		<InspectorControls>
 				<PanelBody
-					title={__('Daten', 'ctx-blocks')}
+					title={__('Data', 'ctx-blocks')}
 					initialOpen={true}
 				>
 					<QueryControls
@@ -180,11 +182,18 @@ export default function Edit({ attributes, setAttributes }) {
 					title={__('Posts', 'ctx-blocks')}
 					initialOpen={true}
 				>
-					<PanelRow>
+                    <PanelRow>
 						<ToggleControl
-							label={ __("Hover-effect", 'ctx-blocks')}
+							label={ __("Drop shadow", 'ctx-blocks')}
 							checked={ dropShadow }
 							onChange={ (value) => setAttributes({ dropShadow: value }) }
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
+							label={ __("Hover effect", 'ctx-blocks')}
+							checked={ hover }
+							onChange={ (value) => setAttributes({ hover: value }) }
 						/>
 					</PanelRow>
 					<PanelRow>
