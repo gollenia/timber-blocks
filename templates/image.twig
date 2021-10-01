@@ -3,11 +3,13 @@
     {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
   </figure>
 {% else %}
-<div x-data="{}" style="{{ flip ? 'transform: scaleX(-1);' }}" class="text-{{alignment}} image relative">
-    {% if hasLightbox %}
-      <a @click="$dispatch('img-modal', { imgModal : true,  imgModalSrc: '{{image.url}}'})" class="cursor-pointer">
-    {% endif %}
-        <img style="width: {{width}}%; {{shadow ? "box-shadow: 0px 1px 6px rgba(0,0,0,0.3)"}}" alt="{{image.description}}" class="{{border ? "border-8 border-white"}} object-fit inline-block {{round ? "rounded-full"}} {{roundCorners ? "rounded-tl-md rounded-br-md lg:rounded-tl-lg lg:rounded-br-lg" }}" src="{{round ? image.sizes.qlarge.url : image.url}}">
-    {{ hasLightbox ? "</a>" : "" }}
+<div class="image {{ hasLightbox ? "has-lightbox" }}" style="place-items: {{alignment}}" {% if hasLightbox %}x-data="{ imgModal: false, imgModalSrc: '' }" @click.stop="imgModal = true;  imgModalSrc = '{{image.url}}'"{% endif %}>
+
+        <img style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
+            alt="{{image.description}}" 
+            class="{{border ? 'image-border'}}  {{round ? "image-round"}} {{roundCorners and not rounded ? "image-round-corners" }}  {{shadow ? "image-shadow"}}" 
+            src="{{ round ? image.url|resize(800,800) : image.url|resize(1200) }}"
+        >
+{% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox-inner"><div class="close">X</div><img @click.stop="imgModal = !imgModal" x-bind:src="imgModalSrc"></div></div>{% endif %}
 </div>
 {% endif %}

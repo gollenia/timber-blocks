@@ -1,24 +1,21 @@
 {% set bg = get_color_by_slug(backgroundColor) %}
+{% set secondary = get_color_by_slug(secondaryColor) %}
 
 <{{ url ? "a href='" ~ url ~ "'" : "div"}} style="background: {{bg.color}}{{transparent ? "aa"}}"
-class="card {{bg.brightness}} image-{{imagePosition}} items-{{textAlign}} text-{{textAlign}} {{ isFirst ? "first "}} {{ isLast ? "last"}} {{transparent ? " bg-blur"}} {{hover ? "hover"}}">
-
+class="card {{bg.brightness}} {{ image.url ? 'image-' ~ imagePosition : 'no-image'}} items-{{textAlign}} text-{{textAlign}} {{shadow ? 'shadow' }} {{ isFirst ? "first "}} {{ isLast ? "last"}} {{transparent ? " bg-blur"}} {{hover ? "hover"}}">
+    {% if badge %}<b class="card-badge" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "#ffffff" : "#000000"}};">{{ badge }}</b>{% endif %}
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
-            <div style="height: {{imageWidth}}%; width: {{imageWidth}}%;" 
-                 class="{{ imageRound ? "rounded-full overflow-hidden m-4 lg:m-6"}} 
-                    {{imagePosition == "top" ? "mb-0"}} 
-                    {{imagePosition == "bottom" ? "mt-0"}} 
-                    {{imagePosition == "left" ? "mb-4 lg:m-6 mr-0"}} 
-                    {{imagePosition == "right" ? "mt-4 lg:m-6 ml-0"}} 
-            ">
+            <div class="svg-container" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
-                <img class="card-image" src="{{image.sizes.large.url}}">
+                <img class="card-image" src="{{image.sizes.medium.url}}">
         {% endif %}
     {% endif %}
-    <span></span>
-    <div class="card-content">{{content|raw}}</div>
-
+   
+    <div class="card-content">
+        {% if label %}<label style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "#ffffff" : "#000000"}};"><span>{{ label }}</span></label>{% endif %}
+        {{content|raw}}
+    </div>
 {{ url ? "</a>" : "</div>"}}

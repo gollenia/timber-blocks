@@ -2,29 +2,25 @@
 {% set bg = get_color_by_slug(buttonColor) %}
 
 <div x-data="{'showModal': false}" @keydown.escape="showModal = false" class="my-4">
-    <div style="display: none" x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform" x-on:click.away="imgModalSrc = ''" class="backgrop p-2 transition-all fixed lg:w-full h-100 mt-18 lg:mt-0 inset-0 z-1 mr-4 lg:mr-0 lg:flex lg:justify-center bg-blur items-center bg-white z-50 lg:bg-black-transparent">
-        <div class="mt-5 top-0 z-50 left-0 lg:hidden ml-4 fixed"><a href="/">{{ source( theme_root ~ 'assets/img/logo.svg', ignore_missing = true) }}</a></div>
-        <button @click="showModal = false" class="text-black flex fixed lg:hidden top-0 right-0 pt-8 pr-0 outline-none focus:outline-none">
-                <svg style="" class="fill-current {{bg.dark ? 'dark'}}" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 18 18">
-                    <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                    </path>
-                  </svg>
-        </button>
-        <div class="modal z-40 overflow-y-auto bg-lightgray-lighter lg:rounded-tl-3xl lg:rounded-br-3xl lg:bg-none fixed left-0 right-0 bottom-0 top-0 mt-16 lg:relative" @click.away="showModal = false" x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
-          <div class="title lg:rounded-tl-3xl bg-light{{buttonColor}} lg:bg-{{buttonColor}} flex justify-between items-center">
-            <span class="text-3xl mt-10 lg:mt-0 lg:text5xl lg:rounded-tl-3xl  text-{{buttonColor}}-contrast px-8 py-4">{{modalTitle}}</span>
-            <button @click="showModal = false" class="text-{{buttonColor}}-contrast flex pr-6 hidden lg:block outline-none focus:outline-none">
-                 <svg style="" class="fill-current {{bg.dark ? 'dark'}}" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 18 18">
-                    <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                    </path>
-                  </svg>
-            </button>
-          </div>
-          <div class="bg-lightgray-lighter lg:bg-white lg:rounded-br-3xl">
-              <div class="p-4 lg:p-6">{{content}}</div> 
-          </div>
+    <div style="display: none" x-show="showModal" 
+        x-transition:enter="enter" 
+        x-transition:enter-start="enter-start" 
+        x-transition:enter-end="enter-end" 
+        x-transition:leave="leave" 
+        x-transition:leave-start="leave-start" 
+        x-on:click.away="imgModalSrc = ''" 
+        class="modal {{modalFull ? 'fullscreen' : 'window'}}">
+        <div class="modal-dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
+            <div class="dialog-header">
+                <div class="dialog-title"><h2>{{modalTitle}}</h2></div>
+                <button @click="showModal = false" class="close"></button>
+            </div>
+            <div class="dialog-content">
+                {{content}}
+            </div>
         </div>
-    </div>  
+    </div>
+
     <div class="text-{{ buttonAlignment }}">
     <a @click="showModal = true" style="background: {{bg.color}}; border-color: {{bg.color}}" 
     class="cursor-pointer button {{bg.brightness}}

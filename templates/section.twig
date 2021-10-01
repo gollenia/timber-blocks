@@ -1,7 +1,15 @@
 {% set bg = get_color_by_slug(backgroundColor) %}
-{% set paddings = ['0', '1', '2', '3', '4', '5', '6', '8', '10', '12', '16', '20'] %}
 
-<section style="background-color: {{bg.color}}; {% if backgroundImage %} background-color: {{bg.color}}; overflow: hidden; background-image: url('{{backgroundImage.sizes.full.url}}');{% endif %}"
-class="section  pt-{{paddings[paddingTop]}} pb-{{paddings[paddingBottom]}} bg-{{backgroundColor}} text-{{textAlignment}} bg-cover bg-center {{bg.brightness}}">
+<section 
+    style="background-color: {{bg.color}}; 
+    {% if backgroundImage %} background-color: {{bg.color}}; 
+        overflow: hidden; 
+        background-image: url('{{backgroundImage.sizes.full.url}}');
+    {% endif %}
+    padding-top: {{paddingTop * 0.5}}rem;
+    padding-bottom: {{paddingBottom * 0.5}}rem;
+    text-align: {{textAlignment}};
+    "
+class="section {{bg.brightness ? bg.brightness : "light"}}">
     <div class="content">{{ content|raw }}</div>
 </section>

@@ -1,31 +1,44 @@
 
-<div class="posts gap-12 grid grid-cols-{{columnsSmall}} md:grid-cols-{{columnsMedium}} lg:grid-cols-{{columnsLarge}}">
+<div class="card-collection posts">
     {% for item in posts %}
-            
             <a 
                 class="
-                overflow-hidden
-                {% if dropShadow %}hover {% endif %}
+                {% if hover %}hover {% endif %}
+                {% if dropShadow %}shadow {% endif %}
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
-                card items-center bg-white
-                {{ style == "list" ? "flex-row" : "flex-col" }}
-                {{loop.first ? "rounded-tl-3xl"}}
-                {{loop.last ? "rounded-br-3xl"}}
+                card bg-white
+                {{ style == "list" ? "image-left" : "image-top" }}
+                {{loop.first ? "first"}}
+                {{loop.last ? "last"}}
                 "            
                 href="{{ function("get_permalink", item.ID) }}"
             >
             {% if showImages %}
-                <img width="{{imageSize}}%" class="{{roundImages ? "rounded-full" : "object-cover h-64 w-full" }}" src="{{roundImages ? item.thumbnail.src('qlarge') : item.thumbnail.src('qlarge') }}">
+            
+            {% set color = get_color_by_slug(item.meta.primarycolor) %}
+            {% set textColor = (color.brightness == 'dark' ? '#ffffff' : '#00000') %}
+
+                <img class="card-image"  src="{{ item.thumbnail.src('large') }}" />
+                {% if showDate and style == "cards" %}
+                    <b class="w-12 h-12 {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        <div class="font-bold text-lg text-gray -mb-2">{{item.post_date|date("j")}}</div>
+                        <div class="text-xs">{{item.post_date|date("M")}}</div>
+                    </b>
+                {% endif %}
             {% endif %}
-                <div class="flex flex-grow flex-col p-8 w-full">
-                    <span class="block font-bold text-primary inline-block">{{item.post_title}}</span>
-                    {% if showDate %}<span class="block text-gray">{{item.post_date|date("j. M. Y")}}</span>{% endif %}
-                    <p class="text-black">
+            
+                <div class="card-content">
+                    <label class="{% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        {{item.category}}
+                    </label>
+                    <h4 class="card-title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</h4>
+                    
+                    <p class="card-text text-black">
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
-                    <p class="text-right mt-auto">
-                        <span class="button primary">Weiterlesen</span>
-                    </p>
+                    <span class="card-footer">
+                        <span class="text-gray-500 text-xs">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span>
+                    </span>
                 </div>
             </a>
         

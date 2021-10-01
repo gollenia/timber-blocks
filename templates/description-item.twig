@@ -1,15 +1,18 @@
-<li class="description-item">
-    {% if image.subtype == 'svg+xml' %}
-        <figure>
-        {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
-        </figure>
+<dl class="description-item">
+    {% if icon %}<i class="material-icons">{{icon}}</i>
     {% else %}
-        <img src="{{image.sizes.qmedium.url}}">
+        {% if image.subtype == 'svg+xml' %}
+            <figure>
+            {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
+            </figure>
+        {% else %}
+            <img src="{{image.sizes.thumbnail.url}}">
+        {% endif %}
     {% endif %}
-    <div class="">
-        <b>{{title}}</b>
-        <span class="block">{{text}}</span>
+    <div class="description-text">
+        {% if title %}<dt>{{title}}</dt>{% endif %}
+         {% if text %}<dd>{{text}}</dd>{% endif %}
     </div>
-</li>
+</dl>
 
 
