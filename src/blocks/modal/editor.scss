@@ -6,11 +6,6 @@
  */
 
 
-// Ugly Hack to limit URL input width.
-.components-panel__body .block-editor-url-input input {
-    width: 100% !important;
-}
-
 .backdrop {
     position: fixed;
     left: 0;
