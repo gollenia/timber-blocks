@@ -7,7 +7,6 @@ const { __ } = wp.i18n;
 
 const addAutoMarginAttribute = ( props, name ) => {
 
-    console.log(name);
     if (name != 'core/spacer') {
         return props;
     }
