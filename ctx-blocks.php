@@ -11,6 +11,8 @@
  * @package         create-block
  */
 
+use Contexis\Utils\Update;
+
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 
@@ -20,6 +22,7 @@ add_action( 'init', ['Contexis\\Utils\\Assets', 'register'] );
 
 
 $args = Contexis\Utils\Assets::register();
+Update::init();
 
 // Register custom image sizes
 //Contexis\Utils\ImageSizes::register();
