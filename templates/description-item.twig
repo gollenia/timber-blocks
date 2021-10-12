@@ -1,5 +1,5 @@
-<dl class="description-item">
-    {% if icon %}<i class="material-icons">{{icon}}</i>
+<dl class="description__item">
+    {% if icon %}<i class="description__icon material-icons">{{icon}}</i>
     {% else %}
         {% if image.subtype == 'svg+xml' %}
             <figure>
@@ -9,7 +9,7 @@
             <img src="{{image.sizes.thumbnail.url}}">
         {% endif %}
     {% endif %}
-    <div class="description-text">
+    <div class="description__text">
         {% if title %}<dt>{{title}}</dt>{% endif %}
          {% if text %}<dd>{{text}}</dd>{% endif %}
     </div>

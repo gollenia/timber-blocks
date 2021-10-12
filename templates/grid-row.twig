@@ -1,11 +1,9 @@
-<div class="grid-row 
+<div class="grid 
     {{equalizer ? "equalizer" : ""}} 
-    grid grid-cols-{{childrenWidthSmall}} 
-    md:grid-cols-{{childrenWidthMedium}} 
-    xl:grid-cols-{{childrenWidthLarge}} 
-    {{ autoFlow ? "lg:grid-flow-" ~ autoFlowDirection }}{{ autoFlowDense ? "-dense" }}
-    {{ autoFlow ? " lg:grid-rows-" ~ autoFlowRows }}
-"
-style="gap: {{0.25 * gapSize}}rem;">
+    grid--columns-{{childrenWidthSmall}} 
+    md:grid--columns-{{childrenWidthMedium}} 
+    xl:grid--columns-{{childrenWidthLarge}} 
+    grid--gap-12
+">
     {{content|raw}}
 </div>

@@ -9,13 +9,13 @@
         x-transition:leave="leave" 
         x-transition:leave-start="leave-start" 
         x-on:click.away="imgModalSrc = ''" 
-        class="modal {{modalFull ? 'fullscreen' : 'window'}}">
-        <div class="modal-dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
-            <div class="dialog-header">
-                <div class="dialog-title"><h2>{{modalTitle}}</h2></div>
+        class="modal {{modalFull ? 'modal--fullscreen'}}">
+        <div class="modal__dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
+            <div class="modal__header">
+                <div class="modal__title"><h2>{{modalTitle}}</h2></div>
                 <button @click="showModal = false" class="close"></button>
             </div>
-            <div class="dialog-content">
+            <div class="modal__content">
                 {{content}}
             </div>
         </div>

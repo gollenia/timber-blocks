@@ -1,44 +1,45 @@
 
-<div class="card-collection posts">
+<div class="grid grid--columns-3 grid--gap-12">
     {% for item in posts %}
             <a 
-                class="
-                {% if hover %}hover {% endif %}
-                {% if dropShadow %}shadow {% endif %}
-                {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
-                card bg-white
-                {{ style == "list" ? "image-left" : "image-top" }}
-                {{loop.first ? "first"}}
-                {{loop.last ? "last"}}
+                class="card bg-white
+                {% if hover %}card--hover {% endif %}
+                {% if dropShadow %}card--shadow {% endif %}
+                {{ style == "list" ? "card--image-left" : "card--image-top" }}
+                {{loop.first ? "card--first"}}
+                {{loop.last ? "card--last"}}
                 "            
                 href="{{ function("get_permalink", item.ID) }}"
             >
             {% if showImages %}
-            
-            {% set color = get_color_by_slug(item.meta.primarycolor) %}
-            {% set textColor = (color.brightness == 'dark' ? '#ffffff' : '#00000') %}
 
-                <img class="card-image"  src="{{ item.thumbnail.src('large') }}" />
+            
+          
+            {% set color = get_color_by_slug(item.meta.page_colors.primary_color) %}
+            {% set textColor = (color.brightness == 'dark' ? 'var(--white)' : 'var(--black)') %}
+
+                <img class="card__image"  src="{{ item.thumbnail.src('large') }}" />
                 {% if showDate and style == "cards" %}
-                    <b class="w-12 h-12 {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
-                        <div class="font-bold text-lg text-gray -mb-2">{{item.post_date|date("j")}}</div>
-                        <div class="text-xs">{{item.post_date|date("M")}}</div>
+                    <b class="card__badge {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        <div class="card__badge__day">{{item.post_date|date("j")}}</div>
+                        <div class="card__badge__month">{{item.post_date|date("M")}}</div>
                     </b>
                 {% endif %}
             {% endif %}
             
-                <div class="card-content">
-                    <label class="{% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                <div class="card__content">
+                    <span class="card__label {% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
                         {{item.category}}
-                    </label>
-                    <h4 class="card-title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</h4>
+                    </span>
+                    <h4 class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</h4>
+                    <span class="card__subtitle"><span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span></span>
                     
-                    <p class="card-text text-black">
+                    <p class="card__text">
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
-                    <span class="card-footer">
-                        <span class="text-gray-500 text-xs">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span>
-                    </span>
+                    <div class="card__footer">
+                        <span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span>
+                    </div>
                 </div>
             </a>
         

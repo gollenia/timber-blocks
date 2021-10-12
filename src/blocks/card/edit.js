@@ -29,7 +29,7 @@ export default function CardEdit({...props}) {
 				'core/heading', 
 				{
 					placeholder: __('Title', 'ctx-blocks'),
-					className: 'card-header',
+					className: 'card__title',
 					level: 4
 				}
 			],
@@ -37,7 +37,7 @@ export default function CardEdit({...props}) {
 				'core/paragraph',
 				{
 					placeholder: __('Your content goes here...', 'ctx-blocks'),
-					className: 'card-text'
+					className: 'card__text'
 				}
 			]
 		];

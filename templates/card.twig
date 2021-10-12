@@ -2,20 +2,20 @@
 {% set secondary = get_color_by_slug(secondaryColor) %}
 
 <{{ url ? "a href='" ~ url ~ "'" : "div"}} style="background: {{bg.color}}{{transparent ? "aa"}}"
-class="card {{bg.brightness}} {{ image.url ? 'image-' ~ imagePosition : 'no-image'}} items-{{textAlign}} text-{{textAlign}} {{shadow ? 'shadow' }} {{ isFirst ? "first "}} {{ isLast ? "last"}} {{transparent ? " bg-blur"}} {{hover ? "hover"}}">
-    {% if badge %}<b class="card-badge" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "#ffffff" : "#000000"}};">{{ badge }}</b>{% endif %}
+class="card {{bg.brightness}} {{ image.url ? 'card--image-' ~ imagePosition : 'card--no-image'}} items-{{textAlign}} text-{{textAlign}} {{shadow ? 'card--shadow' }} {{ isFirst ? "card--first "}} {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} {{url ? "card--hover"}}">
+    {% if badge %}<b class="card__badge" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "var(--white)" : "var(--black)"}};">{{ badge }}</b>{% endif %}
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
-            <div class="svg-container" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
+            <div class="card__svg" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
-                <img class="card-image" src="{{image.sizes.medium.url}}">
+                <img class="card__image" src="{{image.sizes.medium.url}}">
         {% endif %}
     {% endif %}
    
-    <div class="card-content">
-        {% if label %}<label style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "#ffffff" : "#000000"}};"><span>{{ label }}</span></label>{% endif %}
+    <div class="card__content">
+        {% if label %}<span class="card__label" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "var(--white)" : "var(--black)"}};"><span>{{ label }}</span></span>{% endif %}
         {{content|raw}}
     </div>
 {{ url ? "</a>" : "</div>"}}

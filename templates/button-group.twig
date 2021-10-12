@@ -1,3 +1,14 @@
-<div class="button-group {{textAlignment}} pt-{{paddingTop}} pb-{{paddingBottom}} ">
+{# 
+#
+# Button Group 
+#
+# Attributes: 
+# @string textAlignment ("left", "right", "center"
+# @int paddingTop
+# @int paddingBottom
+#
+#}
+
+<div class="button-group {{textAlignment}}" style="padding-top: {{paddingTop / 4}}rem; padding-bottom: {{paddingBottom / 4}}rem">
 {{ content|raw }}
 </div>
