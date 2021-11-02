@@ -15,7 +15,6 @@ class Block implements BlockInterface {
 
     public $blocks = [
         "alert",
-        "buttons/button",
         "buttons/button-group",
         "card",
         "description/description-item",
@@ -62,6 +61,7 @@ class Block implements BlockInterface {
         
         
         add_action( 'init', function() use(&$blocks, &$args){
+            
             for($i = 0; $i < count($blocks); $i++) {
                 $args['attributes'] = $blocks[$i]['attributes'];
                 register_block_type(
