@@ -29,7 +29,7 @@
     }
 }
 
-div[data-type="ctx-blocks/grid-row"]:hover {
+.wp-block-ctx-blocks-grid-row:hover {
     .ctx-row-header, .ctx-col-header, .block-list-appender {
         visibility: visible;
     }
@@ -41,8 +41,8 @@ div[data-type="ctx-blocks/grid-row"]:hover {
         grid-template-columns: repeat($i, minmax(0, 1fr));
     }
 
-    .ctx-row-cols-gap-#{$i} > div > div.block-editor-block-list__layout  {
-        gap: $i * 4px
+    .ctx-row > div > div.block-editor-block-list__layout  {
+        gap: 1rem
     }
 
     .ctx-row-flow-col.ctx-row-flow-rows-#{$i} > div > div.block-editor-block-list__layout   {

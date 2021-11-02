@@ -53,13 +53,7 @@ class Inspector extends Component {
                             onChange={(value) => {setAttributes( { childrenWidthLarge: value })}}
                             value={ childrenWidthLarge }
                         />
-                        <RangeControl
-                            label={__("Gaps between columns", 'ctx-blocks')}
-                            max={ 12 }
-                            min={ 0 }
-                            onChange={(value) => {setAttributes( { gapSize: value })}}
-                            value={ gapSize }
-                        />
+                        
                         <CheckboxControl
                             label={__("Make all columns same height", 'ctx-blocks')}
                             checked={equalizer}
