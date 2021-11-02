@@ -17,12 +17,10 @@ require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 
 
-add_action( 'init', ['Contexis\\Utils\\Assets', 'register'] );
-
-
+//add_action( 'init', ['Contexis\\Utils\\Assets', 'register'] );
 
 $args = Contexis\Utils\Assets::register();
-Update::init();
+//Update::init();
 
 // Register custom image sizes
 //Contexis\Utils\ImageSizes::register();
@@ -41,3 +39,6 @@ $nav_block->register();
 
 $post_block = new \Contexis\Blocks\Posts($args);
 $post_block->register();
+
+$button_block = new \Contexis\Blocks\Button($args);
+$button_block->register();
