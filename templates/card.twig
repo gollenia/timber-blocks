@@ -1,9 +1,16 @@
 {% set bg = get_color_by_slug(backgroundColor) %}
 {% set secondary = get_color_by_slug(secondaryColor) %}
 
-<{{ url ? "a href='" ~ url ~ "'" : "div"}} style="background: {{bg.color}}{{transparent ? "aa"}}"
-class="card {{bg.brightness}} {{ image.url ? 'card--image-' ~ imagePosition : 'card--no-image'}} items-{{textAlign}} text-{{textAlign}} {{shadow ? 'card--shadow' }} {{ isFirst ? "card--first "}} {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} {{url ? "card--hover"}}">
-    {% if badge %}<b class="card__badge" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "var(--white)" : "var(--black)"}};">{{ badge }}</b>{% endif %}
+<{{ url ? "a href='" ~ url ~ "'" : "div"}} {{bg.light ? "light" : "dark" }} style="background: var(--{{backgroundColor}}); color: var(--{{backgroundColor}}-contrast);"
+    class="
+        card 
+        {{ image.url ? 'card--image-' ~ imagePosition : 'card--no-image'}} 
+        {{ shadow ? 'card--shadow' }} 
+        {{ isFirst ? "card--first "}} 
+        {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} 
+        {{ url ? "card--hover"}}"
+    >
+    {% if badge %}<b class="card__badge" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)">{{ badge }}</b>{% endif %}
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
             <div class="card__svg" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
@@ -15,7 +22,7 @@ class="card {{bg.brightness}} {{ image.url ? 'card--image-' ~ imagePosition : 'c
     {% endif %}
    
     <div class="card__content">
-        {% if label %}<span class="card__label" style="background: {{secondary.color}}; color: {{secondary.brightness == "dark" ? "var(--white)" : "var(--black)"}};"><span>{{ label }}</span></span>{% endif %}
+        {% if label %}<span class="card__label" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)"><span>{{ label }}</span></span>{% endif %}
         {{content|raw}}
     </div>
 {{ url ? "</a>" : "</div>"}}

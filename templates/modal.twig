@@ -1,36 +1,17 @@
-
-{% set bg = get_color_by_slug(buttonColor) %}
-
-<div x-data="{'showModal': false}" @keydown.escape="showModal = false" class="my-4">
-    <div style="display: none" x-show="showModal" 
-        x-transition:enter="enter" 
-        x-transition:enter-start="enter-start" 
-        x-transition:enter-end="enter-end" 
-        x-transition:leave="leave" 
-        x-transition:leave-start="leave-start" 
-        x-on:click.away="imgModalSrc = ''" 
-        class="modal {{modalFull ? 'modal--fullscreen'}}">
+<div id="{{id}}" style="display: none" x-show="showModal" 
+        data-transition-enter="enter" 
+        data-transition-enter-start="enter-start" 
+        data-transition-enter-end="enter-end" 
+        data-transition-leave="leave" 
+        data-transition-leave-start="leave-start" 
+        class="modal {{ modalFull ? 'modal--fullscreen'}}">
         <div class="modal__dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
             <div class="modal__header">
                 <div class="modal__title"><h2>{{modalTitle}}</h2></div>
-                <button @click="showModal = false" class="close"></button>
+                <button @click="showModal = false" class="modal__close"></button>
             </div>
             <div class="modal__content">
                 {{content}}
             </div>
         </div>
-    </div>
-
-    <div class="text-{{ buttonAlignment }}">
-    <a @click="showModal = true" style="background: {{bg.color}}; border-color: {{bg.color}}" 
-    class="cursor-pointer button {{bg.brightness}}
-    {{ buttonSize == "small" ? "px-2 py-1 text-xs" }}
-    {{ buttonSize ?: "px-4 py-2" }}
-    {{ buttonSize == "large" ? "px-6 py-3 text-lg" }}
-    inline-block bg-{{buttonColor}} hover:bg-{{buttonColor}}-darker text-{{buttonColor}}-contrast"
-    >{{buttonTitle}}</a>
-    </div>
-</div>
-
-
- 
+    </div> 

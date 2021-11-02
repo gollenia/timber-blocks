@@ -1,0 +1,29 @@
+{% set bg = get_color_by_slug(colorBackground) %}
+{% set fg = get_color_by_slug(colorBar) %}
+{% set percent = currentValue > maxValue ? 100 : (currentValue * 100 / maxValue)|round() %}
+{% set fullPercent = (currentValue * 100 / maxValue)|round() %}
+
+
+<div id="progress" class="progress" data-max="{{maxValue}}" data-current="{{currentValue}}" data-unit="{{unit}}" data-prefixed="{{prefixedUnit}}">
+    <div class="progress__legends">
+        <div style="color: {{fg.color}}" class="legend--current">
+            <div class="legend__label">{{currentDescription}}</div>
+            <div class="legend__value">{{ prefixedUnit ? unit : ""}} <span class="progress__number-injection">{{currentValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}}</span> {{ not prefixedUnit ? unit : ""}}</div>
+        </div>
+        <div style="color: {{bg.color}}" class="legend--max">
+            <div class="legend__label">{{maxDescription}}</div>
+            <div class="legend__value">{{ prefixedUnit ? unit : ""}} {{maxValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}} {{ not prefixedUnit ? unit : ""}}</div>
+        </div>
+    </div>
+    <div style="background: {{bg.color}}" class="progress__track">
+        <div style="width: 0%; background: {{fg.color}}" class="progress__indicator">
+            <span style="color: {{fg.light ? '#000000aa' : '#ffffffaa'}}" class="progress__label">{{fullPercent}}%</span>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+</script>

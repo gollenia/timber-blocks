@@ -1,6 +1,8 @@
-<dl class="description__item">
-    {% if icon %}<i class="description__icon material-icons">{{icon}}</i>
-    {% else %}
+
+<div class="description__item">
+    <div class="description__image {% if icon is empty %}description__image--noicon{% endif %}">
+    {% if icon %}<i class="description__icon material-icons">{{icon}}</i>{% endif %} 
+    {% if image %}
         {% if image.subtype == 'svg+xml' %}
             <figure>
             {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
@@ -9,10 +11,23 @@
             <img src="{{image.sizes.thumbnail.url}}">
         {% endif %}
     {% endif %}
-    <div class="description__text">
-        {% if title %}<dt>{{title}}</dt>{% endif %}
-         {% if text %}<dd>{{text}}</dd>{% endif %}
     </div>
-</dl>
+    <div class="description__text">
+        {% if title %}<div class="description__title">{{title}}</div>{% endif %}
+         {% if text %}<div class="description__data">
+            {% if contentType == "schedule" %}{{text|date("G:h")}}
+            {% elseif contentType == "today" %}{{text|date("d.M. Y")}}
+            {% else %}{{text}}{% endif %}
+
+        </div>{% endif %} 
+    </div>
+    {% if url %}
+    <div class="description__action">
+        <a href="{{url}}"><i class="material-icons">{{urlIcon}}</i></a>
+    </div>
+    {% endif %}
+</div>
 
 
+
+ 
