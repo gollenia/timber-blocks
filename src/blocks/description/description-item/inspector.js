@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { DateTimePicker, TextControl, ToggleControl, SelectControl, PanelBody, PanelRow } from '@wordpress/components';
+import { DatePicker, TimePicker, TextControl, ToggleControl, CheckboxControl, SelectControl, PanelBody, PanelRow } from '@wordpress/components';
 
 class Inspector extends Component {
 	render() {
@@ -15,6 +15,8 @@ class Inspector extends Component {
             text,
             image,
             roundImage,
+            url,
+            urlIcon,
             icon
         } = attributes;
 
@@ -27,7 +29,7 @@ class Inspector extends Component {
 
 				<InspectorControls>
                     <PanelBody
-                        title={__('Appearance', 'ctx-blocks')}
+                        title={__('Data', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <PanelRow>
@@ -37,25 +39,51 @@ class Inspector extends Component {
                             onChange={ ( value ) => { setAttributes( { contentType: value, text: "", icon: value } ) } }
                             options={ [
                                 { value: '', label: __("Other", 'ctx-blocks') },
-                                { value: 'date', label: __("Date", 'ctx-blocks') },
-                                { value: 'time', label: __("Time", 'ctx-blocks') },
+                                { value: 'today', label: __("Date", 'ctx-blocks') },
+                                { value: 'schedule', label: __("Time", 'ctx-blocks') },
                                 { value: 'place', label: __("Place", 'ctx-blocks') },
                                 { value: 'person', label: __("Person", 'ctx-blocks')}
                             ] }
                         />
                         </PanelRow>
                         
-                        { contentType === "date" &&
+                        { contentType === "today" &&
                         <div class="ctx-date-select">
-                            <DateTimePicker
+                            <DatePicker
                                 currentDate={ text }
                                 onChange={ ( val ) => onUpdateDate( val ) }
                                 is12Hour={ false }
                             />
                             </div>
-                            }
+                        }
+
+                        { contentType === "schedule" &&
+                        <div class="ctx-date-select">
+                            <TimePicker
+                                currentDate={ text }
+                                onChange={ ( val ) => onUpdateDate( val ) }
+                                is12Hour={ false }
+                            />
+                            </div>
+                        }
                
                         
+                    </PanelBody>
+                    
+                    <PanelBody
+                        title={__('Behaviour', 'ctx-blocks')}
+                        initialOpen={true}
+                    >
+                        <TextControl
+                                label={__("Link", 'ctx-blocks')}
+                                value={ url }
+                                onChange={ ( value ) => setAttributes( { url: value } ) }
+                        />
+                        <TextControl
+                                label={__("Icon for Link", 'ctx-blocks')}
+                                value={ urlIcon }
+                                onChange={ ( value ) => setAttributes( { urlIcon: value } ) }
+                        />
                     </PanelBody>
                     <PanelBody
                         title={__("Image", 'ctx-blocks')}

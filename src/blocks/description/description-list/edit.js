@@ -28,7 +28,8 @@ export default function Edit({...props}) {
 
         var classes = [
             className,
-            dividers ? "ctx-divider" : false
+			"ctx-description",
+            dividers ? "ctx-description--divider" : false
 		].filter(Boolean).join(" ")
 
         const TEMPLATE = [

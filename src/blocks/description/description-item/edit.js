@@ -18,7 +18,9 @@ export default function Edit({...props}) {
 				image,
 				icon,
 				roundImage,
-				title
+				title,
+				url,
+				urlIcon
 			},
 			setAttributes,
 			className,
@@ -28,8 +30,8 @@ export default function Edit({...props}) {
 
         var classes = [
             className,
-			"ctx-description-" + contentType,
-			"ctx-description-item"
+			"ctx-description--" + contentType,
+			"ctx-description__item"
 		].filter(Boolean).join(" ");
 
         
@@ -41,23 +43,25 @@ export default function Edit({...props}) {
 				/>
 				<div { ...useBlockProps( { className: classes }) } >
 
+					<div class="ctx-description__icon">
 			
-					{ image && image.subtype != "svg+xml" &&
-						<img className={roundImage ? "round" : ""} src={image.sizes.thumbnail.url}/>
-					}
+						{ image && image.subtype != "svg+xml" &&
+							<img className={roundImage ? "round" : ""} src={image.sizes.thumbnail.url}/>
+						}
 
-					{ image && image.subtype === "svg+xml" &&
-						<img 
-							src={relativeUrl(image.url)} 
-							width="50"
-							height="50"
-						/>
-					}
+						{ image && image.subtype === "svg+xml" &&
+							<img 
+								src={relativeUrl(image.url)} 
+								width="3rem"
+								height="3rem"
+							/>
+						}
 
-					{ !image && icon !== "" &&
-						<i className={`ctx-icon ctx-icon-${icon}`}></i>
-					}
-					<div className="ctx-item-content">
+						{ !image && icon !== "" &&
+							<i className="material-icons">{icon}</i>
+						}
+					</div>
+					<div className="ctx-description__content">
 						<RichText
 							tagName="b"
 							value={ title }
@@ -79,6 +83,9 @@ export default function Edit({...props}) {
 							<p>{text}</p>
 						}
 					</div>
+					{ url && <div class="ctx-description__action">
+						<b><i class="material-icons">{urlIcon}</i></b>
+					</div> }
 				</div>
 			</>
 		);

@@ -1,4 +1,8 @@
-.wp-block[data-type="ctx-blocks/description-list"] {
+.ctx-description {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	
 
     &.is-selected,
 	&.has-child-selected {
@@ -8,3 +12,4 @@
 		}
 	}
 }
+

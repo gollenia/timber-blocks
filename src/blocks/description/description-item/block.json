@@ -18,11 +18,23 @@
 			"type": "string",
 			"default": ""
 		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"urlIcon": {
+			"type": "string",
+			"default": "more_horiz"
+		},
 		"contentType": {
 			"type": "string",
 			"default": ""
 		},
 		"roundImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"seperationLines": {
 			"type": "boolean",
 			"default": false
 		}
