@@ -4,7 +4,7 @@
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",
-			"default": ""
+			"default": "white"
 		},
         "secondaryColor": {
 			"type": "string",
