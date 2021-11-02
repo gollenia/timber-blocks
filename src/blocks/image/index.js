@@ -11,7 +11,7 @@ const { name, category, attributes } = metadata;
 const settings = {
 	title: __( 'Image', 'ctx-blocks' ),
 	description: __( 'Insert image', 'ctx-blocks' ),
-	icon,
+	icon: "dashicons-format-image",
 	apiVersion: 2,
 	keywords: [
 		'ctxblocks',

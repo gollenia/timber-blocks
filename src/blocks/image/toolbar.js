@@ -1,7 +1,8 @@
 import { Component } from '@wordpress/element';
 import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
+import { IconButton, Toolbar, ToolbarItem, Button } from '@wordpress/components'
 
-class Toolbar extends Component {
+class CustomToolbar extends Component {
 	render() {
 		const {
 			attributes: {
@@ -22,4 +23,4 @@ class Toolbar extends Component {
 	}
 }
 
-export default Toolbar;
+export default CustomToolbar;

@@ -2,10 +2,6 @@
 	"name": "ctx-blocks/image",
 	"category": "common",
 	"attributes": {
-        "marginShift": {
-            "type": "string",
-			"default": ""
-        },
 		"hasLightbox": {
 			"type": "boolean",
 			"default": false
@@ -45,6 +41,10 @@
         "flip": {
             "type": "boolean",
             "default": false
+        },
+        "caption": {
+            "type": "string",
+			"default": ""
         }
 	}
 }
