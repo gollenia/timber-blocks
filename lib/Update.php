@@ -131,7 +131,7 @@ class Update {
     }
 
     public static function plugin_row_meta($plugins) {
-            var_dump($plugins);
+            
             if ( isset($plugins["ctx-blocks/ctx-blocks.php"]) ) {
                 $plugins['ctx-blocks/ctx-blocks.php']['slug'] = "ctx-blocks";
             }
