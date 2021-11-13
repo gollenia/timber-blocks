@@ -1,13 +1,13 @@
-# CTX Blocks
+# Bricks
 
-Timber-Empowered blocks
+Twig-Empowered blocks
 
 ### Description 
 
 Templating with Timber/Twig is a breeze. I was always disappointed that there are no blocks that can easily be redesigend with a simple template language like twig. If you have ever heard of [Timber](https://upstatement.com/timber/), you brobably know what I mean.
 Especially when it comes to integration of blocks into an existing theme/CSS-Framework, you have a lot of effort.
 
-Plugins like simple-blocks where not an option for me as it heavily relies on database and is not easily scalable across multible sites. That's why I whrote this very plugin.
+Plugins like simple-blocks where not an option for me as it heavily relies on database and is not easily scalable across multiple sites. That's why I wrote this very plugin.
 
 ### Installation
 
@@ -25,6 +25,13 @@ Of course, you still have to activate the plugin in your Wordpress installation.
 This plugin is made for developers, not for end-users. That's why I didn't put it on the Wordpress Plugin Database. To adopt Blocks, copy the files in the template folder to `your-theme/plugins/ctx-blocks` and modify them to your needs. When installed, they use tailwind classes, but use whatever CSS framework you like. Please have a look at the [Twig Docs](https://twig.symfony.com/doc/2.x/) aswell as the [Documentation on Timber](https://timber.github.io/docs/v2)
 
 ### Changelog
+
+##### 1.6
+* All templates now use BEM-based classes
+* Modal block has been included into buttons
+* description list and progress bar completely rewritten
+* The plugin now disables the standard wordpress Blocks like columns or image
+* A lot of bugfixes
 
 ##### 1.5.2
 * minor buffixes
