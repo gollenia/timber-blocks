@@ -17,8 +17,9 @@
           
             {% set color = get_color_by_slug(item.meta.page_colors.primary_color) %}
             {% set textColor = (color.brightness == 'dark' ? 'var(--white)' : 'var(--black)') %}
-
-                <img class="card__image"  src="{{ item.thumbnail.src('large') }}" />
+                <div class="card__image">
+                    <img src="{{ item.thumbnail.src('large') }}" />
+                </div>
                 {% if showDate and style == "cards" %}
                     <b class="card__badge {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
                         <div class="card__badge__day">{{item.post_date|date("j")}}</div>
