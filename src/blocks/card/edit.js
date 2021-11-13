@@ -30,6 +30,14 @@ export default function CardEdit({...props}) {
 				{
 					placeholder: __('Title', 'ctx-blocks'),
 					className: 'card__title',
+					level: 2
+				}
+			],
+			[
+				'core/heading', 
+				{
+					placeholder: __('Title', 'ctx-blocks'),
+					className: 'card__subtitle',
 					level: 4
 				}
 			],
