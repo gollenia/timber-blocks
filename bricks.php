@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:     CTX-Blocks
- * Description:     Common blocks utilizing tailwindcss and alipne.js
+ * Plugin Name:     Bricks 
+ * Description:     Common blocks using twig rendering
  * Version:         1.6
- * Author:          Thomas Gllenia
+ * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     ctx-blocks
