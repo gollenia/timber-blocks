@@ -6,11 +6,13 @@
 <div class="image {{ hasLightbox ? "image--has-lightbox" }} {{border ? 'image--border'}}  {{round ? "image--round"}} {{roundCorners and not rounded ? "image--rounded" }}  {{shadow ? "image--shadow"}}" style="place-items: {{alignment}}" {% if hasLightbox %}x-data="{ imgModal: false, imgModalSrc: '' }" @click.stop="imgModal = true;  imgModalSrc = '{{image.url}}'"{% endif %}>
 
         <img loading="lazy" style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
-            alt="{{image.description}}" 
+            alt="{{image.description ?: image.title}}" 
             class="{{border ? 'image--border'}}  {{round ? "image--round"}} {{roundCorners and not rounded ? "image--rounded" }}  {{shadow ? "image--shadow"}}" 
             src="{{ round ? image.url|resize(800,800) : image.url|resize(1200) }}"
         >
         {% if caption %}<div class="image__caption">{{caption}}</div>{% endif %}
-{% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox__inner"><img @click.stop="imgModal = !imgModal" x-bind:src="imgModalSrc"></div></div>{% endif %}
+{% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox__inner">
+<img @click.stop="imgModal = !imgModal" x-bind:src="imgModalSrc" alt="lightbox">
+</div></div>{% endif %}
 </div>
 {% endif %}

@@ -8,7 +8,7 @@
             {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </figure>
         {% else %}
-            <img src="{{image.sizes.thumbnail.url}}">
+            <img src="{{image.sizes.thumbnail.url}}" alt="{{image.description ?: image.title}}">
         {% endif %}
     {% endif %}
     </div>
