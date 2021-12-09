@@ -10,7 +10,7 @@ class TwigExtend {
 
     public static function get_color_by_slug($slug) {
         $color = [];
-        
+
         $colors = get_theme_support('editor-color-palette');
         //var_dump($colors);
         foreach ($colors[0] as $set) {
@@ -20,8 +20,6 @@ class TwigExtend {
                 break;
             }
         }
-
-        
 
         return $color;
     }
