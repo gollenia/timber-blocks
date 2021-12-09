@@ -1,5 +1,6 @@
 {% set bg = get_color_by_slug(colorBackground) %}
 {% set fg = get_color_by_slug(colorBar) %}
+
 {% set percent = currentValue > maxValue ? 100 : (currentValue * 100 / maxValue)|round() %}
 {% set fullPercent = (currentValue * 100 / maxValue)|round() %}
 
@@ -16,7 +17,7 @@
         </div>
     </div>
     <div style="background: {{bg.color}}" class="progress__track">
-        <div style="width: 0%; background: {{fg.color}}" class="progress__indicator">
+        <div style="background-color: {{fg.color}}; width: 0%;" class="progress__indicator">
             <span style="color: {{fg.light ? '#000000aa' : '#ffffffaa'}}" class="progress__label">{{fullPercent}}%</span>
         </div>
     </div>
