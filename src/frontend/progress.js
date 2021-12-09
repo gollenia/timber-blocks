@@ -23,23 +23,23 @@ const Progress = {
     animate(progressBar, duration) {
         this.animating = true;
         const max = progressBar.dataset.max;
-        var current = progressBar.dataset.current;
+        let current = progressBar.dataset.current;
         if (max === current) return;
        
         const percentValue = current > max ? 100 : Math.round(current * 100 / max);
         const barValue = percentValue > 100 ? 100 : percentValue;
 
-        var steps = duration / 1000 * 50;
-        var step = 0;
+        let steps = duration / 1000 * 50;
+        let step = 0;
        
-        var currentValueLabel = progressBar.getElementsByClassName('progress__number-injection')[0];
-        var indicator = progressBar.getElementsByClassName('progress__indicator')[0];
-        var percentLabel = progressBar.getElementsByClassName('progress__label')[0];
+        let currentValueLabel = progressBar.getElementsByClassName('progress__number-injection')[0];
+        let indicator = progressBar.getElementsByClassName('progress__indicator')[0];
+        let percentLabel = progressBar.getElementsByClassName('progress__label')[0];
         
-        var timer = setInterval(function() {
+        let timer = setInterval(function() {
             step++;
-            var factor = Math.sqrt(1 - Math.pow(step / steps - 1, 2));
-            var countValue = new Intl.NumberFormat('de-DE', { style: 'decimal'}).format(Math.round(current * factor))
+            let factor = Math.sqrt(1 - Math.pow(step / steps - 1, 2));
+            let countValue = new Intl.NumberFormat('de-DE', { style: 'decimal'}).format(Math.round(current * factor))
             currentValueLabel.innerHTML = countValue;
             indicator.style.width = `${barValue * factor}%`
             percentLabel.innerHTML = `${Math.round(percentValue * factor)}%`
@@ -50,14 +50,11 @@ const Progress = {
     },
 
     update(progressBar, event = false) {
-        var position = progressBar.getBoundingClientRect();
+        let position = progressBar.getBoundingClientRect();
 
-        var isLoaded = progressBar.classList.contains("progress--loaded");
-        console.log(isLoaded);
+        let isLoaded = progressBar.classList.contains("progress--loaded");
         if (position.top >= 0 && position.bottom <= window.innerHeight) {
-            console.log("animating?");
             if (!isLoaded) {
-                console.log("animating!");
                 progressBar.style.width = "{{percent}}%";
                 progressBar.classList.add("progress--loaded");
                 Progress.animate(progressBar, 3000);
