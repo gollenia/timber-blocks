@@ -15,8 +15,6 @@ import * as descriptionList from './blocks/description/description-list';
 import * as descriptionItem from './blocks/description/description-item';
 import * as section from './blocks/section';
 import * as nav from './blocks/nav';
-//columns have been removed
-//import * as columns from './blocks/columns';
 import * as posts from './blocks/posts';
 import * as progress from './blocks/progress';
 import * as modal from './blocks/modal';
@@ -30,32 +28,28 @@ import './mods/additionalFonts';
 import './mods/baseBlocksClasses';
 import './mods/spacerAutoOption';
 
-
-
 /**
  * Stylesheets
  */
 import './common/styles/editor.scss';
 import './common/styles/style.scss';
-import './mods/baseBlocksClasses';
 
-
-const registerBlock = ( block ) => {
-	if ( ! block ) {
+const registerBlock = (block) => {
+	if (!block) {
 		return;
 	}
 
 	const { name, category, settings } = block;
 
-	registerBlockType( name, {
-		category: category,
+	registerBlockType(name, {
+		category,
 		...settings,
-	} );
+	});
 };
 
 export const registerBlocks = () => {
 	[
-        buttonGroup,
+		buttonGroup,
 		button,
 		alert,
 		card,
@@ -68,8 +62,8 @@ export const registerBlocks = () => {
 		progress,
 		gridRow,
 		gridColumn,
-		image
-	].forEach( registerBlock );
+		image,
+	].forEach(registerBlock);
 };
 
 registerBlocks();
