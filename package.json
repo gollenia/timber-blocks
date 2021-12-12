@@ -1,8 +1,9 @@
 {
-	"name": "ctx-blocks",
+	"name": "bricks",
 	"version": "1.6.0",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"description": "Wordpress block library plugin to replace some standard blocks",
 	"author": "kids-team Österreich",
+	"prettier": "@wordpress/prettier-config",
 	"license": "GPL-2.0-or-later",
 	"main": "assets/index.js",
 	"scripts": {
@@ -19,8 +20,10 @@
 		"@wordpress/i18n": "^4.2.1"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^19.2.2",
-		"postcss-cli": "^8.0.0"
+		"@wordpress/eslint-plugin": "^9.3.0",
+   		"@wordpress/prettier-config": "^1.1.1",
+    	"@wordpress/scripts": "^19.2.2",
+    	"eslint": "^7.32.0"
 	},
 	"browserslist": [
 		"> 1%",
