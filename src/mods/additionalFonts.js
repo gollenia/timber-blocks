@@ -95,7 +95,7 @@ const addFontClass = ( extraProps, blockType, attributes ) => {
 		return extraProps;
 	}
 
-	 extraProps.className =  [
+	 extraProps.className = [
 		 extraProps.className || false,
 		 font || false
 	 ].filter(Boolean).join(" ");
