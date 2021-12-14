@@ -21,15 +21,14 @@
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^9.3.0",
-   		"@wordpress/prettier-config": "^1.1.1",
-    	"@wordpress/scripts": "^19.2.2",
-    	"eslint": "^7.32.0"
+		"@wordpress/prettier-config": "^1.1.1",
+		"@wordpress/scripts": "^19.2.2",
+		"eslint": "^7.32.0"
 	},
 	"browserslist": [
 		"> 1%",
 		"last 3 versions",
 		"not dead",
 		"not ie <= 11"
-	  ]
+	]
 }
- 
