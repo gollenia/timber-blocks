@@ -1,6 +1,6 @@
 # This workflow runs composer and deploys the theme on a server
 
-name: Deploy on Server
+name: Deploy on allincl Server
 
 on:
   workflow_dispatch
@@ -16,7 +16,7 @@ jobs:
     - name: rsync deployments
       uses: burnett01/rsync-deployments@5.1
       with:
-        switches: -avzr --delete --exclude .git --exclude .github --exclude assets/src --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude readme.md --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
+        switches: -avzr --delete --exclude .git --exclude .github --exclude src --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
         path: /
         remote_path: ${{ secrets.ALLINCL_PATH }}
         remote_host: ${{ secrets.ALLINCL }}
