@@ -13,7 +13,7 @@ class Button extends Block {
     public function render($attributes, $content, $full_data) : string {
         $attributes['id'] = uniqid();
         $attributes['content'] = $content;
-		var_dump($attributes);
+	
         if($attributes['hasModal']) {
 			$footer = Timber::compile($this->get_template('ctx-blocks/modal'), $attributes);
 			add_action('wp_footer', function() use (&$footer) {
