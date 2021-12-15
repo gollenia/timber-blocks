@@ -9,6 +9,7 @@
         {{ isFirst ? "card--first "}} 
         {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} 
         {{ url ? "card--hover"}}"
+		{{bg.light ? "light" : "dark" }}
     >
     {% if badge %}<b class="card__badge" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)">{{ badge }}</b>{% endif %}
     {% if image.url %}
