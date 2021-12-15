@@ -4,6 +4,6 @@ import Alert from './frontend/alert';
 
 document.addEventListener('DOMContentLoaded', () => {
 	Progress.init('progress');
-	Modal.init();
+	Modal();
 	Alert.init();
 });
