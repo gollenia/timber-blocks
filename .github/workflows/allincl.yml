@@ -20,5 +20,5 @@ jobs:
         path: /
         remote_path: ${{ secrets.ALLINCL_PATH }}
         remote_host: ${{ secrets.ALLINCL }}
-        remote_user: ${{ secretsALLINCL_USER }}
+        remote_user: ${{ secrets.ALLINCL_USER }}
         remote_key: ${{ secrets.ALLINCL_KEY }}
