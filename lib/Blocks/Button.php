@@ -13,11 +13,14 @@ class Button extends Block {
     public function render($attributes, $content, $full_data) : string {
         $attributes['id'] = uniqid();
         $attributes['content'] = $content;
-        $footer = Timber::compile($this->get_template('ctx-bloxks/modal'), $attributes);
-        add_action('wp_footer', function() use (&$footer) {
-            echo $footer; 
-        });
-        
+		var_dump($attributes);
+        if($attributes['hasModal']) {
+			$footer = Timber::compile($this->get_template('ctx-blocks/modal'), $attributes);
+			add_action('wp_footer', function() use (&$footer) {
+				echo $footer; 
+			});
+		}
+		
         $template = $this->get_template($full_data->name);
         return Timber::compile($template, $attributes);
         
