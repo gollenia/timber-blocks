@@ -11,7 +11,7 @@
  * @package         create-block
  */
 
-use Contexis\Utils\Update;
+
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
