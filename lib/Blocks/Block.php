@@ -47,7 +47,6 @@ class Block implements BlockInterface {
         $filename = plugin_dir_path( __FILE__ ) . "../../src/blocks/" . $block . "/block.json";
         
         if(!file_exists($filename)) {
-            
             return [];
         }
         $string = file_get_contents($filename);
@@ -58,7 +57,6 @@ class Block implements BlockInterface {
         $blocks = $this->blocks_to_register;
         $args = $this->args;
         $args['render_callback'] = [$this, "render"];
-        
         
         add_action( 'init', function() use(&$blocks, &$args){
             
