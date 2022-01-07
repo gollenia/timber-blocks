@@ -3,66 +3,67 @@ namespace Contexis\Utils;
 
 class Assets {
 
-    public static function register() {
+	public $assets = [
+		'style'         => 'bricks-block',
+		'editor_script' => 'bricks-block-editor',
+		'editor_style'  => 'bricks-block-editor',
+	];
+
+    public static function init() {
         
+		$instance = new self;
 
-        add_action( 'init', function() {
-            $dir = __DIR__;
+        add_action( 'init', [$instance, "register_assets"] );
 
+		add_action('admin_enqueue_scripts', function() {
+			wp_enqueue_script('bricks-block-filter', plugin_dir_url(__FILE__) . "../assets/admin.js", [], false, true);
+		});
 
-            $script_asset_path = "$dir/../assets/index.asset.php";
-            if ( ! file_exists( $script_asset_path ) ) {
-                  throw new \Error(
-                          'You need to run `npm start` or `npm run build` for the "create-block/ctx-blocks" block first.'
-                 );
-            }
-            $index_js     = '../assets/index.js';
-            $script_asset = require( $script_asset_path );
-            wp_register_script(
-                  'create-block-ctx-blocks-block-editor',
-                  plugins_url( $index_js, __FILE__ ),
-                  $script_asset['dependencies'],
-                  $script_asset['version']
-            );
-            wp_set_script_translations( 'create-block-ctx-blocks-block-editor', 'ctx-blocks', plugin_dir_path( __FILE__ ) . '../languages' );
-            
-            $editor_css = '../assets/index.css';
+       	add_action('init', function() {
+        	wp_enqueue_script('bricks-frontend', plugin_dir_url(__FILE__) . "../assets/frontend.js", [], false, true);
+    	});
 
-            wp_register_style(
-                     'create-block-ctx-blocks-block-editor',
-                     plugins_url( $editor_css, __FILE__ ),
-                     array(),
-                     filemtime( "$dir/$editor_css" )
-            );
-    
-             $style_css = '../assets/style-index.css';
-             wp_register_style(
-                     'create-block-ctx-blocks-block',
-                     plugins_url( $style_css, __FILE__ ),
-                     array(),
-                     filemtime( "$dir/$style_css" )
-             );
-    
-            
-        } );
-
-       add_action('admin_enqueue_scripts', function() {
-            wp_enqueue_script('ctx-block-filter', plugin_dir_url(__FILE__) . "../assets/admin.js", [], false, true);
-       });
-
-       add_action('init', function() {
-        wp_enqueue_script('ctx-frontend', plugin_dir_url(__FILE__) . "../assets/frontend.js", [], false, true);
-        });
-
-        return [
-            'style'         => 'create-block-ctx-blocks-block',
-            'editor_script' => 'create-block-ctx-blocks-block-editor',
-            'editor_style'  => 'create-block-ctx-blocks-block-editor',
-        ];
+		return $instance->assets;
     
     }
 
-    
+    public function register_assets() {
+		$dir = __DIR__ . "/../assets/";
+
+		if ( ! file_exists( $dir . "index.asset.php" ) ) {
+			  throw new \Error(
+					  'You need to run `npm start` or `npm run build` for the bricks blocks first.'
+			 );
+		}
+
+		$script_asset = require( $dir . "index.asset.php" );
+
+		wp_register_script(
+			$this->assets['editor_script'],
+			plugins_url( '../assets/index.js', __FILE__ ),
+			$script_asset['dependencies'],
+			$script_asset['version']
+		);
+		wp_set_script_translations( $this->assets['editor_script'], 'ctx-blocks', plugin_dir_path( __FILE__ ) . '../languages' );
+
+		wp_register_style(
+			$this->assets['editor_style'],
+			plugins_url( '../assets/index.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
+
+		wp_register_style(
+			$this->assets['style'],
+			plugins_url( '../assets/style-index.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
+
+		
+	}
+
+}
 
    
-}
+

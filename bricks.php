@@ -15,30 +15,21 @@
 
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
-
-
-//add_action( 'init', ['Contexis\\Utils\\Assets', 'register'] );
-
-$args = Contexis\Utils\Assets::register();
-//Update::init();
-
-// Register custom image sizes
-//Contexis\Utils\ImageSizes::register();
+$assets = Contexis\Utils\Assets::init();
 
 // Add Twig functions
 add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
 
 
 // Register Blocks (from old ctx-blocks)
-
-$standard_blocks = new \Contexis\Blocks\Block($args); 
+$standard_blocks = new \Contexis\Blocks\Block($assets); 
 $standard_blocks->register();
 
-$nav_block = new \Contexis\Blocks\Nav($args);
+$nav_block = new \Contexis\Blocks\Nav($assets);
 $nav_block->register();
 
-$post_block = new \Contexis\Blocks\Posts($args);
+$post_block = new \Contexis\Blocks\Posts($assets);
 $post_block->register();
 
-$button_block = new \Contexis\Blocks\Button($args);
+$button_block = new \Contexis\Blocks\Button($assets);
 $button_block->register();
