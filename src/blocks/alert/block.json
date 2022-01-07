@@ -1,5 +1,6 @@
 {
 	"name": "ctx-blocks/alert",
+	"api_version": 2,
 	"category": "formatting",
 	"attributes": {
 		"alertColor": {

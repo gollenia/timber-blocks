@@ -19,13 +19,13 @@ const { __ } = wp.i18n;
 /**
  * Block constants
  */
-const { name, category, attributes } = metadata;
+const { name, category, attributes, api_version } = metadata;
 
 const settings = {
 	title: __( 'Alert', 'ctx-blocks' ),
 	description: __( 'Show an information or warning to the user', 'ctx-blocks' ),
 	icon,
-	apiVersion: 2,
+	apiVersion: api_version,
 	keywords: [
 		'ctxblocks',
 		__( 'alert', 'ctx-blocks' ),

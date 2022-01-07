@@ -1,5 +1,6 @@
 {
 	"name": "ctx-blocks/description-item",
+	"api_version": 2,
 	"category": "common",
 	"attributes": {
 		"image": {

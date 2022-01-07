@@ -1,5 +1,6 @@
 {
 	"name": "ctx-blocks/image",
+	"api_version": 2,
 	"category": "common",
 	"attributes": {
 		"hasLightbox": {

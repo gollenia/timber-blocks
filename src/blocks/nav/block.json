@@ -1,5 +1,6 @@
 {
 	"name": "ctx-blocks/nav",
+	"api_version": 2,
 	"category": "widgets",
 	"attributes": {
 		"dropDown": {
