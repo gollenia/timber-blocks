@@ -1,7 +1,7 @@
 
 <div class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
     {% for item in posts %}
-            <a 
+            <div 
                 class="card bg-white
                 {% if hover %}card--hover {% endif %}
                 {% if dropShadow %}card--shadow {% endif %}
@@ -9,7 +9,6 @@
                 {{loop.first ? "card--first"}}
                 {{loop.last ? "card--last"}}
                 "            
-                href="{{ function("get_permalink", item.ID) }}"
             >
             {% if showImages %}
 
@@ -17,9 +16,9 @@
           
             {% set color = get_color_by_slug(item.meta.page_colors.primary_color) %}
             {% set textColor = (color.brightness == 'dark' ? 'var(--white)' : 'var(--black)') %}
-                <div class="card__image">
+                <a href="{{ function("get_permalink", item.ID) }}" class="card__image">
                     <img src="{{ item.thumbnail.src('large') }}" />
-                </div>
+                </a>
                 {% if showDate and style == "cards" %}
                     <b class="card__badge {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
                         <div class="card__badge__day">{{item.post_date|date("j")}}</div>
@@ -32,17 +31,17 @@
                     <span class="card__label {% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
                         {{item.category}}
                     </span>
-                    <h4 class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</h4>
+                    <a href="{{ function("get_permalink", item.ID) }}" class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</a>
                     <span class="card__subtitle"><span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span></span>
                     
                     <p class="card__text">
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
                     <div class="card__footer">
-                        <span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span>
+                        <a href="{{ function("get_permalink", item.ID) }}" class="button button--primary button--link">{{ __("Read on", "bricks")}}</a>
                     </div>
                 </div>
-            </a>
+            </div>
         
     {% endfor %}
 </div>
