@@ -20,6 +20,11 @@ $assets = Contexis\Utils\Assets::init();
 // Add Twig functions
 add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
 
+//Add translation
+function bricks_plugin_textdomain() {
+    load_plugin_textdomain('bricks', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
+}
+add_action('plugins_loaded', 'bricks_plugin_textdomain');
 
 // Register Blocks (from old ctx-blocks)
 $standard_blocks = new \Contexis\Blocks\Block($assets); 
