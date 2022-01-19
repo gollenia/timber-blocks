@@ -88,9 +88,14 @@ class Block implements BlockInterface {
 
     public function get_template($name) : string {
         $filename = substr($name, strpos($name, "/")+1) . ".twig";
-        
-        if(file_exists(get_template_directory() . "/plugins/ctx-blocks/" . $filename)) {
-            return get_template_directory() . '/plugins/ctx-blocks/' . $filename;
+		
+
+		if(file_exists(get_stylesheet_directory() . "/plugins/bricks/" . $filename)) {
+            return get_stylesheet_directory() . '/plugins/bricks/' . $filename;
+        }
+
+        if(file_exists(get_template_directory() . "/plugins/bricks/" . $filename)) {
+            return get_template_directory() . '/plugins/bricks/' . $filename;
         }
 
         if(file_exists(plugin_dir_path( __FILE__ ) . '../../templates/' . $filename)) {
