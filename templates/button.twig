@@ -3,11 +3,11 @@
 <div>
     <a  
         {% if hasModal %}data-modal="{{id}}"{% endif %}
-        class="{% if hasModal %}has-modal{% endif %} button {{ isLink ? "button--link" }} {{ outline ? "button--outline" }} {{ size == "small" ? "button--small" }} {{ size == "large" ? "button-large" }}"
+        class="{% if hasModal %}has-modal{% endif %} button {{ isLink ? "button--link" }} {{ outline ? "button--outline" }} {{ iconRight ? "button--reverse" }} {{ size == "small" ? "button--small" }} {{ size == "large" ? "button-large" }}"
         style="color: {{ isLink or outline ? bg.color : (bg.light ? "#000000" : "#ffffff" ) }}; background: {{ isLink or outline ? "transparent" : bg.color }}; box-shadow: {{ outline ? "inset 0px 0px 0px 2px " ~ bg.color : "none" }};"
         href="{{ hasModal ? "#/" : url }}"
     >
-    {{title}}
+    {% if icon %}<i class="material-icons">{{icon}}</i>{% endif %}{{title}}
     </a>
 </div>
  
