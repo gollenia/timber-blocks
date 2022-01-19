@@ -4,7 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { BaseControl, ToggleControl, PanelBody, PanelRow, SelectControl } from '@wordpress/components';
+import { BaseControl, ToggleControl, PanelBody, PanelRow, SelectControl, TextControl } from '@wordpress/components';
 
 /**
  * Inspector controls
@@ -18,6 +18,8 @@ class Inspector extends Component {
                 size,
                 hasModal,
                 modalFull,
+				icon,
+				iconRight,
                 isLink,
                 outline,
             },
@@ -78,6 +80,21 @@ class Inspector extends Component {
                                 label={ __("Full width", 'ctx-blocks')}
                                 checked={ fullWidth }
                                 onChange={ (value) => setAttributes({ fullWidth: value }) 
+                                }
+                            />
+                        </PanelRow>
+						<PanelRow>
+							<TextControl
+								label={__('Icon', 'ctx-blocks')}
+								value={icon}
+								onChange={(value) => {setAttributes( { icon: value })}}
+							/>
+						</PanelRow>
+						<PanelRow>
+                            <ToggleControl
+                                label={ __("Show icon on the right", 'ctx-blocks')}
+                                checked={ iconRight }
+                                onChange={ (value) => setAttributes({ iconRight: value }) 
                                 }
                             />
                         </PanelRow>

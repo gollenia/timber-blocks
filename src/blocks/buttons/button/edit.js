@@ -22,6 +22,8 @@ export default function ButtonEdit( {...props} ) {
             modalFull,
             hasModal,
 			outline,
+			icon,
+			iconRight
 		},
 		setAttributes,
 		buttonColor,
@@ -38,6 +40,7 @@ export default function ButtonEdit( {...props} ) {
 	const classes = [
 			className || false,
 			"ctx-button",
+			iconRight ? "btn-reverse" : false,
 			size || false,
 			outline ? "btn-outline" : false
 	].filter(Boolean).join(" ");
@@ -53,7 +56,6 @@ export default function ButtonEdit( {...props} ) {
           background: !outline && !isLink ? buttonColor.color : 'transparent',
           boxShadow: outline ? "inset 0px 0px 0px 2px " + buttonColor.color : 'none',
           color: isLink || outline ? buttonColor.color :  textColor,
-		  display: 'inline-block'
 	}
 
 	return (
@@ -62,6 +64,7 @@ export default function ButtonEdit( {...props} ) {
 					{ ...props }
 			/>
 			<span style={style} className={ classes } onClick={() => {setShowModal(true)}}>
+			{ icon && <i class="material-icons">{icon}</i>}
 			<RichText
 				tagName="span"
 				value={ title }

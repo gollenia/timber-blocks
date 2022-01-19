@@ -23,6 +23,14 @@
 			"type": "boolean",
 			"default": false
 		},
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconRight": {
+			"type": "boolean",
+			"default": false
+		},
 		"isLink": {
 			"type": "boolean",
 			"default": false
