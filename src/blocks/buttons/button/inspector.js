@@ -2,15 +2,14 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component } from '@wordpress/element';
 import { URLInput, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { BaseControl, ToggleControl, PanelBody, PanelRow, SelectControl, TextControl } from '@wordpress/components';
 
 /**
  * Inspector controls
  */
-class Inspector extends Component {
-	render() {
+const Inspector = (props) => {
+	
 		const {
 			attributes: {
                 fullWidth,
@@ -26,9 +25,9 @@ class Inspector extends Component {
             setAttributes,
             buttonColor,
             setButtonColor
-		} = this.props;
+		} = props;
       
-        function setAction(action) {
+        const setAction = (action) => {
             const value = action == "modal" ? true : false;
             setAttributes({hasModal: value})
         }
@@ -147,7 +146,7 @@ class Inspector extends Component {
                 </InspectorControls>
 			
 		);
-	}
+	
 }
 
 export default Inspector;

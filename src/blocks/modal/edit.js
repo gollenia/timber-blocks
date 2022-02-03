@@ -36,13 +36,13 @@ export default function ModalEdit({...props}) {
 
 		
 
-		var buttonClasses = [
+		const buttonClasses = [
 			className || false,
 			"ctx-button",
 			buttonSize || false,
 		].filter(Boolean).join(" ");
 
-		var buttonStyle = {
+		const buttonStyle = {
 			background: buttonIsLink ? "none" : buttonColor.color,
 			color: buttonIsLink ? buttonColor.color : contrast(buttonColor.color) 
 		}

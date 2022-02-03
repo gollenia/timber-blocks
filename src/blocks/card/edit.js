@@ -50,17 +50,17 @@ export default function CardEdit({...props}) {
 			]
 		];
 	
-		var style = {
+		const style = {
 			background: backgroundColor.color, 
 			color: props.colorUtils.getMostReadableColor(backgroundColor.color, ['#ffffff', '#000000'])
 		};
 
-        var secondaryStyle = {
+        const secondaryStyle = {
 			background: secondaryColor.color, 
 			color: props.colorUtils.getMostReadableColor(secondaryColor.color, ['#ffffff', '#000000'])
 		};
 
-		var classes = [
+		const classes = [
 			"ctx-card",
 			isFirst ? "ctx-is-first" : false,
 			isLast ? "ctx-is-last" : false,
@@ -68,8 +68,8 @@ export default function CardEdit({...props}) {
 			`text-${textAlign}`,
 			`image-${imagePosition}`
 		].filter(Boolean).join(" ");
-		var imageSide = ( imagePosition == "left" || imagePosition == "right");
-		var isSVG = ( image != null ? image.subtype == "svg+xml" : false );
+		
+		const isSVG = ( image != null ? image.subtype == "svg+xml" : false );
         const imageUrl = image == null ? false : (!(has(image, 'sizes.medium')) || isSVG ? image.url : image.sizes.medium.url);
 		
 		return (

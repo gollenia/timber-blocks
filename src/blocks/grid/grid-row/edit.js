@@ -34,7 +34,7 @@ export default function GridRowEdit({...props}) {
 
 	
 
-	var classes = [
+	const classes = [
 		`ctx-row ctx-row-cols-gap-${gapSize}`,
 		`ctx-row-cols-${childrenWidthLarge}`,
 		flowColumns ? `ctx-flow-col` : false,

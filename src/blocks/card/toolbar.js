@@ -1,27 +1,26 @@
-import { Component } from '@wordpress/element';
 import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 
-class Toolbar extends Component {
-	render() {
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+const Toolbar = (props) => {
+	
+	const {
+		attributes,
+		setAttributes
+	} = props;
 
-		const {
-            textAlign
-        } = attributes;
+	const {
+		textAlign
+	} = attributes;
 
-		return (
-			<BlockControls>
-				<AlignmentToolbar
-					value={ textAlign }
-					onChange={ (event) => setAttributes({ textAlign: event }) }
-				/>
+	return (
+		<BlockControls>
+			<AlignmentToolbar
+				value={ textAlign }
+				onChange={ (event) => setAttributes({ textAlign: event }) }
+			/>
 
-			</BlockControls>
-		);
-	}
+		</BlockControls>
+	);
+	
 }
 
 export default Toolbar;

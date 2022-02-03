@@ -1,28 +1,27 @@
-import { Component, Fragment } from '@wordpress/element';
 import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 
-class Toolbar extends Component {
-	render() {
-		const {
-			attributes,
-			setAttributes
-		} = this.props;
+const Toolbar = (props) => {
 
-		const {
-            buttonAlignment
-        } = attributes;
+	const {
+		attributes,
+		setAttributes
+	} = props;
 
-		return (
-			<Fragment>
-				<BlockControls>
-                    <AlignmentToolbar
-                        value={ buttonAlignment }
-                        onChange={ (event) => setAttributes({ buttonAlignment: event }) }
-                    />
-				</BlockControls>
-			</Fragment>
-		);
-	}
+	const {
+		buttonAlignment
+	} = attributes;
+
+	return (
+		<>
+			<BlockControls>
+				<AlignmentToolbar
+					value={ buttonAlignment }
+					onChange={ (event) => setAttributes({ buttonAlignment: event }) }
+				/>
+			</BlockControls>
+		</>
+	);
+	
 }
 
 export default Toolbar;

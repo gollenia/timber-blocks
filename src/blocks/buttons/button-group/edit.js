@@ -21,11 +21,11 @@ export default function Edit({...props}) {
         className,
     } = props;
 
-    var style = {
+    const style = {
         textAlign: textAlignment
     };		
 
-    var classes = [
+    const classes = [
         "ctx-buttons",
         "ctx-buttons-" + textAlignment
     ].filter(Boolean).join(" ");

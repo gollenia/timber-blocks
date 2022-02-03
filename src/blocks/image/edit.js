@@ -3,7 +3,7 @@ import CustomToolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
 import { BlockControls, useBlockProps, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { IconButton, Toolbar, ToolbarItem, Button } from '@wordpress/components'
+import { Toolbar, ToolbarItem, Button } from '@wordpress/components'
 
 export default function Edit({...props}) {
 
@@ -24,7 +24,7 @@ export default function Edit({...props}) {
 		} = props;
 
 	
-		var imageClasses = [
+		const imageClasses = [
 			className,
 			flip ? "ctx-flip-image" : false,
 			border ? "ctx-border-image" : false,
@@ -33,7 +33,7 @@ export default function Edit({...props}) {
 			round ? "ctx-round-image" : false
 		].filter(Boolean).join(" ");
 
-		var imageHolderClass = [
+		const imageHolderClass = [
 			"ctx-image-holder",
 			alignment
 		].filter(Boolean).join(" ");

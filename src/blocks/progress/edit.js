@@ -21,8 +21,6 @@ export default function Edit({...props}) {
 			setAttributes
 		} = props;
 
-		console.log(props);
-
 		const blockProps = useBlockProps({className:"ctx-progress"})
 
 		const replaceDecimalDot = ( value ) => {
@@ -37,8 +35,8 @@ export default function Edit({...props}) {
 
 		const textColor = props.colorUtils.getMostReadableColor(colorBar.color);
 
-		var currentValueString = parseInt(currentValue).toFixed(decimalPlaces);
-		var	maxValueString = parseInt(maxValue).toFixed(decimalPlaces);
+		let currentValueString = parseInt(currentValue).toFixed(decimalPlaces);
+		let	maxValueString = parseInt(maxValue).toFixed(decimalPlaces);
 		if(thousandSeparators) {
 			currentValueString =  String(currentValueString).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.')
 			maxValueString = String(maxValueString).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.')

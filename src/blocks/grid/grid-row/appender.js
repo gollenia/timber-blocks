@@ -13,7 +13,6 @@ const CustomAppender = ( { onClick } ) => {
 				icon="insert"
 				label={ __( 'New column', 'ctx-blocks' ) }
 				labelPosition="bottom"
-				
 				onClick={ onClick }
 			>
 				{ __( 'Add column', 'ctx-blocks' ) }

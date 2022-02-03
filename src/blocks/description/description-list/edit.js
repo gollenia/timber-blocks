@@ -26,7 +26,7 @@ export default function Edit({...props}) {
 			className,
 		} = props;
 
-        var classes = [
+        const classes = [
             className,
 			"ctx-description",
             dividers ? "ctx-description--divider" : false

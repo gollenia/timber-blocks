@@ -193,39 +193,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        isDismissable
-      },
-      setAttributes,
-      alertColor,
-      setAlertColor
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("User can dismiss the alert", 'ctx-blocks'),
-      checked: isDismissable,
-      onChange: value => setAttributes({
-        isDismissable: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Color", 'ctx-blocks'),
-      initialOpen: true,
-      colorSettings: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Background color of the alert", 'ctx-blocks'),
-        onChange: setAlertColor,
-        value: alertColor.color,
-        disableCustomColors: true
-      }]
-    }));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      isDismissable
+    },
+    setAttributes,
+    alertColor,
+    setAlertColor
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("User can dismiss the alert", 'ctx-blocks'),
+    checked: isDismissable,
+    onChange: value => setAttributes({
+      isDismissable: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Color", 'ctx-blocks'),
+    initialOpen: true,
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Background color of the alert", 'ctx-blocks'),
+      onChange: setAlertColor,
+      value: alertColor.color,
+      disableCustomColors: true
+    }]
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -385,25 +381,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Toolbar extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      textAlignment
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
-      value: textAlignment,
-      onChange: event => setAttributes({
-        textAlignment: event
-      })
-    }));
-  }
-
-}
+const Toolbar = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    textAlignment
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: textAlignment,
+    onChange: event => setAttributes({
+      textAlignment: event
+    })
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Toolbar);
 
@@ -627,136 +619,132 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        fullWidth,
-        url,
-        size,
-        hasModal,
-        modalFull,
-        icon,
-        iconRight,
-        isLink,
-        outline
-      },
-      setAttributes,
-      buttonColor,
-      setButtonColor
-    } = this.props;
+const Inspector = props => {
+  const {
+    attributes: {
+      fullWidth,
+      url,
+      size,
+      hasModal,
+      modalFull,
+      icon,
+      iconRight,
+      isLink,
+      outline
+    },
+    setAttributes,
+    buttonColor,
+    setButtonColor
+  } = props;
 
-    function setAction(action) {
-      const value = action == "modal" ? true : false;
+  const setAction = action => {
+    const value = action == "modal" ? true : false;
+    setAttributes({
+      hasModal: value
+    });
+  };
+
+  const currentAction = () => {
+    return hasModal ? "modal" : "link";
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Size', 'ctx-blocks'),
+    value: size,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'ctx-blocks'),
+      value: ''
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Small', 'ctx-blocks'),
+      value: 'small'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Large', 'ctx-blocks'),
+      value: 'large'
+    }],
+    onChange: event => {
       setAttributes({
-        hasModal: value
+        size: event
       });
     }
-
-    const currentAction = () => {
-      return hasModal ? "modal" : "link";
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Size', 'ctx-blocks'),
-      value: size,
-      options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Normal', 'ctx-blocks'),
-        value: ''
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Small', 'ctx-blocks'),
-        value: 'small'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Large', 'ctx-blocks'),
-        value: 'large'
-      }],
-      onChange: event => {
-        setAttributes({
-          size: event
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Outline-Button", 'ctx-blocks'),
-      checked: outline,
-      onChange: value => setAttributes({
-        outline: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link only", 'ctx-blocks'),
-      checked: isLink,
-      onChange: value => setAttributes({
-        isLink: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full width", 'ctx-blocks'),
-      checked: fullWidth,
-      onChange: value => setAttributes({
-        fullWidth: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon', 'ctx-blocks'),
-      value: icon,
-      onChange: value => {
-        setAttributes({
-          icon: value
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show icon on the right", 'ctx-blocks'),
-      checked: iconRight,
-      onChange: value => setAttributes({
-        iconRight: value
-      })
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Action', 'ctx-blocks'),
-      value: currentAction(),
-      options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link', 'ctx-blocks'),
-        value: 'link'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Modal', 'ctx-blocks'),
-        value: 'modal'
-      }],
-      onChange: event => {
-        setAction(event);
-      }
-    }), !hasModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.BaseControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add a URL or a link", 'ctx-blocks')
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.URLInput, {
-      value: url,
-      onChange: (url, post) => setAttributes({
-        url,
-        text: post && post.title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Click here', 'ctx-blocks')
-      })
-    })), hasModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full screen size", 'ctx-blocks'),
-      checked: modalFull,
-      onChange: value => setAttributes({
-        modalFull: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'ctx-blocks'),
-      colorSettings: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Set a background color for the button', 'ctx-blocks'),
-        onChange: setButtonColor,
-        value: buttonColor.color,
-        disableCustomColors: true
-      }]
-    }));
-  }
-
-}
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Outline-Button", 'ctx-blocks'),
+    checked: outline,
+    onChange: value => setAttributes({
+      outline: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link only", 'ctx-blocks'),
+    checked: isLink,
+    onChange: value => setAttributes({
+      isLink: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full width", 'ctx-blocks'),
+    checked: fullWidth,
+    onChange: value => setAttributes({
+      fullWidth: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon', 'ctx-blocks'),
+    value: icon,
+    onChange: value => {
+      setAttributes({
+        icon: value
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show icon on the right", 'ctx-blocks'),
+    checked: iconRight,
+    onChange: value => setAttributes({
+      iconRight: value
+    })
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Action', 'ctx-blocks'),
+    value: currentAction(),
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link', 'ctx-blocks'),
+      value: 'link'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Modal', 'ctx-blocks'),
+      value: 'modal'
+    }],
+    onChange: event => {
+      setAction(event);
+    }
+  }), !hasModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.BaseControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add a URL or a link", 'ctx-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.URLInput, {
+    value: url,
+    onChange: (url, post) => setAttributes({
+      url,
+      text: post && post.title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Click here', 'ctx-blocks')
+    })
+  })), hasModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full screen size", 'ctx-blocks'),
+    checked: modalFull,
+    onChange: value => setAttributes({
+      modalFull: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings', 'ctx-blocks'),
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Set a background color for the button', 'ctx-blocks'),
+      onChange: setButtonColor,
+      value: buttonColor.color,
+      disableCustomColors: true
+    }]
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -820,17 +808,16 @@ function CardEdit(_ref) {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Your content goes here...', 'ctx-blocks'),
     className: 'card__text'
   }]];
-  var style = {
+  const style = {
     background: backgroundColor.color,
     color: props.colorUtils.getMostReadableColor(backgroundColor.color, ['#ffffff', '#000000'])
   };
-  var secondaryStyle = {
+  const secondaryStyle = {
     background: secondaryColor.color,
     color: props.colorUtils.getMostReadableColor(secondaryColor.color, ['#ffffff', '#000000'])
   };
-  var classes = ["ctx-card", isFirst ? "ctx-is-first" : false, isLast ? "ctx-is-last" : false, hover ? "ctx-hover" : false, `text-${textAlign}`, `image-${imagePosition}`].filter(Boolean).join(" ");
-  var imageSide = imagePosition == "left" || imagePosition == "right";
-  var isSVG = image != null ? image.subtype == "svg+xml" : false;
+  const classes = ["ctx-card", isFirst ? "ctx-is-first" : false, isLast ? "ctx-is-last" : false, hover ? "ctx-hover" : false, `text-${textAlign}`, `image-${imagePosition}`].filter(Boolean).join(" ");
+  const isSVG = image != null ? image.subtype == "svg+xml" : false;
   const imageUrl = image == null ? false : !(0,lodash__WEBPACK_IMPORTED_MODULE_3__.has)(image, 'sizes.medium') || isSVG ? image.url : image.sizes.medium.url;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ctx-grabber"
@@ -1096,195 +1083,196 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        image,
-        imagePosition,
-        hover,
-        transparent,
-        url,
-        label,
-        shadow,
-        badge,
-        isFirst,
-        isLast
-      },
-      setAttributes,
-      backgroundColor,
-      setBackgroundColor,
-      secondaryColor,
-      setSecondaryColor
-    } = this.props;
-    const isSVG = image != null ? image.subtype == "svg+xml" : false;
-    const imageUrl = image == null ? false : !(0,lodash__WEBPACK_IMPORTED_MODULE_4__.has)(image, 'sizes.medium') || isSVG ? image.url : image.sizes.medium.url;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
-      initialOpen: false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Highlight on mouse over', 'ctx-blocks'),
-      checked: hover,
-      onChange: value => {
-        setAttributes({
-          hover: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shadow', 'ctx-blocks'),
-      checked: shadow,
-      onChange: value => {
-        setAttributes({
-          shadow: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Transparent", 'ctx-blocks'),
-      checked: transparent,
-      onChange: value => {
-        setAttributes({
-          transparent: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.BaseControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link', 'ctx-blocks')
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.URLInput, {
-      value: url,
-      onChange: (url, post) => setAttributes({
-        url,
-        text: post && post.title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Click here...', 'ctx-blocks')
-      })
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('label', 'ctx-blocks'),
-      value: label,
-      onChange: value => {
-        setAttributes({
-          label: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('badge', 'ctx-blocks'),
-      value: badge,
-      onChange: value => {
-        setAttributes({
-          badge: value
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color settings', 'ctx-blocks'),
-      initialOpen: false,
-      colorSettings: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'ctx-blocks'),
-        onChange: setBackgroundColor,
-        value: backgroundColor.color,
-        disableCustomColors: true
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Secondary color', 'ctx-blocks'),
-        onChange: setSecondaryColor,
-        value: secondaryColor.color,
-        disableCustomColors: true
-      }]
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image', 'ctx-blocks'),
-      initialOpen: false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-      onSelect: media => setAttributes({
-        image: media
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image', 'ctx-blocks'),
-      value: image,
-      render: _ref => {
-        let {
-          open
-        } = _ref;
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: "editor-post-featured-image ctx-image-select"
-        }, !image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button editor-post-featured-image__toggle",
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose image', 'ctx-blocks')), image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-          className: "",
-          src: imageUrl,
-          onClick: open,
-          alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", 'ctx-blocks')
-        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-          type: "button",
-          isSecondary: true,
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-          type: "button",
-          isDestructive: true,
-          onClick: () => setAttributes({
-            image: null
-          })
-        }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", 'ctx-blocks')))));
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-      className: "components-base-control__label",
-      htmlFor: "inspector-range-control-4"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image position", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "imagePositionSelector"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: () => setAttributes({
-        imagePosition: "top"
-      }),
-      className: imagePosition == "top" ? "active" : ""
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      size: "64",
-      className: "icon",
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].topimage
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("top", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: () => setAttributes({
-        imagePosition: "bottom"
-      }),
-      className: imagePosition == "bottom" ? "active" : ""
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      size: "64",
-      className: "icon",
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].bottomimage
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("bottom", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: () => setAttributes({
-        imagePosition: "left"
-      }),
-      className: imagePosition == "left" ? "active" : ""
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      size: "64",
-      className: "icon",
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].leftimage
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("left", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      onClick: () => setAttributes({
-        imagePosition: "right"
-      }),
-      className: imagePosition == "right" ? "active" : ""
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      size: "64",
-      className: "icon",
-      icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].rightimage
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("right", 'ctx-blocks'))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Layout settings", 'ctx-blocks'),
-      initialOpen: false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Is first element", 'ctx-blocks'),
-      checked: isFirst,
-      onChange: value => {
-        setAttributes({
-          isFirst: value
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Is last element", 'ctx-blocks'),
-      checked: isLast,
-      onChange: value => {
-        setAttributes({
-          isLast: value
-        });
-      }
-    }))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      image,
+      imagePosition,
+      hover,
+      transparent,
+      url,
+      label,
+      shadow,
+      badge,
+      isFirst,
+      isLast,
+      actions
+    },
+    setAttributes,
+    backgroundColor,
+    setBackgroundColor,
+    secondaryColor,
+    setSecondaryColor
+  } = props;
+  const isSVG = image != null ? image.subtype == "svg+xml" : false;
+  const imageUrl = image == null ? false : !(0,lodash__WEBPACK_IMPORTED_MODULE_4__.has)(image, 'sizes.medium') || isSVG ? image.url : image.sizes.medium.url;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Highlight on mouse over', 'ctx-blocks'),
+    checked: hover,
+    onChange: value => {
+      setAttributes({
+        hover: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shadow', 'ctx-blocks'),
+    checked: shadow,
+    onChange: value => {
+      setAttributes({
+        shadow: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Transparent", 'ctx-blocks'),
+    checked: transparent,
+    onChange: value => {
+      setAttributes({
+        transparent: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.BaseControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link', 'ctx-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.URLInput, {
+    value: url,
+    onChange: (url, post) => setAttributes({
+      url,
+      text: post && post.title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Click here...', 'ctx-blocks')
+    })
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('label', 'ctx-blocks'),
+    value: label,
+    onChange: value => {
+      setAttributes({
+        label: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('badge', 'ctx-blocks'),
+    value: badge,
+    onChange: value => {
+      setAttributes({
+        badge: value
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color settings', 'ctx-blocks'),
+    initialOpen: false,
+    colorSettings: [{
+      title: "Hihi",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'ctx-blocks'),
+      onChange: setBackgroundColor,
+      value: backgroundColor.color,
+      disableCustomColors: true
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Secondary color', 'ctx-blocks'),
+      onChange: setSecondaryColor,
+      value: secondaryColor.color,
+      disableCustomColors: true
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image', 'ctx-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: media => setAttributes({
+      image: media
+    }),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image', 'ctx-blocks'),
+    value: image,
+    render: _ref => {
+      let {
+        open
+      } = _ref;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "editor-post-featured-image ctx-image-select"
+      }, !image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button editor-post-featured-image__toggle",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose image', 'ctx-blocks')), image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "",
+        src: imageUrl,
+        onClick: open,
+        alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", 'ctx-blocks')
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        type: "button",
+        isSecondary: true,
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        type: "button",
+        isDestructive: true,
+        onClick: () => setAttributes({
+          image: null
+        })
+      }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", 'ctx-blocks')))));
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    className: "components-base-control__label",
+    htmlFor: "inspector-range-control-4"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image position", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "imagePositionSelector"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: () => setAttributes({
+      imagePosition: "top"
+    }),
+    className: imagePosition == "top" ? "active" : ""
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+    size: "64",
+    className: "icon",
+    icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].topimage
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("top", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: () => setAttributes({
+      imagePosition: "bottom"
+    }),
+    className: imagePosition == "bottom" ? "active" : ""
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+    size: "64",
+    className: "icon",
+    icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].bottomimage
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("bottom", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: () => setAttributes({
+      imagePosition: "left"
+    }),
+    className: imagePosition == "left" ? "active" : ""
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+    size: "64",
+    className: "icon",
+    icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].leftimage
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("left", 'ctx-blocks'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: () => setAttributes({
+      imagePosition: "right"
+    }),
+    className: imagePosition == "right" ? "active" : ""
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+    size: "64",
+    className: "icon",
+    icon: _icons_js__WEBPACK_IMPORTED_MODULE_5__["default"].rightimage
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("right", 'ctx-blocks'))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Actions", 'ctx-blocks'),
+    initialOpen: false
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Layout settings", 'ctx-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Is first element", 'ctx-blocks'),
+    checked: isFirst,
+    onChange: value => {
+      setAttributes({
+        isFirst: value
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Is last element", 'ctx-blocks'),
+    checked: isLast,
+    onChange: value => {
+      setAttributes({
+        isLast: value
+      });
+    }
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -1305,25 +1293,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Toolbar extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      textAlign
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
-      value: textAlign,
-      onChange: event => setAttributes({
-        textAlign: event
-      })
-    }));
-  }
-
-}
+const Toolbar = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    textAlign
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: textAlign,
+    onChange: event => setAttributes({
+      textAlign: event
+    })
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Toolbar);
 
@@ -1517,139 +1501,134 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const Inspector = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    contentType,
+    text,
+    image,
+    roundImage,
+    url,
+    urlIcon,
+    icon
+  } = attributes;
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      contentType,
-      text,
-      image,
-      roundImage,
-      url,
-      urlIcon,
-      icon
-    } = attributes;
+  const onUpdateDate = dateTime => {
+    setAttributes({
+      text: moment(dateTime).format('YYYY-MM-DD HH:mm')
+    });
+  };
 
-    const onUpdateDate = dateTime => {
-      var newDateTime = moment(dateTime).format('YYYY-MM-DD HH:mm');
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Data', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Type of content', 'ctx-blocks'),
+    value: contentType // e.g: value = [ 'a', 'c' ]
+    ,
+    onChange: value => {
       setAttributes({
-        text: newDateTime
-      });
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Data', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Type of content', 'ctx-blocks'),
-      value: contentType // e.g: value = [ 'a', 'c' ]
-      ,
-      onChange: value => {
-        setAttributes({
-          contentType: value,
-          text: "",
-          icon: value
-        });
-      },
-      options: [{
-        value: '',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Other", 'ctx-blocks')
-      }, {
-        value: 'today',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Date", 'ctx-blocks')
-      }, {
-        value: 'schedule',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Time", 'ctx-blocks')
-      }, {
-        value: 'place',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Place", 'ctx-blocks')
-      }, {
-        value: 'person',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Person", 'ctx-blocks')
-      }]
-    })), contentType === "today" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "ctx-date-select"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.DatePicker, {
-      currentDate: text,
-      onChange: val => onUpdateDate(val),
-      is12Hour: false
-    })), contentType === "schedule" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "ctx-date-select"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TimePicker, {
-      currentDate: text,
-      onChange: val => onUpdateDate(val),
-      is12Hour: false
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link", 'ctx-blocks'),
-      value: url,
-      onChange: value => setAttributes({
-        url: value
-      })
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon for Link", 'ctx-blocks'),
-      value: urlIcon,
-      onChange: value => setAttributes({
-        urlIcon: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image", 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-      onSelect: media => setAttributes({
-        image: media
-      }),
-      label: "Bild",
-      value: image,
-      render: _ref => {
-        let {
-          open
-        } = _ref;
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: "editor-post-featured-image ctx-image-select"
-        }, !image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button editor-post-featured-image__toggle",
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose image', 'ctx-blocks')), image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-          className: "",
-          src: image.url,
-          onClick: open,
-          alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", 'ctx-blocks')
-        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button is-button is-default is-large",
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button is-link is-destructive",
-          onClick: () => setAttributes({
-            image: null
-          })
-        }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", 'ctx-blocks'))));
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Rounded", 'ctx-blocks'),
-      checked: roundImage,
-      onChange: value => setAttributes({
-        roundImage: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon", 'ctx-blocks'),
-      value: icon,
-      onChange: value => setAttributes({
+        contentType: value,
+        text: "",
         icon: value
-      })
-    }))));
-  }
-
-}
+      });
+    },
+    options: [{
+      value: '',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Other", 'ctx-blocks')
+    }, {
+      value: 'today',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Date", 'ctx-blocks')
+    }, {
+      value: 'schedule',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Time", 'ctx-blocks')
+    }, {
+      value: 'place',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Place", 'ctx-blocks')
+    }, {
+      value: 'person',
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Person", 'ctx-blocks')
+    }]
+  })), contentType === "today" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "ctx-date-select"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.DatePicker, {
+    currentDate: text,
+    onChange: val => onUpdateDate(val),
+    is12Hour: false
+  })), contentType === "schedule" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "ctx-date-select"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TimePicker, {
+    currentDate: text,
+    onChange: val => onUpdateDate(val),
+    is12Hour: false
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link", 'ctx-blocks'),
+    value: url,
+    onChange: value => setAttributes({
+      url: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon for Link", 'ctx-blocks'),
+    value: urlIcon,
+    onChange: value => setAttributes({
+      urlIcon: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image", 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: media => setAttributes({
+      image: media
+    }),
+    label: "Bild",
+    value: image,
+    render: _ref => {
+      let {
+        open
+      } = _ref;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "editor-post-featured-image ctx-image-select"
+      }, !image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button editor-post-featured-image__toggle",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose image', 'ctx-blocks')), image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "",
+        src: image.url,
+        onClick: open,
+        alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", 'ctx-blocks')
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button is-button is-default is-large",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", 'ctx-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button is-link is-destructive",
+        onClick: () => setAttributes({
+          image: null
+        })
+      }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", 'ctx-blocks'))));
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Rounded", 'ctx-blocks'),
+    checked: roundImage,
+    onChange: value => setAttributes({
+      roundImage: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon", 'ctx-blocks'),
+    value: icon,
+    onChange: value => setAttributes({
+      icon: value
+    })
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -1818,29 +1797,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      dividers
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Lines as separators", 'ctx-blocks'),
-      checked: dividers,
-      onChange: event => setAttributes({
-        dividers: event
-      })
-    }))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    dividers
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Appearance', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Lines as separators", 'ctx-blocks'),
+    checked: dividers,
+    onChange: event => setAttributes({
+      dividers: event
+    })
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -2028,78 +2003,74 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        widthSmall,
-        widthLarge,
-        widthMedium,
-        mobilePosition
-      },
-      setAttributes
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Mobile appearance", 'ctx-blocks'),
-      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How should the column behave on small devices?"),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Column span on mobile devices", 'ctx-blocks'),
-      max: 3,
-      min: 0,
-      onChange: event => {
-        setAttributes({
-          widthSmall: event
-        });
-      },
-      value: widthSmall
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns span on tablets and small displays", 'ctx-blocks'),
-      max: 12,
-      min: 0,
-      onChange: event => {
-        setAttributes({
-          widthMedium: event
-        });
-      },
-      value: widthMedium
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Column span on Desktops", 'ctx-blocks'),
-      max: 12,
-      min: 0,
-      onChange: event => {
-        setAttributes({
-          widthLarge: event
-        });
-      },
-      value: widthLarge
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Position on mobile devices', 'ctx-blocks'),
-      value: mobilePosition,
-      options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('In place', 'ctx-blocks'),
-        value: ''
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Start', 'ctx-blocks'),
-        value: 'first'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('End', 'ctx-blocks'),
-        value: 'last'
-      }],
-      onChange: event => {
-        setAttributes({
-          mobilePosition: event
-        });
-      }
-    }))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      widthSmall,
+      widthLarge,
+      widthMedium,
+      mobilePosition
+    },
+    setAttributes
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Mobile appearance", 'ctx-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("How should the column behave on small devices?"),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Column span on mobile devices", 'ctx-blocks'),
+    max: 3,
+    min: 0,
+    onChange: event => {
+      setAttributes({
+        widthSmall: event
+      });
+    },
+    value: widthSmall
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns span on tablets and small displays", 'ctx-blocks'),
+    max: 12,
+    min: 0,
+    onChange: event => {
+      setAttributes({
+        widthMedium: event
+      });
+    },
+    value: widthMedium
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Column span on Desktops", 'ctx-blocks'),
+    max: 12,
+    min: 0,
+    onChange: event => {
+      setAttributes({
+        widthLarge: event
+      });
+    },
+    value: widthLarge
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Position on mobile devices', 'ctx-blocks'),
+    value: mobilePosition,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('In place', 'ctx-blocks'),
+      value: ''
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Start', 'ctx-blocks'),
+      value: 'first'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('End', 'ctx-blocks'),
+      value: 'last'
+    }],
+    onChange: event => {
+      setAttributes({
+        mobilePosition: event
+      });
+    }
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -2146,7 +2117,7 @@ function GridRowEdit(_ref) {
     }
   } = props;
   const TEMPLATE = [['ctx-blocks/grid-column'], ['ctx-blocks/grid-column']];
-  var classes = [`ctx-row ctx-row-cols-gap-${gapSize}`, `ctx-row-cols-${childrenWidthLarge}`, flowColumns ? `ctx-flow-col` : false, equalizer ? `ctx-row-equalize` : false, divider ? `ctx-row-divider` : false].filter(Boolean).join(" ");
+  const classes = [`ctx-row ctx-row-cols-gap-${gapSize}`, `ctx-row-cols-${childrenWidthLarge}`, flowColumns ? `ctx-flow-col` : false, equalizer ? `ctx-row-equalize` : false, divider ? `ctx-row-divider` : false].filter(Boolean).join(" ");
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
     className: classes
   });
@@ -2325,87 +2296,83 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        gapSize,
-        equalizer,
-        divider,
-        flowColumns,
-        childrenWidthLarge,
-        childrenWidthSmall,
-        childrenWidthMedium
-      },
-      setAttributes
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Appearance", 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on mobile devices", 'ctx-blocks'),
-      max: 3,
-      min: 1,
-      onChange: value => {
-        setAttributes({
-          childrenWidthSmall: value
-        });
-      },
-      value: childrenWidthSmall
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on tablets and medium screens", 'ctx-blocks'),
-      max: 6,
-      min: 1,
-      onChange: value => {
-        setAttributes({
-          childrenWidthMedium: value
-        });
-      },
-      value: childrenWidthMedium
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on desktops", 'ctx-blocks'),
-      max: 6,
-      min: 1,
-      onChange: value => {
-        setAttributes({
-          childrenWidthLarge: value
-        });
-      },
-      value: childrenWidthLarge
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Make all columns same height", 'ctx-blocks'),
-      checked: equalizer,
-      onChange: value => {
-        setAttributes({
-          equalizer: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrange in columns", 'ctx-blocks'),
-      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Let children flow in columns first", 'ctx-blocks'),
-      checked: flowColumns,
-      onChange: value => {
-        setAttributes({
-          flowColumns: value
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separate columns with borders", 'ctx-blocks'),
-      checked: divider,
-      onChange: value => {
-        setAttributes({
-          divider: value
-        });
-      }
-    })));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      gapSize,
+      equalizer,
+      divider,
+      flowColumns,
+      childrenWidthLarge,
+      childrenWidthSmall,
+      childrenWidthMedium
+    },
+    setAttributes
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Appearance", 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on mobile devices", 'ctx-blocks'),
+    max: 3,
+    min: 1,
+    onChange: value => {
+      setAttributes({
+        childrenWidthSmall: value
+      });
+    },
+    value: childrenWidthSmall
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on tablets and medium screens", 'ctx-blocks'),
+    max: 6,
+    min: 1,
+    onChange: value => {
+      setAttributes({
+        childrenWidthMedium: value
+      });
+    },
+    value: childrenWidthMedium
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Columns on desktops", 'ctx-blocks'),
+    max: 6,
+    min: 1,
+    onChange: value => {
+      setAttributes({
+        childrenWidthLarge: value
+      });
+    },
+    value: childrenWidthLarge
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Make all columns same height", 'ctx-blocks'),
+    checked: equalizer,
+    onChange: value => {
+      setAttributes({
+        equalizer: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Arrange in columns", 'ctx-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Let children flow in columns first", 'ctx-blocks'),
+    checked: flowColumns,
+    onChange: value => {
+      setAttributes({
+        flowColumns: value
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separate columns with borders", 'ctx-blocks'),
+    checked: divider,
+    onChange: value => {
+      setAttributes({
+        divider: value
+      });
+    }
+  })));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -2456,8 +2423,8 @@ function Edit(_ref) {
     },
     className
   } = props;
-  var imageClasses = [className, flip ? "ctx-flip-image" : false, border ? "ctx-border-image" : false, roundCorners ? "ctx-round-corners" : false, shadow ? "ctx-shadow-image" : false, round ? "ctx-round-image" : false].filter(Boolean).join(" ");
-  var imageHolderClass = ["ctx-image-holder", alignment].filter(Boolean).join(" ");
+  const imageClasses = [className, flip ? "ctx-flip-image" : false, border ? "ctx-border-image" : false, roundCorners ? "ctx-round-corners" : false, shadow ? "ctx-shadow-image" : false, round ? "ctx-round-image" : false].filter(Boolean).join(" ");
+  const imageHolderClass = ["ctx-image-holder", alignment].filter(Boolean).join(" ");
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUpload, {
     onSelect: media => setAttributes({
       image: media
@@ -2627,88 +2594,85 @@ __webpack_require__.r(__webpack_exports__);
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      hasLightbox,
-      round,
-      border,
-      width,
-      shadow,
-      flip,
-      roundCorners
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Width in percent', 'ctx-blocks'),
-      value: width,
-      onChange: value => setAttributes({
-        width: value
-      }),
-      min: 0,
-      max: 100
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Circular Image', 'ctx-blocks'),
-      checked: round,
-      onChange: event => {
-        setAttributes({
-          round: event
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Round corners', 'ctx-blocks'),
-      checked: roundCorners,
-      onChange: event => {
-        setAttributes({
-          roundCorners: event
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'ctx-blocks'),
-      checked: border,
-      onChange: event => {
-        setAttributes({
-          border: event
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shadow', 'ctx-blocks'),
-      checked: shadow,
-      onChange: event => {
-        setAttributes({
-          shadow: event
-        });
-      }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Flip', 'ctx-blocks'),
-      checked: flip,
-      onChange: event => {
-        setAttributes({
-          flip: event
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Lightbox", "ctx-blocks"),
-      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show image in fullscreen", 'ctx-blocks'),
-      value: hasLightbox,
-      onChange: event => {
-        setAttributes({
-          hasLightbox: event
-        });
-      }
-    }))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    hasLightbox,
+    round,
+    border,
+    width,
+    shadow,
+    flip,
+    roundCorners
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Width in percent', 'ctx-blocks'),
+    value: width,
+    onChange: value => setAttributes({
+      width: value
+    }),
+    min: 0,
+    max: 100
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Circular Image', 'ctx-blocks'),
+    checked: round,
+    onChange: event => {
+      setAttributes({
+        round: event
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Round corners', 'ctx-blocks'),
+    checked: roundCorners,
+    onChange: event => {
+      setAttributes({
+        roundCorners: event
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'ctx-blocks'),
+    checked: border,
+    onChange: event => {
+      setAttributes({
+        border: event
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Shadow', 'ctx-blocks'),
+    checked: shadow,
+    onChange: event => {
+      setAttributes({
+        shadow: event
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Flip', 'ctx-blocks'),
+    checked: flip,
+    onChange: event => {
+      setAttributes({
+        flip: event
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Behaviour', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Lightbox", "ctx-blocks"),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show image in fullscreen", 'ctx-blocks'),
+    value: hasLightbox,
+    onChange: event => {
+      setAttributes({
+        hasLightbox: event
+      });
+    }
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -2726,30 +2690,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-
-
-class CustomToolbar extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        alignment
-      },
-      setAttributes
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
-      value: alignment,
-      onChange: event => setAttributes({
-        alignment: event
-      })
-    }));
-  }
-
-}
+const CustomToolbar = props => {
+  const {
+    attributes: {
+      alignment
+    },
+    setAttributes
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: alignment,
+    onChange: event => setAttributes({
+      alignment: event
+    })
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (CustomToolbar);
 
@@ -2983,117 +2940,114 @@ __webpack_require__.r(__webpack_exports__);
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        buttonTitle,
-        buttonSize,
-        buttonIsLink,
-        modalFull,
-        modalContainer,
-        modalCloseButton,
-        modalCenter,
-        modalScroll,
-        modalHasVideo,
-        modalVideoUrl
-      },
-      setAttributes,
-      buttonColor,
-      setButtonColor
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button settings', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description", 'ctx-blocks'),
-      value: buttonTitle,
-      onChange: value => setAttributes({
-        buttonTitle: value
-      })
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-      label: "Size",
-      value: buttonSize,
-      options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Default', "ctx-blocks"),
-        value: ''
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Small', "ctx-blocks"),
-        value: 'small'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Large', "ctx-blocks"),
-        value: 'large'
-      }],
-      onChange: event => {
-        setAttributes({
-          buttonSize: event
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show as link", 'ctx-blocks'),
-      checked: buttonIsLink,
-      onChange: value => setAttributes({
-        buttonIsLink: value
-      })
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Button color", "ctx-blocks"),
-      colorSettings: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select a color for the button", "ctx-blocks"),
-        onChange: setButtonColor,
-        value: buttonColor.color,
-        disableCustomColors: true
-      }]
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Window settings', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show scroll bar", 'ctx-blocks'),
-      checked: modalCloseButton,
-      onChange: value => setAttributes({
-        modalCloseButton: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Limit to container size", 'ctx-blocks'),
-      checked: modalContainer,
-      onChange: value => setAttributes({
-        modalContainer: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Align centered", 'ctx-blocks'),
-      checked: modalCenter,
-      onChange: value => setAttributes({
-        modalCenter: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full screen size", 'ctx-blocks'),
-      checked: modalFull,
-      onChange: value => setAttributes({
-        modalFull: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show scroll bar", 'ctx-blocks'),
-      checked: modalScroll,
-      onChange: value => setAttributes({
-        modalScroll: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Embed video", 'ctx-blocks'),
-      checked: modalHasVideo,
-      onChange: value => setAttributes({
-        modalHasVideo: value
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Video URL", 'ctx-blocks'),
-      disabled: !modalHasVideo,
-      value: modalVideoUrl,
-      placeholder: "",
-      onChange: value => setAttributes({
-        modalVideoUrl: value
-      })
-    }))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      buttonTitle,
+      buttonSize,
+      buttonIsLink,
+      modalFull,
+      modalContainer,
+      modalCloseButton,
+      modalCenter,
+      modalScroll,
+      modalHasVideo,
+      modalVideoUrl
+    },
+    setAttributes,
+    buttonColor,
+    setButtonColor
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button settings', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Description", 'ctx-blocks'),
+    value: buttonTitle,
+    onChange: value => setAttributes({
+      buttonTitle: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Size",
+    value: buttonSize,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Default', "ctx-blocks"),
+      value: ''
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Small', "ctx-blocks"),
+      value: 'small'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Large', "ctx-blocks"),
+      value: 'large'
+    }],
+    onChange: event => {
+      setAttributes({
+        buttonSize: event
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show as link", 'ctx-blocks'),
+    checked: buttonIsLink,
+    onChange: value => setAttributes({
+      buttonIsLink: value
+    })
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Button color", "ctx-blocks"),
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select a color for the button", "ctx-blocks"),
+      onChange: setButtonColor,
+      value: buttonColor.color,
+      disableCustomColors: true
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Window settings', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show scroll bar", 'ctx-blocks'),
+    checked: modalCloseButton,
+    onChange: value => setAttributes({
+      modalCloseButton: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Limit to container size", 'ctx-blocks'),
+    checked: modalContainer,
+    onChange: value => setAttributes({
+      modalContainer: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Align centered", 'ctx-blocks'),
+    checked: modalCenter,
+    onChange: value => setAttributes({
+      modalCenter: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Full screen size", 'ctx-blocks'),
+    checked: modalFull,
+    onChange: value => setAttributes({
+      modalFull: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show scroll bar", 'ctx-blocks'),
+    checked: modalScroll,
+    onChange: value => setAttributes({
+      modalScroll: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Embed video", 'ctx-blocks'),
+    checked: modalHasVideo,
+    onChange: value => setAttributes({
+      modalHasVideo: value
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Video URL", 'ctx-blocks'),
+    disabled: !modalHasVideo,
+    value: modalVideoUrl,
+    placeholder: "",
+    onChange: value => setAttributes({
+      modalVideoUrl: value
+    })
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -3114,25 +3068,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Toolbar extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      buttonAlignment
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
-      value: buttonAlignment,
-      onChange: event => setAttributes({
-        buttonAlignment: event
-      })
-    })));
-  }
-
-}
+const Toolbar = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    buttonAlignment
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: buttonAlignment,
+    onChange: event => setAttributes({
+      buttonAlignment: event
+    })
+  })));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Toolbar);
 
@@ -3974,7 +3924,6 @@ function Edit(_ref) {
     colorBackground,
     setAttributes
   } = props;
-  console.log(props);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "ctx-progress"
   });
@@ -3989,8 +3938,8 @@ function Edit(_ref) {
 
   const fullPercent = Math.round(currentValue * 100 / maxValue);
   const textColor = props.colorUtils.getMostReadableColor(colorBar.color);
-  var currentValueString = parseInt(currentValue).toFixed(decimalPlaces);
-  var maxValueString = parseInt(maxValue).toFixed(decimalPlaces);
+  let currentValueString = parseInt(currentValue).toFixed(decimalPlaces);
+  let maxValueString = parseInt(maxValue).toFixed(decimalPlaces);
 
   if (thousandSeparators) {
     currentValueString = String(currentValueString).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.');
@@ -4153,103 +4102,99 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        title,
-        maxValue,
-        currentValue,
-        showValues,
-        unit,
-        prefixedUnit,
-        thousandSeparators,
-        decimalPlaces
-      },
-      setAttributes,
-      setColorBar,
-      colorBar,
-      setColorBackground,
-      colorBackground
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Colors", "ctx-blocks"),
-      colorSettings: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color for low values', 'ctx-blocks'),
-        onChange: setColorBar,
-        value: colorBar.color,
-        disableCustomColors: true
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color for medium values', 'ctx-blocks'),
-        onChange: setColorBackground,
-        value: colorBackground.color,
-        disableCustomColors: true
-      }]
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Values", "ctx-blocks"),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Max value", 'ctx-blocks'),
-      value: maxValue,
-      onChange: event => setAttributes({
-        maxValue: event
-      })
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Current value", 'ctx-blocks'),
-      value: currentValue,
-      onChange: event => setAttributes({
-        currentValue: event
-      })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Labels", "ctx-blocks"),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show Values", "ctx-blocks"),
-      checked: showValues,
-      onChange: event => setAttributes({
-        showValues: event
-      })
-    })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separate Thousands", "ctx-blocks"),
-      checked: thousandSeparators,
-      onChange: event => setAttributes({
-        thousandSeparators: event
-      }),
-      hidden: !showValues
-    })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Decimal places", "ctx-blocks"),
-      value: decimalPlaces,
-      onChange: event => {
-        setAttributes({
-          decimalPlaces: event
-        });
-      },
-      min: 0,
-      max: 4,
-      hidden: !showValues
-    })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Unit", 'ctx-blocks'),
-      value: unit,
-      onChange: event => setAttributes({
-        unit: event
-      }),
-      hidden: !showValues
-    })), (showValues || unit != "") && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show unit before Value", "ctx-blocks"),
-      checked: prefixedUnit,
-      onChange: event => setAttributes({
-        prefixedUnit: event
-      }),
-      hidden: unit == "" || !showValues
-    })))));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      title,
+      maxValue,
+      currentValue,
+      showValues,
+      unit,
+      prefixedUnit,
+      thousandSeparators,
+      decimalPlaces
+    },
+    setAttributes,
+    setColorBar,
+    colorBar,
+    setColorBackground,
+    colorBackground
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Colors", "ctx-blocks"),
+    colorSettings: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color for low values', 'ctx-blocks'),
+      onChange: setColorBar,
+      value: colorBar.color,
+      disableCustomColors: true
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color for medium values', 'ctx-blocks'),
+      onChange: setColorBackground,
+      value: colorBackground.color,
+      disableCustomColors: true
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Values", "ctx-blocks"),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Max value", 'ctx-blocks'),
+    value: maxValue,
+    onChange: event => setAttributes({
+      maxValue: event
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalNumberControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Current value", 'ctx-blocks'),
+    value: currentValue,
+    onChange: event => setAttributes({
+      currentValue: event
+    })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Labels", "ctx-blocks"),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show Values", "ctx-blocks"),
+    checked: showValues,
+    onChange: event => setAttributes({
+      showValues: event
+    })
+  })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Separate Thousands", "ctx-blocks"),
+    checked: thousandSeparators,
+    onChange: event => setAttributes({
+      thousandSeparators: event
+    }),
+    hidden: !showValues
+  })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Decimal places", "ctx-blocks"),
+    value: decimalPlaces,
+    onChange: event => {
+      setAttributes({
+        decimalPlaces: event
+      });
+    },
+    min: 0,
+    max: 4,
+    hidden: !showValues
+  })), showValues && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Unit", 'ctx-blocks'),
+    value: unit,
+    onChange: event => setAttributes({
+      unit: event
+    }),
+    hidden: !showValues
+  })), (showValues || unit != "") && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Show unit before Value", "ctx-blocks"),
+    checked: prefixedUnit,
+    onChange: event => setAttributes({
+      prefixedUnit: event
+    }),
+    hidden: unit == "" || !showValues
+  }))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -4266,14 +4211,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Edit; }
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./inspector */ "./src/blocks/section/inspector.js");
-/* harmony import */ var _toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toolbar */ "./src/blocks/section/toolbar.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspector */ "./src/blocks/section/inspector.js");
+/* harmony import */ var _toolbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./toolbar */ "./src/blocks/section/toolbar.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -4282,6 +4229,9 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(_ref) {
   let { ...props
   } = _ref;
+  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.useInnerBlocksProps)({
+    className: 'ctx-container'
+  });
   const {
     attributes: {
       imagePosition,
@@ -4294,8 +4244,8 @@ function Edit(_ref) {
     className,
     backgroundColor
   } = props;
-  var textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
-  var style = {
+  const textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
+  const style = {
     background: backgroundColor.color,
     backgroundSize: "cover",
     backgroundPosition: imagePosition,
@@ -4304,14 +4254,14 @@ function Edit(_ref) {
     paddingTop: `${paddingTop}0px`,
     paddingBottom: `${paddingBottom}0px`
   };
-  var classes = ["ctx-section", "alignfull", parallaxEffect ? "parallax" : false, className || false, `ctx-text-align-${textAlignment}`].filter(Boolean).join(" ");
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
+  const classes = ["ctx-section", "alignfull", parallaxEffect ? "parallax" : false, className || false, `ctx-text-align-${textAlignment}`].filter(Boolean).join(" ");
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.useBlockProps)({
     className: classes,
     style: style
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_toolbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_toolbar__WEBPACK_IMPORTED_MODULE_3__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
     className: "ctx-container"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InnerBlocks, null))));
+  }, innerBlocksProps))));
 }
 
 /***/ }),
@@ -4430,144 +4380,140 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Inspector controls
  */
 
-class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes: {
-        backgroundImage,
-        imagePosition,
-        paddingTop,
-        paddingBottom,
-        parallaxEffect
-      },
-      setAttributes,
-      backgroundColor,
-      setBackgroundColor
-    } = this.props;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
-      colorSettings: [{
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Colors', 'ctx-blocks'),
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'ctx-blocks'),
-        onChange: setBackgroundColor,
-        value: backgroundColor.color,
-        disableCustomColors: true
-      }]
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Image', 'ctx-blocks'),
-      initialOpen: true
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-      onSelect: media => setAttributes({
-        backgroundImage: media
-      }),
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image", "ctx-blocks"),
-      value: backgroundImage,
-      render: _ref => {
-        let {
-          open
-        } = _ref;
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: "editor-post-featured-image ctx-image-select"
-        }, !backgroundImage && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button editor-post-featured-image__toggle",
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select image", "ctx-blocks")), backgroundImage && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-          className: "",
-          src: backgroundImage.sizes.medium.url,
-          onClick: open,
-          alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", "ctx-blocks")
-        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button is-button is-default is-large",
-          onClick: open
-        }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", "ctx-blocks")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-          type: "button",
-          className: "components-button is-link is-destructive",
-          onClick: () => setAttributes({
-            backgroundImage: null
-          })
-        }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", "ctx-blocks"))));
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "ctx-image-position"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image orientation", "ctx-blocks"),
-      selected: imagePosition,
-      disabled: !backgroundImage,
-      options: [{
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top left', "ctx-blocks"),
-        value: 'top left'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top center', "ctx-blocks"),
-        value: 'top center'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top right', "ctx-blocks"),
-        value: 'top right'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Middel left', "ctx-blocks"),
-        value: 'center left'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Fully centered', "ctx-blocks"),
-        value: 'center'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Middle right', "ctx-blocks"),
-        value: 'center right'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom left', "ctx-blocks"),
-        value: 'bottom left'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom center', "ctx-blocks"),
-        value: 'bottom center'
-      }, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom right', "ctx-blocks"),
-        value: 'bottom right'
-      }],
-      onChange: position => {
-        setAttributes({
-          imagePosition: position
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Parallax-Effect", "ctx-blocks"),
-      disabled: !backgroundImage,
-      onChange: event => {
-        setAttributes({
-          parallaxEffect: event
-        });
-      },
-      checked: parallaxEffect
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'ctx-blocks'),
-      initialOpen: false
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding Top", "ctx-blocks"),
-      value: paddingTop,
-      onChange: event => {
-        setAttributes({
-          paddingTop: event
-        });
-      },
-      min: 0,
-      max: 11
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding Bottom", "ctx-blocks"),
-      value: paddingBottom,
-      onChange: event => {
-        setAttributes({
-          paddingBottom: event
-        });
-      },
-      min: 0,
-      max: 11
-    })));
-  }
-
-}
+const Inspector = props => {
+  const {
+    attributes: {
+      backgroundImage,
+      imagePosition,
+      paddingTop,
+      paddingBottom,
+      parallaxEffect
+    },
+    setAttributes,
+    backgroundColor,
+    setBackgroundColor
+  } = props;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    colorSettings: [{
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Colors', 'ctx-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color', 'ctx-blocks'),
+      onChange: setBackgroundColor,
+      value: backgroundColor.color,
+      disableCustomColors: true
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Image', 'ctx-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: media => setAttributes({
+      backgroundImage: media
+    }),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image", "ctx-blocks"),
+    value: backgroundImage,
+    render: _ref => {
+      let {
+        open
+      } = _ref;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "editor-post-featured-image ctx-image-select"
+      }, !backgroundImage && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button editor-post-featured-image__toggle",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select image", "ctx-blocks")), backgroundImage && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "",
+        src: backgroundImage.sizes.medium.url,
+        onClick: open,
+        alt: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No image loaded", "ctx-blocks")
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button is-button is-default is-large",
+        onClick: open
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace image", "ctx-blocks")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        type: "button",
+        className: "components-button is-link is-destructive",
+        onClick: () => setAttributes({
+          backgroundImage: null
+        })
+      }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove image", "ctx-blocks"))));
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ctx-image-position"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Image orientation", "ctx-blocks"),
+    selected: imagePosition,
+    disabled: !backgroundImage,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top left', "ctx-blocks"),
+      value: 'top left'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top center', "ctx-blocks"),
+      value: 'top center'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Top right', "ctx-blocks"),
+      value: 'top right'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Middel left', "ctx-blocks"),
+      value: 'center left'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Fully centered', "ctx-blocks"),
+      value: 'center'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Middle right', "ctx-blocks"),
+      value: 'center right'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom left', "ctx-blocks"),
+      value: 'bottom left'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom center', "ctx-blocks"),
+      value: 'bottom center'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bottom right', "ctx-blocks"),
+      value: 'bottom right'
+    }],
+    onChange: position => {
+      setAttributes({
+        imagePosition: position
+      });
+    }
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Parallax-Effect", "ctx-blocks"),
+    disabled: !backgroundImage,
+    onChange: event => {
+      setAttributes({
+        parallaxEffect: event
+      });
+    },
+    checked: parallaxEffect
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'ctx-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding Top", "ctx-blocks"),
+    value: paddingTop,
+    onChange: event => {
+      setAttributes({
+        paddingTop: event
+      });
+    },
+    min: 0,
+    max: 11
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Padding Bottom", "ctx-blocks"),
+    value: paddingBottom,
+    onChange: event => {
+      setAttributes({
+        paddingBottom: event
+      });
+    },
+    min: 0,
+    max: 11
+  })));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
 
@@ -4588,25 +4534,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-class Toolbar extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
-    const {
-      textAlignment
-    } = attributes;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
-      value: textAlignment,
-      onChange: event => setAttributes({
-        textAlignment: event
-      })
-    }));
-  }
-
-}
+const Toolbar = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    textAlignment
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentToolbar, {
+    value: textAlignment,
+    onChange: event => setAttributes({
+      textAlignment: event
+    })
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Toolbar);
 
@@ -4872,12 +4814,18 @@ addFilter('blocks.getSaveContent.extraProps', 'ctx-blocks/core-font', addFontCla
   \***************************************/
 /***/ (function() {
 
+const {
+  addFilter
+} = wp.hooks;
+
 const setExtraPropsToBlockType = (props, blockType, attributes) => {
   const notDefined = typeof props.className === 'undefined' || !props.className ? true : false;
   return Object.assign(props, {
     className: notDefined ? `core-block` : `core-block ${props.className}`
   });
 };
+
+addFilter('blocks.registerBlockType', 'ctx-blocks/core-visibility', setExtraPropsToBlockType);
 
 /***/ }),
 
@@ -5347,6 +5295,37 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ _extends; }
+/* harmony export */ });
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+/***/ }),
+
 /***/ "./src/blocks/alert/block.json":
 /*!*************************************!*\
   !*** ./src/blocks/alert/block.json ***!
@@ -5387,7 +5366,7 @@ module.exports = JSON.parse('{"name":"ctx-blocks/button","api_version":2,"catego
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"name":"ctx-blocks/card","api_version":2,"category":"layout","attributes":{"backgroundColor":{"type":"string","default":"white"},"secondaryColor":{"type":"string","default":""},"transparent":{"type":"boolean","default":false},"shadow":{"type":"boolean","default":true},"url":{"type":"string","default":""},"hover":{"type":"boolean","default":false},"textAlign":{"type":"string","default":"left"},"image":{"type":"object","default":null},"imageRound":{"type":"boolean","default":false},"imageWidth":{"type":"integer","default":100},"imageBorder":{"type":"boolean","default":false},"imagePosition":{"type":"string","default":"top"},"isFirst":{"type":"boolean","default":false},"isLast":{"type":"boolean","default":false},"label":{"type":"string","default":""},"badge":{"type":"string","default":""}}}');
+module.exports = JSON.parse('{"name":"ctx-blocks/card","api_version":2,"category":"layout","attributes":{"backgroundColor":{"type":"string","default":"white"},"secondaryColor":{"type":"string","default":""},"transparent":{"type":"boolean","default":false},"shadow":{"type":"boolean","default":true},"url":{"type":"string","default":""},"hover":{"type":"boolean","default":false},"textAlign":{"type":"string","default":"left"},"image":{"type":"object","default":null},"imageRound":{"type":"boolean","default":false},"imageWidth":{"type":"integer","default":100},"imageBorder":{"type":"boolean","default":false},"imagePosition":{"type":"string","default":"top"},"isFirst":{"type":"boolean","default":false},"isLast":{"type":"boolean","default":false},"label":{"type":"string","default":""},"badge":{"type":"string","default":""},"actions":{"type":"array","default":[]}}}');
 
 /***/ }),
 

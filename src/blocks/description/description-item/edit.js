@@ -28,7 +28,7 @@ export default function Edit({...props}) {
 
 
 
-        var classes = [
+        const classes = [
             className,
 			"ctx-description--" + contentType,
 			"ctx-description__item"

@@ -25,8 +25,9 @@ import * as gridColumn from './blocks/grid/grid-column';
  * Core Block modification dependencies.
  */
 import './mods/additionalFonts';
-import './mods/baseBlocksClasses';
+import baseBlockClasses from './mods/baseBlocksClasses';
 import './mods/spacerAutoOption';
+
 
 /**
  * Stylesheets

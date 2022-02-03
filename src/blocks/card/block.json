@@ -66,6 +66,10 @@
         "badge": {
             "type": "string",
 			"default": ""
-        }
+        },
+		"actions": {
+			"type": "array",
+			"default": []
+		}
 	}
 }

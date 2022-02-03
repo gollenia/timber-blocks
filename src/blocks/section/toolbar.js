@@ -1,12 +1,11 @@
-import { Component } from '@wordpress/element';
+
 import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 
-class Toolbar extends Component {
-	render() {
+const Toolbar = (props) => {
 		const {
 			attributes,
 			setAttributes
-		} = this.props;
+		} = props;
 
 		const {
             textAlignment
@@ -21,7 +20,6 @@ class Toolbar extends Component {
 
 			</BlockControls>
 		);
-	}
 }
 
 export default Toolbar;

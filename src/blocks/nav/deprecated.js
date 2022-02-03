@@ -8,15 +8,14 @@ import { ToggleControl, RangeControl, PanelBody, ComboboxControl, SelectControl,
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 
-class Inspector extends Component {
+const Inspector = (props) => {
     
-	render() {
 		const {
 			attributes,
             setAttributes,
             allPages,
             allCategories,
-		} = this.props;
+		} = props;
 
 		const {
             dropDown,
@@ -48,112 +47,91 @@ class Inspector extends Component {
         
         
 		return (
-			<Fragment>
-				<InspectorControls>
-                    <PanelBody
-                        title={__('Data', 'ctx-blocks')}
-                        initialOpen={true}
-                    >
-                        <SelectControl
-                            label={ __( 'Data source', "ctx-blocks" ) }
-                            value={ dataType } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => { setAttributes( { dataType: value }) } }
-                            options={ [
-                                { value: 'pages', label:  __('Pages', "ctx-blocks") },
-                                { value: 'posts', label:  __('Posts', "ctx-blocks") },
-                                { value: 'categories', label:  __('Categories', "ctx-blocks") },
-                            ] }
-                        />
-                        { dataType === "posts" &&
-                            <QueryControls
-                                order={ order }
-                                orderBy={ orderBy }
-                                categoriesList={ allCategories }
-                                selectedCategoryId={ parentCategory }
-                                numberOfItems= {limit}
-                                onOrderChange={ ( value ) => setAttributes( { order: value } ) }
-                                onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
-                                onCategoryChange={ ( value ) => setAttributes( { parentCategory: '' !== value ? value : undefined } ) }
-                                onNumberOfItemsChange={ ( value ) => setAttributes( { limit: value } ) }
-                            />
-                        }
-                        { dataType === "pages" &&
-                        <SelectControl
-                            label={ __( 'Parent page', "ctx-blocks") }
-                            value={ parentPage } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => setAttributes( { parentPage: parseInt(value) } ) }
-                            options={ pageListOptions }
-                        />
-                        }
-                        { dataType === "categories" &&
-                        <SelectControl
-                            label={ __( 'Category (ingluding it\'s children)', "ctx-blocks" ) }
-                            value={ parentCategory } // e.g: value = [ 'a', 'c' ]
-                            onChange={ ( value ) => setAttributes( { parentCategory: parseInt(value) } ) }
-                            options={ categoryListOptions }
-                        />
-                        }
-                        <RangeControl
-                                label={__("Limit", 'ctx-blocks')}
-                                max={ 50 }
-                                min={ 1 }
-                                help={__("How meny items should be displayed?", 'ctx-blocks')}
-                                onChange={(value) => {setAttributes( { limit: value })}}
-                                value={ limit }
-                            />
-                    </PanelBody>
-                    <PanelBody
-                        title={__('Appearance', 'ctx-blocks')}
-                        initialOpen={true}
-                    >
-                       
-                       <PanelRow>
-                            <ToggleControl
-                                label={ __("Dropdown menu", 'ctx-blocks')}
-                                checked={ dropDown }
-                                onChange={ (value) => setAttributes({ dropDown: value }) }
-                            />
-                            
-                        </PanelRow>
-                        <PanelRow>
-                            <ToggleControl
-                                label={ __("Show Icons", 'ctx-blocks')}
-                                checked={ showIcons }
-                                onChange={ (value) => setAttributes({ showIcons: value }) }
-                            />
-                            
-                        </PanelRow>
-                        <RangeControl
-                                label={__("Depth", 'ctx-blocks')}
-                                max={ 3 }
-                                min={ 1 }
-                                help={__("How many levels to recurse?", 'ctx-blocks')}
-                                onChange={(value) => {setAttributes( { depth: value })}}
-                                value={ depth }
-                            />
-                        <PanelRow>
-                            <ToggleControl
-                                label={ __("Large text", 'ctx-blocks')}
-                                checked={isPrimary}
-                                onChange={ (value) => setAttributes({ isPrimary: value }) }
-                            />
-                            
-                        </PanelRow>
-                        <PanelRow>
-                            <ToggleControl
-                                label={ __("Highlight currently loaded menu item", 'ctx-blocks')}
-                                checked={showActive}
-                                onChange={ (value) => setAttributes({ showActive: value }) }
-                            />
-                        </PanelRow>
-                      
-                    </PanelBody>
+			<InspectorControls>
+	<PanelBody
+		title={__('Data', 'ctx-blocks')}
+		initialOpen={true}
+	>
+		
+		
+	
+		<SelectControl
+			label={ __( 'Parent page', "ctx-blocks") }
+			value={ parentPage } // e.g: value = [ 'a', 'c' ]
+			onChange={ ( value ) => setAttributes( { parentPage: parseInt(value) } ) }
+			options={ pageList }
+		/>
 
-                    
-                </InspectorControls>
-			</Fragment>
+		
+		
+		
+		<SelectControl
+			label={ __( 'Category (ingluding it\'s children)', "ctx-blocks" ) }
+			value={ parentCategory } // e.g: value = [ 'a', 'c' ]
+			onChange={ ( value ) => setAttributes( { parentCategory: parseInt(value) } ) }
+			options={ categoryList }
+		/>
+
+		<SelectControl
+			label={ __( 'Order by', "ctx-blocks") }
+			value={ orderBy } // e.g: value = [ 'a', 'c' ]
+			onChange={ ( value ) => setAttributes( { orderBy: value } ) }
+			options={ [ 
+				{ value: "date", label: __("Date", 'ctx-blocks') },
+				{ value: "title", label: __("Title", 'ctx-blocks') },
+				{ value: "id", label: __("ID", 'ctx-blocks') },
+			 ] } 
+		/>
+
+		<SelectControl
+			label={ __( 'Order', "ctx-blocks") }
+			value={ order } // e.g: value = [ 'a', 'c' ]
+			onChange={ ( value ) => setAttributes( { order: value } ) }
+			options={ [
+				{ value: "desc", label: __("Descending", 'ctx-blocks') },
+				{ value: "asc", label: __("Ascending", 'ctx-blocks')} 
+				
+			 ] }
+		/>
+		
+		<RangeControl
+				label={__("Limit", 'ctx-blocks')}
+				max={ 50 }
+				min={ 1 }
+				help={__("How meny items should be displayed?", 'ctx-blocks')}
+				onChange={(value) => {setAttributes( { limit: value })}}
+				value={ limit }
+			/>
+	</PanelBody>
+	<PanelBody
+		title={__('Appearance', 'ctx-blocks')}
+		initialOpen={true}
+	>
+	   
+	   
+		<PanelRow>
+			<ToggleControl
+				label={ __("Show Icons", 'ctx-blocks')}
+				checked={ showIcons }
+				onChange={ (value) => setAttributes({ showIcons: value }) }
+			/>
+			
+		</PanelRow>
+		
+		<PanelRow>
+			<ToggleControl
+				label={ __("Highlight currently loaded menu item", 'ctx-blocks')}
+				checked={showActive}
+				onChange={ (value) => setAttributes({ showActive: value }) }
+			/>
+		</PanelRow>
+	  
+	</PanelBody>
+	
+	
+	</InspectorControls>
 		);
-	}
+	
 }
 
 export default Inspector;

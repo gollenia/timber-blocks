@@ -2,12 +2,11 @@
  * Wordpress Dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Component } from '@wordpress/element';
 import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { ToggleControl, PanelBody } from '@wordpress/components';
 
-class Inspector extends Component {
-	render() {
+const Inspector = (props) => {
+	
 		const {
 			attributes: {
                 isDismissable
@@ -15,14 +14,13 @@ class Inspector extends Component {
             setAttributes,
             alertColor,
             setAlertColor,
-		} = this.props;
+		} = props;
 
-		
 		return (
 			
 				<InspectorControls>
                     <PanelBody
-                        title={__('Appearance', 'ctx-blocks')}
+                        title={__('Behaviour', 'ctx-blocks')}
                         initialOpen={true}
                     >
                         <ToggleControl
@@ -48,7 +46,7 @@ class Inspector extends Component {
                 </InspectorControls>
 			
 		);
-	}
+	
 }
 
 export default Inspector;

@@ -29,7 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const categoryList = useSelect( ( select ) => {
 		const { getEntityRecords } = select( coreStore );
 		const query = {  };
-		var result = getEntityRecords( 'taxonomy', 'category', query )
+		let result = getEntityRecords( 'taxonomy', 'category', query )
 		const categoryListOptions = [ { value: 0, label: __('Select a category', "ctx-blocks")} ];
 		if (result == null) {
 			result = [];
@@ -45,7 +45,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const pageList = useSelect( ( select ) => {
 		const { getEntityRecords } = select( coreStore );		
-		var pages = getEntityRecords( 'postType', 'page', { per_page: 100 } );
+		let pages = getEntityRecords( 'postType', 'page', { per_page: 100 } );
 		if ( pages == null ) {
 			pages = [];
 		}
@@ -63,7 +63,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const pages = useSelect( ( select ) => {
 		const { getEntityRecords } = select( coreStore );		
 		
-		var query = { 
+		let query = { 
 			per_page: limit,
 			order: order,
 			orderby: orderBy,
@@ -169,7 +169,7 @@ export default function Edit({ attributes, setAttributes }) {
 				<ul {...useBlockProps()}>
 					{ pages != [] && <>
 					{pages.map((page, index) => {
-					var liClass = page.id == wp.data.select("core/editor").getCurrentPostId() ? " active" : ""
+					const liClass = page.id == wp.data.select("core/editor").getCurrentPostId() ? " active" : ""
 					
 					return <li className={"nav-item" + liClass} key={index}>
 						{ showIcons && <Icon icon="arrow-right-alt2"/> }{page.title.raw}

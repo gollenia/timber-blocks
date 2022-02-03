@@ -16,7 +16,6 @@ export default function GridColumnEdit ({...props}) {
 
 		return (
 			<>
-				
 				<Inspector
 						{ ...props }
 				/>

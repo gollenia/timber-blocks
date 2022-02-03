@@ -2,10 +2,9 @@
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n'; 
-
 import { useBlockProps, RichText, InnerBlocks  } from '@wordpress/block-editor';
-
 import {useState} from '@wordpress/element';
+
 /**
  * Internal dependencies
  */

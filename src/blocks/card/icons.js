@@ -1,6 +1,6 @@
 import { Path, SVG } from '@wordpress/components';
 
-var icons = [];
+let icons = [];
 
 icons.card = <SVG xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><Path d="M19 5v14H5V5h14m1.1-2H3.9c-.5 0-.9.4-.9.9v16.2c0 .4.4.9.9.9h16.2c.4 0 .9-.5.9-.9V3.9c0-.5-.5-.9-.9-.9zM11 7h6v2h-6V7zm0 4h6v2h-6v-2zm0 4h6v2h-6zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7z"/><Path d="M0 0h24v24H0z" fill="none"/></SVG>
 icons.topimage = <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinecap="square" strokeLinejoin="round" strokeMiterlimit={1.5}><path fill="#898989" d="M15.512 26.113h34.371v32.809H15.512z" /><path fill="#fff" d="M15.512 3.627h34.371v22.486H15.512z" /><path d="M49.883 3.627H15.512v22.486h34.371V3.627zm-1 1v20.486H16.512V4.627h32.371z" fill="#898989" /><path d="M25.64 17.094l7.001 6.417H18.636l7.003-6.417z" fill="#898989" /><path d="M37.022 12.575l9.736 10.936H27.285l9.737-10.936z" fill="#898989" /><path d="M20.031 30.019H39.84M20.031 36.163h22.598M20.031 42.518h18.19" fill="none" stroke="#fff" /><path d="M46.256 52.464a.795.795 0 00-.795-.795h-9.625a.795.795 0 00-.795.795v1.59c0 .439.356.795.795.795h9.625a.795.795 0 00.795-.795v-1.59z" fill="#fff" /></svg>;

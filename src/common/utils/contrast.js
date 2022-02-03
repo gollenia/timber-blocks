@@ -11,11 +11,11 @@ function contrast(sourceColor) {
     if(sourceColor == undefined) {
         return;
     }
-    //var Color = require('color');
+    //const Color = require('color');
 
     // In my themes, I add an own contrast Option
     
-    var contrastColor = "#ffffff";
+    const contrastColor = "#ffffff";
     
     contrastColor = "#000000";
     

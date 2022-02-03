@@ -23,7 +23,7 @@ export default function AlertEdit({...props}) {
 			alertColor
 		} = props;
 
-		var textColor = props.colorUtils.getMostReadableColor(alertColor.color);
+		const textColor = props.colorUtils.getMostReadableColor(alertColor.color);
 
 		const blockProps = useBlockProps({
 			className: `${className} ctx-blocks-alert`,

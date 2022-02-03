@@ -2,65 +2,65 @@ import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
-import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
 
 export default function Edit({...props}) {
 
-		const {
-			attributes: {
-				imagePosition,
-				parallaxEffect,
-				paddingTop,
-				paddingBottom,
-				textAlignment,
-				backgroundImage
-			},
-			className,
-			backgroundColor
-		} = props;
+	const innerBlocksProps = useInnerBlocksProps({ className: 'ctx-container' });
+
+	const {
+		attributes: {
+			imagePosition,
+			parallaxEffect,
+			paddingTop,
+			paddingBottom,
+			textAlignment,
+			backgroundImage
+		},
+		className,
+		backgroundColor
+	} = props;
 
 
-		var textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
+	const textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
 
-		
-		var style = {
-			background: backgroundColor.color,
-			backgroundSize: "cover", 
-			backgroundPosition: imagePosition, 
-			backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none",
-			color: textColor,
-			paddingTop: `${paddingTop}0px`,
-			paddingBottom: `${paddingBottom}0px`
-		};		
+	
+	const style = {
+		background: backgroundColor.color,
+		backgroundSize: "cover", 
+		backgroundPosition: imagePosition, 
+		backgroundImage: backgroundImage ? "url(" + backgroundImage.sizes.large.url + ")" : "none",
+		color: textColor,
+		paddingTop: `${paddingTop}0px`,
+		paddingBottom: `${paddingBottom}0px`
+	};		
 
-		var classes = [
-			"ctx-section",
-			"alignfull",
-			parallaxEffect ? "parallax" : false,
-			className || false,
-			`ctx-text-align-${textAlignment}`,
-		].filter(Boolean).join(" ");
+	const classes = [
+		"ctx-section",
+		"alignfull",
+		parallaxEffect ? "parallax" : false,
+		className || false,
+		`ctx-text-align-${textAlignment}`,
+	].filter(Boolean).join(" ");
 
-		const blockProps = useBlockProps({className: classes, style: style});
+	const blockProps = useBlockProps({className: classes, style: style});
 
-		return (
-			<>
-				<Inspector
-					{ ...props }
-				/>
-				<Toolbar 
-					{ ...props }
-				/>
+	return (
+		<>
+			<Inspector
+				{ ...props }
+			/>
+			<Toolbar 
+				{ ...props }
+			/>
 
-				<div {...blockProps}>
-					<div className="ctx-container">
-						<InnerBlocks 
-							
-						/>
-					</div>
+			<div {...blockProps}>
+				<div className="ctx-container" {...innerBlocksProps}>
+					
 				</div>
-				
-			</>
-		);
+			</div>
+			
+		</>
+	);
 
 }
