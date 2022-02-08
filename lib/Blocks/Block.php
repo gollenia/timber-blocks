@@ -62,6 +62,7 @@ class Block implements BlockInterface {
             
             for($i = 0; $i < count($blocks); $i++) {
                 $args['attributes'] = $blocks[$i]['attributes'];
+				$args['title'] = _x( $blocks[$i], 'block title', 'ctx-blocks' );
                 register_block_type(
                     $blocks[$i]["name"], $args
                 );
