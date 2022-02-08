@@ -21,3 +21,9 @@ msgstr "CTX Blocks"
 
 msgid "Read on"
 msgstr "Weiterlesen"
+
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Root-level block to keep everything in place"
+msgstr "Grundblock"
