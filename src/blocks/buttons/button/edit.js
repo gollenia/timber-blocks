@@ -4,6 +4,7 @@
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, RichText, InnerBlocks  } from '@wordpress/block-editor';
 import {useState} from '@wordpress/element';
+import { colord } from 'colord';
 
 /**
  * Internal dependencies
@@ -49,7 +50,7 @@ export default function ButtonEdit( {...props} ) {
         "ctx-modal"
     ].filter(Boolean).join(" ");
     
-	const textColor = buttonColor.brightness == "dark" ? "#ffffff" : "#000000";
+	const textColor = buttonColor.color == undefined || colord(buttonColor.color).isLight() ? "#000000" : "#ffffff";
 
 	const blockProps = useBlockProps({className: "ctx-button-block"})
 
