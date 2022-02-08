@@ -15,9 +15,9 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^5.3.0",
-		"@wordpress/blocks": "^11.0.0",
-		"@wordpress/i18n": "^4.2.1"
+		"@wordpress/block-editor": "^8.1.0",
+		"@wordpress/blocks": "^11.2.0",
+		"@wordpress/i18n": "^4.3.0"
 	},
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^9.3.0",
