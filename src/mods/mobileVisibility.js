@@ -1,5 +1,4 @@
 const { createHigherOrderComponent } = wp.compose;
-const { Fragment } = wp.element;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody, ToggleControl } = wp.components;
 const { addFilter } = wp.hooks;
@@ -46,7 +45,7 @@ const withVisibilityControl = createHigherOrderComponent( ( BlockEdit ) => {
 		const { hiddenDesktop, hiddenMobile } = attributes;
 
 		return (
-			<Fragment>
+			<>
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
@@ -65,7 +64,7 @@ const withVisibilityControl = createHigherOrderComponent( ( BlockEdit ) => {
 						/>
 					</PanelBody>
 				</InspectorControls>
-			</Fragment>
+			</>
 		);
 	};
 }, 'withVisibilityControl' );
