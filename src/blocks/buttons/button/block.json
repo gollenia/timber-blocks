@@ -55,7 +55,7 @@
         "hasModal": {
 			"type": "boolean",
 			"default": false
-		}
-		
-	}
+		}	
+	},
+	"parent": ["ctx-blocks/button-group"]
 }
