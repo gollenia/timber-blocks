@@ -1,6 +1,6 @@
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-
+import { colord } from 'colord';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
 
@@ -22,8 +22,8 @@ export default function Edit({...props}) {
 	} = props;
 
 
-	const textColor = backgroundColor.color ? props.colorUtils.getMostReadableColor(backgroundColor.color) : "#000000";
-
+	const textColor = backgroundColor.color == undefined || colord(backgroundColor.color).isLight() ? "#000000" : "#ffffff";
+	
 	
 	const style = {
 		background: backgroundColor.color,
