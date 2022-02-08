@@ -4,37 +4,22 @@
 import Edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
+import './editor.scss';
 
 /**
  * Wordpress dependencies
  */
-const { withColors } = wp.blockEditor;
+import { __ } from '@wordpress/i18n'; 
+import { withColors } from '@wordpress/block-editor';
 
-
-import './style.scss';
-import './editor.scss';
-
-const { __ } = wp.i18n; 
-
-/**
- * Block constants
- */
-const { name, category, attributes, api_version } = metadata;
+const { name, title } = metadata;
 
 const settings = {
-	title: __( 'Alert', 'ctx-blocks' ),
-	description: __( 'Show an information or warning to the user', 'ctx-blocks' ),
+	...metadata,
+	title: __(title, 'ctx-blocks'),
 	icon,
-	apiVersion: api_version,
-	keywords: [
-		'ctxblocks',
-		__( 'alert', 'ctx-blocks' ),
-		__( 'info', 'ctx-blocks' ),
-	],
-	attributes,
 	edit: withColors({alertColor: 'alertColor'})(Edit),
 	save: () => { return null; }
 };
 
-
-export { name, category, metadata, settings };
+export { name, settings }

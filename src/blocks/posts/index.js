@@ -1,37 +1,26 @@
 /**
  * Internal dependencies
  */
-import Edit from './edit';
+import edit from './edit';
 import icons from './icons';
 import metadata from './block.json';
+import './editor.scss';
 
 /**
  * Wordpress dependencies
  */
-const { __ } = wp.i18n; 
+import { __ } from '@wordpress/i18n'; 
 
-import './style.scss';
-import './editor.scss';
 
-/**
- * Block constants
- */
-const { name, category, attributes } = metadata;
+const { name, title } = metadata;
 
 const settings = {
-	title: __( 'Posts', 'ctx-blocks' ),
-	description: __( 'Shows a list or cards of Posts', 'ctx-blocks' ),
+	...metadata,
+	title: __( title, 'ctx-blocks' ),
 	icon: icons.posts,
-	apiVersion: 2,
-	keywords: [
-		'ctxblocks',
-		__( 'alert', 'ctx-blocks' ),
-		__( 'info', 'ctx-blocks' ),
-	],
-	attributes,
-	edit: Edit,
+	edit,
 	save() { return null; }
 };
 
 
-export { name, category, metadata, settings };
+export { name, settings };

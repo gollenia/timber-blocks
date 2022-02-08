@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/card",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Card",
+	"keywords": ["container", "card"],
+	"description": "Card component to hold different Information",
+	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
 		"backgroundColor": {

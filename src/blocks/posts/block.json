@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/posts",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Posts",
+	"keywords": ["list", "table"],
+	"description": "Collection of posts, listed as cards or item List",
+	"textdomain": "ctx-blocks",
 	"category": "widgets", 
 	"attributes": {
 		"columnsSmall": {

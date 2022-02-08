@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/progress",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Progress",
+	"keywords": ["percent", "progress"],
+	"description": "Shows a progress bar",
+	"textdomain": "ctx-blocks",
 	"category": "common",
 	"attributes": {
 		"maxValue": {

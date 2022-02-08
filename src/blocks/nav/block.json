@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/nav",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Navigation",
+	"keywords": ["list", "navigation"],
+	"description": "List of subpages, categories or posts",
+	"textdomain": "ctx-blocks",
 	"category": "widgets",
 	"attributes": {
 		"dropDown": {

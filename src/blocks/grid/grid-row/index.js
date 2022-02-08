@@ -1,31 +1,22 @@
-import Edit from './edit';
+import edit from './edit';
 import icons from './icons';
 import metadata from './block.json';
-import { InnerBlocks } from '@wordpress/block-editor';
-
-
 import './editor.scss';
 
-const { __ } = wp.i18n; 
-const { name, category, attributes } = metadata;
+/**
+ * Wordpress dependencies
+ */
+import { __ } from '@wordpress/i18n'; 
+import { InnerBlocks } from '@wordpress/block-editor';
+
+const { name, title } = metadata;
 
 const settings = {
-	title: __( 'Columns', 'ctx-blocks' ),
-	description: __( 'Divide content into multiple columns', 'ctx-blocks' ),
+	...metadata,
+	title: __( title, 'ctx-blocks' ),
 	icon: icons.row,
-	apiVersion: 2,
-	keywords: [
-		'ctxblocks',
-		__( 'url', 'ctx-blocks' ),
-		__( 'link', 'ctx-blocks' ),
-	],
-	supports: {
-		align: ["full"],
-		default: "alignfull"
-	},
-	attributes,
-	edit: Edit,
+	edit,
 	save: () => { return (<InnerBlocks.Content /> ); }
 };
 
-export { name, category, metadata, settings };
+export { name, settings };

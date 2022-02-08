@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
 	"name": "ctx-blocks/button",
-	"api_version": 2,
+	"title": "Button",
+	"keywords": [ "link", "action", "button" ],
+	"textdomain": "ctx-blocks",
+	"description": "Display a button with a link or a modal",
 	"category": "common",
 	"attributes": {
 		"title": {

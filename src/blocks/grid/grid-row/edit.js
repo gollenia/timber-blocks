@@ -1,7 +1,7 @@
 import Inspector from './inspector';
 
 import { __ } from '@wordpress/i18n'; 
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { Icon } from '@wordpress/components'
 import icons from './icons.js'
 
@@ -32,8 +32,6 @@ export default function GridRowEdit({...props}) {
 		]
 	];
 
-	
-
 	const classes = [
 		`ctx-row ctx-row-cols-gap-${gapSize}`,
 		`ctx-row-cols-${childrenWidthLarge}`,
@@ -42,7 +40,18 @@ export default function GridRowEdit({...props}) {
 		divider ? `ctx-row-divider` : false,
 	].filter(Boolean).join(" ");
 
-	const blockProps = useBlockProps({className: classes});
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: classes,
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,	
+			orientation: "horizontal"
+		}
+	)
+
+	const blockProps = useBlockProps({className: 'ctx-row-container'});
 
 
 	return (
@@ -59,12 +68,8 @@ export default function GridRowEdit({...props}) {
 					</div>
 				</div>
 				
-				<div className={classes}>
-					<InnerBlocks 	
-						allowedBlocks={ALLOWED_BLOCKS}
-						template={TEMPLATE}	
-						orientation="horizontal"
-					/>
+				<div {...innerBlocksProps} >
+					
 				</div>
 			</div>
 		</>

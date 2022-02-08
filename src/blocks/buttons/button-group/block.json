@@ -1,5 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
 	"name": "ctx-blocks/button-group",
+	"title": "Button Group",
+	"keywords": [ "link", "action", "button" ],
+	"textdomain": "ctx-blocks",
+	"description": "Display a button with a link or a modal",
 	"api_version": 2,
 	"category": "layout",
 	"attributes": {
@@ -15,5 +21,9 @@
 			"type": "integer",
 			"default": 10
 		}
+	},
+	"supports": {
+		"align": ["full"],
+		"default": "alignfull"
 	}
 }

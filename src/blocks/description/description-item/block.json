@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/description-item",
 	"api_version": 2,
+	"title": "Description Item",
+	"keywords": ["list", "table"],
+	"description": "Singel item of a description list",
+	"textdomain": "ctx-blocks",
 	"category": "common",
 	"attributes": {
 		"image": {
@@ -39,5 +44,6 @@
 			"type": "boolean",
 			"default": false
 		}
-	}
+	},
+	"parent": [ "ctx-blocks/description-list" ]
 }

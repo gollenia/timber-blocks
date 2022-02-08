@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/grid-column",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Column",
+	"keywords": ["list", "table"],
+	"description": "Single column as child of a columns collection",
+	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
 		"widthSmall": {
@@ -43,5 +48,6 @@
 			"type": "string",
             "default": ""
 		}
-	}
+	},
+	"parent": [ "ctx-blocks/grid-row" ]
 }

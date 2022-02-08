@@ -1,7 +1,12 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
 	"name": "ctx-blocks/alert",
-	"api_version": 2,
+	"title": "Alert",
 	"category": "formatting",
+	"keywords": [ "message", "alert", "warning", "info", "error" ],
+	"textdomain": "ctx-blocks",
+	"description": "Show an information or warning to the user",
 	"attributes": {
 		"alertColor": {
 			"type": "string",
@@ -19,5 +24,6 @@
 			"type": "boolean",
 			"default": false
 		}
-	}
+	},
+	"editorStyle": "wp-block-alert-editor"
 }

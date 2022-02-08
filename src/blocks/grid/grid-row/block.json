@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/grid-row",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Columns",
+	"keywords": ["columns", "responsive"],
+	"description": "Displays content in columns of different width",
+	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
 		"gapSize": {
@@ -32,5 +37,9 @@
             "default": false
 		}
         
+	},
+	"supports": {
+		"align": ["full"],
+		"default": "alignfull"
 	}
 }

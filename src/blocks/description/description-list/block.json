@@ -1,6 +1,11 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/description-list",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Description List",
+	"keywords": ["list", "table"],
+	"description": "List containing items with an image or icon and a text",
+	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
 		"dividers": {

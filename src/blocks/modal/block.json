@@ -1,6 +1,6 @@
 {
 	"name": "ctx-blocks/modal",
-	"api_version": 2,
+	"apiVersion": 2,
 	"category": "layout",
 	"attributes": {
 		"buttonTitle": {

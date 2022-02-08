@@ -1,27 +1,26 @@
-import Edit from './edit';
+/**
+ * Internal dependencies
+ */
+import edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
-const { withColors } = wp.blockEditor;
-
 import './editor.scss';
 
-const { __ } = wp.i18n; 
-const { name, category, attributes } = metadata;
+/**
+ * Wordpress dependencies
+ */
+import { __ } from '@wordpress/i18n'; 
+import { withColors } from '@wordpress/block-editor';
+
+const { name, title } = metadata;
 
 const settings = {
-	title: __( 'Progress Bar', 'ctx-blocks' ),
-	description: __( 'Shows a progress bar with a percentual value', 'ctx-blocks' ),
-	apiVersion: 2,
+	...metadata,
+	title: __( title, 'ctx-blocks' ),
 	icon,
-	keywords: [
-		'ctxblocks',
-		__( 'progress', 'ctx-blocks' ),
-		__( 'value', 'ctx-blocks' ),
-	],
-	attributes,
-	edit: withColors({colorBar: 'colorBar', colorBackground: 'colorBackground'})(Edit),
+	edit: withColors({colorBar: 'colorBar', colorBackground: 'colorBackground'})(edit),
 	save: () => { return null; }
 };
 
 
-export { name, category, metadata, settings };
+export { name, settings };

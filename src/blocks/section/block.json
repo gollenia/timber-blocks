@@ -1,6 +1,10 @@
 {
 	"name": "ctx-blocks/section",
-	"api_version": 2,
+	"apiVersion": 2,
+	"title": "Section",
+	"keywords": [ "link", "action", "button" ],
+	"textdomain": "ctx-blocks",
+	"description": "Root-level block to keep everything in place",
 	"category": "layout",
 	"attributes": {
 		"backgroundColor": {
@@ -35,5 +39,9 @@
 			"type": "integer",
 			"default": 10
 		}
+	},
+	"supports": {
+		"align": ["full"],
+		"default": "alignfull"
 	}
 }

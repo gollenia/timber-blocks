@@ -36,10 +36,10 @@ export default function ButtonEdit( {...props} ) {
 
     const [showModal, setShowModal] = useState( false );
 
-	const classes = [
+	const buttonClasses = [
 			className || false,
 			"ctx-button",
-			iconRight ? "btn-reverse" : false,
+			iconRight ? "reverse" : false,
 			size || false,
 			outline ? "btn-outline" : false
 	].filter(Boolean).join(" ");
@@ -51,18 +51,19 @@ export default function ButtonEdit( {...props} ) {
     
 	const textColor = buttonColor.brightness == "dark" ? "#ffffff" : "#000000";
 
+	const blockProps = useBlockProps({className: "ctx-button-block"})
+
 	const style = {
           background: !outline && !isLink ? buttonColor.color : 'transparent',
           boxShadow: outline ? "inset 0px 0px 0px 2px " + buttonColor.color : 'none',
           color: isLink || outline ? buttonColor.color :  textColor,
 	}
 
-	return (
-		<div { ...useBlockProps() }>
+	return <div { ...blockProps }>
 			<Inspector
 					{ ...props }
 			/>
-			<span style={style} className={ classes } onClick={() => {setShowModal(true)}}>
+			<span style={style} className={buttonClasses} onClick={() => {setShowModal(true)}}>
 			{ icon && <i class="material-icons">{icon}</i>}
 			<RichText
 				tagName="span"
@@ -96,5 +97,5 @@ export default function ButtonEdit( {...props} ) {
 				</div>
             }
 		</div>
-	);
+	;
 }

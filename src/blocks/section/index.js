@@ -1,33 +1,26 @@
-import Edit from './edit';
+/**
+ * Internal dependencies
+ */
+import edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
-import { InnerBlocks} from '@wordpress/block-editor';
-const { withColors } = wp.blockEditor;
-
-
 import './editor.scss';
 
-const { __ } = wp.i18n; 
-const { name, category, attributes } = metadata;
+/**
+ * Wordpress dependencies
+ */
+import { InnerBlocks} from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n'; 
+import { withColors } from '@wordpress/block-editor';
+
+const { name } = metadata;
 
 const settings = {
-	title: __( 'Section', 'ctx-blocks' ),
-	description: __( 'Inserts a basic container element, maximizing its content\'s width.', 'ctx-blocks' ),
+	...metadata,
 	icon,
-	apiVersion: 2,
-	keywords: [
-		'ctxblocks',
-		__( 'url', 'ctx-blocks' ),
-		__( 'link', 'ctx-blocks' ),
-	],
-	supports: {
-		align: ["full"],
-		default: "alignfull"
-	},
-	attributes,
-	
-	edit: withColors({backgroundColor: 'backgroundColor'})(Edit),
+	title: __(metadata.title, "ctx-blocks"),
+	edit: withColors({backgroundColor: 'backgroundColor'})(edit),
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
-export { name, category, metadata, settings };
+export { name, settings}

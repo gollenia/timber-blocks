@@ -1,5 +1,5 @@
 /**
- * Wordpress dependencies.
+ * WordPress dependencies
  */
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -36,17 +36,11 @@ import './common/styles/editor.scss';
 import './common/styles/style.scss';
 
 const registerBlock = (block) => {
-	if (!block) {
-		return;
-	}
-
-	const { name, category, settings } = block;
-
-	registerBlockType(name, {
-		category,
-		...settings,
-	});
+	if (!block) return;
+	const { name, settings } = block;
+	registerBlockType( name, settings );
 };
+
 
 export const registerBlocks = () => {
 	[

@@ -1,36 +1,36 @@
 import Toolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
-import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 
 export default function Edit({...props}) {
 
-    const ALLOWED_BLOCKS = ['ctx-blocks/button'];
-
-    const TEMPLATE = [
-        [
-            'ctx-blocks/button'
-        ]
-    ];
-
-    const {
+	const {
         attributes: {
             textAlignment,
-        },
-        className,
+        }
     } = props;
 
-    const style = {
-        textAlign: textAlignment
-    };		
+	const ALLOWED_BLOCKS = [
+		'ctx-blocks/button',
+	]
 
-    const classes = [
+	const classes = [
         "ctx-buttons",
         "ctx-buttons-" + textAlignment
     ].filter(Boolean).join(" ");
+	
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: classes },
+		{
+			template: [ [ 'ctx-blocks/button' ] ],
+			allowedBlocks: ALLOWED_BLOCKS,
+			orientation: 'horizontal'
+		}
+	);
 
-    const blockProps = useBlockProps({className: classes, style: style});
+    const blockProps = useBlockProps();
 
     return (
         <>
@@ -39,11 +39,8 @@ export default function Edit({...props}) {
             />
 
             <div {...blockProps}>
-                    <InnerBlocks 
-						allowedBlocks={ALLOWED_BLOCKS}
-						template={TEMPLATE}
-                        orientation="horizontal"
-					/>
+				<div {...innerBlocksProps }></div>
+			
             </div>
             
         </>
