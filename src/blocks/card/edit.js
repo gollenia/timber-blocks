@@ -3,6 +3,7 @@ import Toolbar from './toolbar';
 import { has } from 'lodash';
 import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+import { colord } from 'colord';
 
 const ALLOWED_BLOCKS = ['core/spacer', 'core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button-group', 'ctx-blocks/button',  'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
 
@@ -52,12 +53,12 @@ export default function CardEdit({...props}) {
 	
 		const style = {
 			background: backgroundColor.color, 
-			color: props.colorUtils.getMostReadableColor(backgroundColor.color, ['#ffffff', '#000000'])
+			color: colord(backgroundColor.color).isDark() ? "#ffffff" : "#000000"
 		};
 
         const secondaryStyle = {
 			background: secondaryColor.color, 
-			color: props.colorUtils.getMostReadableColor(secondaryColor.color, ['#ffffff', '#000000'])
+			color: colord(secondaryColor.color).isDark() ? "#ffffff" : "#000000"
 		};
 
 		const classes = [
