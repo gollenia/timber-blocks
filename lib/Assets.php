@@ -9,7 +9,13 @@ class Assets {
 		'editor_style'  => 'bricks-block-editor',
 	];
 
-    public static function init() {
+	/**
+	 * 
+	 * Register shared scripts and styles for all blocks
+	 * 
+	 * @return Assets
+	 */
+    public static function init() : Assets {
         
 		$instance = new self;
 
@@ -25,10 +31,23 @@ class Assets {
         	wp_enqueue_script('bricks-frontend', plugin_dir_url(__FILE__) . "../assets/frontend.js", [], false, true);
     	});
 
-		return $instance->assets;
-    
+		return $instance;
     }
 
+	/**
+	 * Return the array used for block registration
+	 *
+	 * @return array
+	 */
+	public function get() {
+		return $this->assets;
+	}
+
+	/**
+	 * Callback function to register the assets in the init hook
+	 *
+	 * @return void
+	 */
     public function register_assets() {
 		$dir = __DIR__ . "/../assets/";
 
