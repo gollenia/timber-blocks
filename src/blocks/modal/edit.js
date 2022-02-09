@@ -3,7 +3,6 @@
  */
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-import contrast from '../../common/utils/contrast';
 
 import {useState} from '@wordpress/element';
 
@@ -44,7 +43,7 @@ export default function ModalEdit({...props}) {
 
 		const buttonStyle = {
 			background: buttonIsLink ? "none" : buttonColor.color,
-			color: buttonIsLink ? buttonColor.color : contrast(buttonColor.color) 
+			color: buttonIsLink ? buttonColor.color : "#ffffff"
 		}
 
 
