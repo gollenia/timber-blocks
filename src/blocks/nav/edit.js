@@ -83,24 +83,32 @@ export default function Edit({ attributes, setAttributes }) {
 		initialOpen={true}
 	>
 		
-		
-	
+		<SelectControl
+			label={ __( 'Parent page', "ctx-blocks") }
+			value={ dataType } // e.g: value = [ 'a', 'c' ]
+			onChange={ ( value ) => setAttributes( { dataType: value } ) }
+			options={ [ 
+				{ value: "pages", label: __("Pages", 'ctx-blocks') },
+				{ value: "posts", label: __("Posts", 'ctx-blocks') },
+				{ value: "categories", label: __("Categories", 'ctx-blocks') },
+			 ] } 
+		/>
+
+		{ dataType === "pages" &&
 		<SelectControl
 			label={ __( 'Parent page', "ctx-blocks") }
 			value={ parentPage } // e.g: value = [ 'a', 'c' ]
 			onChange={ ( value ) => setAttributes( { parentPage: parseInt(value) } ) }
 			options={ pageList }
-		/>
+		/> }
 
-		
-		
-		
+		{ dataType === "posts" &&
 		<SelectControl
-			label={ __( 'Category (ingluding it\'s children)', "ctx-blocks" ) }
+			label={ __( 'Category (including it\'s children)', "ctx-blocks" ) }
 			value={ parentCategory } // e.g: value = [ 'a', 'c' ]
 			onChange={ ( value ) => setAttributes( { parentCategory: parseInt(value) } ) }
 			options={ categoryList }
-		/>
+		/> }
 
 		<SelectControl
 			label={ __( 'Order by', "ctx-blocks") }
