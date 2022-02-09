@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Bricks 
  * Description:     Common blocks using twig rendering
- * Version:         1.6
+ * Version:         1.7
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -26,15 +26,24 @@ function bricks_plugin_textdomain() {
 }
 add_action('plugins_loaded', 'bricks_plugin_textdomain');
 
-// Register Blocks (from old ctx-blocks)
-$standard_blocks = new \Contexis\Blocks\Block($assets); 
-$standard_blocks->register();
+$blocks_to_register = [
+	"alert",
+	"buttons/button-group",
+	"buttons/button-spacer",
+	"card",
+	"description/description-item",
+	"description/description-list",
+	"grid/grid-column",
+	"grid/grid-row",
+	"image",
+	"modal",
+	"progress",
+	"section",
+];
 
-$nav_block = new \Contexis\Blocks\Nav($assets);
-$nav_block->register();
 
-$post_block = new \Contexis\Blocks\Posts($assets);
-$post_block->register();
+\Contexis\Blocks\Block::init($assets, $blocks_to_register); 
 
-$button_block = new \Contexis\Blocks\Button($assets);
-$button_block->register();
+\Contexis\Blocks\Nav::init($assets);
+\Contexis\Blocks\Posts::init($assets);
+\Contexis\Blocks\Button::init($assets);
