@@ -41,11 +41,7 @@ const Inspector = (props) => {
 				initialOpen={false}
 			>
 				
-				<ToggleControl
-					label={__('Highlight on mouse over', 'ctx-blocks')}
-					checked={hover}
-					onChange={(value) => {setAttributes( { hover: value })}}
-				/>
+				
 				<ToggleControl
 					label={__('Shadow', 'ctx-blocks')}
 					checked={shadow}
@@ -56,16 +52,7 @@ const Inspector = (props) => {
 					checked={transparent}
 					onChange={(value) => {setAttributes( { transparent: value })}}
 				/>
-				<PanelRow>
-					<BaseControl
-						label={__('Link', 'ctx-blocks')}
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here...', 'ctx-blocks') } ) }
-						/>
-					</BaseControl>
-				</PanelRow>
+				
 				<TextControl
 					label={__('label', 'ctx-blocks')}
 					value={label}
@@ -147,9 +134,25 @@ const Inspector = (props) => {
 				</PanelRow>
 			</PanelBody>
 			<PanelBody
-				title={__("Actions", 'ctx-blocks')}
+				title={__("Behaviour", 'ctx-blocks')}
 				initialOpen={false}
 			>
+				<PanelRow>
+					<ToggleControl
+						label={__('Highlight on mouse over', 'ctx-blocks')}
+						checked={hover}
+						onChange={(value) => {setAttributes( { hover: value })}}
+					/>
+					
+				</PanelRow>
+				<BaseControl
+						label={__('Link', 'ctx-blocks')}
+					>
+						<URLInput
+							value={ url }
+							onChange={ ( url, post ) => setAttributes( { url, text: (post && post.title) || __('Click here...', 'ctx-blocks') } ) }
+						/>
+					</BaseControl>
 			</PanelBody>
 			<PanelBody
 				title={__("Layout settings", 'ctx-blocks')}
