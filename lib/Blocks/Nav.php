@@ -6,13 +6,35 @@ use Timber\Timber;
 
 class Nav extends Block {
 
-    public $blocks = [
+    public array $blocks = [
         "nav"
     ];
 
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+		$instance = new self($assets);
+		$instance->register();
+	}
+
     public function render($attributes, $content, $full_data) : string {
-        $get_data = "get_" . $attributes['dataType'];
-        $attributes['data'] = $this->{$get_data}($attributes);
+
+		switch ($attributes['dataType']) {
+			case 'posts':
+				$attributes['data'] = $this->get_posts($attributes);
+				break;
+			
+			case 'pages':
+				$attributes['data'] = $this->get_pages($attributes);
+				break;
+
+			case 'categories':
+				$attributes['data'] = $this->get_categories($attributes);
+				break;
+
+			default:
+				$attributes['data'] = [];
+				break;
+		}
+
         $template = $this->get_template($full_data->name);
         return Timber::compile($template, $attributes);
         

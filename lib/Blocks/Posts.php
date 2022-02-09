@@ -6,7 +6,7 @@ Use Timber\Timber;
 
 class Posts extends Block {
 
-    public $blocks = [
+    public array $blocks = [
         "posts"
     ];
 
@@ -15,6 +15,11 @@ class Posts extends Block {
         $template = $this->get_template($full_data->name);
         return \Timber\Timber::compile($template, $attributes);
     }
+
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+		$instance = new self($assets);
+		$instance->register();
+	}
     
 
     private function get_posts($attributes) {

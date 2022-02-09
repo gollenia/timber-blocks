@@ -4,7 +4,7 @@ namespace Contexis\Blocks;
 
 interface BlockInterface
 {
-    public function __construct($args);
+    public function __construct(\Contexis\Utils\Assets $assets, array $blocks = []);
     public function register() : void;
     public function render($attributes, $content, $full_data);
     public function get_template($name) : string;
@@ -13,42 +13,38 @@ interface BlockInterface
 
 class Block implements BlockInterface {
 
-    public $blocks = [
-        "alert",
-        "buttons/button-group",
-        "card",
-        "description/description-item",
-        "description/description-list",
-        "grid/grid-column",
-        "grid/grid-row",
-        "image",
-        "modal",
-        "progress",
-        "section",
-    ];
+    public array $blocks = [];
 
     public $blocks_to_register = [];
 
     public $args;
 
-    public function __construct($args) {
+    public function __construct(\Contexis\Utils\Assets $assets, array $blocks = []) {
 
-        $this->args = $args;
+		if(empty($blocks) && empty($this->blocks)) return;
+		
+		if(!empty($blocks)) $this->blocks = $blocks;
         
         foreach($this->blocks as $block) {
-            $meta = $this->get_meta($block);
+            $meta = array_merge($assets->get(), $this->get_meta($block));
+			
+			$meta['render_callback'] = [$this, "render"];
             if($meta) {
                 array_push($this->blocks_to_register, $meta); 
             }
         }
     }
 
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+		$instance = new self($assets, $blocks);
+		$instance->register();
+	}
+
     public function get_meta($block) :array{
         $filename = plugin_dir_path( __FILE__ ) . "../../src/blocks/" . $block . "/block.json";
         
-        if(!file_exists($filename)) {
-            return [];
-        }
+        if(!file_exists($filename)) return [];
+
         $string = file_get_contents($filename);
         return json_decode($string, true);
     }
@@ -59,12 +55,10 @@ class Block implements BlockInterface {
         $args['render_callback'] = [$this, "render"];
         
         add_action( 'init', function() use(&$blocks, &$args){
-            
-            for($i = 0; $i < count($blocks); $i++) {
-                $args['attributes'] = $blocks[$i]['attributes'];
-				$args['title'] = _x( $blocks[$i], 'block title', 'ctx-blocks' );
+
+            for($i = 0; $i < count($blocks); $i++) {			
                 register_block_type(
-                    $blocks[$i]["name"], $args
+                    $blocks[$i]["name"], $blocks[$i]
                 );
             }
             
@@ -74,11 +68,9 @@ class Block implements BlockInterface {
     public function render($attributes, $content, $full_data) {
         $template = $this->get_template($full_data->name);
 
-        if(!$template) { return null; }
+        if(!$template) return;
 
         $attributes['content'] = $content;
-
-        //echo "<script>console.log(" . json_encode($attributes) . ");</script>";
 
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
