@@ -14,6 +14,7 @@ export default function Edit({...props}) {
 
 	const ALLOWED_BLOCKS = [
 		'ctx-blocks/button',
+		'ctx-blocks/button-spacer',
 	]
 
 	const classes = [
