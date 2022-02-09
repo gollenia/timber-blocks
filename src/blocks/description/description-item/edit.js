@@ -51,7 +51,7 @@ export default function Edit({...props}) {
 
 						{ image && image.subtype === "svg+xml" &&
 							<img 
-								src={relativeUrl(image.url)} 
+								src={image.url} 
 								width="3rem"
 								height="3rem"
 							/>
