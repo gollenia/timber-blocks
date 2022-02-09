@@ -33,13 +33,18 @@
                     </span>
                     <a href="{{ function("get_permalink", item.ID) }}" class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</a>
                     <span class="card__subtitle"><span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span></span>
-                    
+                    {% if excerptLength %}
                     <p class="card__text">
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
-                    <div class="card__footer">
+					{% endif %}
+					{% if style == "cards" %}
+					<hr>
+                    <div class="button-group button-group--right">
+						
                         <a href="{{ function("get_permalink", item.ID) }}" class="button button--primary button--link">{{ __("Read on", "bricks")}}</a>
                     </div>
+					{% endif %}
                 </div>
             </div>
         
