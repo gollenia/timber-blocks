@@ -35,6 +35,8 @@ class Nav extends Block {
 				break;
 		}
 
+		
+
         $template = $this->get_template($full_data->name);
         return Timber::compile($template, $attributes);
         
