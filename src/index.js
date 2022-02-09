@@ -7,6 +7,7 @@ import { registerBlockType } from '@wordpress/blocks';
  * Blocks dependencies.
  */
 import * as buttonGroup from './blocks/buttons/button-group';
+import * as buttonSpacer from './blocks/buttons/button-spacer';
 import * as button from './blocks/buttons/button';
 import * as image from './blocks/image';
 import * as alert from './blocks/alert';
@@ -45,6 +46,7 @@ const registerBlock = (block) => {
 export const registerBlocks = () => {
 	[
 		buttonGroup,
+		buttonSpacer,
 		button,
 		alert,
 		card,
