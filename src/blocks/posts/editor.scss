@@ -147,6 +147,7 @@
             flex-direction: row;
             img {
                 object-fit: cover;
+				height: 100%;
             }
         }
         &.round-images img {
