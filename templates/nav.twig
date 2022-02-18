@@ -1,3 +1,26 @@
+{#
+# Nav Block template	 
+#
+# Attributes
+#
+# bool		dropDown
+# integer	depth
+# bool		showIcons
+# bool		isPrimary
+# bool		showActive
+# int		parentPage
+# int		parentCategory
+# string	dataType		[post, page, category]
+# integer	limit
+# string	order
+# string	orderby			[date, title, id]
+# string	textAlignment	[left, right, center]
+#
+# Objects
+#
+# Array		data
+#
+#}
 
 <ul class="nav {{ isPrimary ? "nav--large" }}">
     {% for item in data %}

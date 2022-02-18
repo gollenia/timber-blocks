@@ -1,3 +1,23 @@
+{#
+# Button Block template	 
+#
+# Attributes
+#
+# string	title
+# string	buttonColor
+# string	size				small, medium, large
+# string	url
+# bool		outline
+# string	icon
+# bool		iconRight
+# bool		isLink
+# bool		fullWidth
+# bool		modalFull
+# string	modalTitle
+# bool		hasModal
+#
+#}
+
 {% set bg = get_color_by_slug(buttonColor) %}
 
 <div>
@@ -10,4 +30,3 @@
     {% if icon %}<i class="material-icons">{{icon}}</i>{% endif %}{{title}}
     </a>
 </div>
- 

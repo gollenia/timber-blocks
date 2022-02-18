@@ -1,3 +1,21 @@
+{#
+# Image Block template	 
+#
+# Attributes
+#
+# bool		hasLightbox
+# string	lightboxText
+# object	image
+# integer	width
+# string	alignment
+# bool		round
+# bool		roundCorners
+# bool		border
+# bool		flip
+# string	caption
+#
+#}
+
 {% if image.subtype == 'svg+xml' %}
   <figure class="figure" style="width: {{width}}%; {{alignment == "center" ? "margin: auto"}}">
     {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
@@ -8,7 +26,7 @@
         <img loading="lazy" style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
             alt="{{image.description ?: image.title}}" 
             class="{{border ? 'image--border'}}  {{round ? "image--round"}} {{roundCorners and not rounded ? "image--rounded" }}  {{shadow ? "image--shadow"}}" 
-            src="{{ round ? image.url|resize(800,800) : image.url|resize(1200) }}"
+            src="{{ round ? image.url|resize(800) : image.url|resize(1200) }}"
         >
         {% if caption %}<div class="image__caption">{{caption}}</div>{% endif %}
 {% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox__inner">

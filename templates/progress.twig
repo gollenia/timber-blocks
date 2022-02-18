@@ -1,3 +1,23 @@
+{#
+# Progress Block template	 
+#
+# Attributes
+#
+# integer	maxValue
+# integer	currentValue
+# bool		showValues
+# string	unit
+# bool		prefixedUnit
+# bool		thousandSeparators
+# integer	decimalPlaces
+# string	colorBar
+# string	colorBackground
+# string	title
+# string	currentDescription
+# string	maxDescription
+#
+#}
+
 {% set bg = get_color_by_slug(colorBackground) %}
 {% set fg = get_color_by_slug(colorBar) %}
 

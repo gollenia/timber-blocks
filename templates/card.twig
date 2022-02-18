@@ -1,3 +1,24 @@
+{#
+# Card Block template	 
+#
+# Attributes
+#
+# string	backgroundColor
+# string	secondaryColor
+# bool		transparent
+# bool		shadow
+# bool		hover
+# string	url
+# string	textAlign		[left, center, right]
+# object	image
+# bool		isLast
+# bool		isFirst
+# string	imagePosition	[top, left, right, bottom, full]
+# string	label
+# string	badge
+#
+#}
+
 {% set bg = get_color_by_slug(backgroundColor) %}
 {% set secondary = get_color_by_slug(secondaryColor) %}
 
@@ -8,7 +29,8 @@
         {{ shadow ? 'card--shadow' }} 
         {{ isFirst ? "card--first "}} 
         {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} 
-        {{ url ? "card--hover"}}
+        {{ url or hover ? "card--hover"}}
+		{{ "card--" ~ textAlign }}
 		{{ bg.light ? "light" : "dark" }}"
     >
     {% if badge %}<b class="card__badge" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)">{{ badge }}</b>{% endif %}

@@ -1,3 +1,32 @@
+{#
+# Posts Block template	 
+#
+# Attributes
+#
+# integer	columnsSmall
+# integer	columnsMedium
+# integer	columnsLarge
+# bool		showImages
+# bool		roundImages
+# bool		dropShadow
+# bool		hover
+# integer	imageSize
+# boolean	showDate
+# boolean	showCategory
+# boolean	showTag
+# string	style			[list, cards]
+# integer	limit
+# string	order
+# string	orderby			[date, title, id]
+# string	textAlignment	[left, right, center]
+# string	category
+# integer	excerptLength
+#
+# Objects
+#
+# Timber\Post	posts
+#
+#}
 
 <div class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
     {% for item in posts %}

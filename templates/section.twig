@@ -1,3 +1,19 @@
+{#
+# Section Block template	 
+#
+# Attributes
+#
+# string	backgroundColor
+# bool		backgroundIsDark
+# object	backgroundImage
+# string	imagePosition
+# bool		parallaxEffect
+# string	textAlignment
+# integer	paddingTop
+# integer	paddingBottom
+#
+#}
+
 {% set bg = get_color_by_slug(backgroundColor) %}
 <section 
     style="background-color: var(--{{backgroundColor}});
