@@ -12,8 +12,8 @@
  */
 
 
-
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+define('BRICKS_DIR', plugin_dir_path( __FILE__ ));
+require_once BRICKS_DIR . 'vendor/autoload.php';
 
 $assets = Contexis\Utils\Assets::init();
 
@@ -42,8 +42,8 @@ $blocks_to_register = [
 ];
 
 
-\Contexis\Blocks\Block::init($assets, $blocks_to_register); 
+Contexis\Blocks\Block::init($assets, $blocks_to_register); 
 
-\Contexis\Blocks\Nav::init($assets);
-\Contexis\Blocks\Posts::init($assets);
-\Contexis\Blocks\Button::init($assets);
+Contexis\Blocks\Nav::init($assets);
+Contexis\Blocks\Posts::init($assets);
+Contexis\Blocks\Button::init($assets);
