@@ -13,6 +13,7 @@ class TwigExtend {
 
         $colors = get_theme_support('editor-color-palette');
         //var_dump($colors);
+		if(!$colors) return; 
         foreach ($colors[0] as $set) {
             //var_dump($set);
             if($set['slug'] === $slug) {
