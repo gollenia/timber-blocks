@@ -30,7 +30,7 @@ const Inspector = (props) => {
 				title={__('Data', 'ctx-blocks')}
 				initialOpen={true}
 			>
-				<PanelRow>
+				
 				<SelectControl
 					label={ __( 'Type of content', 'ctx-blocks') }
 					value={ contentType } // e.g: value = [ 'a', 'c' ]
@@ -43,7 +43,7 @@ const Inspector = (props) => {
 						{ value: 'person', label: __("Person", 'ctx-blocks')}
 					] }
 				/>
-				</PanelRow>
+				
 				
 				{ contentType === "today" &&
 				<div class="ctx-date-select">
