@@ -35,6 +35,10 @@
     }
 }
 
+.ctx\:row__label {
+	margin-bottom: 5px;
+}
+
 .ctx-row {
 	display: grid;
 	gap: 1rem;
@@ -115,4 +119,18 @@
     background-size: 28.28px 28.28px;
     height: 32px;
     opacity: 0;
+}
+
+
+.ctx\:row {
+
+	&__icon {
+		height:18px;
+		width: 18px;
+		opacity: 0.6;
+	}
+
+	&__icons {
+		height:18px;
+	}
 }
