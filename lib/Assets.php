@@ -15,7 +15,7 @@ class Assets {
 	 * 
 	 * @return Assets
 	 */
-    public static function init() : Assets {
+    public static function init() {
         
 		$instance = new self;
 
@@ -23,8 +23,6 @@ class Assets {
 
 		add_action('admin_enqueue_scripts', function() {
 			wp_enqueue_script('bricks-block-filter', plugin_dir_url(__FILE__) . "../assets/admin.js", [], false, true);
-			wp_register_style("material-icons", "https://fonts.googleapis.com/icon?family=Material+Icons");
-			
 		});
 
        	add_action('init', function() {
