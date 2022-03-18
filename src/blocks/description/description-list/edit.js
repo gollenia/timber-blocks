@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-
-
-/**
  * Internal dependencies
  */
 import Inspector from './inspector';
@@ -13,43 +8,40 @@ import Inspector from './inspector';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-
-const ALLOWED_BLOCKS = ['ctx-blocks/description-item'] 
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 export default function Edit({...props}) {
+
+	const allowedBlocks = ['ctx-blocks/description-item'] 
 
         const {
             attributes: {
 				dividers
 			},
-			className,
+			className
 		} = props;
+		
 
         const classes = [
+			'ctx:description__wrapper',
             className,
-			"ctx-description",
             dividers ? "ctx-description--divider" : false
 		].filter(Boolean).join(" ")
 
-        const TEMPLATE = [
-			[
-				'ctx-blocks/description-item'
-			]
-		];
+        const template = [['ctx-blocks/description-item']];
 
 		const blockProps = useBlockProps( { className: classes } );
+
+		const innerBlockProps = useInnerBlocksProps({}, { allowedBlocks, template, templateLock: false })
 
 		return (
 			<div {...blockProps}>
 				<Inspector
 						{ ...props }
 				/>
-				<div>
-					<InnerBlocks 
-						allowedBlocks={ALLOWED_BLOCKS}
-						template={TEMPLATE}
-					/>	
+				<div className='ctx:description'>
+					<div className='ctx:control'><span className='ctx:control__label ctx:description__label'>{__('Description List', 'ctx-blocks')}</span></div>
+					<div {...innerBlockProps}></div>
 				</div>
 			</div>
 		);
