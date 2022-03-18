@@ -2,8 +2,6 @@
 
 namespace Contexis\Blocks;
 
-use Timber\Timber;
-
 interface BlockInterface
 {
     public function __construct(\Contexis\Utils\Assets $assets, array $blocks = []);
@@ -77,7 +75,7 @@ class Block implements BlockInterface {
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
         }
-		Timber::$locations = BRICKS_DIR . 'templates';
+        
         return \Timber\Timber::compile($template, $attributes); 
     }
 
