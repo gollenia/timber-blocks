@@ -25,15 +25,29 @@
       width: 100%;
     }
   }
-  
-  div[data-type="ctx-blocks/section"] {
-    max-width: 100%;
-    width:100%;
-    .ctx-container {
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
 
+.ctx\:section {
+	&__container {
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1rem;
+	}
+}
   
+div[data-type="ctx-blocks/section"] {
+	border: 1px dashed rgba(0, 0, 0, 0.3);
+	position: relative;
+	max-width: 100%;
+	width:100%;
+	.ctx-container {
+		
+	}
+}
+
+  .section__label {
+	  display: inline-block;
+	  position: absolute;
+	  left: 5px;
+	  top: 5px;
+  }

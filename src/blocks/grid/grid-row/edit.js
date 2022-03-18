@@ -60,11 +60,11 @@ export default function GridRowEdit({...props}) {
 					{ ...props }
 			/>
 			<div {...blockProps}>
-				<div className="ctx-row-header">
+				<div className="ctx:control__label ctx:row__label">
 					<label>{__('Row (columns: ', 'ctx-blocks') + childrenWidthLarge + ')'}</label>
-					<div className="ctx-row-icons">
-						{ equalizer && <Icon className="ctx-row-icon" icon={icons.equalizer}/> }
-						{ divider && <Icon className="ctx-row-icon" icon={icons.divider}/> }
+					<div className="ctx:row__icons">
+						{ equalizer && <Icon className="ctx:row__icon" icon={icons.equalizer} size={19}/> }
+						{ divider && <Icon className="ctx:row__icon" icon={icons.divider}/> }
 					</div>
 				</div>
 				
