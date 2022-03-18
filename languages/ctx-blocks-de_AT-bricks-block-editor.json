@@ -12,11 +12,14 @@
          "Common blocks utilizing tailwindcss and alipne.js": [
             "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
          ],
-         "Thomas Gllenia": [
+         "Thomas Gollenia": [
             "Thomas Gollenia"
          ],
          "Title": [
             "Titel"
+         ],
+		 "Subtitle": [
+            "Untertitel"
          ],
          "Alert Title": [
             "Alarm-Überschrift"
@@ -171,21 +174,24 @@
          "Text": [
             "Text"
          ],
-         "Description": [
-            "Beschreibung"
+         "Description List": [
+            "Beschreibungs-Liste"
          ],
-         "List item": [
+         "Description Item": [
             "Listenpunkt"
          ],
          "single list item": [
             "einzelner Listenpunkt"
          ],
-         "description": [
+         "Description": [
             "Beschreibung"
          ],
-         "list": [
+         "List": [
             "Liste"
          ],
+		 "Icon for Link": [
+			"Icon für Link"
+		 ],
          "Type of content": [
             "Art des Inhalts"
          ],
@@ -576,6 +582,12 @@
          "Section": [
             "Abschnitt"
          ],
+		 "Add Section": [
+            "Abschnitt hinzufügen"
+         ],
+		 "Container block that adds a maximum width to it's content": [
+			 "Gestaltbarer Container-Block, der seinen Inhalt auf eine maximale Breite reduziert."
+		 ],
          "Inserts a basic container element, maximizing its content's width.": [
             "Fügt einen Inhaltsblock ein"
          ],
