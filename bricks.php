@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Bricks 
  * Description:     Common blocks using twig rendering
- * Version:         1.7
+ * Version:         1.8
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html

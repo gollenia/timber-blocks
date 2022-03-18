@@ -13,17 +13,12 @@ Plugins like simple-blocks where not an option for me as they heavily rely on da
 For installation, you will need SSH access to your server and an installed composer environment. Simply run these commands to install the plugin:
 
 ```sh
-git clone https://github.com/gollenia/ctx-blocks.git
+git clone https://github.com/gollenia/bricks.git
 cd ctx-blocks
 composer install
 ```
-You can recompile the Backend code if you have nodeJS installed:
 
-```sh
-git clone https://github.com/gollenia/ctx-blocks.git
-cd ctx-blocks
-composer install
-```
+You can recompile the Backend code for development with `npm start` or for production with `npm run build`
 
 Feel free, of course, to make use of GitHub's actions ;-)
 
@@ -48,9 +43,16 @@ This plugin is made for developers, not for end-users. That's why I didn't put i
 
 In the upper example you see how it's done. The first line is a function to get the color value by it's slug. Use it if you like, or simply add the color slug as a class like Wordpress does it (`has-blue-color` for example) 
 
-The attributes of each block ar in `src/blocks/block_name/block.json`, and you can use them name by name as simple twig variables.
+The available attributes of each block are in it's twig template or the corresponding block.json, and you can use them name by name as simple twig variables.
 
 ### Changelog
+
+##### 1.8
+* New base block to force editors to use sections at base level
+* Redesigned Editor UI makes it easier to identify blocks
+* Description list improved
+* Some CSS moved to BEM Style (not all, yet)
+* Most blocks use useInnerBlocksProps() hook now
 
 ##### 1.7
 * Rewritten block registration to fit new block.json style and make it compatible with future Wordpress versions
