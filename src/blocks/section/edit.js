@@ -6,7 +6,9 @@ import { useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
 
 export default function Edit({...props}) {
 
-	const innerBlocksProps = useInnerBlocksProps({ className: 'ctx-container' });
+	const template = [[ 'core/paragraph']];
+
+	const innerBlocksProps = useInnerBlocksProps({ className: 'ctx-container' }, {template, renderAppender: false});
 
 	const {
 		attributes: {
@@ -46,7 +48,7 @@ export default function Edit({...props}) {
 	const blockProps = useBlockProps({className: classes, style: style});
 
 	return (
-		<>
+		<div>
 			<Inspector
 				{ ...props }
 			/>
@@ -55,12 +57,13 @@ export default function Edit({...props}) {
 			/>
 
 			<div {...blockProps}>
+				<span className="ctx:control__label section__label">{__('Section', 'ctx-blocks')}</span>
 				<div className="ctx-container" {...innerBlocksProps}>
 					
 				</div>
 			</div>
 			
-		</>
+		</div>
 	);
 
 }
