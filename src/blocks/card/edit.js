@@ -1,11 +1,12 @@
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-import { has } from 'lodash';
 import { __ } from '@wordpress/i18n'; 
-import { useBlockProps, InnerBlocks} from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, useInnerBlocksProps } from '@wordpress/block-editor';
 import { colord } from 'colord';
+import { Icon } from '@wordpress/components'
 
-const ALLOWED_BLOCKS = ['core/spacer', 'core/separator', 'core/paragraph', 'core/shortcode', 'core/heading', 'core/list', 'ctx-blocks/button-group', 'ctx-blocks/button',  'ctx-blocks/image', 'ctx-blocks/nav', 'ctx-blocks/posts', 'ctx-blocks/grid-row', 'ctx-blocks/description-list', 'ctx-blocks/accordion-collection', 'ctx-blocks/modal', 'ctx-blocks/progress']
+import CardImage  from './cardImage';
+import icons from './icons';
 
 export default function CardEdit({...props}) {
 
@@ -17,15 +18,32 @@ export default function CardEdit({...props}) {
 				isLast,
                 label,
                 badge,
-				imageWidth,
 				hover,
-				image
+				image,
+				url
 			},
 			backgroundColor,
             secondaryColor
 		} = props;
 
-		const TEMPLATE = [
+		const allowedBlocks = [
+			'core/spacer', 
+			'core/separator', 
+			'core/paragraph', 
+			'core/shortcode', 
+			'core/heading', 
+			'core/list', 
+			'ctx-blocks/button-group', 
+			'ctx-blocks/button',  
+			'ctx-blocks/image', 
+			'ctx-blocks/nav', 
+			'ctx-blocks/posts', 
+			'ctx-blocks/grid-row', 
+			'ctx-blocks/description-list', 
+			'ctx-blocks/accordion-collection', 
+			'ctx-blocks/progress']
+
+		const template = [
 			[
 				'core/heading', 
 				{
@@ -37,7 +55,7 @@ export default function CardEdit({...props}) {
 			[
 				'core/heading', 
 				{
-					placeholder: __('Title', 'ctx-blocks'),
+					placeholder: __('Subtitle', 'ctx-blocks'),
 					className: 'card__subtitle',
 					level: 4
 				}
@@ -61,18 +79,18 @@ export default function CardEdit({...props}) {
 			color: colord(secondaryColor.color).isDark() ? "#ffffff" : "#000000"
 		};
 
+		const innerBlockProps = useInnerBlocksProps({}, {allowedBlocks, template})
+
 		const classes = [
-			"ctx-card",
-			isFirst ? "ctx-is-first" : false,
-			isLast ? "ctx-is-last" : false,
-			hover ? "ctx-hover" : false,
-			`text-${textAlign}`,
-			`image-${imagePosition}`
+			"ctx:card",
+			isFirst ? "ctx:card__first" : false,
+			isLast ? "ctx:card__last" : false,
+			hover ? "ctx:card__hover" : false,
+			`ctx:card--${textAlign}`,
+			`ctx:card__image--${imagePosition}`
 		].filter(Boolean).join(" ");
-		
-		const isSVG = ( image != null ? image.subtype == "svg+xml" : false );
-        const imageUrl = image == null ? false : (!(has(image, 'sizes.medium')) || isSVG ? image.url : image.sizes.medium.url);
-		
+
+		console.log(icons)
 		return (
 			<>
 				<Inspector
@@ -82,21 +100,21 @@ export default function CardEdit({...props}) {
 					{ ...props }
 				/>
 				<div {...useBlockProps() } >
-					<div className="ctx-grabber">
+					<div className="ctx:control__label ctx:card__label">
 						<label>{__('Card', 'ctx-blocks')}</label>
+						<div className="ctx:control__icons">
+						{ url != '' && <Icon className="ctx:control__icon" icon={icons?.url} size={18}/> }
+						</div>
 					</div>
 					<div style={style} className={classes}>
-                        { badge != "" && <b className="badge" style={secondaryStyle}><b>{badge}</b></b> }
-						{ imageUrl && <img 
-							width={`${imageWidth}%`} 
-							src={imageUrl} alt={image.filename}
-                        /> }
-                        <div className="card-content">
-                            { label != "" && <label style={secondaryStyle}>{label}</label> }
-                            <InnerBlocks 
-                                allowedBlocks={ALLOWED_BLOCKS}
-                                template={TEMPLATE}
-                            />
+                        { badge != "" && <b className="ctx:card__badge" style={secondaryStyle}><b>{badge}</b></b> }
+						<CardImage 
+							image={image}
+							failMessage={__('Image is too small. Please upload a larger version')}
+						/>
+                        <div className="ctx:card__content">
+                            { label != '' && <label style={secondaryStyle}>{label}</label> }
+							<div {...innerBlockProps}></div>
                         </div>
 					</div>
 					
