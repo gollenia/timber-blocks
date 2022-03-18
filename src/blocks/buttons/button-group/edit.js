@@ -15,6 +15,7 @@ export default function Edit({...props}) {
 	const ALLOWED_BLOCKS = [
 		'ctx-blocks/button',
 		'ctx-blocks/button-spacer',
+		'events-manager/booking',
 	]
 
 	const classes = [
