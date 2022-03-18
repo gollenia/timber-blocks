@@ -4,17 +4,13 @@
 	"title": "Section",
 	"keywords": [ "link", "action", "button" ],
 	"textdomain": "ctx-blocks",
-	"description": "Root-level block to keep everything in place",
+	"description": "Container block that adds a maximum width to it's content",
 	"category": "layout",
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",
 			"default": "default"
 		},
-		"backgroundIsDark": {
-            "type":"boolean",
-            "default": false
-        },
 		"backgroundImage": {
 			"type": "object",
 			"default": null
