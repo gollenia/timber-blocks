@@ -1,157 +1,123 @@
-.text-right {
-    align-items: flex-end;
-    text-align: right;
-}
+.ctx\:card {
+	position: relative;
+  	display:flex;
 
-.text-center {
-    align-items: center;
-    text-align: center;
-}
+	&--right {
+		align-items: flex-end;
+    	text-align: right;
+	}
+	&--right {
+		align-items: center;
+    	text-align: center;
+	}
+	&__label {
+		margin-bottom: 5px;
+	}
 
-.ctx-placement {
-    margin-top: 14px;
-}
-
-.ctx-card-hover:hover {
-    box-shadow: 0px 1px 7px rgba(0,0,0,0.5);
-}
-
-
-
-.ctx-grabber label {
-    font-size: 12px;
-    margin-left: 10px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-    font-weight: bold;
-    color: #444;
-}
-.ctx-grabber {
-    background: rgba(0, 0, 0, 0.1);
-    line-height: 1.2rem;
-    border: 1px dashed rgba(0, 0, 0, 0.3);
-    margin-bottom: 25px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    visibility: hidden;
-}
-
-div[data-type="ctx-blocks/card"]:hover {
-    .ctx-grabber {
-        visibility: visible;
-    }
-}
-
-.ctx-image-round img {
-    border-radius: 100%;
-}
-
-.ctx-image-border img {
-    border: 3px solid #fff;
-}
-
-.ctx-card {
-  position: relative;
-  display:flex;
-
-  &.image-bottom {
-    flex-direction: column-reverse;
-    img {
-        width: 100%;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-    }
-    .badge {
-        right: 10px;
-        bottom: 10px;
-    }
-  }
-
-  &.image-top {
-    label {
-        left: 10px;
-    }
-    flex-direction: column;
-    img {
-        width: 100%;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-    }
-    .badge {
-        right: 10px;
-        top: 10px;
-    }
-  }
-
-  &.image-left {
-    flex-direction: row;
-    align-items: center;
-    img {
-        width: 33%;
-        aspect-ratio: 1/1;
-        height: revert;
-        align-self: stretch;
-        object-fit: cover;
-    }
-    .badge {
-        left: 10px;
-        top: 10px;
-    }
-  }
-
-  &.image-right {
-    flex-direction: row-reverse;
-    align-items: center;
-    img {
-        width: 33%;
-        aspect-ratio: 1/1;
-        height: revert;
-        align-self: stretch;
-        object-fit: cover;
-    }
-    .badge {
-        right: 10px;
-        top: 10px;
-        
-    }
-  }
-
-  label {
-      position: absolute;
-      top: 0;
-      margin-top: -11px;
-      padding: 1px 5px;
-  }
-
-  b.badge {
-        position: absolute;
+	&__badge {
+		position: absolute;
         border-radius: 100%;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         padding: 5px;
         aspect-ratio: 1/1;
-  }
+	}
+
+	label {
+		position: absolute;
+		top: 0;
+		margin-top: -11px;
+		padding: 1px 5px;
+	}
+
+	&__image--top {
+		label {
+			left: 10px;
+		}
+		flex-direction: column;
+		img {
+			width: 100%;
+			aspect-ratio: 16/9;
+			object-fit: cover;
+		}
+		.ctx\:card__badge {
+			right: 10px;
+			top: 10px;
+		}
+	}
+
+	&__image--bottom {
+		flex-direction: column-reverse;
+		img {
+			width: 100%;
+			aspect-ratio: 16/9;
+			object-fit: cover;
+		}
+		.ctx\:card__badge {
+			right: 10px;
+			bottom: 10px;
+		}
+	  }
+	
+	 
+	
+	  &__image--left {
+		flex-direction: row;
+		align-items: center;
+		img {
+			width: 33%;
+			aspect-ratio: 1/1;
+			height: revert;
+			align-self: stretch;
+			object-fit: cover;
+		}
+		.ctx\:card__badge {
+			left: 10px;
+			top: 10px;
+		}
+	  }
+	
+	  &__image--right {
+			flex-direction: row-reverse;
+			align-items: center;
+			img {
+				width: 33%;
+				aspect-ratio: 1/1;
+				height: revert;
+				align-self: stretch;
+				object-fit: cover;
+			}
+			.ctx\:card__badge {
+				right: 10px;
+				top: 10px;
+				
+			}
+	  }
+
+	&__content {
+		padding: 15px;
+		position: relative;
+	}
 }
-.card-content {
-    padding: 15px;
-    position: relative;
-}
-  
+
+
 
 .imagePositionSelector {
-margin-top: 10px;
-margin-bottom: 20px;
-Button {
-  flex-direction: column;
-  height: 70px;
-  background: #eee;
-  width: 56px;
-  font-size: 11px;
-  border: 2px solid #eee;
-  margin-left: 5px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 
-  &.active {
-      border: 2px solid #007cba;
-  }
+	Button {
+		flex-direction: column;
+		height: 70px;
+		background: #eee;
+		width: 56px;
+		font-size: 11px;
+		border: 2px solid #eee;
+		margin-left: 5px;
+
+		&.active {
+			border: 2px solid #007cba;
+		}
 }
 }
