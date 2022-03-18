@@ -1,15 +1,12 @@
-.ctx-description {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	
+.ctx\:description {
+	border: 1px dashed #bbb;
 
-    &.is-selected,
-	&.has-child-selected {
+	&__label {
+		margin-left: 5px;
+	}
 
-		.block-list-appender {
-			display: block;
-		}
+	&__wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 }
-
