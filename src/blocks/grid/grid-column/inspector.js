@@ -49,18 +49,18 @@ const Inspector = (props) => {
 					onChange={(event) => {setAttributes( { widthLarge: event })}}
 					value={ widthLarge }
 				/>                        
-				<PanelRow>
-					<SelectControl
-						label={__('Position on mobile devices', 'ctx-blocks')}
-						value={ mobilePosition }
-						options={ [
-							{ label: __('In place', 'ctx-blocks'), value: '' },
-							{ label: __('Start', 'ctx-blocks'), value: 'first' },
-							{ label: __('End', 'ctx-blocks'), value: 'last' },
-						] }
-						onChange={ ( event ) => { setAttributes( { mobilePosition: event } ) } }
-					/>
-				</PanelRow>
+			
+				<SelectControl
+					label={__('Position on mobile devices', 'ctx-blocks')}
+					value={ mobilePosition }
+					options={ [
+						{ label: __('In place', 'ctx-blocks'), value: '' },
+						{ label: __('Start', 'ctx-blocks'), value: 'first' },
+						{ label: __('End', 'ctx-blocks'), value: 'last' },
+					] }
+					onChange={ ( event ) => { setAttributes( { mobilePosition: event } ) } }
+				/>
+				
 			</PanelBody>
 		</InspectorControls>
 		
