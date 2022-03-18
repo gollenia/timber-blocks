@@ -13,7 +13,7 @@
 
 
 define('BRICKS_DIR', plugin_dir_path( __FILE__ ));
-require_once BRICKS_DIR . 'vendor/autoload.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 $assets = Contexis\Utils\Assets::init();
 
