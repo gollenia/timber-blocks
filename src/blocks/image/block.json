@@ -12,6 +12,10 @@
 			"type": "boolean",
 			"default": false
         },
+		"url": {
+			"type": "string",
+            "default": ""
+		},
         "lightboxText": {
             "type": "string",
             "default": ""
