@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Bricks 
  * Description:     Common blocks using twig rendering
- * Version:         1.8
+ * Version:         1.8.1
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,6 @@ $blocks_to_register = [
 	"alert",
 	"buttons/button-group",
 	"buttons/button-spacer",
-	"card",
 	"description/description-item",
 	"description/description-list",
 	"grid/grid-column",
@@ -46,4 +45,5 @@ Contexis\Blocks\Block::init($assets, $blocks_to_register);
 
 Contexis\Blocks\Nav::init($assets);
 Contexis\Blocks\Posts::init($assets);
+Contexis\Blocks\Card::init($assets);
 Contexis\Blocks\Button::init($assets);
