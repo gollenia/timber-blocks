@@ -19,7 +19,7 @@ import * as section from './blocks/section';
 import * as nav from './blocks/nav';
 import * as posts from './blocks/posts';
 import * as progress from './blocks/progress';
-import * as modal from './blocks/modal';
+//import * as modal from './blocks/modal';
 import * as gridRow from './blocks/grid/grid-row';
 import * as gridColumn from './blocks/grid/grid-column';
 
@@ -56,7 +56,6 @@ export const registerBlocks = () => {
 		descriptionItem,
 		section,
 		posts,
-		modal,
 		nav,
 		progress,
 		gridRow,
