@@ -18,11 +18,18 @@ class Card extends Block {
 
     public function render($attributes, $content, $full_data) : string {
         $attributes['id'] = uniqid();
-		if($attributes['url']) {
-		
-		}
 
-		$attributes['content'] = $content;
+		$attributes['content'] = $this->set_content($attributes, $content);
+        
+        $template = $this->get_template($full_data->name);
+        return Timber::compile($template, $attributes);
+        
+    }
+
+	public function set_content($attributes, $content) {
+		if($attributes['url'] == '') {
+			return $content;
+		}
 
 		$dom = new DOMDocument();
 		$dom->loadHTML($content);
@@ -60,13 +67,9 @@ class Card extends Block {
 			$nodePre->parentNode->replaceChild($nodeDiv, $nodePre);
 		}
 
-		$attributes['content'] = $dom->saveHTML();
-        
-		
-        $template = $this->get_template($full_data->name);
-        return Timber::compile($template, $attributes);
-        
-    }
+		return $dom->saveHTML();
+
+	}
 
 
 }
