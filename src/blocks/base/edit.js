@@ -1,3 +1,6 @@
+/**
+ * Wordpress dependencies
+ */
 import { __ } from '@wordpress/i18n'; 
 import { Inserter, useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
 
