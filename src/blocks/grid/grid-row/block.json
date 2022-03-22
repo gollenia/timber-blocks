@@ -8,10 +8,6 @@
 	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
-		"gapSize": {
-			"type": "integer",
-			"default": 1
-		},
 		"equalizer": {
 			"type": "boolean",
 			"default": false
@@ -31,11 +27,7 @@
         "childrenWidthLarge": {
 			"type": "integer",
 			"default": 3
-        },
-		"flowColumns": {
-			"type": "boolean",
-            "default": false
-		}
+        }
         
 	},
 	"supports": {
