@@ -1,4 +1,5 @@
 /**
+ * @deprecated
  * Internal Dependencies
  */
 import Edit from './edit';
