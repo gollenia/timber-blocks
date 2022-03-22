@@ -54,14 +54,16 @@ const Inspector = (props) => {
 				/>
 				
 				<TextControl
-					label={__('label', 'ctx-blocks')}
+					label={__('Label', 'ctx-blocks')}
 					value={label}
 					onChange={(value) => {setAttributes( { label: value })}}
+					help={__('Adds a floating label for e.g. a category', 'ctx-blocks')}
 				/>
 				<TextControl
-					label={__('badge', 'ctx-blocks')}
+					label={__('Badge', 'ctx-blocks')}
 					value={badge}
 					onChange={(value) => {setAttributes( { badge: value })}}
+					help={__('Draw attention to this card or add a counter with a badge in the edge', 'ctx-blocks')}
 				/>
 				</PanelBody>
 
