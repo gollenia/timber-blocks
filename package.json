@@ -1,6 +1,6 @@
 {
 	"name": "bricks",
-	"version": "1.8.0",
+	"version": "1.8.1",
 	"description": "Wordpress block library plugin to replace some standard blocks",
 	"author": "kids-team Österreich",
 	"prettier": "@wordpress/prettier-config",

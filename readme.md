@@ -47,6 +47,12 @@ The available attributes of each block are in it's twig template or the correspo
 
 ### Changelog
 
+##### 1.8.1
+* Image can now have a link
+* Some translations fixed
+* More blocks moved to BEM-Style
+* Cards with links can now have child links
+
 ##### 1.8
 * New base block to force editors to use sections at base level
 * Redesigned Editor UI makes it easier to identify blocks
