@@ -10,13 +10,10 @@ import { RangeControl, CheckboxControl, PanelBody } from '@wordpress/components'
  */
 const Inspector = (props) => {
 
-
 	const {
 		attributes: {
-			gapSize,
 			equalizer,
 			divider,
-			flowColumns,
 			childrenWidthLarge,
 			childrenWidthSmall,
 			childrenWidthMedium
@@ -57,12 +54,6 @@ const Inspector = (props) => {
 					label={__("Make all columns same height", 'ctx-blocks')}
 					checked={equalizer}
 					onChange={(value) => {setAttributes( { equalizer: value })}}
-				/>
-				<CheckboxControl
-					label={__("Arrange in columns", 'ctx-blocks')}
-					help={__("Let children flow in columns first", 'ctx-blocks')}
-					checked={flowColumns}
-					onChange={(value) => {setAttributes( { flowColumns: value })}}
 				/>
 				<CheckboxControl
 					label={__("Separate columns with borders", 'ctx-blocks')}
