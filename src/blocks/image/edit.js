@@ -3,7 +3,8 @@ import CustomToolbar from './toolbar';
 
 import { __ } from '@wordpress/i18n'; 
 import { BlockControls, useBlockProps, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { Toolbar, ToolbarItem, Button } from '@wordpress/components'
+import { Toolbar, ToolbarItem, Button, Icon } from '@wordpress/components'
+import icon from './icon';
 
 export default function Edit({...props}) {
 
@@ -26,17 +27,21 @@ export default function Edit({...props}) {
 	
 		const imageClasses = [
 			className,
-			flip ? "ctx-flip-image" : false,
-			border ? "ctx-border-image" : false,
-			roundCorners ? "ctx-round-corners" : false,
-			shadow ? "ctx-shadow-image" : false,
-			round ? "ctx-round-image" : false
+			flip ? "ctx:image--flip" : false,
+			border ? "ctx:image--border" : false,
+			roundCorners && !round ? "ctx:image--rounded" : false,
+			shadow ? "ctx:image--shadow" : false,
+			round ? "ctx:image--circle" : false,
 		].filter(Boolean).join(" ");
 
-		const imageHolderClass = [
-			"ctx-image-holder",
-			alignment
-		].filter(Boolean).join(" ");
+		const Image = () => {
+			if(!image) return <></>;
+			if(image.subtype == 'svg+xml') return <figure><img width={`${width}%`} src={image.url} /></figure>
+			if(!image.sizes) return <img className={imageClasses} src={image.url} />
+			if(image.sizes.large) return <picture><img className={imageClasses} width={`${width}%`} src={image.sizes.large.url} /></picture>
+			if(image.sizes.medium) return <picture><div className="ctx:image__warning"><label><Icon icon="warning"/><span>{__("The image may be too small", "ctx-blocks")}</span></label></div><img className={imageClasses} width={`${width}%`} src={image.sizes.medium.url} /></picture>
+			if(image.sizes.thumbnail) return <picture><div className="ctx:image__warning ctx:image__warning--fatal"><label><Icon icon="warning"/><span>{__("The image is too small", "ctx-blocks")}</span></label></div><img className={imageClasses} width={`${width}%`} src={image.sizes.thumbnail.url} /></picture>
+		}
 
 		return (
 			<>
@@ -46,7 +51,7 @@ export default function Edit({...props}) {
 				<Inspector
 						{ ...props }
 				/>
-				<div {...useBlockProps()}>
+				<div {...useBlockProps({className: 'ctx:image ctx:image--' + alignment})}>
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={ ( media ) => setAttributes({image: media}) }
@@ -70,22 +75,16 @@ export default function Edit({...props}) {
 											<ToolbarItem onClick={ open } as={ Button }>{__("Replace", "ctx-blocks")}</ToolbarItem>
 										</Toolbar>
 										</BlockControls>
-										<div className={imageHolderClass}>
-											{ round && image.sizes.medium &&
-												<img width={`${width}%`} className={imageClasses}  src={image.sizes.medium.url} alt={__("No image loaded", 'ctx-blocks')}/> 
-											}
-											{ round && !image.sizes.medium &&
-												<p>{__("The image is too small to be rendered. Please upload a larger image", 'ctx-blocks')}</p> 
-											}
-											{ !round && <img width={`${width}%`} className={imageClasses} src={image.url} alt={__("No image loaded", 'ctx-blocks')} /> }
+										
+											<Image />
 											<RichText	
 												tagName="div"
 												value={ caption }
-												className="caption"
+												className="ctx:image__caption"
 												onChange={ (value) => setAttributes({ caption: value }) }
 												placeholder={__("Image caption", "ctx-blocks")}
 											/>
-										</div> 
+										
 									</>
 								}
 							</> ;
