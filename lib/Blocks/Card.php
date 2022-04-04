@@ -32,40 +32,20 @@ class Card extends Block {
 		}
 
 		$dom = new DOMDocument();
-		$dom->loadHTML($content);
+		$dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
 		//var_dump($dom);
-		$paragraphs = $dom->getElementsByTagName('p');
+		$paragraphs = $dom->getElementsByTagName('h2');
 		for ($i = $paragraphs->length - 1; $i >= 0; $i --) {
 			$nodePre = $paragraphs->item($i);
-			$class = $nodePre->getAttribute('class');
-			if(!strpos($class,'card__text')) { $class .= ' card__text'; }
-			$nodeDiv = $dom->createElement("a", $nodePre->nodeValue);
-			$nodeDiv->setAttribute('href', $attributes['url']);
-			$nodeDiv->setAttribute('class', $class);
-			$nodePre->parentNode->replaceChild($nodeDiv, $nodePre);
+			
+			$link = $dom->createElement("a");
+			$link->setAttribute('class', "card__hidden-link");
+			$link->setAttribute('href', $attributes['url']);
+			//$nodePre->nodeValue = "";
+			$nodePre->appendChild($link);
 		}
 
-		$heading = $dom->getElementsByTagName('h2');
-		for ($i = $heading->length - 1; $i >= 0; $i --) {
-			$nodePre = $heading->item($i);
-			$class = $nodePre->getAttribute('class');
-			if(!strpos($class,'card__title')) { $class .= ' card__title'; }
-			$nodeDiv = $dom->createElement("a", $nodePre->nodeValue);
-			$nodeDiv->setAttribute('href', $attributes['url']);
-			$nodeDiv->setAttribute('class', $class);
-			$nodePre->parentNode->replaceChild($nodeDiv, $nodePre);
-		}
-
-		$heading = $dom->getElementsByTagName('h4');
-		for ($i = $heading->length - 1; $i >= 0; $i --) {
-			$nodePre = $heading->item($i);
-			$class = $nodePre->getAttribute('class');
-			if(!strpos($class,'card__title')) { $class .= ' card__subtitle'; }
-			$nodeDiv = $dom->createElement("a", $nodePre->nodeValue);
-			$nodeDiv->setAttribute('href', $attributes['url']);
-			$nodeDiv->setAttribute('class', $class);
-			$nodePre->parentNode->replaceChild($nodeDiv, $nodePre);
-		}
+		
 
 		return $dom->saveHTML();
 

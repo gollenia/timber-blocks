@@ -30,6 +30,7 @@ $blocks_to_register = [
 	"alert",
 	"buttons/button-group",
 	"buttons/button-spacer",
+	"card",
 	"description/description-item",
 	"description/description-list",
 	"grid/grid-column",
@@ -45,5 +46,5 @@ Contexis\Blocks\Block::init($assets, $blocks_to_register);
 
 Contexis\Blocks\Nav::init($assets);
 Contexis\Blocks\Posts::init($assets);
-Contexis\Blocks\Card::init($assets);
+//Contexis\Blocks\Card::init($assets);
 Contexis\Blocks\Button::init($assets);

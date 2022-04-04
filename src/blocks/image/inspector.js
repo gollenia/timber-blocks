@@ -25,6 +25,8 @@ const Inspector = (props) => {
 		setAttributes,
 	} = props;
 
+	const isSVG = image && image.subtype == 'svg+xml';
+
 	return (
 		<>
 			<InspectorControls>
@@ -40,38 +42,38 @@ const Inspector = (props) => {
 						max={ 100 }
 						step={ 10 }
 					/>
-					{ image.subtype == 'svg+xml' && <p className="ctx:image__inspector-warning">
+					{ isSVG && <p className="ctx:image__inspector-warning">
 					<span>{__('Settings not available for SVG images', 'ctx-blocks')}</span>
 					</p> }
 					<CheckboxControl
 							label={__('Circular image', 'ctx-blocks')}
 							checked={round}
 							onChange={(event) => {setAttributes( { round: event })}}
-							disabled={ image.subtype == 'svg+xml'}
+							disabled={ isSVG}
 					/>
 					<CheckboxControl
 							label={__('Round corners', 'ctx-blocks')}
 							checked={roundCorners}
 							onChange={(event) => {setAttributes( { roundCorners: event })}}
-							disabled={round || image.subtype == 'svg+xml'}
+							disabled={round || isSVG}
 					/>
 					<CheckboxControl
 						label={__('Border', 'ctx-blocks')}
 						checked={border}
 						onChange={(event) => {setAttributes( { border: event })}}
-						disabled={image.subtype == 'svg+xml'}
+						disabled={isSVG}
 					/>
 					<CheckboxControl
 						label={__('Shadow', 'ctx-blocks')}
 						checked={shadow}
 						onChange={(event) => {setAttributes( { shadow: event })}}
-						disabled={image.subtype == 'svg+xml'}
+						disabled={isSVG}
 					/>
 					<CheckboxControl
 						label={__('Flip', 'ctx-blocks')}
 						checked={flip}
 						onChange={(event) => {setAttributes( { flip: event })}}
-						disabled={image.subtype == 'svg+xml'}
+						disabled={isSVG}
 					/>
 				</PanelBody>
 				<PanelBody

@@ -22,32 +22,37 @@
 {% set bg = get_color_by_slug(backgroundColor) %}
 {% set secondary = get_color_by_slug(secondaryColor) %}
 
-<div {{bg.light ? "light" : "dark" }} style="background: var(--{{backgroundColor}}); color: var(--{{backgroundColor}}-contrast);"
-    class="
-        card 
-        {{ image.url ? 'card--image-' ~ imagePosition : 'card--no-image'}} 
-        {{ shadow ? 'card--shadow' }} 
-        {{ isFirst ? "card--first "}} 
-        {{ isLast ? "card--last"}} {{transparent ? " card--blur"}} 
-        {{ url or hover ? "card--hover"}}
-		{{ "card--" ~ textAlign }}
-		{{ bg.light ? "card--light" : "card--dark" }}"
-    >
+{% set classList = [
+	"card",
+	image.url ? 'card--image-' ~ imagePosition : 'card--no-image',
+	shadow ? 'card--shadow',
+	isFirst ? "card--first",
+	isLast ? "card--last",
+	url ? "card--hover",
+	"card--" ~ textAlign,
+	bg.light ? "light" : "dark"
+]|join(" ") %}
+
+<div style="background: var(--{{backgroundColor}}); color: var(--{{backgroundColor}}-contrast);" class="{{classList}}">
+	
+
     {% if badge %}<b class="card__badge" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)">{{ badge }}</b>{% endif %}
 	
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
-            <div class="card__svg" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
+            <figure class="card__svg" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
-            </div>
+            </figure>
         {% else %}
-            <{{ url ? "a href='" ~ url ~ "'" : "div"}} class="card__image">
+            <div class="card__image">
                 <img loading="lazy" src="{{image.sizes.large.url}}" alt="{{image.description ?: image.title}}">
-            {{ url ? "</a>" : "</div>"}}
+				{% if url %}<a class="card__hidden-link" href={{url}}></a>{% endif %}
+            </div>
         {% endif %}
     {% endif %}
    
     <div class="card__content">
+		{% if url %}<a class="card__hidden-link" href={{url}}></a>{% endif %}
         {% if label %}<span class="card__label" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)"><span>{{ label }}</span></span>{% endif %}
         {{content|raw}}
     </div>

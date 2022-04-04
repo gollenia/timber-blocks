@@ -71,14 +71,6 @@ class Assets {
 			array(),
 			$script_asset['version']
 		);
-
-		wp_register_style(
-			$this->assets['style'],
-			plugins_url( '../assets/style-index.css', __FILE__ ),
-			array(),
-			$script_asset['version']
-		);
-
 		
 	}
 

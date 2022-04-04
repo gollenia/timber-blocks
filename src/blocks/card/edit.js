@@ -41,7 +41,10 @@ export default function CardEdit({...props}) {
 			'ctx-blocks/grid-row', 
 			'ctx-blocks/description-list', 
 			'ctx-blocks/accordion-collection', 
-			'ctx-blocks/progress']
+			'ctx-blocks/progress',
+			'events-manager/details',
+			'events-manager/booking'
+		]
 
 		const template = [
 			[
