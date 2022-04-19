@@ -12,11 +12,12 @@ import './editor.scss';
 import { InnerBlocks} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n'; 
 
-const { name, title } = metadata;
+const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
 	title: __( title, 'ctx-blocks' ),
+	description: __( description, 'ctx-blocks' ),
 	icon,
 	edit,
 	save: () => { return ( <InnerBlocks.Content /> ); }

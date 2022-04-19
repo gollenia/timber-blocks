@@ -9,9 +9,42 @@
          "CTX-Blocks": [
             "CTX Blocks"
          ],
+		 "Button Group": [
+            "Button Gruppe"
+         ],
+		 "Collection of buttons that can be aligned or spaced.": [
+			"Gruppe von Buttons, die ausgerichtet oder mit Abstand gehalten werden k\u00f6nnen."
+		 ],
+		 "Single column as child of a columns collection.": [
+			"Einzelne Spalte als Teil einer Reihe."
+		 ],
+		 "Displays content in columns of different width": [
+			"Zeigt Inhalt in Spalten mit unterschiedlicher Breite"
+		 ],
          "Common blocks utilizing tailwindcss and alipne.js": [
             "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
          ],
+		 "Display a button with a link or a modal": [
+			"Button anzeigen, der einen Link oder ein Fenster öffnet"
+		 ],
+		 "Collection of posts, listed as cards or item List": [
+			"Sammlung von Beiträgen, als Karten oder als Liste"
+		 ],
+		 "List of subpages, categories or posts": [
+			"Liste von Unterseiten, Kategorien oder Beiträgen"
+		 ],
+		 "Current value description...": [
+			"Beschreibung für aktuellen Wert"
+		 ],
+		 "Max value description...": [
+			"Beschreibung für maximalen Wert"
+		 ],
+		 "Base": [
+			"Basis"
+		 ],
+		 "Shows a progress bar": [
+			"Zeigt einen Fortschrittsbalken"
+		 ],
          "Thomas Gollenia": [
             "Thomas Gollenia"
          ],
@@ -30,6 +63,9 @@
          "Alert": [
             "Alarm"
          ],
+		 "Heading or Greeting": [
+			"Überschrift oder Begrüßung"
+		 ],
          "Show an information or warning to the user": [
             "Warnung oder Information anzeigen"
          ],
@@ -435,7 +471,7 @@
          "Parent page": [
             "Übergeordnete Seite"
          ],
-         "Category (ingluding it's children)": [
+         "Category (including it's children)": [
             "Kategorie"
          ],
          "Order by": [
@@ -692,7 +728,10 @@
          ],
          "Hide on mobile devices": [
             "Auf mobilen Geräten verstecken"
-         ]
+         ],
+		 "Hide button text and show icon only": [
+			 "Text verstecken und nur Symbol anzeigen"
+		 ]
       }
    }
 }

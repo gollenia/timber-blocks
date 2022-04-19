@@ -36,6 +36,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"iconOnly": {
+			"type": "boolean",
+			"default": false
+		},
 		"isLink": {
 			"type": "boolean",
 			"default": false

@@ -12,11 +12,12 @@ import './editor.scss';
 import { withColors, InnerBlocks } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n'; 
 
-const { name, title } = metadata;
+const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
 	title: __( title, 'ctx-blocks' ),
+	description: __( description, 'ctx-blocks' ),
 	icon: icons.card,
 	edit: withColors({backgroundColor: 'backgroundColor', secondaryColor: 'secondaryColor'})(Edit),
 	save: () => { return ( <InnerBlocks.Content /> ); }

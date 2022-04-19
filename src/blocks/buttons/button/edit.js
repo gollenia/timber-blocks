@@ -32,7 +32,7 @@ export default function ButtonEdit( {...props} ) {
 
     const TEMPLATE = [
         [ 'core/heading', { placeholder: __('Heading or Greeting', 'ctx-blocks')} ],
-        [ 'core/paragraph', { placeholder: __('Some fancy text to display', 'ctx-blocks') } ],
+        [ 'core/paragraph' ],
     ];
 
     const [showModal, setShowModal] = useState( false );

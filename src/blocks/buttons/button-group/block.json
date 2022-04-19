@@ -5,7 +5,7 @@
 	"title": "Button Group",
 	"keywords": [ "link", "action", "button" ],
 	"textdomain": "ctx-blocks",
-	"description": "Display a button with a link or a modal",
+	"description": "Collection of buttons that can be aligned or spaced.",
 	"api_version": 2,
 	"category": "layout",
 	"attributes": {

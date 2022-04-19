@@ -18,6 +18,7 @@ const Inspector = (props) => {
                 hasModal,
                 modalFull,
 				icon,
+				iconOnly,
 				iconRight,
                 isLink,
                 outline,
@@ -94,6 +95,12 @@ const Inspector = (props) => {
                                 label={ __("Show icon on the right", 'ctx-blocks')}
                                 checked={ iconRight }
                                 onChange={ (value) => setAttributes({ iconRight: value }) 
+                                }
+                            />
+							<ToggleControl
+                                label={ __("Hide button text and show icon only", 'ctx-blocks')}
+                                checked={ iconOnly }
+                                onChange={ (value) => setAttributes({ iconOnly: value }) 
                                 }
                             />
                         </PanelRow>

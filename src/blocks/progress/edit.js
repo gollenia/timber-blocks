@@ -37,10 +37,12 @@ export default function Edit({...props}) {
 
 		let currentValueString = parseInt(currentValue).toFixed(decimalPlaces);
 		let	maxValueString = parseInt(maxValue).toFixed(decimalPlaces);
+
 		if(thousandSeparators) {
 			currentValueString =  String(currentValueString).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.')
 			maxValueString = String(maxValueString).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1.')
 		}
+		
 		return (
 			<div {...blockProps}>
 				<Inspector

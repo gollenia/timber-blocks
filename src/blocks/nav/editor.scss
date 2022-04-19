@@ -1,8 +1,11 @@
 .wp-block-ctx-blocks-nav {
         list-style-type: none;
-        margin-left: 0px !important;
-        padding-left: 0px !important;
 
+	ul { 
+		border: 1px dashed #bbb; 
+		padding: 5px;
+    	margin-top: 5px;
+	}
     li.nav-item {
         display: flex;
         align-items: center;

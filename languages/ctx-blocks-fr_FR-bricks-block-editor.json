@@ -4,733 +4,727 @@
 	   "messages": {
 		  "": {
 			 "domain": "messages",
-			 "lang": "de_CH"
+			 "lang": "fr_FR"
 		  },
 		  "CTX-Blocks": [
 			 "CTX Blocks"
 		  ],
 		  "Button Group": [
-			 "Button Gruppe"
+			 "Groupe de boutons"
 		  ],
 		  "Collection of buttons that can be aligned or spaced.": [
-			 "Gruppe von Buttons, die ausgerichtet oder mit Abstand gehalten werden k\u00f6nnen."
+			 "Collection de boutons qui peuvent être alignés ou espacés."
 		  ],
 		  "Single column as child of a columns collection.": [
-			 "Einzelne Spalte als Teil einer Reihe."
+			 "Colonne unique en tant que fils d'une collection de colonnes."
 		  ],
 		  "Displays content in columns of different width": [
-			 "Zeigt Inhalt in Spalten mit unterschiedlicher Breite"
+			 "Affiche le contenu en colonnes de largeur différente"
 		  ],
 		  "Common blocks utilizing tailwindcss and alipne.js": [
-			 "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
+			 "Blocs communs utilisant tailwindcss et alipne.js"
 		  ],
 		  "Display a button with a link or a modal": [
-			 "Button anzeigen, der einen Link oder ein Fenster öffnet"
+			 "Afficher un bouton avec un lien ou un modal"
 		  ],
 		  "Collection of posts, listed as cards or item List": [
-			 "Sammlung von Beiträgen, als Karten oder als Liste"
+			 "Collection de posts, listés comme cartes ou liste d'éléments"
 		  ],
 		  "List of subpages, categories or posts": [
-			 "Liste von Unterseiten, Kategorien oder Beiträgen"
+			 "Liste de sous-pages, catégories ou posts"
 		  ],
 		  "Current value description...": [
-			 "Beschreibung für aktuellen Wert"
+			 "Description de la valeur actuelle..."
 		  ],
 		  "Max value description...": [
-			 "Beschreibung für maximalen Wert"
+			 "Description de la valeur max..."
 		  ],
 		  "Base": [
-			 "Basis"
+			 "Base"
 		  ],
 		  "Shows a progress bar": [
-			 "Zeigt einen Fortschrittsbalken"
-		  ],
-		  "Thomas Gollenia": [
-			 "Thomas Gollenia"
+			 "Affiche une barre de progression"
 		  ],
 		  "Title": [
-			 "Titel"
+			 "Titre"
 		  ],
 		  "Subtitle": [
-			 "Untertitel"
+			 "Sous-titre"
 		  ],
 		  "Alert Title": [
-			 "Alarm-Überschrift"
+			 "Titre d'alerte"
 		  ],
 		  "Type message here...": [
-			 "Nachricht hier eingeben..."
+			 "Écrivez le message ici..."
 		  ],
 		  "Alert": [
-			 "Alarm"
+			 "Alerte"
 		  ],
 		  "Heading or Greeting": [
-			 "Überschrift oder Begrüssung"
+			 "Titre ou salutation"
 		  ],
 		  "Show an information or warning to the user": [
-			 "Warnung oder Information anzeigen"
+			 "Affiche une information ou une alerte à l'utilisateur"
 		  ],
 		  "alert": [
-			 "alarm"
+			 "alerte"
 		  ],
 		  "info": [
 			 "info"
 		  ],
 		  "Appearance": [
-			 "Darstellung"
+			 "Apparence"
 		  ],
 		  "User can dismiss the alert": [
-			 "Benutzer kann Alarm wegklicken"
+			 "L'utilisateur peut fermer l'alerte"
 		  ],
 		  "Color": [
-			 "Farbe"
+			 "Couleur"
 		  ],
 		  "Background color of the alert": [
-			 "Hintergundfarbe"
+			 "Couleur de fond de l'alerte"
 		  ],
 		  "Button title": [
-			 "Button-Beschriftung"
+			 "Titre du bouton"
 		  ],
 		  "Button": [
-			 "Button"
+			 "Bouton"
 		  ],
 		  "Buttons": [
-			 "Buttons"
+			 "Boutons"
 		  ],
 		  "Contains a link or a function": [
-			 "Enthält einen Link oder eine Funktion"
+			 "Contient un lien ou une fonction"
 		  ],
 		  "Inserts a group of buttons.": [
-			 "Fügt eine Button-Gruppe ein"
+			 "Insère un groupe de boutons."
 		  ],
 		  "url": [
-			 "URL"
+			 "url"
 		  ],
 		  "link": [
-			 "Link"
+			 "lien"
 		  ],
 		  "Add a URL or a link": [
-			 "URL oder Link hinzufügen"
+			 "Ajouter une URL ou un lien"
 		  ],
 		  "Click here": [
-			 "Hier klicken"
+			 "Cliquez ici"
 		  ],
 		  "Size": [
-			 "Grösse"
+			 "Taille"
 		  ],
 		  "Normal": [
 			 "Normal"
 		  ],
 		  "Small": [
-			 "Klein"
+			 "Petit"
 		  ],
 		  "Large": [
-			 "Gross"
+			 "Grand"
 		  ],
 		  "Outline-Button": [
-			 "Nur Aussenlinie"
+			 "Bouton-contour"
 		  ],
 		  "Link only": [
-			 "Nur Link"
+			 "Lien seulement"
 		  ],
 		  "Full width": [
-			 "Volle Breite"
+			 "Plein largeur"
 		  ],
 		  "Color Settings": [
-			 "Farbeinstellungen"
+			 "Paramètres de couleur"
 		  ],
 		  "Set a background color for the button": [
-			 "Hintergrundfarbe für den Button festlegen"
+			 "Définir une couleur de fond pour le bouton"
 		  ],
 		  "Your content goes here...": [
-			 "Hier Inhalt einfügen..."
+			 "Votre contenu va ici..."
 		  ],
 		  "Card": [
-			 "Karte"
+			 "Carte"
 		  ],
 		  "Card component to hold different Information": [
-			 "Karte, die kleine Inhaltsmengen darstellen kann"
+			 "Composant de carte pour afficher différentes informations"
 		  ],
 		  "Highlight on mouse over": [
-			 "Bei Maus-Bewegung hervorheben"
+			 "Surligner au passage de la souris"
 		  ],
 		  "Transparent": [
 			 "Transparent"
 		  ],
 		  "Link": [
-			 "Link"
+			 "Lien"
 		  ],
 		  "Click here...": [
-			 "Hier klicken..."
+			 "Cliquez ici..."
 		  ],
 		  "Color settings": [
-			 "Farbeinstellungen"
+			 "Paramètres de couleur"
 		  ],
 		  "Background color": [
-			 "Hintergrundfarbe"
+			 "Couleur de fond"
 		  ],
 		  "Image": [
-			 "Bild"
+			 "Image"
 		  ],
 		  "Choose image": [
-			 "Bild wählen"
+			 "Choisir une image"
 		  ],
 		  "No image loaded": [
-			 "Kein Bild geladen"
+			 "Aucune image chargée"
 		  ],
 		  "Replace image": [
-			 "Bild austauschen"
+			 "Remplacer l'image"
 		  ],
 		  "Remove image": [
-			 "Bild entfernen"
+			 "Supprimer l'image"
 		  ],
 		  "Image position": [
-			 "Bildposition"
+			 "Position de l'image"
 		  ],
 		  "top": [
-			 "Oben"
+			 "haut"
 		  ],
 		  "bottom": [
-			 "Unten"
+			 "bas"
 		  ],
 		  "left": [
-			 "Links"
+			 "gauche"
 		  ],
 		  "right": [
-			 "Rechts"
+			 "droite"
 		  ],
 		  "Layout settings": [
-			 "Layout-Einstellungen"
+			 "Paramètres de mise en page"
 		  ],
 		  "Is first element": [
-			 "Erste Karte"
+			 "Est le premier élément"
 		  ],
 		  "Is last element": [
-			 "Letzte Karte"
+			 "Est le dernier élément"
 		  ],
 		  "Text": [
-			 "Text"
+			 "Texte"
 		  ],
 		  "Label": [
-			 "Beschriftung"
+			 "Étiquette"
 		  ],
 		  "Adds a floating label for e.g. a category": [
-			 "Fügt einen schwebenden Text wie z.B. ein Kategrie hinzu"
+			 "Ajoute une étiquette flottante par exemple une catégorie"
 		  ],
 		  "Badge": [
-			  "Plakette"
+			 "Badge"
 		  ],
 		  "Draw attention to this card or add a counter with a badge in the edge": [
-			 "Zieht z.b. die Aufmerksamkeit auf diese Karte oder fügt einen Zähler hinzu"
+			 "Attire l'attention sur cette carte ou ajoute un compteur avec un badge à l'extrémité"
 		  ],
 		  "Description List": [
-			 "Beschreibungs-Liste"
+			 "Liste de description"
 		  ],
 		  "Description Item": [
-			 "Listenpunkt"
+			 "Élément de description"
 		  ],
 		  "single list item": [
-			 "einzelner Listenpunkt"
+			 "élément de liste unique"
 		  ],
 		  "Description": [
-			 "Beschreibung"
+			 "Description"
 		  ],
 		  "List": [
 			 "Liste"
 		  ],
 		  "Icon for Link": [
-			 "Icon für Link"
+			 "Icône pour le lien"
 		  ],
 		  "Type of content": [
-			 "Art des Inhalts"
+			 "Type de contenu"
 		  ],
 		  "Other": [
-			 "Sonstiges"
+			 "Autre"
 		  ],
 		  "Date": [
-			 "Datum"
+			 "Date"
 		  ],
 		  "Time": [
-			 "Zeit"
+			 "Heure"
 		  ],
 		  "Place": [
-			 "Ort"
+			 "Lieu"
 		  ],
 		  "Person": [
-			 "Person"
+			 "Personne"
 		  ],
 		  "Rounded": [
-			 "Abgerundet"
+			 "Rond"
 		  ],
 		  "Icon": [
-			 "Symbol"
+			 "Icône"
 		  ],
 		  "Description list": [
-			 "Liste mit Bildern"
+			 "Liste de description"
 		  ],
 		  "List of items": [
-			 "Liste mit Bildern"
+			 "Liste d'éléments"
 		  ],
 		  "image": [
-			 "Bild"
+			 "image"
 		  ],
 		  "Lines as separators": [
-			 "Trennlinien"
+			 "Lignes comme séparateurs"
 		  ],
 		  "Column (width: ": [
-			 "Spalten (Breite: "
+			 "Colonne (largeur: "
 		  ],
 		  "Column": [
-			 "Spalte"
+			 "Colonne"
 		  ],
 		  "Insert a single column": [
-			 "Einzelne Spalte einfügen"
+			 "Insérer une colonne unique"
 		  ],
 		  "Mobile appearance": [
-			 "Mobilansicht"
+			 "Apparence mobile"
 		  ],
 		  "Column span on mobile devices": [
-			 "Spaltenbreite auf mobilen Geräten"
+			 "Espacement de colonne sur les appareils mobiles"
 		  ],
 		  "Columns span on tablets and small displays": [
-			 "Spaltenbreite auf kleinen Bildschirmen"
+			 "Espacement de colonnes sur les tablettes et petits écrans"
 		  ],
 		  "Column span on Desktops": [
-			 "Spaltenbreite auf grossen Bildschirmen"
+			 "Espacement de colonne sur les bureaux"
 		  ],
 		  "Position on mobile devices": [
-			 "Position auf Mobilgeräten"
+			 "Position sur les appareils mobiles"
 		  ],
 		  "In place": [
-			 "Unverändert"
+			 "En place"
 		  ],
 		  "Start": [
-			 "Am Anfang"
+			 "Début"
 		  ],
 		  "End": [
-			 "Am Ende"
+			 "Fin"
 		  ],
 		  "New column": [
-			 "Neue Spalte"
+			 "Nouvelle colonne"
 		  ],
 		  "Add column": [
-			 "Spalte hinzufügen"
+			 "Ajouter une colonne"
 		  ],
 		  "Row (columns: ": [
-			 "Reihe (Spalten: "
+			 "Ligne (colonnes: "
 		  ],
 		  "Columns": [
-			 "Spalten"
+			 "Colonnes"
 		  ],
 		  "Divide content into multiple columns": [
-			 "Inhalt auf mehrere Spalten aufteilen"
+			 "Diviser le contenu en plusieurs colonnes"
 		  ],
 		  "Columns on mobile devices": [
-			 "Spalten auf Mobilgeräten"
+			 "Colonnes sur les appareils mobiles"
 		  ],
 		  "Columns on tablets and medium screens": [
-			 "Spalten auf kleinen Bildschirmen"
+			 "Colonnes sur les tablettes et écrans moyens"
 		  ],
 		  "Columns on desktops": [
-			 "Spalten auf grossen Bildschirmen"
+			 "Colonnes sur les bureaux"
 		  ],
 		  "Gaps between columns": [
-			 "Abstände zwischen den Spalten"
+			 "Espacements entre les colonnes"
 		  ],
 		  "Make all columns same height": [
-			 "Alle Spalten gleich hoch"
+			 "Faire la hauteur de toutes les colonnes identique"
 		  ],
 		  "Arrange in columns": [
-			 "In Spalten anordnen"
+			 "Arranger en colonnes"
 		  ],
 		  "Let children flow in columns first": [
-			 "Zuerst Spalten füllen"
+			 "Laisser les enfants flotter en premier dans les colonnes"
 		  ],
 		  "Separate columns with borders": [
-			 "Trennlinien"
+			 "Séparer les colonnes avec des bordures"
 		  ],
 		  "Select image from library": [
-			 "Bild auswählen"
+			 "Sélectionner une image de la bibliothèque"
 		  ],
 		  "Media library": [
-			 "Medienübersicht"
+			 "Bibliothèque multimédia"
 		  ],
 		  "The image is too small to be rendered. Please upload a larger image": [
-			 "Das Bild ist zu klein. Bitte ein grösseres auswählen."
+			 "L'image est trop petite pour être rendue. Veuillez télécharger une image plus grande"
 		  ],
 		  "Insert image": [
-			 "Bidl einfügen"
+			 "Insérer une image"
 		  ],
 		  "Design": [
-			 "Darstellung"
+			 "Conception"
 		  ],
 		  "Width in percent": [
-			 "Breite in Prozent"
+			 "Largeur en pourcentage"
 		  ],
 		  "Settings not available for SVG images": [
-			  "Einstellungen bei SVG-Bildern nicht verfügbar"
+			 "Paramètres non disponibles pour les images SVG"
 		  ],
 		  "Circular image": [
-			 "Rundes Bild"
+			 "Image circulaire"
 		  ],
 		  "Round corners": [
-			 "Abgerundete Ecken"
+			 "Arrondir les coins"
 		  ],
 		  "Border": [
-			 "Rand"
+			 "Bordure"
 		  ],
 		  "Shadow": [
-			 "Schatten"
+			 "Ombre"
 		  ],
 		  "Flip": [
-			 "Spiegeln"
+			 "Retourner"
 		  ],
 		  "Replace": [
-			  "Bild wählen"
+			 "Remplacer"
 		  ],
 		  "Behaviour": [
-			 "Verhalten"
+			 "Comportement"
 		  ],
 		  "Lightbox": [
 			 "Lightbox"
 		  ],
 		  "Action": [
-			 "Aktion"
+			 "Action"
 		  ],
 		  "Image caption": [
-			 "Bildunterschrift"
+			 "Légende de l'image"
 		  ],
 		  "The image may be too small": [
-			  "Bild ist möglicherweise zu klein"
+			 "L'image peut être trop petite"
 		  ],
 		  "The image is too small": [
-			 "Bild ist zu klein"
-		 ],
+			 "L'image est trop petite"
+		  ],
 		  "Show image in fullscreen": [
-			 "Bild bei Klick gross anzeigen"
+			 "Afficher l'image en plein écran"
 		  ],
 		  "Add button title": [
-			 "Button-Titel"
+			 "Ajouter un titre de bouton"
 		  ],
 		  "Modal title": [
-			 "Fenster-Titel"
+			 "Titre du modal"
 		  ],
 		  "Modal": [
-			 "Fenster"
+			 "Modal"
 		  ],
 		  "Window to be displayed on button press": [
-			 "Fenster, das sich auf Knopfdruck öffnet"
+			 "Fenêtre à afficher sur le clic du bouton"
 		  ],
 		  "Button settings": [
-			 "Button-Einstellungen"
+			 "Paramètres du bouton"
 		  ],
 		  "Default": [
-			 "Standard"
+			 "Par défaut"
 		  ],
 		  "Show as link": [
-			 "Als Link anzeigen"
+			 "Afficher comme lien"
 		  ],
 		  "Button color": [
-			 "Button-Farbe"
+			 "Couleur du bouton"
 		  ],
 		  "Select a color for the button": [
-			 "Farbe für den Knopf auswählen"
+			 "Sélectionner une couleur pour le bouton"
 		  ],
 		  "Window settings": [
-			 "Fenster-Einstellungen"
+			 "Paramètres de la fenêtre"
 		  ],
 		  "Close button": [
-			 "Schliessen-Knopf"
+			 "Bouton de fermeture"
 		  ],
 		  "Limit to container size": [
-			 "Auf Inhaltsbreite begrenzen"
+			 "Limiter à la taille du conteneur"
 		  ],
 		  "Align centered": [
-			 "Zentriert anzeigen"
+			 "Aligner au centre"
 		  ],
 		  "Full screen size": [
-			 "Vollbildmodus"
+			 "Taille plein écran"
 		  ],
 		  "Show scroll bar": [
-			 "Scroll-Leiste anzeigen"
+			 "Afficher la barre de défilement"
 		  ],
 		  "Embed video": [
-			 "Video einbetten"
+			 "Intégrer la vidéo"
 		  ],
 		  "Video URL": [
-			 "Video URL"
+			 "URL de la vidéo"
 		  ],
 		  "Select a category": [
-			 "Kategorie auswählen"
+			 "Sélectionner une catégorie"
 		  ],
 		  "Select a parent page": [
-			 "Übergeordnete Seite auswählen"
+			 "Sélectionner une page parent"
 		  ],
 		  "Data": [
-			 "Daten"
+			 "Données"
 		  ],
 		  "Parent page": [
-			 "Übergeordnete Seite"
+			 "Page parent"
 		  ],
 		  "Category (including it's children)": [
-			 "Kategorie"
+			 "Catégorie (y compris ses enfants)"
 		  ],
 		  "Order by": [
-			 "Sortieren nach"
+			 "Trier par"
 		  ],
 		  "ID": [
 			 "ID"
 		  ],
 		  "Order": [
-			 "Sortierung"
+			 "Ordre"
 		  ],
 		  "Descending": [
-			 "Absteigend"
+			 "Descendant"
 		  ],
 		  "Ascending": [
-			 "Aufsteigend"
+			 "Ascendant"
 		  ],
 		  "Limit": [
-			 "Limit"
+			 "Limite"
 		  ],
 		  "How meny items should be displayed?": [
-			 "Wieviele Einträge sollen gezeigt werden?"
+			 "Combien d'éléments doivent être affichés?"
 		  ],
 		  "Show Icons": [
-			 "Icons zeigen"
+			 "Afficher les icônes"
 		  ],
 		  "Highlight currently loaded menu item": [
-			 "Aktuelle Seite hervorheben"
+			 "Mettre en surbrillance l'élément de menu actuellement chargé"
 		  ],
 		  "Navigation": [
 			 "Navigation"
 		  ],
 		  "Shows a list of pages or posts in a given category or parent page": [
-			 "Zeigt eine Liste von Seiten eine Kategorie oder übergeordneten Seite"
+			 "Affiche une liste de pages ou de billets dans une catégorie ou une page parente"
 		  ],
 		  "pages": [
-			 "Seiten"
+			 "pages"
 		  ],
 		  "navigation": [
-			 "Navigation"
+			 "navigation"
 		  ],
 		  "categories": [
-			 "Kategorien"
+			 "catégories"
 		  ],
 		  "Data source": [
-			 "Datenquelle"
+			 "Source de données"
 		  ],
 		  "Pages": [
-			 "Seiten"
+			 "Pages"
 		  ],
 		  "Posts": [
-			 "Posts"
+			 "Billets"
 		  ],
 		  "Categories": [
-			 "Kategorien"
+			 "Catégories"
 		  ],
 		  "Dropdown menu": [
-			 ""
+			 "Menu déroulant"
 		  ],
 		  "Depth": [
-			 "Tiefe"
+			 "Profondeur"
 		  ],
 		  "How many levels to recurse?": [
-			 ""
+			 "Combien de niveaux d'imbrication?"
 		  ],
 		  "Large text": [
-			 ""
-		  ],
-		  "Daten": [
-			 ""
+			 "Texte important"
 		  ],
 		  "Columns on small screens": [
-			 "Spalten auf mobilen Geräten"
+			 "Colonnes sur les écrans petits"
 		  ],
 		  "ex. Smartphones": [
-			 "zB. Smartphones"
+			 "ex. Smartphones"
 		  ],
 		  "Tablets and smaller screens": [
-			 "zb. Tablets oder Laptops"
+			 "Tablettes et écrans plus petits"
 		  ],
 		  "Columns on large screens": [
-			 "Spalten auf grossen Bildschirmen"
+			 "Colonnes sur les écrans grands"
 		  ],
 		  "Columns on medium screens": [
-			 "Spalten auf kleinen Bildschirmen"
+			 "Colonnes sur les écrans moyens"
 		  ],
 		  "Desktop screens": [
-			 "Desktop-Rechner"
+			 "Écrans de bureau"
 		  ],
 		  "Hover-effect": [
-			 "Hover-Effekt"
+			 "Effet de survol"
 		  ],
 		  "Show post images": [
-			 "Beitragsbilder anzeigen"
+			 "Afficher les images de billet"
 		  ],
 		  "Round images": [
-			 "Runde Bilder"
+			 "Images rondes"
 		  ],
 		  "Show date": [
-			 "Datum anzeigen"
+			 "Afficher la date"
 		  ],
 		  "Image size": [
-			 "Bildgrösse"
+			 "Taille de l'image"
 		  ],
 		  "Percent of width": [
-			 "Prozent der Breite"
+			 "Pourcentage de la largeur"
 		  ],
 		  "Length of preview text": [
-			 "Länge des Vorschautextes"
+			 "Longueur du texte de prévisualisation"
 		  ],
 		  "Number of words": [
-			 "Anzahl der Wörter"
+			 "Nombre de mots"
 		  ],
 		  "Shows a list or cards of Posts": [
-			 "Liste oder Kartensammlung von Beiträgen zeigen"
+			 "Affiche une liste ou des cartes de billets"
 		  ],
 		  "Add description here...": [
-			 "Beschreibung hier einfügen"
+			 "Ajouter une description ici..."
 		  ],
 		  "Progress Bar": [
-			 "Fortschrittsbalken"
+			 "Barre de progression"
 		  ],
 		  "Shows a progress bar with a percentual value": [
-			 "Zeigt einen Forschrittsbalken als Prozentanzeige"
+			 "Affiche une barre de progression avec une valeur en pourcentage"
 		  ],
 		  "progress": [
-			 "Forschritt"
+			 "progression"
 		  ],
 		  "value": [
-			 "Wert"
+			 "valeur"
 		  ],
 		  "Colors": [
-			 "Farben"
+			 "Couleurs"
 		  ],
 		  "Color for low values": [
-			 "Balkenfarbe"
+			 "Couleur pour les valeurs faibles"
 		  ],
 		  "Color for medium values": [
-			 "Hintergrund"
+			 "Couleur pour les valeurs moyennes"
 		  ],
 		  "Values": [
-			 "Werte"
+			 "Valeurs"
 		  ],
 		  "Max value": [
-			 "Maximalwert"
+			 "Valeur maximale"
 		  ],
 		  "Current value": [
-			 "Aktueller Wert"
+			 "Valeur actuelle"
 		  ],
 		  "Separate Thousands": [
-			 "Tausender-Trennpunkte"
+			 "Séparer les Milliers"
 		  ],
 		  "Decimal places": [
-			 "Dezimalstellen"
+			 "Décimales"
 		  ],
 		  "Unit": [
-			 "Einheit"
+			 "Unité"
 		  ],
 		  "Show unit before Value": [
-			 "Einheit vor dem Wert anzeigen"
+			 "Afficher l'unité avant la valeur"
 		  ],
 		  "Progresss Bar Value": [
-			 "Aktueller Wert"
+			 "Valeur de la barre de progression"
 		  ],
 		  "Labels": [
-			 "Beschriftungen"
+			 "Étiquettes"
 		  ],
 		  "Text under Progress Bar": [
-			 "Text unter dem Forschrittsbalken"
+			 "Texte sous la barre de progression"
 		  ],
 		  "Show Values": [
-			 "Werte anzeigen"
+			 "Afficher les valeurs"
 		  ],
 		  "Section": [
-			 "Abschnitt"
+			 "Section"
 		  ],
 		  "Add Section": [
-			 "Abschnitt hinzufügen"
+			 "Ajouter une section"
 		  ],
 		  "Container block that adds a maximum width to it's content": [
-			  "Gestaltbarer Container-Block, der seinen Inhalt auf eine maximale Breite reduziert."
+			 "Bloc conteneur qui ajoute une largeur maximale à son contenu"
 		  ],
 		  "Inserts a basic container element, maximizing its content's width.": [
-			 "Fügt einen Inhaltsblock ein"
+			 "Insère un élément conteneur de base, qui maximise la largeur de son contenu."
 		  ],
 		  "Background Color": [
-			 "Hintergrundfarbe"
+			 "Couleur de fond"
 		  ],
 		  "Background Image": [
-			 "Hintergrundbild"
+			 "Image de fond"
 		  ],
 		  "Select image": [
-			 "Bild wählen"
+			 "Sélectionner une image"
 		  ],
 		  "Image orientation": [
-			 "Bildausrichtung"
+			 "Orientation de l'image"
 		  ],
 		  "Top left": [
-			 "Oben links"
+			 "En haut à gauche"
 		  ],
 		  "Top center": [
-			 "Oben Mitte"
+			 "En haut au centre"
 		  ],
 		  "Top right": [
-			 "Oben rechts"
+			 "En haut à droite"
 		  ],
 		  "Middel left": [
-			 "Mitte links"
+			 "Au milieu à gauche"
 		  ],
 		  "Fully centered": [
-			 "Mitte"
+			 "Au centre"
 		  ],
 		  "Middle right": [
-			 "Mitte rechts"
+			 "Au centre à droite"
 		  ],
 		  "Bottom left": [
-			 "Unten links"
+			 "En bas à gauche"
 		  ],
 		  "Bottom center": [
-			 "Unten Mitte"
+			 "En bas au centre"
 		  ],
 		  "Bottom right": [
-			 "Unten rechts"
+			 "En bas à droite"
 		  ],
 		  "Parallax-Effect": [
-			 "Parallax-Effekt"
+			 "Effet Parallax"
 		  ],
 		  "Padding": [
-			 "Abstände"
+			 "Remplissage"
 		  ],
 		  "Padding Top": [
-			 "Oben"
+			 "Remplissage en haut"
 		  ],
 		  "Padding Bottom": [
-			 "Unten"
+			 "Remplissage en bas"
 		  ],
 		  "Standard": [
 			 "Standard"
 		  ],
 		  "Monospace": [
-			 "Feste Laufweite"
+			 "Monospace"
 		  ],
 		  "Fancy": [
-			 "Zierschrift"
+			 "Fantaisie"
 		  ],
 		  "Serif": [
-			 "Serifenschrift"
+			 "Serif"
 		  ],
 		  "Visibility": [
-			 "Sichtbarkeit"
+			 "Visibilité"
 		  ],
 		  "Hide on large screens": [
-			 "Auf grossen Bildschirmen verstecken"
+			 "Masquer sur les écrans largeurs"
 		  ],
 		  "Hide on mobile devices": [
-			 "Auf mobilen Geräten verstecken"
+			 "Masquer sur les appareils mobiles"
 		  ],
 		  "Hide button text and show icon only": [
-			  "Text verstecken und nur Symbol anzeigen"
+			 "Masquer le texte du bouton et afficher seulement l'icône"
 		  ]
 	   }
 	}

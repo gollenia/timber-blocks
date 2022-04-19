@@ -19,8 +19,8 @@ export default function Edit({...props}) {
 	]
 
 	const classes = [
-        "ctx-buttons",
-        "ctx-buttons-" + textAlignment
+        "ctx:buttons",
+        `ctx:buttons__${textAlignment}`
     ].filter(Boolean).join(" ");
 	
 	const innerBlocksProps = useInnerBlocksProps(
@@ -39,8 +39,9 @@ export default function Edit({...props}) {
             <Toolbar 
                 { ...props }
             />
-
+			
             <div {...blockProps}>
+				<label className='ctx:control__label'>{__("Button Group", "events")}</label>	
 				<div {...innerBlocksProps }></div>
 			
             </div>

@@ -13,12 +13,13 @@ import { InnerBlocks} from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n'; 
 import { withColors } from '@wordpress/block-editor';
 
-const { name } = metadata;
+const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
 	icon,
-	title: __(metadata.title, "ctx-blocks"),
+	title: __(title, "ctx-blocks"),
+	description: __( description, 'ctx-blocks' ),
 	edit: withColors({backgroundColor: 'backgroundColor'})(edit),
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
