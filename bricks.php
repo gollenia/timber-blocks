@@ -37,8 +37,8 @@ $blocks_to_register = [
 	"grid/grid-row",
 	"image",
 	"modal",
-	"progress",
-	"section",
+	"progress"
+	
 ];
 
 
@@ -46,5 +46,5 @@ Contexis\Blocks\Block::init($assets, $blocks_to_register);
 
 Contexis\Blocks\Nav::init($assets);
 Contexis\Blocks\Posts::init($assets);
-//Contexis\Blocks\Card::init($assets);
+Contexis\Blocks\Section::init($assets);
 Contexis\Blocks\Button::init($assets);
