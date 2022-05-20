@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { MediaUpload, MediaUploadCheck, InspectorControls } from '@wordpress/block-editor';
-import { CheckboxControl, RangeControl, PanelBody, RadioControl } from '@wordpress/components';
+import { CheckboxControl, RangeControl, PanelBody, RadioControl, TextControl } from '@wordpress/components';
 import { PanelColorSettings } from '@wordpress/block-editor';
 
 /**
@@ -17,13 +17,15 @@ const Inspector = (props) => {
 			imagePosition,
 			paddingTop,
 			paddingBottom,
-			parallaxEffect
+			parallaxEffect,
+			fromDate,
+			toDate
 		},
 		setAttributes,
 		backgroundColor,
 		setBackgroundColor,
 	} = props;
-	
+
 
 	return (
 
@@ -108,6 +110,27 @@ const Inspector = (props) => {
 					max={ 11 }
 				/>
 			</PanelBody>
+			<PanelBody
+					title={__('Date', 'ctx-blocks')}
+					initialOpen={true}
+				>
+				<p>{__("Show only...", "ctx-blocks")}</p>
+				<TextControl
+					label={__("From", "ctx-blocks")}
+					value={ fromDate }
+					onChange={ ( newDate ) => setAttributes( {fromDate: newDate} ) }
+					is12Hour={ false }
+					type="date"
+				/>
+				<TextControl
+					label={__("To", "ctx-blocks")}
+					value={ toDate }
+					onChange={ ( newDate ) => setAttributes( {toDate: newDate} ) }
+					is12Hour={ false }
+					type="date"
+				/>
+                        
+            </PanelBody>
 		</InspectorControls>
 
 	);

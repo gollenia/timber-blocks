@@ -34,6 +34,14 @@
 		"paddingBottom": {
 			"type": "integer",
 			"default": 10
+		},
+		"fromDate": {
+			"type": "string",
+			"default": ""
+		},
+		"toDate": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

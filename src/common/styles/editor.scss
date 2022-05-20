@@ -72,6 +72,16 @@
 		color: rgba(0,0,0,0.7);
 		align-items: center;
 		gap: 5px;
+
+		&--error {
+			background: rgba(255,0,0,0.1);
+			border: 1px dashed rgba(255,0,0,0.3);
+		}
+
+		&--success {
+			background: rgba(0,255,0,0.1);
+			border: 1px dashed rgba(0,255,0,0.3);
+		}
 	}
 
 	&__icons {

@@ -1,0 +1,17 @@
+
+.ctx-blocks-alert {
+    padding: 10px;
+    .ctx-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0px 10px;
+      color: inherit;
+      span {
+          font-size: 2rem;
+          line-height: 1.2;
+      }
+    }
+  }
+  
+  

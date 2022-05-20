@@ -72,7 +72,6 @@ const Inspector = (props) => {
 				initialOpen={false}
 				colorSettings={[
 					{
-						title:"Hihi",
 						label: __('Background color', 'ctx-blocks'),
 						onChange: setBackgroundColor ,
 						value: backgroundColor.color,

@@ -13,6 +13,7 @@ import * as button from './blocks/buttons/button';
 import * as image from './blocks/image';
 import * as alert from './blocks/alert';
 import * as card from './blocks/card';
+import * as conditional from './blocks/conditional';
 import * as descriptionList from './blocks/description/description-list';
 import * as descriptionItem from './blocks/description/description-item';
 import * as section from './blocks/section';
@@ -54,6 +55,7 @@ export const registerBlocks = () => {
 		base,
 		descriptionList,
 		descriptionItem,
+		conditional,
 		section,
 		posts,
 		nav,

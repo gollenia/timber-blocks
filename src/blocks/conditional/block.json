@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ctx-blocks/conditional",
+	"title": "Conditional Content",
+	"category": "formatting",
+	"keywords": [ "date", "time", "country" ],
+	"textdomain": "ctx-blocks",
+	"description": "Show or hide a block under certain conditions",
+	"attributes": {
+		"fromDate": {
+			"type": "string",
+			"default": "default"
+		},
+		"toDate": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorStyle": "wp-block-alert-editor"
+}

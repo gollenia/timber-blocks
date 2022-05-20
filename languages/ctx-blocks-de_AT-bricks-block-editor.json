@@ -731,6 +731,27 @@
          ],
 		 "Hide button text and show icon only": [
 			 "Text verstecken und nur Symbol anzeigen"
+		 ],
+		 "Show or hide a block under certain conditions": [
+			 "Block anzeigen oder verstecken, wenn bestimmte Bedingungen erfüllt sind"
+		 ],
+		 "Conditional Content": [
+			 "Bedingter Inhalt"
+		 ],
+		 "Hidden": [
+			 "Versteckt"
+		 ],
+		 "Visible": [
+			 "Sichtbar"
+		 ],
+		 "Show only...": [
+			 "Nur anzeigen..."
+		 ],
+		 "From": [
+			 "Von"
+		 ],
+		 "To": [
+			 "Bis"
 		 ]
       }
    }
