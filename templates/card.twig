@@ -33,6 +33,8 @@
 	bg.light ? "light" : "dark"
 ]|join(" ") %}
 
+{% set imageUrl = image.sizes.large ? image.sizes.large.url : image.url %}
+
 <div style="background: var(--{{backgroundColor}}); color: var(--{{backgroundColor}}-contrast);" class="{{classList}}">
 	
 
@@ -45,7 +47,7 @@
             </figure>
         {% else %}
             <div class="card__image">
-                <img loading="lazy" src="{{image.sizes.large.url}}" alt="{{image.description ?: image.title}}">
+                <img loading="lazy" src="{{imageUrl}}" alt="{{image.description ?: image.title}}">
 				{% if url %}<a class="card__hidden-link" href={{url}}></a>{% endif %}
             </div>
         {% endif %}
