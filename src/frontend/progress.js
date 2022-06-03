@@ -25,8 +25,8 @@ const Progress = {
         const max = progressBar.dataset.max;
         let current = progressBar.dataset.current;
         if (max === current) return;
-       
-        const percentValue = current > max ? 100 : Math.round(current * 100 / max);
+
+        const percentValue = current < max ? 100 : Math.round(current * 100 / max);
         const barValue = percentValue > 100 ? 100 : percentValue;
 
         let steps = duration / 1000 * 50;
