@@ -21,7 +21,7 @@
 {% set bg = get_color_by_slug(colorBackground) %}
 {% set fg = get_color_by_slug(colorBar) %}
 
-{% set percent = currentValue > maxValue ? 100 : (currentValue * 100 / maxValue)|round() %}
+{% set percent = currentValue < maxValue ? 100 : (currentValue * 100 / maxValue)|round() %}
 {% set fullPercent = (currentValue * 100 / maxValue)|round() %}
 
 
