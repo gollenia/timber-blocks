@@ -26,6 +26,11 @@ function bricks_plugin_textdomain() {
 }
 add_action('plugins_loaded', 'bricks_plugin_textdomain');
 
+function bricks_theme_support() {
+    remove_theme_support('core-block-patterns');
+}
+add_action('after_setup_theme', 'bricks_theme_support');
+
 $blocks_to_register = [
 	"alert",
 	"buttons/button-group",
@@ -40,6 +45,7 @@ $blocks_to_register = [
 	"progress"
 	
 ];
+
 
 
 Contexis\Blocks\Block::init($assets, $blocks_to_register); 
