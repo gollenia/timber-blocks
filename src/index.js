@@ -29,6 +29,7 @@ import * as gridColumn from './blocks/grid/grid-column';
  */
 import './mods/additionalFonts';
 import baseBlockClasses from './mods/baseBlocksClasses';
+import './mods/removeCoreBlocks'
 import './mods/spacerAutoOption';
 
 
