@@ -21,7 +21,7 @@ class Assets {
 
         add_action( 'init', [$instance, "register_assets"] );
 
-		add_action('admin_enqueue_scripts', function() {
+		add_action('enqueue_block_editor_assets', function() {
 			wp_enqueue_script('bricks-block-filter', plugin_dir_url(__FILE__) . "../assets/admin.js", [], false, true);
 		});
 
