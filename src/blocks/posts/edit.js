@@ -309,7 +309,7 @@ export default function Edit({ attributes, setAttributes }) {
 						);
 
 					return <div className="post-card" key={index}>
-						{showImages && <img src={post.featuredImageInfo.url} />}
+						{showImages && <img src={post?.featuredImageInfo?.url} />}
 						<div className="content">
 						<h4>{post.title.rendered}</h4>
 						{ showDate && <span>{format("j. F Y", post.date)}</span> }
