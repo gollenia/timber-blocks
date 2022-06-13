@@ -23,4 +23,4 @@ const settings = {
 	save: () => { return ( <InnerBlocks.Content /> ); }
 };
 
-export { name, settings}
+export { name, settings }
