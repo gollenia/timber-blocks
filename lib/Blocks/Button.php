@@ -15,6 +15,14 @@ class Button extends Block {
 		$instance->register();
 	}
 
+	/**
+	 * Render function that conditionally adds a modal to the footer
+	 *
+	 * @param [type] $attributes
+	 * @param [type] $content
+	 * @param [type] $full_data
+	 * @return string
+	 */
     public function render($attributes, $content, $full_data) : string {
         $attributes['id'] = uniqid();
         $attributes['content'] = $content;

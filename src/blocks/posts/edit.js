@@ -1,11 +1,10 @@
 /**
  * Internal dependencies
  */
-import { InspectorControls, AlignmentToolbar, BlockControls, useBlockProps } from '@wordpress/block-editor';
-import { ToggleControl, RangeControl, PanelBody, PanelRow, QueryControls } from '@wordpress/components';
-import { Icon, Button} from '@wordpress/components'
-import { format } from '@wordpress/date'
-import icons from './icons.js'
+import { AlignmentToolbar, BlockControls, InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { Button, Icon, PanelBody, PanelRow, QueryControls, RangeControl, ToggleControl } from '@wordpress/components';
+import { format } from '@wordpress/date';
+import icons from './icons.js';
 
 
 import { get } from 'lodash';
@@ -13,9 +12,9 @@ import { get } from 'lodash';
 /**
  * Wordpress dependencies
  */
-import { __ } from '@wordpress/i18n'; 
-import { useSelect } from '@wordpress/data';
 import { store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
+import { __ } from '@wordpress/i18n';
 
 
 export default function Edit({ attributes, setAttributes }) {
@@ -28,7 +27,7 @@ export default function Edit({ attributes, setAttributes }) {
 		showImages,
 		dropShadow,
 		imageSize,
-		style,
+		style, 
         hover,
         showTag,
         showCategory,
@@ -291,7 +290,6 @@ export default function Edit({ attributes, setAttributes }) {
 						excerptElement.innerHTML = excerpt;
 						excerpt = excerptElement.textContent || excerptElement.innerText || '';
 					}
-
 
 					const postExcerpt = excerptLength < excerpt.trim().split( ' ' ).length ? (
 							<>

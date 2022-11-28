@@ -42,8 +42,10 @@ $blocks_to_register = [
 	"grid/grid-row",
 	"image",
 	"modal",
-	"progress"
-	
+	"progress",
+	"header/header",
+	"header/header-content",
+	"footer"
 ];
 
 
@@ -54,3 +56,5 @@ Contexis\Blocks\Nav::init($assets);
 Contexis\Blocks\Posts::init($assets);
 Contexis\Blocks\Section::init($assets);
 Contexis\Blocks\Button::init($assets);
+Contexis\Blocks\Topbar::init($assets);
+Contexis\Blocks\CoreBlock::init($assets);

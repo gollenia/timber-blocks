@@ -5,9 +5,7 @@ const { PanelBody, SelectControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
-const allowedBlocks = [
-	'core/heading', 'core/paragraph'
-];
+const allowedBlocks = [ 'core/heading', 'core/paragraph' ];
 
 const fontOptions = [
 	{
@@ -29,7 +27,6 @@ const fontOptions = [
 ];
 
 const addFontControlAttribute = ( props, name ) => {
-
 	if ( ! allowedBlocks.includes( name ) ) {
 		return props;
 	}
@@ -38,24 +35,25 @@ const addFontControlAttribute = ( props, name ) => {
 		...props.attributes,
 		font: {
 			type: 'string',
-			default: ''
+			default: '',
 		},
 	};
 
 	return { ...props, attributes };
 };
 
-addFilter( 'blocks.registerBlockType', 'ctx-blocks/core-font', addFontControlAttribute );
-
-
+addFilter(
+	'blocks.registerBlockType',
+	'ctx-blocks/core-font',
+	addFontControlAttribute
+);
 
 const withFontControl = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
-		
 		if ( ! allowedBlocks.includes( props.name ) ) {
-			return ( <BlockEdit { ...props } /> );
+			return <BlockEdit { ...props } />;
 		}
-		
+
 		const { attributes, setAttributes } = props;
 		const { font } = attributes;
 
@@ -64,7 +62,7 @@ const withFontControl = createHigherOrderComponent( ( BlockEdit ) => {
 		}
 
 		return (
-			<Fragment>
+			<>
 				<BlockEdit { ...props } />
 				<InspectorControls>
 					<PanelBody
@@ -75,32 +73,35 @@ const withFontControl = createHigherOrderComponent( ( BlockEdit ) => {
 							label={ __( 'Select font', 'ctx-base' ) }
 							value={ font }
 							options={ fontOptions }
-							onChange={ ( value ) => { setAttributes( { font: value,} );} }
+							onChange={ ( value ) => {
+								setAttributes( { font: value } );
+							} }
 						/>
 					</PanelBody>
 				</InspectorControls>
-			</Fragment>
+			</>
 		);
 	};
 }, 'withFontControl' );
 
 addFilter( 'editor.BlockEdit', 'ctx-blocks/core-font', withFontControl );
 
-
 const addFontClass = ( extraProps, blockType, attributes ) => {
-	
 	const { font } = attributes;
-	
+
 	if ( ! allowedBlocks.includes( blockType.name ) ) {
 		return extraProps;
 	}
 
-	 extraProps.className = [
-		 extraProps.className || false,
-		 font || false
-	 ].filter(Boolean).join(" ");
+	extraProps.className = [ extraProps.className || false, font || false ]
+		.filter( Boolean )
+		.join( ' ' );
 
 	return extraProps;
 };
 
-addFilter( 'blocks.getSaveContent.extraProps', 'ctx-blocks/core-font', addFontClass );
+addFilter(
+	'blocks.getSaveContent.extraProps',
+	'ctx-blocks/core-font',
+	addFontClass
+);

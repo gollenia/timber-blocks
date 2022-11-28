@@ -3,11 +3,42 @@
  */
 
 const TerserPlugin = require('terser-webpack-plugin');
-const defaultConfig = require('@wordpress/scripts/config/webpack.config.js');
+const path = require('path');
+const defaults = require('@wordpress/scripts/config/webpack.config.js');
 
 module.exports = {
-	...defaultConfig,
+	...defaults,
 	...{
+		entry: {
+			index: path.resolve( process.cwd(), 'src', 'index.ts' ),
+			frontend: path.resolve( process.cwd(), 'src', 'frontend.js' ),
+			admin: path.resolve( process.cwd(), 'src', 'admin.js' ),
+		},
+		output: {
+			filename: '[name].js',
+			path: path.resolve( process.cwd(), 'assets' ),
+		},  
+		module: {
+			...defaults.module,
+			rules: [
+			  ...defaults.module.rules,
+			  {
+				test: /\.tsx?$/,
+				use: [
+				  {
+					loader: 'ts-loader',
+					options: {
+					  configFile: 'tsconfig.json',
+					  transpileOnly: true,
+					}
+				  }
+				]        
+			  }
+			]
+		  },
+		  resolve: {
+			extensions: [ '.ts', '.tsx', ...(defaults.resolve ? defaults.resolve.extensions || ['.js', '.jsx'] : [])]
+		  },
 		optimization: {
 			minimizer: [
 				new TerserPlugin({

@@ -1,0 +1,10 @@
+{% set bg = get_color_by_slug(backgroundColor ?? 'primary', style.color.background) %}
+
+<div>
+<div class="header__title" style="
+	{% if bg %}background-color: {{ bg.color }}bb {% endif %}
+	{% if style.color.gradient %}background: {{ style.color.gradient }}{% endif %}
+">
+	<h{{level}}>{{function('get_the_title')}}</h{{level}}>
+</div>
+</div>

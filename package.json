@@ -7,14 +7,17 @@
 	"license": "GPL-2.0-or-later",
 	"main": "assets/index.js",
 	"scripts": {
-		"build": "wp-scripts build src/index.js src/frontend.js src/admin.js --output-path='./assets'",
+		"build": "wp-scripts build",
 		"format:js": "wp-scripts format-js",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-		"start": "wp-scripts start src/index.js src/frontend.js src/admin.js --output-path='./assets'",
+		"start": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
+		"@types/node": "^18.11.9",
+		"@types/react": "^18.0.25",
+		"@types/react-dom": "^18.0.9",
 		"@wordpress/block-editor": "^8.1.0",
 		"@wordpress/blocks": "^11.2.0",
 		"@wordpress/i18n": "^4.3.0",
@@ -24,7 +27,9 @@
 		"@wordpress/eslint-plugin": "^9.3.0",
 		"@wordpress/prettier-config": "^1.1.1",
 		"@wordpress/scripts": "^19.2.2",
-		"eslint": "^7.32.0"
+		"eslint": "^7.32.0",
+		"ts-loader": "^9.4.1",
+		"typescript": "^4.9.3"
 	},
 	"browserslist": [
 		"> 1%",

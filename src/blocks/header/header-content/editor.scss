@@ -1,0 +1,23 @@
+.ctx\:header-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.ctx\:header-flex-end .ctx\:header-text {
+	justify-content: flex-end;
+}
+
+.ctx\:header-flex-start .ctx\:header-text {
+	justify-content: flex-start;
+}
+
+.ctx\:header-center .ctx\:header-text {
+	justify-content: center;
+}
+
+.ctx\:header-text {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}

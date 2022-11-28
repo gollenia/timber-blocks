@@ -1,0 +1,59 @@
+<style>
+			.fill-primary {
+				fill: {{primaryColor.color}} !important
+			}
+		</style>
+
+<nav class="top-bar">
+	<div class="top-bar__inner">
+		<a class="jump-to-content" href="#content">{{ __("Content", "blueprint") }}</a>
+
+		<a href="/" class="top-bar__brand">
+			<figure class="top-bar__logo">
+				{{ source(logo(), ignore_missing = true) }}
+			</figure>
+			<span class="top-bar__claim">{{ claim ?: site.description }}</span>
+		</a>
+
+		<button class="hamburger" type="button" data-target="hamburger-menu">
+			<div>
+				<span></span>
+			</div>
+		</button>
+		
+		<ul class="menu" id="hamburger-menu">
+
+		
+			
+			{% if menu %}
+				{% for item in menu.get_items %}
+
+					<li class="menu__item {{ item.has_child_class ? " menu__item--has-dropdown" }} {{ item.current or item.current_item_ancestor ? 'menu__item--active' }}">
+						<a href="{{item.url}}">
+							{%if item.post_excerpt %}
+								<i class="menu__icon material-icons">{{item.post_excerpt}}</i>
+							{% endif %}
+							<span>{{item.title}}</span>
+							{% if item.has_child_class %}
+								<i class="material-icons mobile__arrow">keyboard_arrow_down</i>
+							{% endif %}
+						</a>
+						{% if item.has_child_class %}
+							<ul class="dropdown">
+								{% for child in item.children %}
+									<li class="dropdown__item {{ child.current or child.current_item_ancestor ? " dropdown__item--active" }}">
+										<a href="{{child.url}}">{{child.title}}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+
+				{% endfor %}
+
+			{% endif %}
+
+		</ul>
+
+	</div>
+</nav>

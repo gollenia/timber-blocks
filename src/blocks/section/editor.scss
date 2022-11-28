@@ -28,7 +28,7 @@
 
 .ctx\:section {
 	&__container {
-		max-width: 1000px;
+		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 		padding: 1rem;
@@ -41,7 +41,8 @@ div[data-type="ctx-blocks/section"] {
 	max-width: 100%;
 	width:100%;
 	.ctx-container {
-		
+		margin: auto;
+    	max-width: 1200px;
 	}
 }
 

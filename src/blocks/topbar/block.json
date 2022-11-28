@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ctx-blocks/topbar",
+	"title": "Top Bar",
+	"category": "layout",
+	"keywords": [ "navigation", "logo", "menu", "claim" ],
+	"textdomain": "ctx-blocks",
+	"description": "Contains main menu, logo and claim",
+	"attributes": {
+		"primaryColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customPrimaryColor": {
+			"type": "string",
+			"default": ""
+		},
+		"claim": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorStyle": "wp-block-alert-editor"
+}

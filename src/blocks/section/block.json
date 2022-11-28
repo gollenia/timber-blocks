@@ -9,7 +9,11 @@
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",
-			"default": "default"
+			"default": ""
+		},
+		"customBackgroundColor": {
+			"type": "string",
+			"default": ""
 		},
 		"backgroundImage": {
 			"type": "object",
@@ -42,10 +46,14 @@
 		"toDate": {
 			"type": "string",
 			"default": ""
+		},
+		"element": {
+			"type": "string",
+			"default": "section"
 		}
 	},
 	"supports": {
-		"align": ["full"],
+		"align": [ "full" ],
 		"default": "alignfull"
 	}
 }

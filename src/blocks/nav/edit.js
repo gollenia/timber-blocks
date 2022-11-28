@@ -23,7 +23,7 @@ export default function Edit(props) {
 			parentCategory,
 			dataType,
 			limit,
-			orderBy,
+			orderBy, 
 			order}
 	} = props;
 

@@ -56,7 +56,8 @@ class Block implements BlockInterface {
         
         add_action( 'init', function() use(&$blocks, &$args){
 
-            for($i = 0; $i < count($blocks); $i++) {			
+            for($i = 0; $i < count($blocks); $i++) {	
+				if(empty($blocks[$i]) || !key_exists('name', $blocks[$i])) continue;		
                 register_block_type(
                     $blocks[$i]["name"], $blocks[$i]
                 );
@@ -64,6 +65,8 @@ class Block implements BlockInterface {
             
         });    
     }
+
+	
 
     public function render($attributes, $content, $full_data) {
         $template = $this->get_template($full_data->name);

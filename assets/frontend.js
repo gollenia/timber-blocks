@@ -1,1 +1,197 @@
-!function(){"use strict";const e={progressBars:!1,init(e){let t=document.getElementsByClassName(e);if(this.progressBars=t,t){for(let e=0;e<t.length;e++)this.add(t[e]);return t}return!1},add(e){window.addEventListener("scroll",this.update.bind(event,e)),window.addEventListener("resize",this.update.bind(event,e)),this.update(e)},animate(e,t){this.animating=!0;const s=e.dataset.max;let n=e.dataset.current;if(s===n)return;const a=n<s?100:Math.round(100*n/s),d=a>100?100:a;let r=t/1e3*50,i=0,o=e.getElementsByClassName("progress__number-injection")[0],l=e.getElementsByClassName("progress__indicator")[0],c=e.getElementsByClassName("progress__label")[0],m=setInterval((function(){i++;let e=Math.sqrt(1-Math.pow(i/r-1,2)),t=new Intl.NumberFormat("de-DE",{style:"decimal"}).format(Math.round(n*e));o.innerHTML=t,l.style.width=d*e+"%",c.innerHTML=`${Math.round(a*e)}%`,i==r&&clearInterval(m)}),20)},update(t){let s=t.getBoundingClientRect(),n=t.classList.contains("progress--loaded");s.top>=0&&s.bottom<=window.innerHeight?n||(t.style.width="{{percent}}%",t.classList.add("progress--loaded"),e.animate(t,3e3)):t.classList.remove("progress--loaded")}};var t=e;const s={alerts:!1,init(){let e=document.querySelectorAll("div.alert--dismissable");if(this.alerts=e,e){for(let t=0;t<e.length;t++)s.add(e[t]);return e}return!1},add:function(e){e.querySelector(".alert__close").addEventListener("click",s.close.bind(event,e))},close:function(e,t){e.classList.add("alert--hidden"),setTimeout((function(){e.classList.add("alert--disabled")}),500)}};var n=s;document.addEventListener("DOMContentLoaded",(()=>{t.init("progress"),window.addEventListener("DOMContentLoaded",(()=>{let e=document.querySelectorAll("a[data-modal]");if(e)for(const t of e)t.addEventListener("click",(e=>{const s=document.getElementById(t.dataset.modal);s.classList.add("modal--open"),s.addEventListener("click",(e=>{(e.target===e.currentTarget||e.target.classList.contains("modal__close"))&&document.getElementById(t.dataset.modal).classList.remove("modal--open")}))}))})),n.init()}))}();
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/frontend/alert.js":
+/*!*******************************!*\
+  !*** ./src/frontend/alert.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const Alert = {
+  alerts: false,
+  init() {
+    let alerts = document.querySelectorAll("div.alert--dismissable");
+    this.alerts = alerts;
+    if (alerts) {
+      for (let index = 0; index < alerts.length; index++) {
+        Alert.add(alerts[index]);
+      }
+      return alerts;
+    }
+    return false;
+  },
+  add: function (alert) {
+    alert.querySelector('.alert__close').addEventListener("click", Alert.close.bind(event, alert));
+  },
+  close: function (alert, event) {
+    alert.classList.add('alert--hidden');
+    setTimeout(function () {
+      alert.classList.add('alert--disabled');
+    }, 500);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Alert);
+
+/***/ }),
+
+/***/ "./src/frontend/modal.js":
+/*!*******************************!*\
+  !*** ./src/frontend/modal.js ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const Modal = () => {
+  window.addEventListener('DOMContentLoaded', () => {
+    let modalLinks = document.querySelectorAll("a[data-modal]");
+    if (!modalLinks) return;
+    for (const modalLink of modalLinks) {
+      modalLink.addEventListener("click", event => {
+        const modalWindow = document.getElementById(modalLink.dataset.modal);
+        modalWindow.classList.add('modal--open');
+        modalWindow.addEventListener("click", ev => {
+          if (ev.target !== ev.currentTarget && !ev.target.classList.contains('modal__close')) return;
+          const modalWindow = document.getElementById(modalLink.dataset.modal);
+          modalWindow.classList.remove('modal--open');
+        });
+      });
+    }
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+/***/ }),
+
+/***/ "./src/frontend/progress.js":
+/*!**********************************!*\
+  !*** ./src/frontend/progress.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const Progress = {
+  progressBars: false,
+  init(className) {
+    let progressBars = document.getElementsByClassName(className);
+    this.progressBars = progressBars;
+    if (progressBars) {
+      for (let index = 0; index < progressBars.length; index++) {
+        this.add(progressBars[index]);
+      }
+      return progressBars;
+    }
+    return false;
+  },
+  add(progressBar) {
+    window.addEventListener("scroll", this.update.bind(event, progressBar));
+    window.addEventListener("resize", this.update.bind(event, progressBar));
+    this.update(progressBar);
+  },
+  animate(progressBar, duration) {
+    this.animating = true;
+    const max = progressBar.dataset.max;
+    let current = progressBar.dataset.current;
+    if (max === current) return;
+    const percentValue = current < max ? 100 : Math.round(current * 100 / max);
+    const barValue = percentValue > 100 ? 100 : percentValue;
+    let steps = duration / 1000 * 50;
+    let step = 0;
+    let currentValueLabel = progressBar.getElementsByClassName('progress__number-injection')[0];
+    let indicator = progressBar.getElementsByClassName('progress__indicator')[0];
+    let percentLabel = progressBar.getElementsByClassName('progress__label')[0];
+    let timer = setInterval(function () {
+      step++;
+      let factor = Math.sqrt(1 - Math.pow(step / steps - 1, 2));
+      let countValue = new Intl.NumberFormat('de-DE', {
+        style: 'decimal'
+      }).format(Math.round(current * factor));
+      currentValueLabel.innerHTML = countValue;
+      indicator.style.width = `${barValue * factor}%`;
+      percentLabel.innerHTML = `${Math.round(percentValue * factor)}%`;
+      if (step == steps) {
+        clearInterval(timer);
+      }
+    }, 20);
+  },
+  update(progressBar) {
+    let event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    let position = progressBar.getBoundingClientRect();
+    let isLoaded = progressBar.classList.contains("progress--loaded");
+    if (position.top >= 0 && position.bottom <= window.innerHeight) {
+      if (!isLoaded) {
+        progressBar.style.width = "{{percent}}%";
+        progressBar.classList.add("progress--loaded");
+        Progress.animate(progressBar, 3000);
+      }
+      return;
+    }
+    progressBar.classList.remove("progress--loaded");
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Progress);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+!function() {
+/*!*************************!*\
+  !*** ./src/frontend.js ***!
+  \*************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _frontend_progress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./frontend/progress */ "./src/frontend/progress.js");
+/* harmony import */ var _frontend_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./frontend/modal */ "./src/frontend/modal.js");
+/* harmony import */ var _frontend_alert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./frontend/alert */ "./src/frontend/alert.js");
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  _frontend_progress__WEBPACK_IMPORTED_MODULE_0__["default"].init('progress');
+  (0,_frontend_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  _frontend_alert__WEBPACK_IMPORTED_MODULE_2__["default"].init();
+});
+}();
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map

@@ -1,8 +1,8 @@
 /**
  * Wordpress dependencies
  */
-import { __ } from '@wordpress/i18n'; 
-import { Inserter, useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
+import { Inserter, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 export default function Edit({...props}) {
 
@@ -28,16 +28,9 @@ export default function Edit({...props}) {
 	}
 
 	return (
-		<div className='ctx:base'>
-				<div {...innerBlocksProps} className="ctx:base__container">
+
+				<div {...innerBlocksProps} className="editor-styles-wrapper wp-block">
 				</div>
-				<div className='ctx:base__appender'>
-				<SectionAppender
-					rootClientId={clientId} />	
-				</div>
-				
-				
-		</div>
 	);
 
 }

@@ -1,0 +1,15 @@
+{
+	"name": "ctx-blocks/header-content",
+	"apiVersion": 2,
+	"title": "Header Content",
+	"keywords": [ "link", "action", "button" ],
+	"textdomain": "ctx-blocks",
+	"description": "Simple Container for the header content",
+	"category": "layout",
+	"attributes": {},
+	"supports": {
+		"align": [ "full" ],
+		"default": "alignfull"
+	},
+	"parent": [ "ctx-blocks/header" ]
+}
