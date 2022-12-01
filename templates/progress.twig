@@ -31,7 +31,7 @@
             <div class="legend__label">{{currentDescription}}</div>
             <div class="legend__value">{{ prefixedUnit ? unit : ""}} <span class="progress__number-injection">{{currentValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}}</span> {{ not prefixedUnit ? unit : ""}}</div>
         </div>
-        <div style="color: {{bg.color}}" class="legend--max">
+        <div style="color: var(--black)" class="legend--max">
             <div class="legend__label">{{maxDescription}}</div>
             <div class="legend__value">{{ prefixedUnit ? unit : ""}} {{maxValue|number_format(decimalPlaces, ",", thousandSeparators ? "." : "" )}} {{ not prefixedUnit ? unit : ""}}</div>
         </div>
