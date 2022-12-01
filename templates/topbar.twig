@@ -1,6 +1,8 @@
+{% set color = get_color_by_slug(primaryColor, customPrimaryColor) %}
+
 <style>
 			.fill-primary {
-				fill: {{primaryColor.color}} !important
+				fill: {{color.color}} !important
 			}
 		</style>
 
