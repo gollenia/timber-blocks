@@ -3,7 +3,7 @@
 	"name": "ctx-blocks/card",
 	"apiVersion": 2,
 	"title": "Card",
-	"keywords": ["container", "card"],
+	"keywords": [ "container", "card" ],
 	"description": "Card component to hold different Information",
 	"textdomain": "ctx-blocks",
 	"category": "layout",
@@ -12,7 +12,15 @@
 			"type": "string",
 			"default": "white"
 		},
-        "secondaryColor": {
+		"secondaryColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customBackgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customSecondaryColor": {
 			"type": "string",
 			"default": ""
 		},
@@ -20,7 +28,7 @@
 			"type": "boolean",
 			"default": false
 		},
-        "shadow": {
+		"shadow": {
 			"type": "boolean",
 			"default": true
 		},
@@ -64,14 +72,14 @@
 			"type": "boolean",
 			"default": false
 		},
-        "label": {
-            "type": "string",
+		"label": {
+			"type": "string",
 			"default": ""
-        },
-        "badge": {
-            "type": "string",
+		},
+		"badge": {
+			"type": "string",
 			"default": ""
-        },
+		},
 		"actions": {
 			"type": "array",
 			"default": []
