@@ -16,11 +16,15 @@
 			"type": "string",
 			"default": "primary"
 		},
+		"customButtonColor": {
+			"type": "string",
+			"default": ""
+		},
 		"size": {
 			"type": "string",
 			"default": ""
-        },
-        "url": {
+		},
+		"url": {
 			"type": "string",
 			"default": ""
 		},
@@ -48,7 +52,7 @@
 			"type": "boolean",
 			"default": false
 		},
-        "modalFull": {
+		"modalFull": {
 			"type": "boolean",
 			"default": false
 		},
@@ -56,10 +60,10 @@
 			"type": "string",
 			"default": ""
 		},
-        "hasModal": {
+		"hasModal": {
 			"type": "boolean",
 			"default": false
-		}	
+		}
 	},
-	"parent": ["ctx-blocks/button-group"]
+	"parent": [ "ctx-blocks/button-group" ]
 }
