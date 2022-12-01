@@ -18,15 +18,24 @@
 #
 #}
 
-{% set bg = get_color_by_slug(buttonColor) %}
+{% set bg = get_color_by_slug(buttonColor, customButtonColor) %}
 
 <div>
     <a  
         {% if hasModal %}data-modal="{{id}}"{% endif %}
-        class="{% if hasModal %}has-modal{% endif %} button {{ isLink ? "button--link" }} {{ outline ? "button--outline" }} {{ iconRight ? "button--reverse" }} {{ size == "small" ? "button--small" }} {{ size == "large" ? "button-large" }}"
+        class="
+		{% if hasModal %}has-modal{% endif %} 
+		button {{ isLink ? "button--link" }} 
+		{{ not title ? "button--icon" }} 
+		{% if not bg %}button--{{buttonColor}}{% endif %}
+		{{ outline ? "button--outline" }} 
+		{{ iconRight ? "button--reverse" }} 
+		{{ size == "small" ? "button--small" }} 
+		{{ size == "large" ? "button-large" }}"
         style="color: {{ isLink or outline ? bg.color : (bg.light ? "#000000" : "#ffffff" ) }}; background: {{ isLink or outline ? "transparent" : bg.color }}; box-shadow: {{ outline ? "inset 0px 0px 0px 2px " ~ bg.color : "none" }};"
         href="{{ hasModal ? "#/" : url }}"
     >
     {% if icon %}<i class="material-icons">{{icon}}</i>{% endif %}{{title}}
     </a>
 </div>
+ 
