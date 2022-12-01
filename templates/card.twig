@@ -19,8 +19,8 @@
 #
 #}
 
-{% set bg = get_color_by_slug(backgroundColor) %}
-{% set secondary = get_color_by_slug(secondaryColor) %}
+{% set bg = get_color_by_slug(backgroundColor, customBackgroundColor) %}
+{% set secondary = get_color_by_slug(secondaryColor, customSecondaryColor) %}
 
 {% set classList = [
 	"card",
@@ -30,12 +30,13 @@
 	isLast ? "card--last",
 	url ? "card--hover",
 	"card--" ~ textAlign,
-	bg.light ? "light" : "dark"
+	bg.light ? (bg.light ? "light" : "dark") : "card" ~ backgroundColor
+	
 ]|join(" ") %}
 
 {% set imageUrl = image.sizes.large ? image.sizes.large.url : image.url %}
 
-<div style="background: var(--{{backgroundColor}}); color: var(--{{backgroundColor}}-contrast);" class="{{classList}}">
+<div style="background: {{bg.color}}; color: var(--{{backgroundColor}}-contrast);" class="{{classList}}">
 	
 
     {% if badge %}<b class="card__badge" style="background: var(--{{secondaryColor}}); color: var(--{{secondaryColor}}-contrast)">{{ badge }}</b>{% endif %}
