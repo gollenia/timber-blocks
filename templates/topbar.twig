@@ -40,7 +40,8 @@
 								<i class="material-icons mobile__arrow">keyboard_arrow_down</i>
 							{% endif %}
 						</a>
-						{% if item.has_child_class %}
+						
+						{% if item.children %}
 							<ul class="dropdown">
 								{% for child in item.children %}
 									<li class="dropdown__item {{ child.current or child.current_item_ancestor ? " dropdown__item--active" }}">
