@@ -1,5 +1,5 @@
 const { createHigherOrderComponent } = wp.compose;
-const { InspectorControls } = wp.blockEditor;
+const { InspectorControls, URLInput } = wp.blockEditor;
 const { PanelBody, TextControl, RadioControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
@@ -12,6 +12,10 @@ const addPostTitleAttribute = ( props, name ) => {
 	const attributes = {
 		...props.attributes,
 		linkTitle: {
+			type: 'string',
+			default: '',
+		},
+		url: {
 			type: 'string',
 			default: '',
 		},
@@ -42,7 +46,7 @@ const withPostTitleControl = createHigherOrderComponent( ( BlockEdit ) => {
 
 		console.log( BlockEdit );
 		const { attributes, setAttributes } = props;
-		const { linkTitle, linkIcon, linkIconOrientation } = attributes;
+		const { linkTitle, linkIcon, linkIconOrientation, url } = attributes;
 
 		console.log( BlockEdit.InspectorControls );
 		return (
@@ -53,6 +57,17 @@ const withPostTitleControl = createHigherOrderComponent( ( BlockEdit ) => {
 						title={ __( 'Link Options', 'ctx-blocks' ) }
 						initialOpen={ true }
 					>
+						<URLInput
+							value={ url }
+							onChange={ ( url, post ) =>
+								setAttributes( {
+									url,
+									text:
+										( post && post.title ) ||
+										__( 'Click here', 'ctx-blocks' ),
+								} )
+							}
+						/>
 						<TextControl
 							label={ __( 'Link Text', 'ctx-blocks' ) }
 							onChange={ ( value ) => {
@@ -67,9 +82,13 @@ const withPostTitleControl = createHigherOrderComponent( ( BlockEdit ) => {
 							} }
 							value={ linkIcon }
 						/>
+
 						<RadioControl
-							label="Icon Position"
-							help="Prepend or append the icon"
+							label={ __( 'Icon Position', 'ctx-blocks' ) }
+							help={ __(
+								'Prepend or append the icon',
+								'ctx-blocks'
+							) }
 							selected={ linkIconOrientation }
 							options={ [
 								{
