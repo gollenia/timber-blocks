@@ -6,18 +6,19 @@ class TwigExtend {
     public static function add_to_twig($twig) {
         $twig->addFunction( new \Twig\TwigFunction( 'get_color_by_slug', [__CLASS__,'get_color_by_slug'] ) );
 		$twig->addFunction( new \Twig\TwigFunction( 'get_featured_image', [__CLASS__,'get_featured_image'] ) );
+		$twig->addFunction( new \Twig\TwigFunction( 'render_blocks', [__CLASS__,'render_blocks'] ) );
+		$twig->addFunction( new \Twig\TwigFunction( 'logo', [__CLASS__,'logo'] ) );
         return $twig;
     }
 
     public static function get_color_by_slug($slug, $hexvalue = '') {
-
-		if(!$slug & !$hexvalue) return false;
+		if(!$slug && !$hexvalue) return false;
         
 		if($hexvalue) {
 			
 			if(!preg_match('/#(?:[0-9a-fA-F]{6,8})/', $hexvalue)) {
 				
-				return "ödkjfdjf";
+				return "";
 			}
 
 			if(strlen($hexvalue) === 9) {
@@ -29,11 +30,13 @@ class TwigExtend {
 			$blue = hexdec(substr($color, 4, 2)); 
 			
 			return ['color' => $hexvalue, 'light' => !intval((($red * 299) + ($green * 587) + ($blue * 114)) / 1000) > 170]; 
-			
 		}
-
+		if(in_array($slug, ['primary', 'secondary', 'error', 'warning', 'white', 'black']) ) return [
+			"color" => "var(--$slug)",
+			"contrast" => "var(--$slug-contrast)"
+		];
         $colors = get_theme_support('editor-color-palette');
-        //var_dump($colors);
+
 		$color = [];
 		if(!$colors) return; 
         foreach ($colors[0] as $set) {
@@ -53,6 +56,26 @@ class TwigExtend {
 		return wp_get_attachment_image_src( $post_thumbnail_id, $size );
 
 	}
+
+	public static function render_blocks($blocks) {
+		$result = '';
+		foreach($blocks as $block) {
+			$result .= render_block($block);
+		}
+		return $result;
+	}
+
+	public static function logo() {
+
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+
+        if(!$custom_logo_id) {
+            return false;
+        }
+        
+        $arr = get_attached_file($custom_logo_id);
+        return $arr;
+    } 
 
    
 }
