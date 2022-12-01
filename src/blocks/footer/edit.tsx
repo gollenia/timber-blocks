@@ -13,20 +13,19 @@ export default function Edit( props: Props ) {
 	const { className } = props;
 	const template = [
 		[
-			'ctx-blocks/section',
+			'core/group',
 			{
 				className: 'footer',
 				lock: { move: false, remove: false },
-				element: 'footer',
+				tagName: 'footer',
 			},
 			[ [ 'core/paragraph' ] ],
 		],
 		[
-			'ctx-blocks/section',
+			'core/group',
 			{
 				className: 'bottom',
-				paddingTop: 0,
-				paddingBottom: 0,
+				tagName: 'aside',
 				lock: {
 					move: false,
 					remove: false,
