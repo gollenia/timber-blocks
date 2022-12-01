@@ -85,11 +85,12 @@ const Progress = {
     return false;
   },
   add(progressBar) {
-    window.addEventListener("scroll", this.update.bind(event, progressBar));
-    window.addEventListener("resize", this.update.bind(event, progressBar));
+    window.addEventListener('scroll', this.update.bind(event, progressBar));
+    window.addEventListener('resize', this.update.bind(event, progressBar));
     this.update(progressBar);
   },
   animate(progressBar, duration) {
+    if (this.animating) return;
     this.animating = true;
     const max = progressBar.dataset.max;
     let current = progressBar.dataset.current;
@@ -118,16 +119,16 @@ const Progress = {
   update(progressBar) {
     let event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     let position = progressBar.getBoundingClientRect();
-    let isLoaded = progressBar.classList.contains("progress--loaded");
+    let isLoaded = progressBar.classList.contains('progress--loaded');
     if (position.top >= 0 && position.bottom <= window.innerHeight) {
       if (!isLoaded) {
-        progressBar.style.width = "{{percent}}%";
-        progressBar.classList.add("progress--loaded");
+        progressBar.style.width = '{{percent}}%';
+        progressBar.classList.add('progress--loaded');
         Progress.animate(progressBar, 3000);
       }
       return;
     }
-    progressBar.classList.remove("progress--loaded");
+    progressBar.classList.remove('progress--loaded');
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (Progress);
