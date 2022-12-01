@@ -31,10 +31,9 @@ import * as gridRow from './blocks/grid/grid-row';
 /**
  * Core Block modification dependencies.
  */
-import './mods/additionalFonts';
 import './mods/featuredImageProps';
 import './mods/postTitleProps';
-//import './mods/removeCoreBlocks';
+import './mods/spacerAutoOption';
 import './mods/spacerAutoOption';
 
 /**
