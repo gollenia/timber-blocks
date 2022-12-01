@@ -74,7 +74,7 @@ export default function ButtonEdit( { ...props } ) {
 
 	const buttonBackground =
 		buttonColor.color == ''
-			? page_colors.primary_color ?? 'var(--primary)'
+			? page_colors?.primary_color ?? 'var(--primary)'
 			: buttonColor.color;
 
 	console.log( buttonBackground );
