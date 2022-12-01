@@ -28,7 +28,6 @@ const Edit = ( props: Props ) => {
 			context: 'view',
 		} );
 	}, [] );
-	console.log( logoUrl );
 
 	const blockProps = useBlockProps( {
 		className: `ctx-topbar`,
