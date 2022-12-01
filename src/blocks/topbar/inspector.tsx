@@ -20,12 +20,13 @@ const Inspector = ( { ...props } ) => {
 				initialOpen={ true }
 				colorSettings={ [
 					{
+						title: __( 'Colors', 'ctx-blocks' ),
 						label: __(
 							'Color for menu highlight and logo',
 							'ctx-blocks'
 						),
 						onChange: setPrimaryColor,
-						value: primaryColor,
+						value: primaryColor.color,
 						disableCustomColors: false,
 					},
 				] }
