@@ -25,7 +25,8 @@ class CoreBlock {
 	}
 
     public function render($attributes, $content, $full_data) : string {
-		$attributes['content'] = $content;       
+		$attributes['content'] = $content;
+		$attributes['children'] = $full_data->parsed_block['innerBlocks'] ;
         return Timber::compile($full_data->block_type->template, $attributes);
     }
 
@@ -34,7 +35,7 @@ class CoreBlock {
 
         $filename = substr($name, strpos($name, "/")+1) . ".twig";
 		
-		if(file_exists(get_stylesheet_directory() . "/plugins/bricks/core/core" . $filename)) {
+		if(file_exists(get_stylesheet_directory() . "/plugins/bricks/core/" . $filename)) {
             return get_stylesheet_directory() . '/plugins/bricks/core/' . $filename;
         }
 
