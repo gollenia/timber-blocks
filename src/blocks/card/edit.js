@@ -35,6 +35,7 @@ export default function CardEdit( { ...props } ) {
 		'core/shortcode',
 		'core/heading',
 		'core/list',
+		'core/image',
 		'ctx-blocks/button-group',
 		'ctx-blocks/button',
 		'ctx-blocks/image',
@@ -82,8 +83,8 @@ export default function CardEdit( { ...props } ) {
 	const getSecondaryStyle = () => {
 		let bgValue = 'var(--primary)';
 		let fbValue = 'var(--primary-contrast)';
-		ifcustomSecondaryColor ?? backgroundColor.color
-	}
+		ifcustomSecondaryColor ?? backgroundColor.color;
+	};
 
 	const backgroundColorValue = customBackgroundColor
 		? customBackgroundColor
