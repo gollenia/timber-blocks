@@ -3,10 +3,10 @@
 	"name": "ctx-blocks/posts",
 	"apiVersion": 2,
 	"title": "Posts",
-	"keywords": ["list", "table"],
+	"keywords": [ "list", "table" ],
 	"description": "Collection of posts, listed as cards or item List",
 	"textdomain": "ctx-blocks",
-	"category": "widgets", 
+	"category": "widgets",
 	"attributes": {
 		"columnsSmall": {
 			"type": "number",
@@ -32,10 +32,10 @@
 			"type": "boolean",
 			"default": true
 		},
-        "hover": {
-            "type": "boolean",
+		"hover": {
+			"type": "boolean",
 			"default": true
-        },
+		},
 		"imageSize": {
 			"type": "number",
 			"default": 100
@@ -44,15 +44,15 @@
 			"type": "boolean",
 			"default": true
 		},
-        "showCategory": {
+		"showCategory": {
 			"type": "boolean",
 			"default": true
 		},
-        "showTag": {
+		"showTag": {
 			"type": "boolean",
 			"default": true
 		},
-		"style": {
+		"styleType": {
 			"type": "string",
 			"default": "list"
 		},
@@ -79,6 +79,12 @@
 		"textAlignment": {
 			"type": "string",
 			"default": "left"
+		}
+	},
+	"supports": {
+		"spacing": {
+			"margin": true,
+			"padding": true
 		}
 	}
 }

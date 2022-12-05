@@ -44,11 +44,9 @@ const withPostTitleControl = createHigherOrderComponent( ( BlockEdit ) => {
 			return <BlockEdit { ...props } />;
 		}
 
-		console.log( BlockEdit );
 		const { attributes, setAttributes } = props;
 		const { linkTitle, linkIcon, linkIconOrientation, url } = attributes;
 
-		console.log( BlockEdit.InspectorControls );
 		return (
 			<>
 				<BlockEdit { ...props } />

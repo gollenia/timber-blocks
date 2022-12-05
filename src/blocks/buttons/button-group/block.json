@@ -6,7 +6,6 @@
 	"keywords": [ "link", "action", "button" ],
 	"textdomain": "ctx-blocks",
 	"description": "Collection of buttons that can be aligned or spaced.",
-	"api_version": 2,
 	"category": "layout",
 	"attributes": {
 		"textAlignment": {
@@ -23,7 +22,12 @@
 		}
 	},
 	"supports": {
-		"align": ["full"],
-		"default": "alignfull"
-	}
+		"align": [ "full" ],
+		"default": "alignfull",
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"usesContext": [ "postType" ]
 }

@@ -75,11 +75,6 @@ export default function CardEdit( { ...props } ) {
 		],
 	];
 
-	console.log( {
-		bc: backgroundColor,
-		cc: customBackgroundColor,
-	} );
-
 	const getSecondaryStyle = () => {
 		let bgValue = 'var(--primary)';
 		let fbValue = 'var(--primary-contrast)';
@@ -120,8 +115,6 @@ export default function CardEdit( { ...props } ) {
 		.filter( Boolean )
 		.join( ' ' );
 
-	console.log( icons );
-	console.log( customBackgroundColor );
 	return (
 		<>
 			<Inspector { ...props } />

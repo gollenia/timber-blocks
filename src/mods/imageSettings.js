@@ -26,7 +26,7 @@ const addFeaturedImageAttribute = ( props, name ) => {
 		showBorder: {
 			type: 'string',
 			default: 'center',
-		}
+		},
 	};
 
 	return { ...props, attributes };
@@ -44,7 +44,6 @@ const withFeaturedImageControl = createHigherOrderComponent( ( BlockEdit ) => {
 			return <BlockEdit { ...props } />;
 		}
 
-		console.log( BlockEdit );
 		const { attributes, setAttributes } = props;
 		const { aspectRatio, mobileOrientation } = attributes;
 

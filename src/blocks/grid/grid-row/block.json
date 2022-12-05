@@ -3,7 +3,7 @@
 	"name": "ctx-blocks/grid-row",
 	"apiVersion": 2,
 	"title": "Columns",
-	"keywords": ["columns", "responsive"],
+	"keywords": [ "columns", "responsive" ],
 	"description": "Displays content in columns of different width",
 	"textdomain": "ctx-blocks",
 	"category": "layout",
@@ -23,15 +23,18 @@
 		"childrenWidthMedium": {
 			"type": "integer",
 			"default": 2
-        },
-        "childrenWidthLarge": {
+		},
+		"childrenWidthLarge": {
 			"type": "integer",
 			"default": 3
-        }
-        
+		}
 	},
 	"supports": {
-		"align": ["full"],
-		"default": "alignfull"
+		"align": [ "full" ],
+		"default": "alignfull",
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
 	}
 }

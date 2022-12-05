@@ -28,13 +28,13 @@
 #
 #}
 
-<div class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
+<div style="{{ get_style(style)}}" class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
     {% for item in posts %}
             <div 
                 class="card bg-white
                 {% if hover %}card--hover {% endif %}
                 {% if dropShadow %}card--shadow {% endif %}
-                {{ style == "list" ? "card--image-left" : "card--image-top" }}
+                {{ styleType == "list" ? "card--image-left" : "card--image-top" }}
                 {{loop.first ? "card--first"}}
                 {{loop.last ? "card--last"}}
                 "            
@@ -48,7 +48,7 @@
                 <a href="{{ function("get_permalink", item.ID) }}" class="card__image">
                     <img src="{{ item.thumbnail.src('large') }}" />
                 </a>
-                {% if showDate and style == "cards" %}
+                {% if showDate and styleType == "cards" %}
                     <b class="card__badge {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
                         <div class="card__badge__day">{{item.post_date|date("j")}}</div>
                         <div class="card__badge__month">{{item.post_date|date("M")}}</div>
@@ -67,7 +67,7 @@
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
 					{% endif %}
-					{% if style == "cards" %}
+					{% if styleType == "cards" %}
 					<hr>
                     <div class="button-group button-group--right">
 						

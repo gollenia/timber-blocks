@@ -3,7 +3,7 @@
 	"name": "ctx-blocks/description-list",
 	"apiVersion": 2,
 	"title": "Description List",
-	"keywords": ["list", "table"],
+	"keywords": [ "list", "table" ],
 	"description": "List containing items with an image or icon and a text",
 	"textdomain": "ctx-blocks",
 	"category": "layout",
@@ -11,6 +11,12 @@
 		"dividers": {
 			"type": "boolean",
 			"default": false
+		}
+	},
+	"supports": {
+		"spacing": {
+			"margin": true,
+			"padding": true
 		}
 	}
 }

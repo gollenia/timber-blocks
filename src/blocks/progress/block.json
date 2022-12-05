@@ -3,7 +3,7 @@
 	"name": "ctx-blocks/progress",
 	"apiVersion": 2,
 	"title": "Progress Bar",
-	"keywords": ["percent", "progress"],
+	"keywords": [ "percent", "progress" ],
 	"description": "Shows a progress bar",
 	"textdomain": "ctx-blocks",
 	"category": "common",
@@ -55,6 +55,12 @@
 		"maxDescription": {
 			"type": "string",
 			"default": ""
+		}
+	},
+	"supports": {
+		"spacing": {
+			"margin": true,
+			"padding": true
 		}
 	}
 }

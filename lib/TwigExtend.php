@@ -1,6 +1,6 @@
 <?php
 namespace Contexis\Utils;
-
+use Contexis\Utils\StyleHelper;
 class TwigExtend {
 
     public static function add_to_twig($twig) {
@@ -8,6 +8,7 @@ class TwigExtend {
 		$twig->addFunction( new \Twig\TwigFunction( 'get_featured_image', [__CLASS__,'get_featured_image'] ) );
 		$twig->addFunction( new \Twig\TwigFunction( 'render_blocks', [__CLASS__,'render_blocks'] ) );
 		$twig->addFunction( new \Twig\TwigFunction( 'logo', [__CLASS__,'logo'] ) );
+		$twig->addFunction( new \Twig\TwigFunction( 'get_style', [__CLASS__,'get_style'] ) );
         return $twig;
     }
 
@@ -75,7 +76,22 @@ class TwigExtend {
         
         $arr = get_attached_file($custom_logo_id);
         return $arr;
-    } 
+    }
+	
+	public static function get_style($style = []): string {
+		$result = '';
+		if(gettype($style) != 'array') return '';
+		if(empty($style)) return 'empty';
+
+		if(array_key_exists('spacing', $style)) {
+			
+			foreach($style['spacing'] as $key => $value) {
+				$result .= StyleHelper::spacing($value, $key);
+			}
+		}
+		
+		return $result;
+	}
 
    
 }

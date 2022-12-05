@@ -1,52 +1,52 @@
 import Toolbar from './toolbar';
 
-import { __ } from '@wordpress/i18n'; 
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
-
-export default function Edit({...props}) {
-
+export default function Edit( { ...props } ) {
 	const {
-        attributes: {
-            textAlignment,
-        }
-    } = props;
+		attributes: { textAlignment },
+		context,
+	} = props;
+
+	const { postType } = context;
 
 	const ALLOWED_BLOCKS = [
 		'ctx-blocks/button',
 		'ctx-blocks/button-spacer',
 		'events-manager/booking',
-	]
+	];
 
-	const classes = [
-        "ctx:buttons",
-        `ctx:buttons__${textAlignment}`
-    ].filter(Boolean).join(" ");
-	
+	const TEMPLATE =
+		postType == 'event'
+			? [ [ 'events-manager/booking' ] ]
+			: [ [ 'ctx-blocks/button' ] ];
+
+	const classes = [ 'ctx:buttons', `ctx:buttons__${ textAlignment }` ]
+		.filter( Boolean )
+		.join( ' ' );
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{ className: classes },
 		{
-			template: [ [ 'ctx-blocks/button' ] ],
+			template: TEMPLATE,
 			allowedBlocks: ALLOWED_BLOCKS,
-			orientation: 'horizontal'
+			orientation: 'horizontal',
 		}
 	);
 
-    const blockProps = useBlockProps();
+	const blockProps = useBlockProps( { className: 'allignfull' } );
 
-    return (
-        <>
-            <Toolbar 
-                { ...props }
-            />
-			
-            <div {...blockProps}>
-				<label className='ctx:control__label'>{__("Button Group", "events")}</label>	
-				<div {...innerBlocksProps }></div>
-			
-            </div>
-            
-        </>
-    );
+	return (
+		<>
+			<Toolbar { ...props } />
 
+			<div { ...blockProps }>
+				<label className="ctx:control__label">
+					{ __( 'Button Group', 'events' ) }
+				</label>
+				<div { ...innerBlocksProps }></div>
+			</div>
+		</>
+	);
 }

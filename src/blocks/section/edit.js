@@ -58,8 +58,6 @@ export default function Edit( { ...props } ) {
 			return true;
 	};
 
-	console.log( backgroundColor );
-
 	const textColor = () => {
 		if ( backgroundColor.color == '' && customBackgroundColor == '' )
 			return '#000000';
