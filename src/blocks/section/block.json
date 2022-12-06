@@ -54,6 +54,6 @@
 	},
 	"supports": {
 		"align": [ "full" ],
-		"default": "alignfull"
+		"default": "alignwide"
 	}
 }

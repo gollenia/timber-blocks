@@ -9,7 +9,7 @@
 	"attributes": {},
 	"supports": {
 		"align": [ "full" ],
-		"default": "alignfull"
+		"default": "alignwide"
 	},
 	"parent": [ "ctx-blocks/header" ]
 }

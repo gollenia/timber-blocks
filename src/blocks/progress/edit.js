@@ -20,7 +20,7 @@ export default function Edit( { ...props } ) {
 	} = props;
 
 	const blockProps = useBlockProps( {
-		className: 'ctx-progress alignfull',
+		className: 'ctx-progress alignwide',
 	} );
 
 	const replaceDecimalDot = ( value ) => {

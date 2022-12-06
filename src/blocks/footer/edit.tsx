@@ -40,7 +40,7 @@ export default function Edit( props: Props ) {
 		{ template, renderAppender: false }
 	);
 
-	const classes = [ 'ctx-footer', 'alignfull', className || false ]
+	const classes = [ 'ctx-footer', 'alignwide', className || false ]
 		.filter( Boolean )
 		.join( ' ' );
 

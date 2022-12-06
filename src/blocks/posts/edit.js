@@ -116,7 +116,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( {
 		className: [
-			'alignfull',
+			'alignwide',
 			'columns-' + columnsLarge,
 			showImages ? 'hasImage' : false,
 			dropShadow ? 'shadow' : false,

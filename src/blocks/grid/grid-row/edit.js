@@ -43,7 +43,7 @@ export default function GridRowEdit( { ...props } ) {
 		}
 	);
 
-	const blockProps = useBlockProps( { className: 'ctx:row alignfull' } );
+	const blockProps = useBlockProps( { className: 'ctx:row alignwide' } );
 
 	return (
 		<>

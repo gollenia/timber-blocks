@@ -80,7 +80,7 @@ export default function Edit( { ...props } ) {
 
 	const classes = [
 		'ctx-section',
-		'alignfull',
+		'alignwide',
 		parallaxEffect ? 'parallax' : false,
 		className || false,
 		`ctx-text-align-${ textAlignment }`,
