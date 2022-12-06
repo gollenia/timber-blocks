@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:     Bricks 
- * Description:     Common blocks using twig rendering
- * Version:         1.8.1
+ * Plugin Name:     Timber Blocks 
+ * Description:     Render Bocks with twig
+ * Version:         1.9
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,6 @@
  */
 
 
-define('BRICKS_DIR', plugin_dir_path( __FILE__ ));
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 $assets = Contexis\Utils\Assets::init();
@@ -21,15 +20,15 @@ $assets = Contexis\Utils\Assets::init();
 add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
 
 //Add translation
-function bricks_plugin_textdomain() {
-    load_plugin_textdomain('bricks', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
+function timberblocks_plugin_textdomain() {
+    load_plugin_textdomain('timber-blocks', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
 }
-add_action('plugins_loaded', 'bricks_plugin_textdomain');
+add_action('plugins_loaded', 'timberblocks_plugin_textdomain');
 
-function bricks_theme_support() {
+function timberblocks_theme_support() {
     remove_theme_support('core-block-patterns');
 }
-add_action('after_setup_theme', 'bricks_theme_support');
+add_action('after_setup_theme', 'timberblocks_theme_support');
 
 $blocks_to_register = [
 	"alert",

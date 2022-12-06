@@ -50,7 +50,7 @@ Feel free, of course, to make use of GitHub's actions ;-)
 
 ### Adopt blocks to your design
 
-This plugin is made for developers, not for end-users. That's why I didn't put it on the Wordpress Plugin Database. Also, Bricjs doesn't include any styles, that's up to you. Bricks uses BEM-Style classes that fit into my base theme ([blueprint](https://github.com/gollenia/blueprint)), which also has no own css. To change Blocks to your needs, copy the `*.twig` files in the plugin's template folder to `your-theme/plugins/bricks` and modify them to your needs. The templates use BEM-style css classes, but change it to whatever framework you like. Please have a look at the [Twig Docs](https://twig.symfony.com/doc/2.x/).
+This plugin is made for developers, not for end-users. That's why I didn't put it on the Wordpress Plugin Database. Also, timber-blocks doesn't include any styles, that's up to you. The predefined templates use BEM-Style classes. To adapt blocks to your needs, copy the `*.twig` files in the plugin's template folder to `your-theme/plugins/timber-blocks` and modify them to your needs.
 
 ```
 {% set bg = get_color_by_slug(buttonColor) %}
@@ -70,6 +70,10 @@ This plugin is made for developers, not for end-users. That's why I didn't put i
 In the upper example you see how it's done. The first line is a function to get the color value by it's slug. Use it if you like, or simply add the color slug as a class like Wordpress does it (`has-blue-color` for example)
 
 The available attributes of each block are in it's twig template or the corresponding block.json, and you can use them name by name as simple twig variables.
+
+### Legacy notice
+
+As this plugin was once called "ctx-blocks", the internal block names still start with "ctx-blocks/...". This can not be changed, since websites already use these block names.
 
 ### Changelog
 

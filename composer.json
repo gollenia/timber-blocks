@@ -1,44 +1,44 @@
 {
-    "name": "contexis/ctx-blocks",
-    "version": "1.8.1",
-    "description": "Timber/Twig Blocks for Wordpress",
-    "type": "project",
-    "homepage": "http://www.kids-team.at",
-    "readme": "readme.md",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Gollenia",
-            "email": "thomas@gollenia.at",
-            "homepage": "http://www.gollenia.at",
-            "role": "Developer"
-        },
-        {
-            "name": "Laura Emeder",
-            "email": "laura@kids-team.at",
-            "role": "Designer"
-        },
-        {
-            "name": "Matthias Demmin",
-            "email": "matthias@kids-team.at",
-            "role": "Manager"
-        }
-    ],
-    "config": {
-        "platform":{
-            "php":"7.4"
-        },
-        "allow-plugins": {
-            "composer/installers": true
-        }
-    },
-    "require": {
-        "timber/timber": "^2.0.0-alpha.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "Contexis\\Blocks\\": "lib/Blocks/",
-            "Contexis\\Utils\\": "lib/"
-        }
-    }
+	"name": "contexis/timber-blocks",
+	"version": "1.8.1",
+	"description": "Timber/Twig Blocks for Wordpress",
+	"type": "project",
+	"homepage": "http://www.kids-team.at",
+	"readme": "readme.md",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Thomas Gollenia",
+			"email": "thomas@gollenia.at",
+			"homepage": "http://www.gollenia.at",
+			"role": "Developer"
+		},
+		{
+			"name": "Laura Emeder",
+			"email": "laura@kids-team.at",
+			"role": "Designer"
+		},
+		{
+			"name": "Matthias Demmin",
+			"email": "matthias@kids-team.at",
+			"role": "Manager"
+		}
+	],
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"require": {
+		"timber/timber": "^2.0.0-beta.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Contexis\\Blocks\\": "lib/Blocks/",
+			"Contexis\\Utils\\": "lib/"
+		}
+	}
 }

@@ -86,12 +86,12 @@ class Block implements BlockInterface {
         $filename = substr($name, strpos($name, "/")+1) . ".twig";
 		
 
-		if(file_exists(get_stylesheet_directory() . "/plugins/bricks/" . $filename)) {
-            return get_stylesheet_directory() . '/plugins/bricks/' . $filename;
+		if(file_exists(get_stylesheet_directory() . "/plugins/timber-blocks/" . $filename)) {
+            return get_stylesheet_directory() . '/plugins/timber-blocks/' . $filename;
         }
 
-        if(file_exists(get_template_directory() . "/plugins/bricks/" . $filename)) {
-            return get_template_directory() . '/plugins/bricks/' . $filename;
+        if(file_exists(get_template_directory() . "/plugins/timber-blocks/" . $filename)) {
+            return get_template_directory() . '/plugins/timber-blocks/' . $filename;
         }
 
         if(file_exists(plugin_dir_path( __FILE__ ) . '../../templates/' . $filename)) {

@@ -51,7 +51,7 @@ class Assets {
 
 		if ( ! file_exists( $dir . "index.asset.php" ) ) {
 			  throw new \Error(
-					  'You need to run `npm start` or `npm run build` for the bricks blocks first.'
+					  'You need to run `npm start` or `npm run build` for the timber blocks first.'
 			 );
 		}
 

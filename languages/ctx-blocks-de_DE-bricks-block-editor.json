@@ -1,737 +1,318 @@
 {
 	"domain": "messages",
 	"locale_data": {
-	   "messages": {
-		  "": {
-			 "domain": "messages",
-			 "lang": "de_DE"
-		  },
-		  "CTX-Blocks": [
-			 "CTX Blocks"
-		  ],
-		  "Button Group": [
-			 "Button Gruppe"
-		  ],
-		  "Collection of buttons that can be aligned or spaced.": [
-			 "Gruppe von Buttons, die ausgerichtet oder mit Abstand gehalten werden k\u00f6nnen."
-		  ],
-		  "Single column as child of a columns collection.": [
-			 "Einzelne Spalte als Teil einer Reihe."
-		  ],
-		  "Displays content in columns of different width": [
-			 "Zeigt Inhalt in Spalten mit unterschiedlicher Breite"
-		  ],
-		  "Common blocks utilizing tailwindcss and alipne.js": [
-			 "Häufig benötigte Blöcke, die sich per twig anpassen lassen"
-		  ],
-		  "Display a button with a link or a modal": [
-			 "Button anzeigen, der einen Link oder ein Fenster öffnet"
-		  ],
-		  "Collection of posts, listed as cards or item List": [
-			 "Sammlung von Beiträgen, als Karten oder als Liste"
-		  ],
-		  "List of subpages, categories or posts": [
-			 "Liste von Unterseiten, Kategorien oder Beiträgen"
-		  ],
-		  "Current value description...": [
-			 "Beschreibung für aktuellen Wert"
-		  ],
-		  "Max value description...": [
-			 "Beschreibung für maximalen Wert"
-		  ],
-		  "Base": [
-			 "Basis"
-		  ],
-		  "Shows a progress bar": [
-			 "Zeigt einen Fortschrittsbalken"
-		  ],
-		  "Thomas Gollenia": [
-			 "Thomas Gollenia"
-		  ],
-		  "Title": [
-			 "Titel"
-		  ],
-		  "Subtitle": [
-			 "Untertitel"
-		  ],
-		  "Alert Title": [
-			 "Alarm-Überschrift"
-		  ],
-		  "Type message here...": [
-			 "Nachricht hier eingeben..."
-		  ],
-		  "Alert": [
-			 "Alarm"
-		  ],
-		  "Heading or Greeting": [
-			 "Überschrift oder Begrüßung"
-		  ],
-		  "Show an information or warning to the user": [
-			 "Warnung oder Information anzeigen"
-		  ],
-		  "alert": [
-			 "alarm"
-		  ],
-		  "info": [
-			 "info"
-		  ],
-		  "Appearance": [
-			 "Darstellung"
-		  ],
-		  "User can dismiss the alert": [
-			 "Benutzer kann Alarm wegklicken"
-		  ],
-		  "Color": [
-			 "Farbe"
-		  ],
-		  "Background color of the alert": [
-			 "Hintergundfarbe"
-		  ],
-		  "Button title": [
-			 "Button-Beschriftung"
-		  ],
-		  "Button": [
-			 "Button"
-		  ],
-		  "Buttons": [
-			 "Buttons"
-		  ],
-		  "Contains a link or a function": [
-			 "Enthält einen Link oder eine Funktion"
-		  ],
-		  "Inserts a group of buttons.": [
-			 "Fügt eine Button-Gruppe ein"
-		  ],
-		  "url": [
-			 "URL"
-		  ],
-		  "link": [
-			 "Link"
-		  ],
-		  "Add a URL or a link": [
-			 "URL oder Link hinzufügen"
-		  ],
-		  "Click here": [
-			 "Hier klicken"
-		  ],
-		  "Size": [
-			 "Größe"
-		  ],
-		  "Normal": [
-			 "Normal"
-		  ],
-		  "Small": [
-			 "Klein"
-		  ],
-		  "Large": [
-			 "Groß"
-		  ],
-		  "Outline-Button": [
-			 "Nur Außenlinie"
-		  ],
-		  "Link only": [
-			 "Nur Link"
-		  ],
-		  "Full width": [
-			 "Volle Breite"
-		  ],
-		  "Color Settings": [
-			 "Farbeinstellungen"
-		  ],
-		  "Set a background color for the button": [
-			 "Hintergrundfarbe für den Button festlegen"
-		  ],
-		  "Your content goes here...": [
-			 "Hier Inhalt einfügen..."
-		  ],
-		  "Card": [
-			 "Karte"
-		  ],
-		  "Card component to hold different Information": [
-			 "Karte, die kleine Inhaltsmengen darstellen kann"
-		  ],
-		  "Highlight on mouse over": [
-			 "Bei Maus-Bewegung hervorheben"
-		  ],
-		  "Transparent": [
-			 "Transparent"
-		  ],
-		  "Link": [
-			 "Link"
-		  ],
-		  "Click here...": [
-			 "Hier klicken..."
-		  ],
-		  "Color settings": [
-			 "Farbeinstellungen"
-		  ],
-		  "Background color": [
-			 "Hintergrundfarbe"
-		  ],
-		  "Image": [
-			 "Bild"
-		  ],
-		  "Choose image": [
-			 "Bild wählen"
-		  ],
-		  "No image loaded": [
-			 "Kein Bild geladen"
-		  ],
-		  "Replace image": [
-			 "Bild austauschen"
-		  ],
-		  "Remove image": [
-			 "Bild entfernen"
-		  ],
-		  "Image position": [
-			 "Bildposition"
-		  ],
-		  "top": [
-			 "Oben"
-		  ],
-		  "bottom": [
-			 "Unten"
-		  ],
-		  "left": [
-			 "Links"
-		  ],
-		  "right": [
-			 "Rechts"
-		  ],
-		  "Layout settings": [
-			 "Layout-Einstellungen"
-		  ],
-		  "Is first element": [
-			 "Erste Karte"
-		  ],
-		  "Is last element": [
-			 "Letzte Karte"
-		  ],
-		  "Text": [
-			 "Text"
-		  ],
-		  "Label": [
-			 "Beschriftung"
-		  ],
-		  "Adds a floating label for e.g. a category": [
-			 "Fügt einen schwebenden Text wie z.B. ein Kategrie hinzu"
-		  ],
-		  "Badge": [
-			  "Plakette"
-		  ],
-		  "Draw attention to this card or add a counter with a badge in the edge": [
-			 "Zieht z.b. die Aufmerksamkeit auf diese Karte oder fügt einen Zähler hinzu"
-		  ],
-		  "Description List": [
-			 "Beschreibungs-Liste"
-		  ],
-		  "Description Item": [
-			 "Listenpunkt"
-		  ],
-		  "single list item": [
-			 "einzelner Listenpunkt"
-		  ],
-		  "Description": [
-			 "Beschreibung"
-		  ],
-		  "List": [
-			 "Liste"
-		  ],
-		  "Icon for Link": [
-			 "Icon für Link"
-		  ],
-		  "Type of content": [
-			 "Art des Inhalts"
-		  ],
-		  "Other": [
-			 "Sonstiges"
-		  ],
-		  "Date": [
-			 "Datum"
-		  ],
-		  "Time": [
-			 "Zeit"
-		  ],
-		  "Place": [
-			 "Ort"
-		  ],
-		  "Person": [
-			 "Person"
-		  ],
-		  "Rounded": [
-			 "Abgerundet"
-		  ],
-		  "Icon": [
-			 "Symbol"
-		  ],
-		  "Description list": [
-			 "Liste mit Bildern"
-		  ],
-		  "List of items": [
-			 "Liste mit Bildern"
-		  ],
-		  "image": [
-			 "Bild"
-		  ],
-		  "Lines as separators": [
-			 "Trennlinien"
-		  ],
-		  "Column (width: ": [
-			 "Spalten (Breite: "
-		  ],
-		  "Column": [
-			 "Spalte"
-		  ],
-		  "Insert a single column": [
-			 "Einzelne Spalte einfügen"
-		  ],
-		  "Mobile appearance": [
-			 "Mobilansicht"
-		  ],
-		  "Column span on mobile devices": [
-			 "Spaltenbreite auf mobilen Geräten"
-		  ],
-		  "Columns span on tablets and small displays": [
-			 "Spaltenbreite auf kleinen Bildschirmen"
-		  ],
-		  "Column span on Desktops": [
-			 "Spaltenbreite auf großen Bildschirmen"
-		  ],
-		  "Position on mobile devices": [
-			 "Position auf Mobilgeräten"
-		  ],
-		  "In place": [
-			 "Unverändert"
-		  ],
-		  "Start": [
-			 "Am Anfang"
-		  ],
-		  "End": [
-			 "Am Ende"
-		  ],
-		  "New column": [
-			 "Neue Spalte"
-		  ],
-		  "Add column": [
-			 "Spalte hinzufügen"
-		  ],
-		  "Row (columns: ": [
-			 "Reihe (Spalten: "
-		  ],
-		  "Columns": [
-			 "Spalten"
-		  ],
-		  "Divide content into multiple columns": [
-			 "Inhalt auf mehrere Spalten aufteilen"
-		  ],
-		  "Columns on mobile devices": [
-			 "Spalten auf Mobilgeräten"
-		  ],
-		  "Columns on tablets and medium screens": [
-			 "Spalten auf kleinen Bildschirmen"
-		  ],
-		  "Columns on desktops": [
-			 "Spalten auf großen Bildschirmen"
-		  ],
-		  "Gaps between columns": [
-			 "Abstände zwischen den Spalten"
-		  ],
-		  "Make all columns same height": [
-			 "Alle Spalten gleich hoch"
-		  ],
-		  "Arrange in columns": [
-			 "In Spalten anordnen"
-		  ],
-		  "Let children flow in columns first": [
-			 "Zuerst Spalten füllen"
-		  ],
-		  "Separate columns with borders": [
-			 "Trennlinien"
-		  ],
-		  "Select image from library": [
-			 "Bild auswählen"
-		  ],
-		  "Media library": [
-			 "Medienübersicht"
-		  ],
-		  "The image is too small to be rendered. Please upload a larger image": [
-			 "Das Bild ist zu klein. Bitte ein größeres auswählen."
-		  ],
-		  "Insert image": [
-			 "Bidl einfügen"
-		  ],
-		  "Design": [
-			 "Darstellung"
-		  ],
-		  "Width in percent": [
-			 "Breite in Prozent"
-		  ],
-		  "Settings not available for SVG images": [
-			  "Einstellungen bei SVG-Bildern nicht verfügbar"
-		  ],
-		  "Circular image": [
-			 "Rundes Bild"
-		  ],
-		  "Round corners": [
-			 "Abgerundete Ecken"
-		  ],
-		  "Border": [
-			 "Rand"
-		  ],
-		  "Shadow": [
-			 "Schatten"
-		  ],
-		  "Flip": [
-			 "Spiegeln"
-		  ],
-		  "Replace": [
-			  "Bild wählen"
-		  ],
-		  "Behaviour": [
-			 "Verhalten"
-		  ],
-		  "Lightbox": [
-			 "Lightbox"
-		  ],
-		  "Action": [
-			 "Aktion"
-		  ],
-		  "Image caption": [
-			 "Bildunterschrift"
-		  ],
-		  "The image may be too small": [
-			  "Bild ist möglicherweise zu klein"
-		  ],
-		  "The image is too small": [
-			 "Bild ist zu klein"
-		 ],
-		  "Show image in fullscreen": [
-			 "Bild bei Klick groß anzeigen"
-		  ],
-		  "Add button title": [
-			 "Button-Titel"
-		  ],
-		  "Modal title": [
-			 "Fenster-Titel"
-		  ],
-		  "Modal": [
-			 "Fenster"
-		  ],
-		  "Window to be displayed on button press": [
-			 "Fenster, das sich auf Knopfdruck öffnet"
-		  ],
-		  "Button settings": [
-			 "Button-Einstellungen"
-		  ],
-		  "Default": [
-			 "Standard"
-		  ],
-		  "Show as link": [
-			 "Als Link anzeigen"
-		  ],
-		  "Button color": [
-			 "Button-Farbe"
-		  ],
-		  "Select a color for the button": [
-			 "Farbe für den Knopf auswählen"
-		  ],
-		  "Window settings": [
-			 "Fenster-Einstellungen"
-		  ],
-		  "Close button": [
-			 "Schließen-Knopf"
-		  ],
-		  "Limit to container size": [
-			 "Auf Inhaltsbreite begrenzen"
-		  ],
-		  "Align centered": [
-			 "Zentriert anzeigen"
-		  ],
-		  "Full screen size": [
-			 "Vollbildmodus"
-		  ],
-		  "Show scroll bar": [
-			 "Scroll-Leiste anzeigen"
-		  ],
-		  "Embed video": [
-			 "Video einbetten"
-		  ],
-		  "Video URL": [
-			 "Video URL"
-		  ],
-		  "Select a category": [
-			 "Kategorie auswählen"
-		  ],
-		  "Select a parent page": [
-			 "Übergeordnete Seite auswählen"
-		  ],
-		  "Data": [
-			 "Daten"
-		  ],
-		  "Parent page": [
-			 "Übergeordnete Seite"
-		  ],
-		  "Category (including it's children)": [
-			 "Kategorie"
-		  ],
-		  "Order by": [
-			 "Sortieren nach"
-		  ],
-		  "ID": [
-			 "ID"
-		  ],
-		  "Order": [
-			 "Sortierung"
-		  ],
-		  "Descending": [
-			 "Absteigend"
-		  ],
-		  "Ascending": [
-			 "Aufsteigend"
-		  ],
-		  "Limit": [
-			 "Limit"
-		  ],
-		  "How meny items should be displayed?": [
-			 "Wieviele Einträge sollen gezeigt werden?"
-		  ],
-		  "Show Icons": [
-			 "Icons zeigen"
-		  ],
-		  "Highlight currently loaded menu item": [
-			 "Aktuelle Seite hervorheben"
-		  ],
-		  "Navigation": [
-			 "Navigation"
-		  ],
-		  "Shows a list of pages or posts in a given category or parent page": [
-			 "Zeigt eine Liste von Seiten eine Kategorie oder übergeordneten Seite"
-		  ],
-		  "pages": [
-			 "Seiten"
-		  ],
-		  "navigation": [
-			 "Navigation"
-		  ],
-		  "categories": [
-			 "Kategorien"
-		  ],
-		  "Data source": [
-			 "Datenquelle"
-		  ],
-		  "Pages": [
-			 "Seiten"
-		  ],
-		  "Posts": [
-			 "Posts"
-		  ],
-		  "Categories": [
-			 "Kategorien"
-		  ],
-		  "Dropdown menu": [
-			 ""
-		  ],
-		  "Depth": [
-			 "Tiefe"
-		  ],
-		  "How many levels to recurse?": [
-			 ""
-		  ],
-		  "Large text": [
-			 ""
-		  ],
-		  "Daten": [
-			 ""
-		  ],
-		  "Columns on small screens": [
-			 "Spalten auf mobilen Geräten"
-		  ],
-		  "ex. Smartphones": [
-			 "zB. Smartphones"
-		  ],
-		  "Tablets and smaller screens": [
-			 "zb. Tablets oder Laptops"
-		  ],
-		  "Columns on large screens": [
-			 "Spalten auf großen Bildschirmen"
-		  ],
-		  "Columns on medium screens": [
-			 "Spalten auf kleinen Bildschirmen"
-		  ],
-		  "Desktop screens": [
-			 "Desktop-Rechner"
-		  ],
-		  "Hover-effect": [
-			 "Hover-Effekt"
-		  ],
-		  "Show post images": [
-			 "Beitragsbilder anzeigen"
-		  ],
-		  "Round images": [
-			 "Runde Bilder"
-		  ],
-		  "Show date": [
-			 "Datum anzeigen"
-		  ],
-		  "Image size": [
-			 "Bildgröße"
-		  ],
-		  "Percent of width": [
-			 "Prozent der Breite"
-		  ],
-		  "Length of preview text": [
-			 "Länge des Vorschautextes"
-		  ],
-		  "Number of words": [
-			 "Anzahl der Wörter"
-		  ],
-		  "Shows a list or cards of Posts": [
-			 "Liste oder Kartensammlung von Beiträgen zeigen"
-		  ],
-		  "Add description here...": [
-			 "Beschreibung hier einfügen"
-		  ],
-		  "Progress Bar": [
-			 "Fortschrittsbalken"
-		  ],
-		  "Shows a progress bar with a percentual value": [
-			 "Zeigt einen Forschrittsbalken als Prozentanzeige"
-		  ],
-		  "progress": [
-			 "Forschritt"
-		  ],
-		  "value": [
-			 "Wert"
-		  ],
-		  "Colors": [
-			 "Farben"
-		  ],
-		  "Color for low values": [
-			 "Balkenfarbe"
-		  ],
-		  "Color for medium values": [
-			 "Hintergrund"
-		  ],
-		  "Values": [
-			 "Werte"
-		  ],
-		  "Max value": [
-			 "Maximalwert"
-		  ],
-		  "Current value": [
-			 "Aktueller Wert"
-		  ],
-		  "Separate Thousands": [
-			 "Tausender-Trennpunkte"
-		  ],
-		  "Decimal places": [
-			 "Dezimalstellen"
-		  ],
-		  "Unit": [
-			 "Einheit"
-		  ],
-		  "Show unit before Value": [
-			 "Einheit vor dem Wert anzeigen"
-		  ],
-		  "Progresss Bar Value": [
-			 "Aktueller Wert"
-		  ],
-		  "Labels": [
-			 "Beschriftungen"
-		  ],
-		  "Text under Progress Bar": [
-			 "Text unter dem Forschrittsbalken"
-		  ],
-		  "Show Values": [
-			 "Werte anzeigen"
-		  ],
-		  "Section": [
-			 "Abschnitt"
-		  ],
-		  "Add Section": [
-			 "Abschnitt hinzufügen"
-		  ],
-		  "Container block that adds a maximum width to it's content": [
-			  "Gestaltbarer Container-Block, der seinen Inhalt auf eine maximale Breite reduziert."
-		  ],
-		  "Inserts a basic container element, maximizing its content's width.": [
-			 "Fügt einen Inhaltsblock ein"
-		  ],
-		  "Background Color": [
-			 "Hintergrundfarbe"
-		  ],
-		  "Background Image": [
-			 "Hintergrundbild"
-		  ],
-		  "Select image": [
-			 "Bild wählen"
-		  ],
-		  "Image orientation": [
-			 "Bildausrichtung"
-		  ],
-		  "Top left": [
-			 "Oben links"
-		  ],
-		  "Top center": [
-			 "Oben Mitte"
-		  ],
-		  "Top right": [
-			 "Oben rechts"
-		  ],
-		  "Middel left": [
-			 "Mitte links"
-		  ],
-		  "Fully centered": [
-			 "Mitte"
-		  ],
-		  "Middle right": [
-			 "Mitte rechts"
-		  ],
-		  "Bottom left": [
-			 "Unten links"
-		  ],
-		  "Bottom center": [
-			 "Unten Mitte"
-		  ],
-		  "Bottom right": [
-			 "Unten rechts"
-		  ],
-		  "Parallax-Effect": [
-			 "Parallax-Effekt"
-		  ],
-		  "Padding": [
-			 "Abstände"
-		  ],
-		  "Padding Top": [
-			 "Oben"
-		  ],
-		  "Padding Bottom": [
-			 "Unten"
-		  ],
-		  "Standard": [
-			 "Standard"
-		  ],
-		  "Monospace": [
-			 "Feste Laufweite"
-		  ],
-		  "Fancy": [
-			 "Zierschrift"
-		  ],
-		  "Serif": [
-			 "Serifenschrift"
-		  ],
-		  "Visibility": [
-			 "Sichtbarkeit"
-		  ],
-		  "Hide on large screens": [
-			 "Auf großen Bildschirmen verstecken"
-		  ],
-		  "Hide on mobile devices": [
-			 "Auf mobilen Geräten verstecken"
-		  ],
-		  "Hide button text and show icon only": [
-			  "Text verstecken und nur Symbol anzeigen"
-		  ]
-	   }
+		"messages": {
+			"": {
+				"domain": "messages",
+				"lang": "de_DE"
+			},
+			"CTX-Blocks": [ "CTX Blocks" ],
+			"Button Group": [ "Button Gruppe" ],
+			"Collection of buttons that can be aligned or spaced.": [
+				"Gruppe von Buttons, die ausgerichtet oder mit Abstand gehalten werden k\u00f6nnen."
+			],
+			"Single column as child of a columns collection.": [
+				"Einzelne Spalte als Teil einer Reihe."
+			],
+			"Displays content in columns of different width": [
+				"Zeigt Inhalt in Spalten mit unterschiedlicher Breite"
+			],
+			"Common blocks utilizing tailwindcss and alipne.js": [
+				"Häufig benötigte Blöcke, die sich per twig anpassen lassen"
+			],
+			"Display a button with a link or a modal": [
+				"Button anzeigen, der einen Link oder ein Fenster öffnet"
+			],
+			"Collection of posts, listed as cards or item List": [
+				"Sammlung von Beiträgen, als Karten oder als Liste"
+			],
+			"List of subpages, categories or posts": [
+				"Liste von Unterseiten, Kategorien oder Beiträgen"
+			],
+			"Current value description...": [
+				"Beschreibung für aktuellen Wert"
+			],
+			"Max value description...": [ "Beschreibung für maximalen Wert" ],
+			"Base": [ "Basis" ],
+			"Shows a progress bar": [ "Zeigt einen Fortschrittsbalken" ],
+			"Thomas Gollenia": [ "Thomas Gollenia" ],
+			"Title": [ "Titel" ],
+			"Subtitle": [ "Untertitel" ],
+			"Alert Title": [ "Alarm-Überschrift" ],
+			"Type message here...": [ "Nachricht hier eingeben..." ],
+			"Alert": [ "Alarm" ],
+			"Heading or Greeting": [ "Überschrift oder Begrüßung" ],
+			"Show an information or warning to the user": [
+				"Warnung oder Information anzeigen"
+			],
+			"alert": [ "alarm" ],
+			"info": [ "info" ],
+			"Appearance": [ "Darstellung" ],
+			"User can dismiss the alert": [ "Benutzer kann Alarm wegklicken" ],
+			"Color": [ "Farbe" ],
+			"Background color of the alert": [ "Hintergundfarbe" ],
+			"Button title": [ "Button-Beschriftung" ],
+			"Button": [ "Button" ],
+			"Buttons": [ "Buttons" ],
+			"Contains a link or a function": [
+				"Enthält einen Link oder eine Funktion"
+			],
+			"Inserts a group of buttons.": [ "Fügt eine Button-Gruppe ein" ],
+			"url": [ "URL" ],
+			"link": [ "Link" ],
+			"Add a URL or a link": [ "URL oder Link hinzufügen" ],
+			"Click here": [ "Hier klicken" ],
+			"Size": [ "Größe" ],
+			"Normal": [ "Normal" ],
+			"Small": [ "Klein" ],
+			"Large": [ "Groß" ],
+			"Outline-Button": [ "Nur Außenlinie" ],
+			"Link only": [ "Nur Link" ],
+			"Full width": [ "Volle Breite" ],
+			"Color Settings": [ "Farbeinstellungen" ],
+			"Set a background color for the button": [
+				"Hintergrundfarbe für den Button festlegen"
+			],
+			"Your content goes here...": [ "Hier Inhalt einfügen..." ],
+			"Card": [ "Karte" ],
+			"Card component to hold different Information": [
+				"Karte, die kleine Inhaltsmengen darstellen kann"
+			],
+			"Highlight on mouse over": [ "Bei Maus-Bewegung hervorheben" ],
+			"Transparent": [ "Transparent" ],
+			"Link": [ "Link" ],
+			"Click here...": [ "Hier klicken..." ],
+			"Color settings": [ "Farbeinstellungen" ],
+			"Background color": [ "Hintergrundfarbe" ],
+			"Image": [ "Bild" ],
+			"Choose image": [ "Bild wählen" ],
+			"No image loaded": [ "Kein Bild geladen" ],
+			"Replace image": [ "Bild austauschen" ],
+			"Remove image": [ "Bild entfernen" ],
+			"Image position": [ "Bildposition" ],
+			"top": [ "Oben" ],
+			"bottom": [ "Unten" ],
+			"left": [ "Links" ],
+			"right": [ "Rechts" ],
+			"Layout settings": [ "Layout-Einstellungen" ],
+			"Is first element": [ "Erste Karte" ],
+			"Is last element": [ "Letzte Karte" ],
+			"Text": [ "Text" ],
+			"Label": [ "Beschriftung" ],
+			"Adds a floating label for e.g. a category": [
+				"Fügt einen schwebenden Text wie z.B. ein Kategrie hinzu"
+			],
+			"Badge": [ "Plakette" ],
+			"Draw attention to this card or add a counter with a badge in the edge": [
+				"Zieht z.b. die Aufmerksamkeit auf diese Karte oder fügt einen Zähler hinzu"
+			],
+			"Description List": [ "Beschreibungs-Liste" ],
+			"Description Item": [ "Listenpunkt" ],
+			"single list item": [ "einzelner Listenpunkt" ],
+			"Description": [ "Beschreibung" ],
+			"List": [ "Liste" ],
+			"Icon for Link": [ "Icon für Link" ],
+			"Type of content": [ "Art des Inhalts" ],
+			"Other": [ "Sonstiges" ],
+			"Date": [ "Datum" ],
+			"Time": [ "Zeit" ],
+			"Place": [ "Ort" ],
+			"Person": [ "Person" ],
+			"Rounded": [ "Abgerundet" ],
+			"Icon": [ "Symbol" ],
+			"Description list": [ "Liste mit Bildern" ],
+			"List of items": [ "Liste mit Bildern" ],
+			"image": [ "Bild" ],
+			"Lines as separators": [ "Trennlinien" ],
+			"Column (width: ": [ "Spalten (Breite: " ],
+			"Column": [ "Spalte" ],
+			"Insert a single column": [ "Einzelne Spalte einfügen" ],
+			"Mobile appearance": [ "Mobilansicht" ],
+			"Column span on mobile devices": [
+				"Spaltenbreite auf mobilen Geräten"
+			],
+			"Columns span on tablets and small displays": [
+				"Spaltenbreite auf kleinen Bildschirmen"
+			],
+			"Column span on Desktops": [
+				"Spaltenbreite auf großen Bildschirmen"
+			],
+			"Position on mobile devices": [ "Position auf Mobilgeräten" ],
+			"In place": [ "Unverändert" ],
+			"Start": [ "Am Anfang" ],
+			"End": [ "Am Ende" ],
+			"New column": [ "Neue Spalte" ],
+			"Add column": [ "Spalte hinzufügen" ],
+			"Row (columns: ": [ "Reihe (Spalten: " ],
+			"Columns": [ "Spalten" ],
+			"Divide content into multiple columns": [
+				"Inhalt auf mehrere Spalten aufteilen"
+			],
+			"Columns on mobile devices": [ "Spalten auf Mobilgeräten" ],
+			"Columns on tablets and medium screens": [
+				"Spalten auf kleinen Bildschirmen"
+			],
+			"Columns on desktops": [ "Spalten auf großen Bildschirmen" ],
+			"Gaps between columns": [ "Abstände zwischen den Spalten" ],
+			"Make all columns same height": [ "Alle Spalten gleich hoch" ],
+			"Arrange in columns": [ "In Spalten anordnen" ],
+			"Let children flow in columns first": [ "Zuerst Spalten füllen" ],
+			"Separate columns with borders": [ "Trennlinien" ],
+			"Select image from library": [ "Bild auswählen" ],
+			"Media library": [ "Medienübersicht" ],
+			"The image is too small to be rendered. Please upload a larger image": [
+				"Das Bild ist zu klein. Bitte ein größeres auswählen."
+			],
+			"Insert image": [ "Bidl einfügen" ],
+			"Design": [ "Darstellung" ],
+			"Width in percent": [ "Breite in Prozent" ],
+			"Settings not available for SVG images": [
+				"Einstellungen bei SVG-Bildern nicht verfügbar"
+			],
+			"Circular image": [ "Rundes Bild" ],
+			"Round corners": [ "Abgerundete Ecken" ],
+			"Border": [ "Rand" ],
+			"Shadow": [ "Schatten" ],
+			"Flip": [ "Spiegeln" ],
+			"Replace": [ "Bild wählen" ],
+			"Behaviour": [ "Verhalten" ],
+			"Lightbox": [ "Lightbox" ],
+			"Action": [ "Aktion" ],
+			"Image caption": [ "Bildunterschrift" ],
+			"The image may be too small": [
+				"Bild ist möglicherweise zu klein"
+			],
+			"The image is too small": [ "Bild ist zu klein" ],
+			"Show image in fullscreen": [ "Bild bei Klick groß anzeigen" ],
+			"Add button title": [ "Button-Titel" ],
+			"Modal title": [ "Fenster-Titel" ],
+			"Modal": [ "Fenster" ],
+			"Window to be displayed on button press": [
+				"Fenster, das sich auf Knopfdruck öffnet"
+			],
+			"Button settings": [ "Button-Einstellungen" ],
+			"Default": [ "Standard" ],
+			"Show as link": [ "Als Link anzeigen" ],
+			"Button color": [ "Button-Farbe" ],
+			"Select a color for the button": [
+				"Farbe für den Knopf auswählen"
+			],
+			"Window settings": [ "Fenster-Einstellungen" ],
+			"Close button": [ "Schließen-Knopf" ],
+			"Limit to container size": [ "Auf Inhaltsbreite begrenzen" ],
+			"Align centered": [ "Zentriert anzeigen" ],
+			"Full screen size": [ "Vollbildmodus" ],
+			"Show scroll bar": [ "Scroll-Leiste anzeigen" ],
+			"Embed video": [ "Video einbetten" ],
+			"Video URL": [ "Video URL" ],
+			"Select a category": [ "Kategorie auswählen" ],
+			"Select a parent page": [ "Übergeordnete Seite auswählen" ],
+			"Data": [ "Daten" ],
+			"Parent page": [ "Übergeordnete Seite" ],
+			"Category (including it's children)": [ "Kategorie" ],
+			"Order by": [ "Sortieren nach" ],
+			"ID": [ "ID" ],
+			"Order": [ "Sortierung" ],
+			"Descending": [ "Absteigend" ],
+			"Ascending": [ "Aufsteigend" ],
+			"Limit": [ "Limit" ],
+			"How meny items should be displayed?": [
+				"Wieviele Einträge sollen gezeigt werden?"
+			],
+			"Show Icons": [ "Icons zeigen" ],
+			"Highlight currently loaded menu item": [
+				"Aktuelle Seite hervorheben"
+			],
+			"Navigation": [ "Navigation" ],
+			"Shows a list of pages or posts in a given category or parent page": [
+				"Zeigt eine Liste von Seiten eine Kategorie oder übergeordneten Seite"
+			],
+			"pages": [ "Seiten" ],
+			"navigation": [ "Navigation" ],
+			"categories": [ "Kategorien" ],
+			"Data source": [ "Datenquelle" ],
+			"Pages": [ "Seiten" ],
+			"Posts": [ "Posts" ],
+			"Categories": [ "Kategorien" ],
+			"Dropdown menu": [ "" ],
+			"Depth": [ "Tiefe" ],
+			"How many levels to recurse?": [ "" ],
+			"Large text": [ "" ],
+			"Daten": [ "" ],
+			"Columns on small screens": [ "Spalten auf mobilen Geräten" ],
+			"ex. Smartphones": [ "zB. Smartphones" ],
+			"Tablets and smaller screens": [ "zb. Tablets oder Laptops" ],
+			"Columns on large screens": [ "Spalten auf großen Bildschirmen" ],
+			"Columns on medium screens": [ "Spalten auf kleinen Bildschirmen" ],
+			"Desktop screens": [ "Desktop-Rechner" ],
+			"Hover-effect": [ "Hover-Effekt" ],
+			"Show post images": [ "Beitragsbilder anzeigen" ],
+			"Round images": [ "Runde Bilder" ],
+			"Show date": [ "Datum anzeigen" ],
+			"Image size": [ "Bildgröße" ],
+			"Percent of width": [ "Prozent der Breite" ],
+			"Length of preview text": [ "Länge des Vorschautextes" ],
+			"Number of words": [ "Anzahl der Wörter" ],
+			"Shows a list or cards of Posts": [
+				"Liste oder Kartensammlung von Beiträgen zeigen"
+			],
+			"Add description here...": [ "Beschreibung hier einfügen" ],
+			"Progress Bar": [ "Fortschrittsbalken" ],
+			"Shows a progress bar with a percentual value": [
+				"Zeigt einen Forschrittsbalken als Prozentanzeige"
+			],
+			"progress": [ "Forschritt" ],
+			"value": [ "Wert" ],
+			"Colors": [ "Farben" ],
+			"Color for low values": [ "Balkenfarbe" ],
+			"Color for medium values": [ "Hintergrund" ],
+			"Values": [ "Werte" ],
+			"Max value": [ "Maximalwert" ],
+			"Current value": [ "Aktueller Wert" ],
+			"Separate Thousands": [ "Tausender-Trennpunkte" ],
+			"Decimal places": [ "Dezimalstellen" ],
+			"Unit": [ "Einheit" ],
+			"Show unit before Value": [ "Einheit vor dem Wert anzeigen" ],
+			"Progresss Bar Value": [ "Aktueller Wert" ],
+			"Labels": [ "Beschriftungen" ],
+			"Text under Progress Bar": [ "Text unter dem Forschrittsbalken" ],
+			"Show Values": [ "Werte anzeigen" ],
+			"Section": [ "Abschnitt" ],
+			"Add Section": [ "Abschnitt hinzufügen" ],
+			"Container block that adds a maximum width to it's content": [
+				"Gestaltbarer Container-Block, der seinen Inhalt auf eine maximale Breite reduziert."
+			],
+			"Inserts a basic container element, maximizing its content's width.": [
+				"Fügt einen Inhaltsblock ein"
+			],
+			"Background Color": [ "Hintergrundfarbe" ],
+			"Background Image": [ "Hintergrundbild" ],
+			"Select image": [ "Bild wählen" ],
+			"Image orientation": [ "Bildausrichtung" ],
+			"Top left": [ "Oben links" ],
+			"Top center": [ "Oben Mitte" ],
+			"Top right": [ "Oben rechts" ],
+			"Middel left": [ "Mitte links" ],
+			"Fully centered": [ "Mitte" ],
+			"Middle right": [ "Mitte rechts" ],
+			"Bottom left": [ "Unten links" ],
+			"Bottom center": [ "Unten Mitte" ],
+			"Bottom right": [ "Unten rechts" ],
+			"Parallax-Effect": [ "Parallax-Effekt" ],
+			"Padding": [ "Abstände" ],
+			"Padding Top": [ "Oben" ],
+			"Padding Bottom": [ "Unten" ],
+			"Standard": [ "Standard" ],
+			"Monospace": [ "Feste Laufweite" ],
+			"Fancy": [ "Zierschrift" ],
+			"Serif": [ "Serifenschrift" ],
+			"Visibility": [ "Sichtbarkeit" ],
+			"Hide on large screens": [ "Auf großen Bildschirmen verstecken" ],
+			"Hide on mobile devices": [ "Auf mobilen Geräten verstecken" ],
+			"Hide button text and show icon only": [
+				"Text verstecken und nur Symbol anzeigen"
+			],
+			"Mobile Options": [ "Optionen für Smartphones" ]
+		}
 	}
- }
+}
