@@ -321,7 +321,8 @@
 			"Show only...": [ "Nur anzeigen..." ],
 			"From": [ "Von" ],
 			"To": [ "Bis" ],
-			"Mobile Options": [ "Optionen für Smartphones" ]
+			"Mobile Options": [ "Optionen für Smartphones" ],
+			"Justify text": [ "Blocksatz" ]
 		}
 	}
 }

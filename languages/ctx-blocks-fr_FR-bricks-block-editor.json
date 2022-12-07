@@ -330,7 +330,8 @@
 			"Hide button text and show icon only": [
 				"Masquer le texte du bouton et afficher seulement l'icône"
 			],
-			"Mobile Options": [ "Options pour smartphones" ]
+			"Mobile Options": [ "Options pour smartphones" ],
+			"Justify text": [ "Justification" ]
 		}
 	}
 }

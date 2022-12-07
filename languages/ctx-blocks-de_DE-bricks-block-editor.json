@@ -312,7 +312,8 @@
 			"Hide button text and show icon only": [
 				"Text verstecken und nur Symbol anzeigen"
 			],
-			"Mobile Options": [ "Optionen für Smartphones" ]
+			"Mobile Options": [ "Optionen für Smartphones" ],
+			"Justify text": [ "Blocksatz" ]
 		}
 	}
 }
