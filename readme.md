@@ -77,6 +77,10 @@ As this plugin was once called "ctx-blocks", the internal block names still star
 
 ### Changelog
 
+##### 1.9.1
+
+-   Bring back text align justify
+
 ##### 1.9
 
 -   Adaptions to Wordpress 6
