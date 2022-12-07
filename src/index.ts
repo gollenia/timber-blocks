@@ -32,8 +32,8 @@ import * as gridRow from './blocks/grid/grid-row';
  * Core Block modification dependencies.
  */
 import './mods/featuredImageProps';
+import './mods/paragraphJustify';
 import './mods/postTitleProps';
-import './mods/spacerAutoOption';
 import './mods/spacerAutoOption';
 
 /**
