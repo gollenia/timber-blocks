@@ -30,13 +30,13 @@
 			{% if menu %}
 				{% for item in menu.get_items %}
 
-					<li class="menu__item {{ item.has_child_class ? " menu__item--has-dropdown" }} {{ item.current or item.current_item_ancestor ? 'menu__item--active' }}">
+					<li class="menu__item {{ item.children ? " menu__item--has-dropdown" }} {{ item.current or item.current_item_ancestor ? 'menu__item--active' }}">
 						<a href="{{item.url}}">
 							{%if item.post_excerpt %}
 								<i class="menu__icon material-icons">{{item.post_excerpt}}</i>
 							{% endif %}
 							<span>{{item.title}}</span>
-							{% if item.has_child_class %}
+							{% if item.children %}
 								<i class="material-icons mobile__arrow">keyboard_arrow_down</i>
 							{% endif %}
 						</a>
