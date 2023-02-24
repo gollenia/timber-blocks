@@ -22,23 +22,21 @@
 #}
 
 <div id="{{id}}" 
-        data-transition-enter="enter" 
-        data-transition-enter-start="enter-start" 
-        data-transition-enter-end="enter-end" 
-        data-transition-leave="leave" 
-        data-transition-leave-start="leave-start" 
-        class="modal {{ modalFull ? 'modal--fullscreen'}}">
-        <div class="modal__dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
-            <div class="modal__header">
-                <div class="modal__title"><h2>{{modalTitle}}</h2><button @click="showModal = false" class="modal__close"></button></div>
-                
-            </div>
-            <div class="modal__content">
-                <div class="section">
-                    <div class="container">
-                        {{function('do_shortcode', content)}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> 
+	data-transition-enter="enter" 
+	data-transition-enter-start="enter-start" 
+	data-transition-enter-end="enter-end" 
+	data-transition-leave="leave" 
+	data-transition-leave-start="leave-start" 
+	class="modal {{ modalFull ? 'modal--fullscreen'}}">
+	<div class="modal__dialog" {{modalFull ? '' : '@click.away="showModal = false"'}}>
+		<div class="modal__header">
+			<div class="modal__title"><h2>{{modalTitle}}</h2><button @click="showModal = false" class="modal__close"></button></div>
+			
+		</div>
+		<div class="modal__content">
+			
+					{{function('do_shortcode', content)}}
+				
+		</div>
+	</div>
+</div> 
