@@ -58,7 +58,12 @@ class TwigExtend {
 
 	}
 
-	public static function render_blocks($blocks) {
+	/*
+	* Render blocks from a block array
+	* @param array $blocks
+	* @return string
+	*/
+	public static function render_blocks($blocks) : string {
 		$result = '';
 		foreach($blocks as $block) {
 			$result .= render_block($block);
@@ -66,16 +71,26 @@ class TwigExtend {
 		return $result;
 	}
 
-	public static function logo() {
+	/*
+	* Get the logo from the theme
+	* @return string
+	*/
+	public static function logo() : string {
 
-        $custom_logo_id = get_theme_mod( 'custom_logo' );
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-        if(!$custom_logo_id) {
-            return false;
+        if($custom_logo_id) {
+                return get_attached_file($custom_logo_id);
         }
-        
-        $arr = get_attached_file($custom_logo_id);
-        return $arr;
+
+        $logo = get_stylesheet_directory() . '/' . 'logo.svg';
+        if(file_exists($logo)) return $logo;
+
+
+        $logo = get_template_directory() . '/' . 'logo.svg';
+        if(file_exists($logo)) return $logo;
+
+        return "";
     }
 	
 	public static function get_style($style = []): string {
