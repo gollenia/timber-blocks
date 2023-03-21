@@ -39,12 +39,11 @@ $blocks_to_register = [
 	"description/description-list",
 	"grid/grid-column",
 	"grid/grid-row",
-	"image",
-	"modal",
+	"image",	
+	"modal",  //deprecated
 	"progress",
 	"header/header",
-	"header/header-content",
-	"footer"
+	"header/header-content"
 ];
 
 
@@ -53,7 +52,7 @@ Contexis\Blocks\Block::init($assets, $blocks_to_register);
 
 Contexis\Blocks\Nav::init($assets);
 Contexis\Blocks\Posts::init($assets);
-Contexis\Blocks\Section::init($assets);
+Contexis\Blocks\Section::init($assets);	//deprecated
 Contexis\Blocks\Button::init($assets);
 Contexis\Blocks\Topbar::init($assets);
 Contexis\Blocks\CoreBlock::init($assets);
