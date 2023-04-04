@@ -82,6 +82,8 @@
 		}
 	},
 	"supports": {
+		"align": [ "full", "wide" ],
+		"default": "full",
 		"spacing": {
 			"margin": true,
 			"padding": true
