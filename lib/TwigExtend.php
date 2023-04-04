@@ -93,17 +93,15 @@ class TwigExtend {
         return "";
     }
 	
-	public static function get_style($style = []): string {
+	/*
+	* Get a specific style from a style array
+	* @param array $style
+	* @param string $property
+	* @return string
+	*/
+	
+	public static function get_style($style, $property): string {
 		$result = '';
-		if(gettype($style) != 'array') return '';
-		if(empty($style)) return 'empty';
-
-		if(array_key_exists('spacing', $style)) {
-			
-			foreach($style['spacing'] as $key => $value) {
-				$result .= StyleHelper::spacing($value, $key);
-			}
-		}
 		
 		return $result;
 	}
