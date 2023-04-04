@@ -1,50 +1,123 @@
 /**
  * Wordpress Dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { TextControl, PanelBody } from '@wordpress/components';
+import {
+	Button,
+	CheckboxControl,
+	Icon,
+	PanelBody,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
-const Inspector = (props) => {
-	
-		const {
-			attributes: {
-                fromDate,
-				toDate,
-            },
-            setAttributes
-		} = props;
+import icons from './icons.js';
 
-		return (
-			
-				<InspectorControls>
-                    <PanelBody
-					title={__('Date', 'ctx-blocks')}
-					initialOpen={true}
-				>
-				<p>{__("Show only...", "ctx-events")}</p>
+const Inspector = ( props ) => {
+	const {
+		attributes: {
+			fromDate,
+			toDate,
+			usersOnly,
+			hideWithinDateRange,
+			showLoginNotice,
+			includeLoginForm,
+			loginNotice,
+		},
+		setAttributes,
+	} = props;
+
+	return (
+		<InspectorControls>
+			<PanelBody
+				title={ __( 'Date', 'ctx-blocks' ) }
+				initialOpen={ true }
+			>
+				<div className="styleSelector">
+					<Button
+						onClick={ () =>
+							setAttributes( { hideWithinDateRange: true } )
+						}
+						className={ hideWithinDateRange ? 'active' : '' }
+					>
+						<Icon size="40" className="icon" icon={ icons.hide } />
+						<span>{ __( 'Hide', 'ctx-blocks' ) }</span>
+					</Button>
+					<Button
+						onClick={ () =>
+							setAttributes( { hideWithinDateRange: false } )
+						}
+						className={ hideWithinDateRange ? '' : 'active' }
+					>
+						<Icon size="40" className="icon" icon={ icons.show } />
+
+						<span>{ __( 'Show', 'ctx-blocks' ) }</span>
+					</Button>
+				</div>
+
 				<TextControl
 					value={ fromDate }
-					label={__("From", "ctx-events")}
-					onChange={ ( newDate ) => setAttributes( {fromDate: newDate} ) }
+					label={ __( 'From', 'ctx-blocks' ) }
+					onChange={ ( newDate ) =>
+						setAttributes( { fromDate: newDate } )
+					}
 					is12Hour={ false }
 					type="date"
 				/>
 				<TextControl
-					label={__("To", "ctx-events")}
+					label={ __( 'To', 'ctx-blocks' ) }
 					value={ toDate }
-					onChange={ ( newDate ) => setAttributes( {toDate: newDate} ) }
+					onChange={ ( newDate ) =>
+						setAttributes( { toDate: newDate } )
+					}
 					is12Hour={ false }
 					type="date"
 				/>
-                        
-            </PanelBody>
-                    
-                    
-                </InspectorControls>
-			
-		);
-	
-}
+			</PanelBody>
+			<PanelBody
+				title={ __( 'Access Control', 'ctx-blocks' ) }
+				initialOpen={ true }
+			>
+				<ToggleControl
+					label={ __( 'Show only to logged in users', 'ctx-blocks' ) }
+					checked={ usersOnly }
+					onChange={ ( value ) =>
+						setAttributes( { usersOnly: ! usersOnly } )
+					}
+				/>
+
+				<ToggleControl
+					label={ __( 'Show login notice', 'ctx-blocks' ) }
+					checked={ showLoginNotice }
+					onChange={ ( value ) =>
+						setAttributes( { showLoginNotice: ! showLoginNotice } )
+					}
+				/>
+
+				{ showLoginNotice && (
+					<>
+						<TextControl
+							label={ __( 'Login notice', 'ctx-blocks' ) }
+							value={ loginNotice }
+							onChange={ ( value ) =>
+								setAttributes( { loginNotice: value } )
+							}
+						/>
+						<CheckboxControl
+							label={ __( 'Include login form', 'ctx-blocks' ) }
+							checked={ includeLoginForm }
+							onChange={ ( value ) =>
+								setAttributes( {
+									includeLoginForm: ! includeLoginForm,
+								} )
+							}
+						/>
+					</>
+				) }
+			</PanelBody>
+		</InspectorControls>
+	);
+};
 
 export default Inspector;

@@ -4,17 +4,41 @@
 	"name": "ctx-blocks/conditional",
 	"title": "Conditional Content",
 	"category": "formatting",
-	"keywords": [ "date", "time", "country" ],
+	"keywords": [ "date", "time", "country", "user" ],
 	"textdomain": "ctx-blocks",
 	"description": "Show or hide a block under certain conditions",
 	"attributes": {
 		"fromDate": {
 			"type": "string",
-			"default": "default"
+			"default": ""
 		},
 		"toDate": {
 			"type": "string",
 			"default": ""
+		},
+		"usersOnly": {
+			"type": "boolean",
+			"default": false
+		},
+		"showLoginNotice": {
+			"type": "boolean",
+			"default": false
+		},
+		"loginNotice": {
+			"type": "string",
+			"default": ""
+		},
+		"includeLoginForm": {
+			"type": "boolean",
+			"default": false
+		},
+		"includeRegisterLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"hideWithinDateRange": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"editorStyle": "wp-block-alert-editor"
