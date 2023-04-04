@@ -1,25 +1,28 @@
+import { AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
 
-import { BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
+const Toolbar = ( props ) => {
+	const {
+		attributes,
+		setAttributes,
+		onSelectMedia,
+		currentSettings,
+		toggleUseFeaturedImage,
+	} = props;
 
-const Toolbar = (props) => {
-		const {
-			attributes,
-			setAttributes
-		} = props;
+	const { textAlignment } = attributes;
 
-		const {
-            textAlignment
-        } = attributes;
-
-		return (
-			<BlockControls>
+	return (
+		<>
+			<BlockControls group="block">
 				<AlignmentToolbar
 					value={ textAlignment }
-					onChange={ (event) => setAttributes({ textAlignment: event }) }
+					onChange={ ( event ) =>
+						setAttributes( { textAlignment: event } )
+					}
 				/>
-
 			</BlockControls>
-		);
-}
+		</>
+	);
+};
 
 export default Toolbar;

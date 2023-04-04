@@ -10,7 +10,6 @@ import {
 import {
 	CheckboxControl,
 	PanelBody,
-	RadioControl,
 	RangeControl,
 	TextControl,
 } from '@wordpress/components';
@@ -45,6 +44,7 @@ const Inspector = ( props ) => {
 						onChange: setBackgroundColor,
 						value: backgroundColor.color,
 						disableCustomColors: false,
+						disabled: true,
 					},
 				] }
 			/>
@@ -60,6 +60,7 @@ const Inspector = ( props ) => {
 						}
 						label={ __( 'Image', 'ctx-blocks' ) }
 						value={ backgroundImage }
+						disabled={ true }
 						render={ ( { open } ) => {
 							return (
 								<div className="editor-post-featured-image ctx-image-select">
@@ -121,57 +122,10 @@ const Inspector = ( props ) => {
 						} }
 					/>
 				</MediaUploadCheck>
-				<div className="ctx-image-position">
-					<RadioControl
-						label={ __( 'Image orientation', 'ctx-blocks' ) }
-						selected={ imagePosition }
-						disabled={ ! backgroundImage }
-						options={ [
-							{
-								label: __( 'Top left', 'ctx-blocks' ),
-								value: 'top left',
-							},
-							{
-								label: __( 'Top center', 'ctx-blocks' ),
-								value: 'top center',
-							},
-							{
-								label: __( 'Top right', 'ctx-blocks' ),
-								value: 'top right',
-							},
-							{
-								label: __( 'Middel left', 'ctx-blocks' ),
-								value: 'center left',
-							},
-							{
-								label: __( 'Fully centered', 'ctx-blocks' ),
-								value: 'center',
-							},
-							{
-								label: __( 'Middle right', 'ctx-blocks' ),
-								value: 'center right',
-							},
-							{
-								label: __( 'Bottom left', 'ctx-blocks' ),
-								value: 'bottom left',
-							},
-							{
-								label: __( 'Bottom center', 'ctx-blocks' ),
-								value: 'bottom center',
-							},
-							{
-								label: __( 'Bottom right', 'ctx-blocks' ),
-								value: 'bottom right',
-							},
-						] }
-						onChange={ ( position ) => {
-							setAttributes( { imagePosition: position } );
-						} }
-					/>
-				</div>
+
 				<CheckboxControl
 					label={ __( 'Parallax-Effect', 'ctx-blocks' ) }
-					disabled={ ! backgroundImage }
+					disabled={ true }
 					onChange={ ( event ) => {
 						setAttributes( { parallaxEffect: event } );
 					} }
@@ -185,6 +139,7 @@ const Inspector = ( props ) => {
 				<RangeControl
 					label={ __( 'Padding Top', 'ctx-blocks' ) }
 					value={ paddingTop }
+					disabled={ true }
 					onChange={ ( event ) => {
 						setAttributes( { paddingTop: event } );
 					} }
@@ -194,6 +149,7 @@ const Inspector = ( props ) => {
 				<RangeControl
 					label={ __( 'Padding Bottom', 'ctx-blocks' ) }
 					value={ paddingBottom }
+					disabled={ true }
 					onChange={ ( event ) => {
 						setAttributes( { paddingBottom: event } );
 					} }
@@ -207,6 +163,7 @@ const Inspector = ( props ) => {
 			>
 				<p>{ __( 'Show only...', 'ctx-blocks' ) }</p>
 				<TextControl
+					disabled={ true }
 					label={ __( 'From', 'ctx-blocks' ) }
 					value={ fromDate }
 					onChange={ ( newDate ) =>
@@ -218,6 +175,7 @@ const Inspector = ( props ) => {
 				<TextControl
 					label={ __( 'To', 'ctx-blocks' ) }
 					value={ toDate }
+					disabled={ true }
 					onChange={ ( newDate ) =>
 						setAttributes( { toDate: newDate } )
 					}

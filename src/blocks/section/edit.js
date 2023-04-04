@@ -98,12 +98,12 @@ export default function Edit( { ...props } ) {
 			<div { ...blockProps }>
 				{ ! isHidden() && ! isVisible() && (
 					<span className="ctx:control__label section__label">
-						{ __( 'Section', 'ctx-blocks' ) }
+						{ __( 'Switch to Group or Cover block', 'ctx-blocks' ) }
 					</span>
 				) }
 				{ isHidden() && (
 					<span className="ctx:control__label section__label ctx:control__label--error">
-						{ __( 'Section', 'ctx-blocks' ) +
+						{ __( 'Switch to Group or Cover block', 'ctx-blocks' ) +
 							' (' +
 							__( 'Hidden', 'ctx-blocks' ) +
 							')' }

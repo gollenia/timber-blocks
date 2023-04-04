@@ -19,7 +19,10 @@ class Section extends Block {
     public function render($attributes, $content, $full_data) : string {
         if(!$this->get_condition($attributes)) return "";
 		$attributes['content'] = $content;
-
+		$styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		
 		$attributes['from'] = strtotime($attributes['fromDate']);
 		$attributes['to'] = strtotime($attributes['toDate']);
 		$attributes['now'] = time();

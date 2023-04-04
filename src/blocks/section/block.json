@@ -1,23 +1,23 @@
 {
 	"name": "ctx-blocks/section",
 	"apiVersion": 2,
-	"title": "Section",
+	"title": "Switch to Group or Cover block",
 	"keywords": [ "link", "action", "button" ],
 	"textdomain": "ctx-blocks",
-	"description": "Container block that adds a maximum width to it's content",
+	"description": "Deprecated. Use the Group or Cover block instead.",
 	"category": "layout",
 	"attributes": {
-		"backgroundColor": {
-			"type": "string",
-			"default": ""
-		},
-		"customBackgroundColor": {
-			"type": "string",
-			"default": ""
-		},
 		"backgroundImage": {
 			"type": "object",
 			"default": null
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"id": {
+			"type": "number",
+			"default": 0
 		},
 		"imagePosition": {
 			"type": "string",
@@ -31,14 +31,6 @@
 			"type": "string",
 			"default": "left"
 		},
-		"paddingTop": {
-			"type": "integer",
-			"default": 10
-		},
-		"paddingBottom": {
-			"type": "integer",
-			"default": 10
-		},
 		"fromDate": {
 			"type": "string",
 			"default": ""
@@ -47,13 +39,35 @@
 			"type": "string",
 			"default": ""
 		},
-		"element": {
+		"positioning": {
 			"type": "string",
-			"default": "section"
+			"default": "top"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 0
+		},
+		"customBackgroundColor": {
+			"type": "string",
+			"default": ""
 		}
 	},
+	"usesContext": [ "postId", "postType" ],
 	"supports": {
 		"align": [ "full" ],
-		"default": "alignwide"
+		"default": "alignwide",
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
 	}
 }
