@@ -12,6 +12,10 @@ class Posts extends Block {
 
     public function render($attributes, $content, $full_data) : string {
         $attributes['posts'] = $this->get_posts($attributes);
+		$styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		
         $template = $this->get_template($full_data->name);
         return \Timber\Timber::compile($template, $attributes);
     }

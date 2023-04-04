@@ -17,6 +17,11 @@ class Nav extends Block {
 
     public function render($attributes, $content, $full_data) : string {
 
+		$styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		
+
 		switch ($attributes['dataType']) {
 			case 'posts':
 				$attributes['data'] = $this->get_posts($attributes);

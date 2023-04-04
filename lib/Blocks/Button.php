@@ -26,6 +26,11 @@ class Button extends Block {
     public function render($attributes, $content, $full_data) : string {
         $attributes['id'] = uniqid();
         $attributes['content'] = $content;
+
+		$styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		
 	
         if($attributes['hasModal']) {
 			$footer = Timber::compile($this->get_template('ctx-blocks/modal'), $attributes);

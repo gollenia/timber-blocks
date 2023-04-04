@@ -19,6 +19,9 @@ class Topbar extends Block {
 
 		$attributes['menu'] = Timber::get_menu();
 		$attributes = array_merge($attributes, Timber::context());
+		$styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
 		
         $template = $this->get_template($full_data->name);
         return Timber::compile($template, $attributes);
