@@ -322,7 +322,13 @@
 			"From": [ "Von" ],
 			"To": [ "Bis" ],
 			"Mobile Options": [ "Optionen für Smartphones" ],
-			"Justify text": [ "Blocksatz" ]
+			"Justify text": [ "Blocksatz" ],
+			"Hide": [ "Verstecken" ],
+			"Show": [ "Anzeigen" ],
+			"Access Control": [ "Zugriffskontrolle" ],
+			"Show only to logged in users": [
+				"Nur für angemeldete Benutzer anzeigen"
+			]
 		}
 	}
 }
