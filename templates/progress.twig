@@ -25,7 +25,7 @@
 {% set fullPercent = (currentValue * 100 / maxValue)|round() %}
 
 
-<div style="{{ get_style(style)}}" id="progress" class="progress" data-max="{{maxValue}}" data-current="{{currentValue}}" data-unit="{{unit}}" data-prefixed="{{prefixedUnit}}">
+<div style="{{ style }}" id="progress" class="progress" data-max="{{maxValue}}" data-current="{{currentValue}}" data-unit="{{unit}}" data-prefixed="{{prefixedUnit}}">
     <div class="progress__legends">
         <div style="color: {{fg.color}}" class="legend--current">
             <div class="legend__label">{{currentDescription}}</div>
