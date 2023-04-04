@@ -43,7 +43,8 @@ $blocks_to_register = [
 	"modal",  //deprecated
 	"progress",
 	"header/header",
-	"header/header-content"
+	"header/header-content",
+	"cover"
 ];
 
 
@@ -51,6 +52,7 @@ $blocks_to_register = [
 Contexis\Blocks\Block::init($assets, $blocks_to_register); 
 
 Contexis\Blocks\Nav::init($assets);
+Contexis\Blocks\Conditional::init($assets);
 Contexis\Blocks\Posts::init($assets);
 Contexis\Blocks\Section::init($assets);	//deprecated
 Contexis\Blocks\Button::init($assets);
