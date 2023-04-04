@@ -1,0 +1,6 @@
+<div class="cover {{className}}" style="min-height: {{minHeight}}{{minHeightUnit}}; {{style}}">
+	<img class="cover__image" src={{url}} style="object-fit: cover; object-position: {{focalPoint.x*100}}% {{focalPoint.y*100}}%;" />
+	<div class="{{className}} cover__content position--{{contentPosition|replace({' ':'-'})}}">
+	{{ content }}
+	</div>
+</div>
