@@ -13,6 +13,7 @@ import * as buttonGroup from './blocks/buttons/button-group';
 import * as buttonSpacer from './blocks/buttons/button-spacer';
 import * as card from './blocks/card';
 import * as conditional from './blocks/conditional';
+import * as cover from './blocks/cover';
 import * as descriptionItem from './blocks/description/description-item';
 import * as descriptionList from './blocks/description/description-list';
 import * as footer from './blocks/footer';
@@ -73,6 +74,7 @@ export const registerBlocks = () => {
 		section,
 		footer,
 		posts,
+		cover,
 		header,
 		headerContent,
 		nav,
