@@ -74,10 +74,12 @@ class Block implements BlockInterface {
         $template = $this->get_template($full_data->name);
 
         if(!$template) return;
-
-		$styles = get_block_wrapper_attributes();
-		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
-		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		if(key_exists('style', $attributes) && !empty($attributes['style'])) {
+			$styles = get_block_wrapper_attributes();
+			$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+			$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		}
+		
 		$attributes['content'] = $content;
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
