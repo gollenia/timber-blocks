@@ -16,6 +16,7 @@ const ALLOWED_BLOCKS = [ 'ctx-blocks/grid-column' ];
 export default function GridRowEdit( { ...props } ) {
 	const {
 		attributes: { equalizer, divider, childrenWidthLarge },
+		__unstableLayoutClassNames: layoutClassNames,
 	} = props;
 
 	const TEMPLATE = [
@@ -32,10 +33,13 @@ export default function GridRowEdit( { ...props } ) {
 		.filter( Boolean )
 		.join( ' ' );
 
-	const innerBlocksProps = useInnerBlocksProps(
-		{
-			className: classes,
-		},
+	const blockProps = useBlockProps( {
+		className: 'ctx:row is-layout-constrain has-global-padding ' + classes,
+	} );
+
+	const { children, ...innerBlocksProps } = useInnerBlocksProps(
+		blockProps,
+
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
@@ -43,12 +47,13 @@ export default function GridRowEdit( { ...props } ) {
 		}
 	);
 
-	const blockProps = useBlockProps( { className: 'ctx:row alignwide' } );
+	console.log( blockProps );
 
 	return (
 		<>
 			<Inspector { ...props } />
-			<div { ...blockProps }>
+
+			<div { ...innerBlocksProps }>
 				<div className="ctx:control__label ctx:row__label">
 					<label>
 						{ __( 'Row (columns: ', 'ctx-blocks' ) +
@@ -72,8 +77,7 @@ export default function GridRowEdit( { ...props } ) {
 						) }
 					</div>
 				</div>
-
-				<div { ...innerBlocksProps }></div>
+				{ children }
 			</div>
 		</>
 	);
