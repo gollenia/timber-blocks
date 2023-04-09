@@ -39,8 +39,6 @@ export default function ButtonEdit( { ...props } ) {
 
 	const colors = useSelect( 'core/block-editor' ).getSettings().colors;
 
-	console.log( page_colors );
-
 	const TEMPLATE = [
 		[
 			'core/heading',
@@ -77,7 +75,6 @@ export default function ButtonEdit( { ...props } ) {
 			? page_colors?.primary_color ?? 'var(--primary)'
 			: buttonColor.color;
 
-	console.log( buttonBackground );
 	const style = {
 		background: ! outline && ! isLink ? buttonBackground : 'transparent',
 		boxShadow: outline
@@ -96,7 +93,7 @@ export default function ButtonEdit( { ...props } ) {
 					setShowModal( true );
 				} }
 			>
-				{ icon && <i class="material-icons">{ icon }</i> }
+				{ icon && <i className="material-icons">{ icon }</i> }
 				<RichText
 					tagName="span"
 					value={ title }
