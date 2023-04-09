@@ -3,7 +3,14 @@
 	"name": "ctx-blocks/grid-row",
 	"apiVersion": 2,
 	"title": "Columns",
-	"keywords": [ "columns", "responsive" ],
+	"keywords": [
+		"columns",
+		"responsive",
+		"container",
+		"wrapper",
+		"row",
+		"section"
+	],
 	"description": "Displays content in columns of different width",
 	"textdomain": "ctx-blocks",
 	"category": "layout",
@@ -30,11 +37,20 @@
 		}
 	},
 	"supports": {
-		"align": [ "full" ],
-		"default": "alignwide",
+		"__experimentalOnEnter": true,
+		"__experimentalSettings": true,
+		"align": [ "wide", "full" ],
+		"ariaLabel": true,
+		"anchor": true,
+		"html": false,
 		"spacing": {
-			"margin": true,
-			"padding": true
+			"margin": [ "top", "bottom" ],
+			"padding": [ "left", "right" ],
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
 		}
-	}
+	},
+	"style": "wp-block-ctx-blocks-grid-row"
 }
