@@ -2,7 +2,7 @@
 
 namespace Contexis\Blocks;
 
-use Contexis\Utils\StyleHelper;
+use Contexis\Utils\Helper;
 
 interface BlockInterface
 {
@@ -72,17 +72,18 @@ class Block implements BlockInterface {
 
     public function render($attributes, $content, $full_data) {
         $template = $this->get_template($full_data->name);
-
+		
         if(!$template) return;
-		if(key_exists('style', $attributes) && !empty($attributes['style'])) {
-			$styles = get_block_wrapper_attributes();
-			$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
-			$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
-		}
+		$styles = '';
+		
+		if ($full_data->parsed_block['attrs']) $styles = get_block_wrapper_attributes();
+		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
+		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
 		
 		$attributes['content'] = $content;
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
+			$attributes['blockGap'] = Helper::get_array_value(Helper::get_css_var($full_data->parsed_block['attrs'], "style.spacing.blockGap"), '');
         }
         
         return \Timber\Timber::compile($template, $attributes); 

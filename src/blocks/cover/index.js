@@ -9,7 +9,7 @@ import icon from './icon';
 /**
  * Wordpress dependencies
  */
-import { InnerBlocks, withColors } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 const { name, title, description } = metadata;
@@ -19,7 +19,7 @@ const settings = {
 	icon,
 	title: __( title, 'ctx-blocks' ),
 	description: __( description, 'ctx-blocks' ),
-	edit: withColors( { overlayColor: 'overlayColor' } )( edit ),
+	edit,
 	save: () => {
 		return <InnerBlocks.Content />;
 	},

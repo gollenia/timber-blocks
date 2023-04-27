@@ -39,7 +39,7 @@ const withParagraphControl = createHigherOrderComponent( ( BlockEdit ) => {
 		const { justifyText, className } = attributes;
 
 		props.attributes.className = justifyText ? 'wp-justify' : '';
-		console.log( justifyText );
+
 		return (
 			<>
 				<BlockEdit { ...props } />

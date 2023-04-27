@@ -13,12 +13,11 @@
 #
 #}
 
-<div style="{{ style.margin }}" class="grid 
+<div style="{{ style }} gap: {{ blockGap ?? "1.5rem" }}" class="grid 
     {{equalizer ? "equalizer" : ""}} 
     grid--columns-{{childrenWidthSmall}} 
     md:grid--columns-{{childrenWidthMedium}} 
     xl:grid--columns-{{childrenWidthLarge}} 
-    grid--gap-12
 	{{className}}
 ">
     {{content|raw}}

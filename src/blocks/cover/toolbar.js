@@ -1,13 +1,13 @@
 import {
+	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 	BlockControls,
 	MediaReplaceFlow,
-	__experimentalBlockAlignmentMatrixControl as BlockAlignmentMatrixControl,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
 import { ToolbarButton } from '@wordpress/components';
 
-import { ALLOWED_MEDIA_TYPES } from './constants';
+import { ALLOWED_MEDIA_TYPES } from './common';
 
 const Toolbar = ( props ) => {
 	const {
@@ -18,7 +18,7 @@ const Toolbar = ( props ) => {
 		toggleUseFeaturedImage,
 	} = props;
 
-	const { hasInnerBlocks, url } = currentSettings;
+	const { url } = currentSettings;
 
 	const { contentPosition, id, useFeaturedImage } = attributes;
 

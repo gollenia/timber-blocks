@@ -28,23 +28,22 @@
 #
 #}
 
-<div style="{{ style }}" class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12 {{className}}">
+{% set color = get_color_by_slug(item.meta.page_colors.primary_color ?? 'primary' ) %}
+{% set textColor = (color.brightness == 'dark' ? 'var(--white)' : 'var(--black)') %}
+
+{% if styleType == "cards" %}
+<div></div>
+<div class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
     {% for item in posts %}
             <div 
                 class="card bg-white
                 {% if hover %}card--hover {% endif %}
                 {% if dropShadow %}card--shadow {% endif %}
-                {{ styleType == "list" ? "card--image-left" : "card--image-top" }}
+                card--image-top
                 {{loop.first ? "card--first"}}
                 {{loop.last ? "card--last"}}
                 "            
             >
-            {% if showImages %}
-
-            
-          
-            {% set color = get_color_by_slug(item.meta.page_colors.primary_color) %}
-            {% set textColor = (color.brightness == 'dark' ? 'var(--white)' : 'var(--black)') %}
                 <a href="{{ function("get_permalink", item.ID) }}" class="card__image">
                     <img src="{{ item.thumbnail.src('large') }}" />
                 </a>
@@ -54,7 +53,7 @@
                         <div class="card__badge__month">{{item.post_date|date("M")}}</div>
                     </b>
                 {% endif %}
-            {% endif %}
+            
             
                 <div class="card__content">
                     <span class="card__label {% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
@@ -79,3 +78,84 @@
         
     {% endfor %}
 </div>
+
+{% endif %}
+
+{% if styleType == "list" %}
+<div style="{{ style }} flex-direction: column; gap: {{gap}}" class="flex {{className}}">
+    {% for item in posts %}
+            <div 
+                class="card bg-white
+                card--hover
+                card--shadow
+                card--image-left
+                {{loop.first ? "card--first"}}
+                {{loop.last ? "card--last"}}
+                "            
+            >
+          
+                <a href="{{ function("get_permalink", item.ID) }}" class="card__image">
+                    <img src="{{ item.thumbnail.src('large') }}" />
+                </a>
+                {% if showDate and styleType == "cards" %}
+                    <b class="card__badge {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        <div class="card__badge__day">{{item.post_date|date("j")}}</div>
+                        <div class="card__badge__month">{{item.post_date|date("M")}}</div>
+                    </b>
+                {% endif %}
+            
+            
+                <div class="card__content">
+                    <span class="card__label {% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        {{item.category}}
+                    </span>
+                    <a href="{{ function("get_permalink", item.ID) }}" class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</a>
+                    <span class="card__subtitle"><span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span></span>
+              
+					{% if styleType == "cards" %}
+					<hr>
+                    <div class="button-group button-group--right">
+						
+                        <a href="{{ function("get_permalink", item.ID) }}" class="button button--primary button--link">{{ __("Read on", "timber-blocks")}}</a>
+                    </div>
+					{% endif %}
+                </div>
+            </div>
+        
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if styleType == "mini" %}
+<div style="{{ style }} flex-direction: column; gap: {{gap}}" class="flex {{className}}">
+    {% for item in posts %}
+            <div class="flex">
+                {% if showDate  %}
+                    <b class="description__date {% if color is empty %}bg-primary text-primary-contrast{% endif %} card-badge" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        <div class="card__badge__day">{{item.post_date|date("j")}}</div>
+                        <div class="card__badge__month">{{item.post_date|date("M")}}</div>
+                    </b>
+                {% endif %}
+            
+            
+                <div class="card__content">
+                    <span class="card__label {% if color is empty %}bg-primary text-primary-contrast{% endif %}" style="{% if color is not empty %}color: {{textColor}}; background: {{color.color}}{% endif %}">
+                        {{item.category}}
+                    </span>
+                    <a href="{{ function("get_permalink", item.ID) }}" class="card__title {% if color is empty %}text-primary{% endif %}" style="{% if color is not empty %}color: {{color.color}};{% endif %}">{{item.post_title}}</a>
+                    <span class="card__subtitle"><span class="text-">{% if showDescription %}{{item.tags|first}}{% endif %} {{ showDate and showDescription ? "|" }} {% if showDate %}{{item.post_date|date("j. M. Y")}}{% endif %}</span></span>
+              
+					{% if styleType == "cards" %}
+					<hr>
+                    <div class="button-group button-group--right">
+						
+                        <a href="{{ function("get_permalink", item.ID) }}" class="button button--primary button--link">{{ __("Read on", "timber-blocks")}}</a>
+                    </div>
+					{% endif %}
+                </div>
+            </div>
+        
+    {% endfor %}
+</div>
+{% endif %}
+

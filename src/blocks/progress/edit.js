@@ -76,12 +76,7 @@ export default function Edit( { ...props } ) {
 						{ unit != '' && ! prefixedUnit && <>{ unit }</> }
 					</div>
 				</div>
-				<div
-					style={ {
-						color: colorBackground.color,
-						textAlign: 'right',
-					} }
-				>
+				<div>
 					<RichText
 						tagName="div"
 						className="max-value-description"

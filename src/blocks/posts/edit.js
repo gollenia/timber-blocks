@@ -1,23 +1,8 @@
 /**
  * Internal dependencies
  */
-import {
-	AlignmentToolbar,
-	BlockControls,
-	InspectorControls,
-	useBlockProps,
-} from '@wordpress/block-editor';
-import {
-	Button,
-	Icon,
-	PanelBody,
-	PanelRow,
-	QueryControls,
-	RangeControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { useBlockProps } from '@wordpress/block-editor';
 import { format } from '@wordpress/date';
-import icons from './icons.js';
 
 import { get } from 'lodash';
 
@@ -28,15 +13,18 @@ import { store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function Edit( { attributes, setAttributes } ) {
+import Inspector from './inspector';
+
+export default function Edit( props ) {
+	const { attributes, setAttributes, className } = props;
 	const {
 		limit,
 		columnsSmall,
 		columnsMedium,
 		columnsLarge,
 		showImages,
+		linkAsButton,
 		dropShadow,
-		imageSize,
 		styleType,
 		hover,
 		showTag,
@@ -67,6 +55,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				per_page: limit,
 				order,
 				orderby: orderBy,
+				_embed: true,
 			};
 			const posts = getEntityRecords( 'postType', 'post', query );
 
@@ -92,19 +81,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					// eslint-disable-next-line camelcase
 					alt: image?.alt_text,
 				};
-				return { ...post, featuredImageInfo };
+				const category = get( post, [ '_embedded', 'wp:term', 0 ] );
+				return { ...post, featuredImageInfo, category };
 			} );
 		},
 		[ category, limit, order, orderBy ]
 	);
-
-	const getCategoriesList = () => {
-		if ( ! categoryList?.length ) {
-			return [];
-		}
-
-		return categoryList;
-	};
 
 	const getPosts = () => {
 		if ( ! postList?.length ) {
@@ -116,11 +98,10 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( {
 		className: [
-			'alignwide',
-			'columns-' + columnsLarge,
+			className,
 			showImages ? 'hasImage' : false,
 			dropShadow ? 'shadow' : false,
-
+			hover ? 'hover' : false,
 			'style-' + styleType,
 			'text-' + textAlignment,
 			roundImages ? 'round-images' : false,
@@ -129,212 +110,14 @@ export default function Edit( { attributes, setAttributes } ) {
 			.join( ' ' ),
 	} );
 
-	const inspectorControls = (
-		<InspectorControls>
-			<PanelBody
-				title={ __( 'Data', 'ctx-blocks' ) }
-				initialOpen={ true }
-			>
-				<QueryControls
-					order={ order }
-					orderBy={ orderBy }
-					categoriesList={ getCategoriesList() }
-					selectedCategoryId={ category }
-					numberOfItems={ limit }
-					onOrderChange={ ( value ) =>
-						setAttributes( { order: value } )
-					}
-					onOrderByChange={ ( value ) =>
-						setAttributes( { orderBy: value } )
-					}
-					onCategoryChange={ ( value ) =>
-						setAttributes( { category: value } )
-					}
-					onNumberOfItemsChange={ ( value ) =>
-						setAttributes( { limit: value } )
-					}
-				/>
-			</PanelBody>
-			<PanelBody
-				title={ __( 'Appearance', 'ctx-blocks' ) }
-				initialOpen={ true }
-			>
-				<RangeControl
-					label={ __( 'Columns on small screens', 'ctx-blocks' ) }
-					max={ 6 }
-					min={ 1 }
-					help={ __( 'ex. Smartphones', 'ctx-blocks' ) }
-					onChange={ ( value ) => {
-						setAttributes( { columnsSmall: value } );
-					} }
-					value={ columnsSmall }
-				/>
-
-				<RangeControl
-					label={ __( 'Columns on medium screens', 'ctx-blocks' ) }
-					max={ 6 }
-					min={ 1 }
-					help={ __( 'Tablets and smaller screens', 'ctx-blocks' ) }
-					onChange={ ( value ) => {
-						setAttributes( { columnsMedium: value } );
-					} }
-					value={ columnsMedium }
-				/>
-
-				<RangeControl
-					label={ __( 'Columns on large screens', 'ctx-blocks' ) }
-					max={ 6 }
-					min={ 1 }
-					help={ __( 'Desktop screens', 'ctx-blocks' ) }
-					onChange={ ( value ) => {
-						setAttributes( { columnsLarge: value } );
-					} }
-					value={ columnsLarge }
-				/>
-			</PanelBody>
-
-			<PanelBody
-				title={ __( 'Posts', 'ctx-blocks' ) }
-				initialOpen={ true }
-			>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Drop shadow', 'ctx-blocks' ) }
-						checked={ dropShadow }
-						onChange={ ( value ) =>
-							setAttributes( { dropShadow: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Hover effect', 'ctx-blocks' ) }
-						checked={ hover }
-						onChange={ ( value ) =>
-							setAttributes( { hover: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Show post images', 'ctx-blocks' ) }
-						checked={ showImages }
-						onChange={ ( value ) =>
-							setAttributes( { showImages: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<label
-						className="components-base-control__label"
-						htmlFor="inspector-range-control-4"
-					>
-						Stil
-					</label>
-					<div className="styleSelector">
-						<Button
-							onClick={ () =>
-								setAttributes( { styleType: 'list' } )
-							}
-							className={ styleType == 'list' ? 'active' : '' }
-						>
-							<Icon
-								size="64"
-								className="icon"
-								icon={ icons.list }
-							/>
-							<div>Liste</div>
-						</Button>
-						<Button
-							onClick={ () =>
-								setAttributes( { styleType: 'cards' } )
-							}
-							className={ styleType == 'cards' ? 'active' : '' }
-						>
-							<Icon
-								size="64"
-								className="icon"
-								icon={ icons.cards }
-							/>
-							<div>Karten</div>
-						</Button>
-					</div>
-				</PanelRow>
-				{ showImages && (
-					<Fragment>
-						<PanelRow>
-							<ToggleControl
-								label={ __( 'Round images', 'ctx-blocks' ) }
-								checked={ roundImages }
-								onChange={ ( value ) =>
-									setAttributes( { roundImages: value } )
-								}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<ToggleControl
-								label={ __( 'Show date', 'ctx-blocks' ) }
-								checked={ showDate }
-								onChange={ ( value ) =>
-									setAttributes( { showDate: value } )
-								}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<ToggleControl
-								label={ __( 'Show Tag', 'ctx-blocks' ) }
-								checked={ showTag }
-								onChange={ ( value ) =>
-									setAttributes( { showTag: value } )
-								}
-							/>
-						</PanelRow>
-						<PanelRow>
-							<ToggleControl
-								label={ __( 'Show Category', 'ctx-blocks' ) }
-								checked={ showCategory }
-								onChange={ ( value ) =>
-									setAttributes( { showCategory: value } )
-								}
-							/>
-						</PanelRow>
-						<RangeControl
-							label={ __( 'Image size', 'ctx-blocks' ) }
-							max={ 100 }
-							min={ 0 }
-							help={ __( 'Percent of width', 'ctx-blocks' ) }
-							onChange={ ( value ) => {
-								setAttributes( { imageSize: value } );
-							} }
-							value={ imageSize }
-						/>
-					</Fragment>
-				) }
-				<RangeControl
-					label={ __( 'Length of preview text', 'ctx-blocks' ) }
-					max={ 200 }
-					min={ 0 }
-					help={ __( 'Number of words', 'ctx-blocks' ) }
-					onChange={ ( value ) => {
-						setAttributes( { excerptLength: value } );
-					} }
-					value={ excerptLength }
-				/>
-			</PanelBody>
-		</InspectorControls>
-	);
-
 	return (
 		<>
-			{ inspectorControls }
-			<BlockControls>
-				<AlignmentToolbar
-					value={ textAlignment }
-					onChange={ ( event ) =>
-						setAttributes( { textAlignment: event } )
-					}
-				/>
-			</BlockControls>
+			<Inspector
+				attributes={ attributes }
+				setAttributes={ setAttributes }
+				categoryList={ categoryList }
+				category={ category }
+			/>
 			<div { ...blockProps }>
 				{ getPosts().map( ( post, index ) => {
 					// unfortunatedly the excerpt sometimes comes only prerendered, which diusturbs trimming to excerpt length
@@ -359,30 +142,78 @@ export default function Edit( { attributes, setAttributes } ) {
 									.split( ' ', excerptLength )
 									.join( ' ' ) }
 								{ __( '…' ) }
-								<a href={ post.link } rel="noopener noreferrer">
-									{ __( 'Read more' ) }
-								</a>
 							</>
 						) : (
 							excerpt
 						);
 
+					const postAuthor = get(
+						post,
+						[ '_embedded', 'author', 0 ],
+						false
+					);
+					const postCategory = get(
+						post,
+						[ '_embedded', 'wp:term', 0, 0 ],
+						false
+					);
+					const postTags = get(
+						post,
+						[ '_embedded', 'wp:term', 1 ],
+						false
+					);
+
 					return (
 						<div className="post-card" key={ index }>
-							{ showImages && (
-								<img src={ post?.featuredImageInfo?.url } />
+							{ styleType !== 'mini' && (
+								<div className="image">
+									<img src={ post?.featuredImageInfo?.url } />
+								</div>
+							) }
+							{ showDate && styleType === 'mini' && (
+								<div className="date-box">
+									<span>{ format( 'j', post.date ) }</span>
+									<span>{ format( 'M', post.date ) }</span>
+								</div>
 							) }
 							<div className="content">
-								<h4>{ post.title.rendered }</h4>
-								{ showDate && (
+								{ showDate && styleType !== 'mini' && (
 									<span>
 										{ format( 'j. F Y', post.date ) }
 									</span>
 								) }
+								<h4>{ post.title.rendered }</h4>
+
 								{ styleType == 'cards' && (
 									<p>{ postExcerpt }</p>
 								) }
+								<div className="taxonomy">
+									{ showTag && postTags && post._embedded && (
+										<div className="tags">
+											{ postTags.map( ( tag, index ) => (
+												<span key={ index }>
+													{ tag.name }
+												</span>
+											) ) }
+										</div>
+									) }
+									{ showCategory && postCategory && (
+										<>
+											<span>{ postCategory.name }</span>
+										</>
+									) }
+								</div>
+								{ linkAsButton && styleType !== 'mini' && (
+									<div className="link-button">
+										<span>{ __( 'Read more' ) }</span>
+									</div>
+								) }
 							</div>
+							{ linkAsButton && styleType == 'mini' && (
+								<div className="link-button">
+									<i className="material-icons">more_horiz</i>
+								</div>
+							) }
 						</div>
 					);
 				} ) }

@@ -10,11 +10,11 @@
 	"attributes": {
 		"maxValue": {
 			"type": "string",
-			"default": "30"
+			"default": "100"
 		},
 		"currentValue": {
 			"type": "string",
-			"default": "100"
+			"default": "50"
 		},
 		"showValues": {
 			"type": "boolean",
@@ -53,6 +53,18 @@
 			"default": ""
 		},
 		"maxDescription": {
+			"type": "string",
+			"default": ""
+		},
+		"animate": {
+			"type": "boolean",
+			"default": true
+		},
+		"barLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"barType": {
 			"type": "string",
 			"default": ""
 		}

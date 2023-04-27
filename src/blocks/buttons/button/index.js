@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import metadata from './block.json';
+import deprecated from './deprecated';
 import Edit from './edit';
 import './editor.scss';
 import icon from './icon';
@@ -19,6 +20,7 @@ const settings = {
 	title: __( title, 'ctx-blocks' ),
 	description: __( description, 'ctx-blocks' ),
 	icon,
+	deprecated,
 	edit: withColors( { buttonColor: 'buttonColor' } )( Edit ),
 	save: () => {
 		return <InnerBlocks.Content />;

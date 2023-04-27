@@ -286,6 +286,7 @@
 				"Fügt einen Inhaltsblock ein"
 			],
 			"Background Color": [ "Hintergrundfarbe" ],
+			"Secondary color": [ "Akzentfarbe" ],
 			"Background Image": [ "Hintergrundbild" ],
 			"Select image": [ "Bild wählen" ],
 			"Image orientation": [ "Bildausrichtung" ],
@@ -328,7 +329,21 @@
 			"Access Control": [ "Zugriffskontrolle" ],
 			"Show only to logged in users": [
 				"Nur für angemeldete Benutzer anzeigen"
-			]
+			],
+			"Bar": [ "Balken" ],
+			"Bar Type": [ "Stil" ],
+			"Bar label": [ "Beschriftung" ],
+			"Gradient (experimental)": [ "Verlauf (experimentell)" ],
+			"Stripes": [ "Gestreift" ],
+			"None": [ "Keine" ],
+			"Percentage": [ "Prozent" ],
+			"Value": [ "Wert" ],
+			"Both": [ "Beides" ],
+			"Animate": [ "Animieren" ],
+			"Show Category": [ "Kategorie anzeigen" ],
+			"Show Author": [ "Autor anzeigen" ],
+			"Show Tags": [ "Schlagwörter anzeigen" ],
+			"Style": [ "Darstellung" ]
 		}
 	}
 }

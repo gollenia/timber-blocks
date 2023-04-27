@@ -8,49 +8,21 @@
 	"textdomain": "ctx-blocks",
 	"category": "widgets",
 	"attributes": {
-		"columnsSmall": {
-			"type": "number",
-			"default": 1
-		},
-		"columnsMedium": {
-			"type": "number",
-			"default": 2
-		},
-		"columnsLarge": {
-			"type": "number",
-			"default": 3
-		},
-		"showImages": {
-			"type": "boolean",
-			"default": true
-		},
-		"roundImages": {
-			"type": "boolean",
-			"default": false
-		},
-		"dropShadow": {
-			"type": "boolean",
-			"default": true
-		},
-		"hover": {
-			"type": "boolean",
-			"default": true
-		},
-		"imageSize": {
-			"type": "number",
-			"default": 100
-		},
 		"showDate": {
 			"type": "boolean",
 			"default": true
 		},
 		"showCategory": {
 			"type": "boolean",
-			"default": true
+			"default": false
 		},
 		"showTag": {
 			"type": "boolean",
-			"default": true
+			"default": false
+		},
+		"showAuthor": {
+			"type": "boolean",
+			"default": false
 		},
 		"styleType": {
 			"type": "string",
@@ -58,7 +30,7 @@
 		},
 		"limit": {
 			"type": "number",
-			"default": 6
+			"default": 99
 		},
 		"order": {
 			"type": "string",
@@ -76,17 +48,21 @@
 			"type": "number",
 			"default": 20
 		},
-		"textAlignment": {
-			"type": "string",
-			"default": "left"
+		"linkAsButton": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
+		"__experimentalOnEnter": true,
+		"__experimentalSettings": true,
 		"align": [ "full", "wide" ],
 		"default": "full",
 		"spacing": {
-			"margin": true,
+			"margin": [ "top", "bottom" ],
 			"padding": true
 		}
-	}
+	},
+	"style": "ctx-blocks-posts",
+	"editorStyle": "ctx-blocks-posts-editor"
 }

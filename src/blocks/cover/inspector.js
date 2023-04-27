@@ -3,12 +3,14 @@
  */
 import {
 	InspectorControls,
+	PanelColorSettings,
 	__experimentalUseGradient,
 } from '@wordpress/block-editor';
 import {
 	CheckboxControl,
 	FocalPointPicker,
 	PanelBody,
+	RangeControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -37,11 +39,10 @@ const Inspector = ( props ) => {
 		overlayOpacity,
 	} = attributes;
 
-	console.log( clientId );
-
 	const {
 		isImageBackground,
 		mediaElement,
+		hasBackground,
 		url,
 		isImgElement,
 		overlayColor,
@@ -71,44 +72,81 @@ const Inspector = ( props ) => {
 					title={ __( 'Background Image', 'ctx-blocks' ) }
 					initialOpen={ true }
 				>
-					<CheckboxControl
-						label={ __( 'Parallax-Effect', 'ctx-blocks' ) }
-						disabled={ ! useFeaturedImage && ! url }
-						onChange={ () => {
-							toggleParallax();
-						} }
-						checked={ hasParallax }
-					/>
+					{ hasBackground ? (
+						<>
+							<CheckboxControl
+								label={ __( 'Parallax-Effect', 'ctx-blocks' ) }
+								disabled={ ! useFeaturedImage && ! url }
+								onChange={ () => {
+									toggleParallax();
+								} }
+								checked={ hasParallax }
+							/>
 
-					<CheckboxControl
-						label={ __(
-							'Show image in original size',
-							'ctx-blocks'
-						) }
-						onChange={ () => {
-							setAttributes( {
-								originalImageSize: ! originalImageSize,
-							} );
-						} }
-						checked={ originalImageSize }
-					/>
+							<CheckboxControl
+								label={ __(
+									'Show image in original size',
+									'ctx-blocks'
+								) }
+								onChange={ () => {
+									setAttributes( {
+										originalImageSize: ! originalImageSize,
+									} );
+								} }
+								checked={ originalImageSize }
+							/>
 
-					<FocalPointPicker
-						__nextHasNoMarginBottom
-						label={ __( 'Focal point picker' ) }
-						url={ url }
-						value={ focalPoint }
-						onDragStart={ imperativeFocalPointPreview }
-						onDrag={ imperativeFocalPointPreview }
-						onChange={ ( newFocalPoint ) =>
-							setAttributes( {
-								focalPoint: newFocalPoint,
-							} )
+							<FocalPointPicker
+								__nextHasNoMarginBottom
+								label={ __( 'Focal point picker' ) }
+								url={ url }
+								value={ focalPoint }
+								onDragStart={ imperativeFocalPointPreview }
+								onDrag={ imperativeFocalPointPreview }
+								onChange={ ( newFocalPoint ) =>
+									setAttributes( {
+										focalPoint: newFocalPoint,
+									} )
+								}
+							/>
+						</>
+					) : (
+						<p>
+							{ __(
+								"You haven't selected an image yet.",
+								'ctx-blocks'
+							) }
+						</p>
+					) }
+				</PanelBody>
+			</InspectorControls>
+			<InspectorControls group="styles">
+				<PanelColorSettings
+					title={ __( 'Color settings', 'ctx-blocks' ) }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+							label: __( 'Overlay color', 'ctx-blocks' ),
+							onChange: setOverlayColor,
+							value: overlayColor.color,
+							disableCustomColors: false,
+							defaultPalette: false,
+							enableAlpha: true,
+						},
+					] }
+				/>
+				<PanelBody>
+					<RangeControl
+						label={ __( 'Overlay opacity', 'ctx-blocks' ) }
+						value={ overlayOpacity }
+						onChange={ ( value ) =>
+							setAttributes( { overlayOpacity: value } )
 						}
+						min={ 0 }
+						max={ 100 }
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<InspectorControls group="color"></InspectorControls>
 		</>
 	);
 };

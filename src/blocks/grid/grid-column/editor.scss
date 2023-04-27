@@ -1,12 +1,11 @@
 @for $i from 1 through 12 {
-    div[data-width="#{$i}"] {
-        grid-column: span $i/span $i!important;
-    }
+	div[data-width="#{$i}"] {
+		grid-column: span $i/span $i !important;
+	}
 }
 
 .ctx\:column {
 	margin: 0 !important;
-	border: 1px dashed #bbb;
 
 	&__wrapper {
 		padding: 0 5px;

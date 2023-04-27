@@ -1,27 +1,32 @@
 .ctx\:card {
 	position: relative;
-  	display:flex;
+	display: flex;
+	padding: 0 !important;
 
 	&--right {
 		align-items: flex-end;
-    	text-align: right;
+		text-align: right;
 	}
 	&--right {
 		align-items: center;
-    	text-align: center;
+		text-align: center;
 	}
 	&__label {
 		margin-bottom: 5px;
 	}
 
+	&__shadow {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+
 	&__badge {
 		position: absolute;
-        border-radius: 100%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        aspect-ratio: 1/1;
+		border-radius: 100%;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: 5px;
+		aspect-ratio: 1/1;
 	}
 
 	label {
@@ -40,6 +45,8 @@
 			width: 100%;
 			aspect-ratio: 16/9;
 			object-fit: cover;
+			border-top-right-radius: inherit;
+			border-top-left-radius: inherit;
 		}
 		.ctx\:card__badge {
 			right: 10px;
@@ -53,16 +60,16 @@
 			width: 100%;
 			aspect-ratio: 16/9;
 			object-fit: cover;
+			border-bottom-right-radius: inherit;
+			border-bottom-left-radius: inherit;
 		}
 		.ctx\:card__badge {
 			right: 10px;
 			bottom: 10px;
 		}
-	  }
-	
-	 
-	
-	  &__image--left {
+	}
+
+	&__image--left {
 		flex-direction: row;
 		align-items: center;
 		img {
@@ -71,37 +78,38 @@
 			height: revert;
 			align-self: stretch;
 			object-fit: cover;
+			border-bottom-left-radius: inherit;
+			border-top-left-radius: inherit;
 		}
 		.ctx\:card__badge {
 			left: 10px;
 			top: 10px;
 		}
-	  }
-	
-	  &__image--right {
-			flex-direction: row-reverse;
-			align-items: center;
-			img {
-				width: 33%;
-				aspect-ratio: 1/1;
-				height: revert;
-				align-self: stretch;
-				object-fit: cover;
-			}
-			.ctx\:card__badge {
-				right: 10px;
-				top: 10px;
-				
-			}
-	  }
+	}
+
+	&__image--right {
+		flex-direction: row-reverse;
+		align-items: center;
+		img {
+			width: 33%;
+			aspect-ratio: 1/1;
+			height: revert;
+			align-self: stretch;
+			object-fit: cover;
+			border-bottom-right-radius: inherit;
+			border-top-right-radius: inherit;
+		}
+		.ctx\:card__badge {
+			right: 10px;
+			top: 10px;
+		}
+	}
 
 	&__content {
 		padding: 15px;
 		position: relative;
 	}
 }
-
-
 
 .imagePositionSelector {
 	margin-top: 10px;
@@ -119,5 +127,5 @@
 		&.active {
 			border: 2px solid #007cba;
 		}
-}
+	}
 }

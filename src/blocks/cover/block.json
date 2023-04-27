@@ -50,10 +50,12 @@
 			"type": "object"
 		},
 		"minHeight": {
-			"type": "number"
+			"type": "number",
+			"default": 400
 		},
 		"minHeightUnit": {
-			"type": "string"
+			"type": "string",
+			"default": "px"
 		},
 		"gradient": {
 			"type": "string"
@@ -97,13 +99,18 @@
 			"color": true,
 			"radius": true,
 			"style": true,
-			"width": true,
+			"width": false,
 			"__experimentalDefaultControls": {
 				"color": true,
 				"radius": true,
 				"style": true,
 				"width": true
 			}
+		},
+		"__experimentalLayout": {
+			"allowSizingOnChildren": true
 		}
-	}
+	},
+	"editorStyle": "ctx-blocks-editor-cover",
+	"style": "ctx-blocks-cover"
 }

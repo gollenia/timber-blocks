@@ -1,41 +1,48 @@
 {#
-# Button Block template	 
-#
-# Attributes
-#
-# string	title
-# string	buttonColor
-# string	size				small, medium, large
-# string	url
-# bool		outline
-# string	icon
-# bool		iconRight
-# bool		isLink
-# bool		fullWidth
-# bool		modalFull
-# string	modalTitle
-# bool		hasModal
+#	Speciol button template to use available icons only
 #
 #}
 
-{% set bg = get_color_by_slug(buttonColor, customButtonColor) %}
+{% set bg = get_color_by_slug(buttonColor ?? 'primary', customButtonColor) %}
 
-<div>
-    <a  
-        {% if hasModal %}data-modal="{{id}}"{% endif %}
-        class="
-		{% if hasModal %}has-modal{% endif %} 
-		button {{ isLink ? "button--link" }} 
-		{{ not title ? "button--icon" }} 
-		{% if not bg %}button--{{buttonColor}}{% endif %}
-		{{ outline ? "button--outline" }} 
-		{{ iconRight ? "button--reverse" }} 
-		{{ size == "small" ? "button--small" }} 
-		{{ size == "large" ? "button-large" }}"
-        style="color: {{ isLink or outline ? bg.color : (bg.light ? "#000000" : "#ffffff" ) }}; background: {{ isLink or outline ? "transparent" : bg.color }}; box-shadow: {{ outline ? "inset 0px 0px 0px 2px " ~ bg.color : "none" }};"
-        href="{{ hasModal ? "#/" : url }}"
-    >
-    {% if icon %}<i class="material-icons">{{icon}}</i>{% endif %}{{title}}
-    </a>
-</div>
- 
+
+{% set outline = "is-style-outline" in className %}
+
+{% set hasModal = action == 'modal' %}
+
+{% set classes = 
+	'button ' ~
+	className ~  
+	(action == 'modal' ? ' has-modal' : '') ~
+	(iconRight ? " button--reverse" : '') ~
+	(outline ? " button--outline" : '') ~
+	(iconOnly ? " button--icon button--round" : '') 
+%}
+
+{% set textColor = textColor ?? (outline ? bg.color : (bg.light ? "#000" : "#fff")) %}
+
+{% set style = 
+	style ~
+	" color: " ~ textColor ~ ";" ~
+	" background-color: " ~ (outline ? 'none;' : bg.color ~ ";") ~
+	(outline ? " box-shadow: inset 0 0 0 2px " ~ bg.color ~ ";" : '')
+%}
+
+{% set tag = action == 'link' ? 'a' : 'button' %}
+
+<{{tag}} 
+	{{ id and hasModal ? 'data-modal="' ~ id ~ '"' }} 
+	class="{{classes}}" 
+	style="{{style}}" 
+	href="{{ tag == a ? url }}" 
+	{% if action == 'script' %}onClick="{{id}}()"{% endif %}
+>
+	{% if icon %}<i class="material-icons">{{icon}}</i>{% endif %} {{ not iconOnly ? title }}
+
+</{{tag}}>
+
+{% if script %}
+	<script>
+		const {{id}} = () => { {{script}} }
+	</script>
+{% endif %}

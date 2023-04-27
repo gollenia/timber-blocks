@@ -46,11 +46,16 @@
 		"spacing": {
 			"margin": [ "top", "bottom" ],
 			"padding": [ "left", "right" ],
+			"blockGap": true,
 			"__experimentalDefaultControls": {
 				"padding": true,
 				"blockGap": true
 			}
+		},
+		"__experimentalLayout": {
+			"allowSizingOnChildren": true
 		}
 	},
-	"style": "wp-block-ctx-blocks-grid-row"
+	"style": "wp-block-ctx-blocks-grid-row",
+	"editorStyle": "wp-block-ctx-blocks-grid-row-editor"
 }

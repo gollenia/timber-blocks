@@ -2,6 +2,8 @@
  * Wordpress dependencies
  */
 import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor';
+import { createBlock } from '@wordpress/blocks';
+import { Modal } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -17,13 +19,15 @@ export default function ButtonEdit( { ...props } ) {
 		attributes: {
 			title,
 			size,
-			isLink,
 			modalTitle,
 			modalFull,
-			hasModal,
+			action,
 			outline,
 			icon,
+			url,
 			iconRight,
+			iconOnly,
+			customButtonColor,
 		},
 		setAttributes,
 		buttonColor,
@@ -37,15 +41,9 @@ export default function ButtonEdit( { ...props } ) {
 		meta: select( 'core/editor' ).getEditedPostAttribute( 'meta' ) || {},
 	} ) );
 
-	const colors = useSelect( 'core/block-editor' ).getSettings().colors;
+	const hasModal = action == 'modal';
 
-	const TEMPLATE = [
-		[
-			'core/heading',
-			{ placeholder: __( 'Heading or Greeting', 'ctx-blocks' ) },
-		],
-		[ 'core/paragraph' ],
-	];
+	const TEMPLATE = [ [ 'core/paragraph' ] ];
 
 	const [ showModal, setShowModal ] = useState( false );
 
@@ -63,78 +61,87 @@ export default function ButtonEdit( { ...props } ) {
 		.filter( Boolean )
 		.join( ' ' );
 
+	const blockProps = useBlockProps( { className: 'ctx-button-block' } );
+
+	const backgroundColor =
+		buttonColor.color == undefined || buttonColor.color == ''
+			? 'var(--primary)'
+			: buttonColor.color;
 	const textColor =
-		buttonColor.color == undefined || colord( buttonColor.color ).isLight()
+		buttonColor == undefined || colord( buttonColor.color ).isLight()
 			? '#000000'
 			: '#ffffff';
 
-	const blockProps = useBlockProps( { className: 'ctx-button-block' } );
-
-	const buttonBackground =
-		buttonColor.color == ''
-			? page_colors?.primary_color ?? 'var(--primary)'
-			: buttonColor.color;
+	const isOutline = blockProps.className?.includes( 'is-style-outline' );
 
 	const style = {
-		background: ! outline && ! isLink ? buttonBackground : 'transparent',
-		boxShadow: outline
-			? 'inset 0px 0px 0px 2px ' + buttonBackground
+		...blockProps.style,
+		backgroundColor: isOutline ? 'transparent' : backgroundColor,
+		boxShadow: isOutline
+			? 'inset 0px 0px 0px 2px ' + backgroundColor
 			: 'none',
-		color: isLink || outline ? buttonBackground : textColor,
+		color: isOutline ? backgroundColor : textColor,
 	};
 
 	return (
-		<div { ...blockProps }>
+		<div { ...blockProps } style={ style }>
 			<Inspector { ...props } />
+
 			<span
-				style={ style }
 				className={ buttonClasses }
 				onClick={ () => {
+					if ( ! hasModal ) return;
 					setShowModal( true );
 				} }
 			>
 				{ icon && <i className="material-icons">{ icon }</i> }
-				<RichText
-					tagName="span"
-					value={ title }
-					onChange={ ( value ) => setAttributes( { title: value } ) }
-					placeholder={ __( 'Button title', 'ctx-blocks' ) }
-					allowedFormats={ [ 'core/bold', 'core/italic' ] }
-				/>
+				{ ! iconOnly && (
+					<RichText
+						tagName="span"
+						value={ title }
+						disableLineBreaks={ true }
+						onChange={ ( value ) =>
+							setAttributes( { title: value } )
+						}
+						placeholder={ __( 'Button title', 'ctx-blocks' ) }
+						allowedFormats={ [ 'core/bold', 'core/italic' ] }
+						onKeyUp={ ( event ) => {
+							if ( event.keyCode === 13 ) {
+								event.preventDefault();
+								const newBlock = createBlock(
+									'ctx-blocks/button',
+									{}
+								);
+								props.insertBlocksAfter( newBlock );
+							}
+							if ( event.keyCode === 8 && title == '' ) {
+								event.preventDefault();
+								props.onRemove();
+							}
+						} }
+					/>
+				) }
 			</span>
 
-			{ hasModal && showModal && (
-				<div
-					className="backdrop"
-					onClick={ () => {
+			{ showModal && (
+				<Modal
+					title={ __( 'Edit Modal content', 'ctx-blocks' ) }
+					isOpen={ showModal }
+					onRequestClose={ () => {
 						setShowModal( false );
 					} }
 				>
-					<div
-						className={ modalClasses }
-						onClick={ ( event ) => {
-							event.stopPropagation();
-							event.preventDefault();
-						} }
-					>
-						<div className="ctx-modal-title">
-							<RichText
-								tagName="span"
-								value={ modalTitle }
-								onChange={ ( value ) =>
-									setAttributes( { modalTitle: value } )
-								}
-								placeholder={ __(
-									'Modal title',
-									'ctx-blocks'
-								) }
-							/>
-						</div>
-						<div className="ctx-modal-body">
-							<InnerBlocks template={ TEMPLATE } />
-						</div>
-					</div>
-				</div>
+					<RichText
+						tagName="h1"
+						value={ modalTitle }
+						onChange={ ( value ) =>
+							setAttributes( { modalTitle: value } )
+						}
+						placeholder={ __( 'Modal title', 'ctx-blocks' ) }
+						allowedFormats={ [ 'core/bold', 'core/italic' ] }
+					/>
+					<InnerBlocks template={ TEMPLATE } />
+				</Modal>
 			) }
 		</div>
 	);

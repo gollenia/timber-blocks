@@ -9,7 +9,7 @@ import {
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { ...props } ) {
-	const { clientId } = props;
+
 	const blockProps = useBlockProps();
 	const template = [ [ 'ctx-blocks/section' ] ];
 	const allowedBlocks = [ 'ctx-blocks/section' ];

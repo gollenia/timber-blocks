@@ -6,7 +6,12 @@
 	"textdomain": "ctx-blocks",
 	"description": "Simple Container for the header content",
 	"category": "layout",
-	"attributes": {},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
 	"supports": {
 		"align": [ "full" ],
 		"default": "alignwide"

@@ -13,18 +13,16 @@
 #
 #}
 
-<div class="description__item">
-    <div class="description__image {% if icon is empty %}description__image--noicon{% endif %}">
-    {% if icon %}<i class="description__icon material-icons">{{icon}}</i>{% endif %} 
-    {% if image %}
-        {% if image.subtype == 'svg+xml' %}
-            <figure>
-            {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
-            </figure>
-        {% else %}
-            <img src="{{image.sizes.thumbnail.url}}" alt="{{image.description ?: image.title}}">
-        {% endif %}
-    {% endif %}
+{% set bg = get_color_by_slug(iconBackgroundColor ?? "white", customIconBackgroundColor) %}
+{% set fg = get_color_by_slug(iconColor ?? "white", customIconColor) %}
+
+
+<div style="{{style}}" class="{{className}} description__item">
+    <div class="description__image" style="background: {{bg.color}}; color: {{fg.color}}; {{roundImage ? " border-radius: 999px !important"}}">
+		{% if icon %}<i class="description__icon material-icons">{{icon}}</i>{% endif %} 
+		{% if image %}
+        	<img src="{{image.sizes.thumbnail.url}}" alt="{{image.description ?: image.title}}">  
+    	{% endif %}
     </div>
     <div class="description__text">
         {% if title %}<div class="description__title">{{title}}</div>{% endif %}

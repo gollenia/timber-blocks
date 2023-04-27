@@ -8,15 +8,7 @@
 	"textdomain": "ctx-blocks",
 	"category": "layout",
 	"attributes": {
-		"backgroundColor": {
-			"type": "string",
-			"default": "white"
-		},
 		"secondaryColor": {
-			"type": "string",
-			"default": ""
-		},
-		"customBackgroundColor": {
 			"type": "string",
 			"default": ""
 		},
@@ -24,13 +16,20 @@
 			"type": "string",
 			"default": ""
 		},
-		"transparent": {
-			"type": "boolean",
-			"default": false
+		"backgroundColor": {
+			"type": "string",
+			"default": "white"
+		},
+		"customBackgroundColor": {
+			"type": "string",
+			"default": ""
 		},
 		"shadow": {
 			"type": "boolean",
 			"default": true
+		},
+		"focalPoint": {
+			"type": "object"
 		},
 		"url": {
 			"type": "string",
@@ -44,33 +43,21 @@
 			"type": "string",
 			"default": "left"
 		},
-		"image": {
-			"type": "object",
-			"default": null
+		"imageUrl": {
+			"type": "string",
+			"default": ""
 		},
-		"imageRound": {
-			"type": "boolean",
-			"default": false
+		"imageAlt": {
+			"type": "string",
+			"default": ""
 		},
-		"imageWidth": {
-			"type": "integer",
-			"default": 100
-		},
-		"imageBorder": {
-			"type": "boolean",
-			"default": false
+		"imageId": {
+			"type": "number",
+			"default": 0
 		},
 		"imagePosition": {
 			"type": "string",
 			"default": "top"
-		},
-		"isFirst": {
-			"type": "boolean",
-			"default": false
-		},
-		"isLast": {
-			"type": "boolean",
-			"default": false
 		},
 		"label": {
 			"type": "string",
@@ -80,9 +67,36 @@
 			"type": "string",
 			"default": ""
 		},
-		"actions": {
-			"type": "array",
-			"default": []
+		"anchor": {
+			"type": "string"
 		}
-	}
+	},
+	"usesContext": [ "postId", "postType" ],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"shadow": true,
+		"spacing": {
+			"blockGap": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": false,
+			"radius": true,
+			"style": false,
+			"width": false,
+			"__experimentalDefaultControls": {
+				"color": false,
+				"radius": true,
+				"style": false,
+				"width": false
+			}
+		}
+	},
+	"editorStyle": "ctx-blocks-editor",
+	"style": "ctx-blocks"
 }

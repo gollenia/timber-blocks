@@ -1,53 +1,57 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
-import { Icon } from '@wordpress/components';
+import { useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { colord } from 'colord';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
-
-import CardImage from './cardImage';
-import icons from './icons';
 
 export default function CardEdit( { ...props } ) {
 	const {
 		attributes: {
 			imagePosition,
 			textAlign,
-			isFirst,
-			isLast,
 			label,
 			badge,
 			hover,
-			image,
+			imageId,
+			imageUrl,
+			shadow,
 			url,
+			style,
+			className,
 			customBackgroundColor,
 			customSecondaryColor,
 		},
-
 		backgroundColor,
 		secondaryColor,
+		setAttributes,
+		__unstableLayoutClassNames: layoutClassNames,
 	} = props;
 
 	const allowedBlocks = [
 		'core/spacer',
 		'core/separator',
 		'core/paragraph',
-		'core/shortcode',
 		'core/heading',
 		'core/list',
-		'core/image',
-		'ctx-blocks/button-group',
-		'ctx-blocks/button',
-		'ctx-blocks/image',
-		'ctx-blocks/nav',
-		'ctx-blocks/posts',
-		'ctx-blocks/grid-row',
-		'ctx-blocks/description-list',
-		'ctx-blocks/accordion-collection',
+		'core/group',
 		'ctx-blocks/progress',
 		'events-manager/details',
 		'events-manager/booking',
 	];
+
+	const imageRef = useRef();
+
+	const onSelectMedia = ( media ) => {
+		if ( ! media || ! media.url ) {
+			setAttributes( { imageUrl: undefined, imageId: undefined } );
+			return;
+		}
+		setAttributes( {
+			imageUrl: media.sizes?.large?.url ?? media.url,
+			imageId: media.id,
+		} );
+	};
 
 	const template = [
 		[
@@ -75,12 +79,6 @@ export default function CardEdit( { ...props } ) {
 		],
 	];
 
-	const getSecondaryStyle = () => {
-		let bgValue = 'var(--primary)';
-		let fbValue = 'var(--primary-contrast)';
-		ifcustomSecondaryColor ?? backgroundColor.color;
-	};
-
 	const backgroundColorValue = customBackgroundColor
 		? customBackgroundColor
 		: backgroundColor.color ?? '#ffffff';
@@ -88,11 +86,6 @@ export default function CardEdit( { ...props } ) {
 	const secondaryColorValue = customSecondaryColor
 		? customSecondaryColor
 		: secondaryColor.color ?? 'var(--primary)';
-
-	const style = {
-		background: backgroundColorValue,
-		color: colord( backgroundColorValue ).isDark() ? '#ffffff' : '#000000',
-	};
 
 	const secondaryStyle = {
 		background: secondaryColorValue,
@@ -104,52 +97,60 @@ export default function CardEdit( { ...props } ) {
 		{ allowedBlocks, template }
 	);
 
+	const textColor = backgroundColor.color
+		? colord( backgroundColor.color ).isDark()
+			? 'white'
+			: 'black'
+		: 'black';
+
 	const classes = [
+		layoutClassNames,
+		className,
 		'ctx:card',
-		isFirst ? 'ctx:card__first' : false,
-		isLast ? 'ctx:card__last' : false,
-		hover ? 'ctx:card__hover' : false,
+		backgroundColor.slug
+			? `has-background has-${ backgroundColor.slug }-background-color`
+			: false,
+		'has-text-color',
+		'has-' + textColor + '-text-color',
+		url ? 'ctx:card--hover' : false,
+		shadow ? 'ctx:card__shadow' : false,
 		`ctx:card--${ textAlign }`,
 		`ctx:card__image--${ imagePosition }`,
 	]
 		.filter( Boolean )
 		.join( ' ' );
 
+	const blockProps = useBlockProps( { className: classes } );
+
+	const cardStyle = {
+		...blockProps.style,
+		backgroundColor: backgroundColorValue,
+		padding: '0 !important',
+	};
+
+	const contentStyle = {
+		paddingTop: blockProps.style?.paddingTop ?? '1rem',
+		paddingBottom: blockProps.style?.paddingBottom ?? '1rem',
+		paddingLeft: blockProps.style?.paddingLeft ?? '1rem',
+		paddingRight: blockProps.style?.paddingRight ?? '1rem',
+	};
+
 	return (
 		<>
-			<Inspector { ...props } />
-			<Toolbar { ...props } />
-			<div { ...useBlockProps() }>
-				<div className="ctx:control__label ctx:card__label">
-					<label>{ __( 'Card', 'ctx-blocks' ) }</label>
-					<div className="ctx:control__icons">
-						{ url != '' && (
-							<Icon
-								className="ctx:control__icon"
-								icon={ icons?.url }
-								size={ 18 }
-							/>
-						) }
-					</div>
-				</div>
-				<div style={ style } className={ classes }>
-					{ badge != '' && (
-						<b className="ctx:card__badge" style={ secondaryStyle }>
-							<b>{ badge }</b>
-						</b>
+			<Inspector { ...props } imageRef={ imageRef } />
+			<Toolbar { ...props } onSelectMedia={ onSelectMedia } />
+			<div { ...blockProps } style={ cardStyle }>
+				{ !! badge && (
+					<b className="ctx:card__badge" style={ secondaryStyle }>
+						<b>{ badge }</b>
+					</b>
+				) }
+				{ imageUrl && <img ref={ imageRef } src={ imageUrl ?? '' } /> }
+				<div className="ctx:card__content" style={ contentStyle }>
+					{ !! label && (
+						<label style={ secondaryStyle }>{ label }</label>
 					) }
-					<CardImage
-						image={ image }
-						failMessage={ __(
-							'Image is too small. Please upload a larger version'
-						) }
-					/>
-					<div className="ctx:card__content">
-						{ label != '' && (
-							<label style={ secondaryStyle }>{ label }</label>
-						) }
-						<div { ...innerBlockProps }></div>
-					</div>
+					<div { ...innerBlockProps }></div>
 				</div>
 			</div>
 		</>

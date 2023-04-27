@@ -1,5 +1,4 @@
 import metadata from './block.json';
-import deprecated from './deprecated';
 import edit from './edit';
 import './editor.scss';
 import icons from './icons';
@@ -18,7 +17,6 @@ const settings = {
 	description: __( description, 'ctx-blocks' ),
 	icon: icons.row,
 	edit,
-	deprecated,
 	save: () => {
 		return <InnerBlocks.Content />;
 	},

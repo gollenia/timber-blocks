@@ -14,9 +14,20 @@
 		}
 	},
 	"supports": {
+		"__experimentalOnEnter": true,
+		"__experimentalSettings": true,
 		"spacing": {
 			"margin": true,
-			"padding": true
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"blockGap": true
+			}
+		},
+		"__experimentalLayout": {
+			"allowSizingOnChildren": true
 		}
-	}
+	},
+	"editorStyle": "wp-block-descriptiopn-list-editor",
+	"style": "wp-block-descriptiopn-list"
 }

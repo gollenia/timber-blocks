@@ -1,19 +1,28 @@
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	store as blockEditorStore,
+	useBlockProps,
+	useInnerBlocksProps,
+	withColors,
+} from '@wordpress/block-editor';
+
+import { compose } from '@wordpress/compose';
 import { store as coreStore, useEntityProp } from '@wordpress/core-data';
-import { useSelect } from '@wordpress/data';
+import { useDispatch, useSelect } from '@wordpress/data';
 import { useRef } from '@wordpress/element';
+import { store as noticesStore } from '@wordpress/notices';
 import classnames from 'classnames';
 import ResizeBox from '../../common/components/ResizeBox';
 import {
-	attributesFromMedia,
 	IMAGE_BACKGROUND_TYPE,
-	mediaPosition,
 	POSITION_CLASSNAMES,
+	attributesFromMedia,
+	mediaPosition,
 } from './common';
 import Inspector from './inspector';
+import CoverPlaceholder from './placeholder';
 import Toolbar from './toolbar';
 
-export default function Edit( { ...props } ) {
+const CoverEdit = ( { ...props } ) => {
 	const template = [ [ 'core/paragraph' ] ];
 
 	const {
@@ -51,12 +60,15 @@ export default function Edit( { ...props } ) {
 		postId
 	);
 
+	const { createErrorNotice } = useDispatch( noticesStore );
+
 	const media = useSelect(
 		( select ) =>
 			featuredImage &&
 			select( coreStore ).getMedia( featuredImage, { context: 'view' } ),
 		[ featuredImage ]
 	);
+
 	const mediaUrl = media?.source_url;
 
 	const url = useFeaturedImage
@@ -70,14 +82,28 @@ export default function Edit( { ...props } ) {
 
 	const isImageBackground = IMAGE_BACKGROUND_TYPE === backgroundType;
 
+	const hasInnerBlocks = useSelect(
+		( select ) =>
+			select( blockEditorStore ).getBlock( clientId ).innerBlocks.length >
+			0,
+		[ clientId ]
+	);
+
+	const hasBackground = !! ( url || overlayColor.color );
+
 	const currentSettings = {
 		url,
 		overlayColor,
 		mediaElement,
 		isImageBackground,
+		hasBackground,
 	};
 
 	const onSelectMedia = attributesFromMedia( setAttributes, overlayOpacity );
+
+	const onUploadError = ( message ) => {
+		createErrorNotice( message, { type: 'snackbar' } );
+	};
 
 	const toggleUseFeaturedImage = () => {
 		setAttributes( {
@@ -100,6 +126,7 @@ export default function Edit( { ...props } ) {
 
 	const overlayStyle = {
 		background: overlayColor.color,
+		opacity: overlayOpacity / 100,
 	};
 
 	const imageStyle = {
@@ -152,43 +179,57 @@ export default function Edit( { ...props } ) {
 				onSelectMedia={ onSelectMedia }
 				toggleUseFeaturedImage={ toggleUseFeaturedImage }
 			/>
-
 			<div
 				{ ...blockProps }
 				style={ { ...style, ...blockProps.style } }
 				className={ classnames( classes, blockProps.className ) }
 			>
-				<ResizeBox
-					className="block-library-cover__resize-container"
-					onResizeStart={ () => {
-						setAttributes( { minHeightUnit: 'px' } );
-						toggleSelection( false );
-					} }
-					onResize={ ( value ) => {
-						setAttributes( { minHeight: value } );
-					} }
-					onResizeStop={ ( newMinHeight ) => {
-						toggleSelection( true );
-						setAttributes( { minHeight: newMinHeight } );
-					} }
-					showHandle={ isSelected }
-				/>
-				<div
-					className="ctx:cover__overlay"
-					style={ overlayStyle }
-				></div>
-				{ url && ! hasParallax && (
-					<img
-						className={ imageClasses }
-						ref={ mediaElement }
-						src={ url }
-						style={ imageStyle }
-					/>
+				{ ! hasInnerBlocks && ( ! url || ! isImageBackground ) ? (
+					<CoverPlaceholder
+						onSelectMedia={ onSelectMedia }
+						onError={ onUploadError }
+						toggleUseFeaturedImage={ toggleUseFeaturedImage }
+					></CoverPlaceholder>
+				) : (
+					<>
+						<ResizeBox
+							className="block-library-cover__resize-container"
+							onResizeStart={ () => {
+								setAttributes( { minHeightUnit: 'px' } );
+								toggleSelection( false );
+							} }
+							onResize={ ( value ) => {
+								setAttributes( { minHeight: value } );
+							} }
+							onResizeStop={ ( newMinHeight ) => {
+								toggleSelection( true );
+								setAttributes( { minHeight: newMinHeight } );
+							} }
+							showHandle={ isSelected }
+						/>
+
+						{ url && ! hasParallax && (
+							<img
+								className={ imageClasses }
+								ref={ mediaElement }
+								src={ url }
+								style={ imageStyle }
+							/>
+						) }
+						<div
+							className="ctx:cover__overlay"
+							style={ overlayStyle }
+						></div>
+						<div className={ innerBlocksClasses }>
+							<div { ...innerBlocksProps }></div>
+						</div>
+					</>
 				) }
-				<div className={ innerBlocksClasses }>
-					<div { ...innerBlocksProps }></div>
-				</div>
 			</div>
 		</>
 	);
-}
+};
+
+export default compose( [
+	withColors( { overlayColor: 'background-color' } ),
+] )( CoverEdit );

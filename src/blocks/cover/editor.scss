@@ -8,6 +8,27 @@
 	}
 
 	background-attachment: fixed;
+
+	&.is-placeholder {
+		padding: 0 !important;
+		display: flex;
+		align-items: stretch;
+		min-height: 240px;
+
+		.components-placeholder {
+			&.is-large {
+				justify-content: flex-start;
+				z-index: z-index(
+					".wp-block-cover.is-placeholder .components-placeholder.is-large"
+				);
+			}
+		}
+
+		// Allow focus outline/box-shadow to align with block's min height.
+		&:focus::after {
+			min-height: auto;
+		}
+	}
 }
 
 .ctx\:cover__image {
@@ -27,6 +48,14 @@
 	&--parallax {
 		position: fixed;
 	}
+}
+
+.ctx\:cover__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .ctx\:cover__inner {

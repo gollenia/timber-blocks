@@ -7,7 +7,8 @@ import {
 	URLInput,
 } from '@wordpress/block-editor';
 import {
-	BaseControl,
+	Button,
+	Icon,
 	PanelBody,
 	PanelRow,
 	SelectControl,
@@ -15,179 +16,229 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-
+import icons from './icons';
 /**
  * Inspector controls
  */
 const Inspector = ( props ) => {
 	const {
 		attributes: {
-			fullWidth,
 			url,
-			size,
-			hasModal,
 			modalFull,
 			icon,
 			iconOnly,
 			iconRight,
-			isLink,
-			outline,
+			newTab,
+			action,
+			script,
+			scriptTarget,
+			customButtonColor,
 		},
 		setAttributes,
-		customButtonColor,
-		buttonColor,
 		setButtonColor,
+		buttonColor,
 	} = props;
 
-	const setAction = ( action ) => {
-		const value = action == 'modal' ? true : false;
-		setAttributes( { hasModal: value } );
-	};
-
-	const currentAction = () => {
-		return hasModal ? 'modal' : 'link';
-	};
+	console.log( 'action', action );
 
 	return (
-		<InspectorControls>
-			<PanelBody
-				title={ __( 'Appearance', 'ctx-blocks' ) }
-				initialOpen={ true }
-			>
-				<PanelRow>
-					<SelectControl
-						label={ __( 'Size', 'ctx-blocks' ) }
-						value={ size }
-						options={ [
-							{ label: __( 'Normal', 'ctx-blocks' ), value: '' },
-							{
-								label: __( 'Small', 'ctx-blocks' ),
-								value: 'small',
-							},
-							{
-								label: __( 'Large', 'ctx-blocks' ),
-								value: 'large',
-							},
-						] }
-						onChange={ ( event ) => {
-							setAttributes( { size: event } );
-						} }
-					/>
-				</PanelRow>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Outline-Button', 'ctx-blocks' ) }
-						checked={ outline }
-						onChange={ ( value ) =>
-							setAttributes( { outline: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Link only', 'ctx-blocks' ) }
-						checked={ isLink }
-						onChange={ ( value ) =>
-							setAttributes( { isLink: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<ToggleControl
-						label={ __( 'Full width', 'ctx-blocks' ) }
-						checked={ fullWidth }
-						onChange={ ( value ) =>
-							setAttributes( { fullWidth: value } )
-						}
-					/>
-				</PanelRow>
-				<PanelRow>
-					<TextControl
-						label={ __( 'Icon', 'ctx-blocks' ) }
-						value={ icon }
-						onChange={ ( value ) => {
-							setAttributes( { icon: value } );
-						} }
-					/>
-				</PanelRow>
-
-				<ToggleControl
-					label={ __( 'Show icon on the right', 'ctx-blocks' ) }
-					checked={ iconRight }
-					onChange={ ( value ) =>
-						setAttributes( { iconRight: value } )
-					}
-				/>
-				<ToggleControl
-					label={ __(
-						'Hide button text and show icon only',
-						'ctx-blocks'
-					) }
-					checked={ iconOnly }
-					onChange={ ( value ) =>
-						setAttributes( { iconOnly: value } )
-					}
-				/>
-			</PanelBody>
-			<PanelBody
-				title={ __( 'Behaviour', 'ctx-blocks' ) }
-				initialOpen={ true }
-			>
-				<SelectControl
-					label={ __( 'Action', 'ctx-blocks' ) }
-					value={ currentAction() }
-					options={ [
-						{ label: __( 'Link', 'ctx-blocks' ), value: 'link' },
-						{ label: __( 'Modal', 'ctx-blocks' ), value: 'modal' },
+		<>
+			<InspectorControls group="styles">
+				<PanelColorSettings
+					title={ __( 'Color settings', 'ctx-blocks' ) }
+					initialOpen={ false }
+					order={ 1 }
+					colorSettings={ [
+						{
+							label: __( 'Background color', 'ctx-blocks' ),
+							onChange: setButtonColor,
+							value: buttonColor.color,
+							disableCustomColors: false,
+							defaultPalette: false,
+							enableAlpha: true,
+						},
 					] }
-					onChange={ ( event ) => {
-						setAction( event );
-					} }
 				/>
-
-				{ ! hasModal && (
-					<BaseControl
-						label={ __( 'Add a URL or a link', 'ctx-blocks' ) }
-					>
-						<URLInput
-							value={ url }
-							onChange={ ( url, post ) =>
-								setAttributes( {
-									url,
-									text:
-										( post && post.title ) ||
-										__( 'Click here', 'ctx-blocks' ),
-								} )
-							}
+			</InspectorControls>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Icon', 'ctx-blocks' ) }
+					initialOpen={ true }
+				>
+					<PanelRow>
+						<TextControl
+							label={ __( 'Icon', 'ctx-blocks' ) }
+							value={ icon }
+							onChange={ ( value ) => {
+								setAttributes( { icon: value } );
+							} }
 						/>
-					</BaseControl>
-				) }
+					</PanelRow>
 
-				{ hasModal && (
 					<ToggleControl
-						label={ __( 'Full screen size', 'ctx-blocks' ) }
-						checked={ modalFull }
+						label={ __( 'Show icon on the right', 'ctx-blocks' ) }
+						checked={ iconRight }
 						onChange={ ( value ) =>
-							setAttributes( { modalFull: value } )
+							setAttributes( { iconRight: value } )
 						}
 					/>
-				) }
-			</PanelBody>
-			<PanelColorSettings
-				title={ __( 'Color Settings', 'ctx-blocks' ) }
-				colorSettings={ [
-					{
-						label: __(
-							'Set a background color for the button',
+					<ToggleControl
+						label={ __(
+							'Hide button text and show icon only',
 							'ctx-blocks'
-						),
-						onChange: setButtonColor,
-						value: buttonColor.color,
-						disableCustomColors: false,
-					},
-				] }
-			/>
-		</InspectorControls>
+						) }
+						checked={ iconOnly }
+						onChange={ ( value ) =>
+							setAttributes( { iconOnly: value } )
+						}
+					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Behaviour', 'ctx-blocks' ) }
+					initialOpen={ true }
+				>
+					<div className="ctx-style-selector">
+						<Button
+							onClick={ () =>
+								setAttributes( { action: 'link' } )
+							}
+							className={ action === 'link' ? 'active' : '' }
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.link }
+							/>
+							<div>{ __( 'Link', 'gutenberg-form' ) }</div>
+						</Button>
+						<Button
+							onClick={ () =>
+								setAttributes( { action: 'modal' } )
+							}
+							className={ action === 'modal' ? 'active' : '' }
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.window }
+							/>
+							<div>{ __( 'Modal', 'gutenberg-form' ) }</div>
+						</Button>
+						<Button
+							onClick={ () =>
+								setAttributes( { action: 'script' } )
+							}
+							className={ action === 'script' ? 'active' : '' }
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.script }
+							/>
+							<div>{ __( 'Script', 'gutenberg-form' ) }</div>
+						</Button>
+					</div>
+
+					{ action === 'modal' && (
+						<>
+							<ToggleControl
+								label={ __( 'Full screen size', 'ctx-blocks' ) }
+								checked={ modalFull }
+								onChange={ ( value ) =>
+									setAttributes( { modalFull: ! modalFull } )
+								}
+							/>
+						</>
+					) }
+
+					{ action == 'link' && (
+						<>
+							<div className="block-editor-link-control__search-input-container">
+								<URLInput
+									value={ url }
+									placeholder={ __( 'Search or type url' ) }
+									onChange={ ( url, post ) =>
+										setAttributes( {
+											url,
+											text:
+												( post && post.title ) ||
+												__(
+													'Click here',
+													'ctx-blocks'
+												),
+										} )
+									}
+								/>
+							</div>
+							<ToggleControl
+								label={ __( 'Open in new Tab', 'ctx-blocks' ) }
+								checked={ newTab }
+								onChange={ ( value ) =>
+									setAttributes( { newTab: ! newTab } )
+								}
+							/>
+						</>
+					) }
+
+					{ action == 'script' && (
+						<>
+							<SelectControl
+								label={ __( 'Script', 'ctx-blocks' ) }
+								value={ script }
+								options={ [
+									{
+										label: __(
+											'Select a script',
+											'ctx-blocks'
+										),
+										value: '',
+									},
+									{
+										label: __(
+											'Toggle Element',
+											'ctx-blocks'
+										),
+										value: 'toggle',
+									},
+									{
+										label: __(
+											'Hide Element',
+											'ctx-blocks'
+										),
+										value: 'hide',
+									},
+									{
+										label: __(
+											'Show Element',
+											'ctx-blocks'
+										),
+										value: 'show',
+									},
+									{
+										label: __(
+											'Scroll to Element',
+											'ctx-blocks'
+										),
+										value: 'scroll',
+									},
+								] }
+								onChange={ ( value ) => {
+									setAttributes( { script: value } );
+								} }
+							/>
+
+							<TextControl
+								label={ __( 'Element ID', 'ctx-blocks' ) }
+								value={ scriptTarget }
+								onChange={ ( value ) => {
+									setAttributes( { scriptTarget: value } );
+								} }
+							/>
+						</>
+					) }
+				</PanelBody>
+			</InspectorControls>
+		</>
 	);
 };
 

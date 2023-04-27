@@ -17,33 +17,16 @@
 .ctx\:row {
 	display: grid !important;
 
-	padding-top: 2rem;
-
-	&.alignfull {
-		margin-left: calc(
-			var(--wp--style--root--padding-right) * -1
-		) !important;
-		margin-right: calc(
-			var(--wp--style--root--padding-left) * -1
-		) !important;
-	}
-
-	gap: 1rem;
-
-	> .block-list-appender {
-		position: relative;
-		.components-button {
-			width: 100%;
-			line-height: 1.2rem;
-			padding-top: 5px !important;
-			padding-bottom: 5px !important;
-			height: auto;
-		}
-	}
 	&__icon {
 		height: 18px;
 		width: 18px;
 		opacity: 0.6;
+	}
+
+	&--equalize {
+		.ctx\:card {
+			height: 100%;
+		}
 	}
 
 	&__label {
