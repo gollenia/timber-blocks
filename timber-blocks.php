@@ -58,3 +58,4 @@ Contexis\Blocks\Section::init($assets);	//deprecated
 Contexis\Blocks\Button::init($assets);
 Contexis\Blocks\Topbar::init($assets);
 Contexis\Blocks\CoreBlock::init($assets);
+
