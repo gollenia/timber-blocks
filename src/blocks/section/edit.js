@@ -28,6 +28,8 @@ export default function Edit( { ...props } ) {
 		backgroundColor,
 	} = props;
 
+	console.log( props );
+
 	const isHidden = () => {
 		if ( ! fromDate && ! toDate ) return false;
 		if ( fromDate && ! toDate && new Date( fromDate ) > new Date() )
@@ -89,6 +91,8 @@ export default function Edit( { ...props } ) {
 		.join( ' ' );
 
 	const blockProps = useBlockProps( { className: classes, style: style } );
+
+	
 
 	return (
 		<div>
