@@ -61,9 +61,9 @@ const withFeaturedImageControl = createHigherOrderComponent( ( BlockEdit ) => {
 								'ctx-blocks'
 							) }
 							options={ [
-								{ label: 'Left', value: 'left' },
-								{ label: 'Center', value: 'center' },
-								{ label: 'Right', value: 'right' },
+								{ label: 'left', value: 'left' },
+								{ label: 'center', value: 'center' },
+								{ label: 'right', value: 'right' },
 							] }
 							onChange={ ( value ) => {
 								setAttributes( { mobileOrientation: value } );
