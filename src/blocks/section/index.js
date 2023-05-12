@@ -5,6 +5,7 @@ import metadata from './block.json';
 import edit from './edit';
 import './editor.scss';
 import icon from './icon';
+import transforms from './transforms';
 
 /**
  * Wordpress dependencies
@@ -20,6 +21,7 @@ const settings = {
 	title: __( title, 'ctx-blocks' ),
 	description: __( description, 'ctx-blocks' ),
 	edit: withColors( { backgroundColor: 'backgroundColor' } )( edit ),
+	transforms,
 	save: () => {
 		return <InnerBlocks.Content />;
 	},
