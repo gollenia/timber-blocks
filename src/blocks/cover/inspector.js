@@ -7,8 +7,10 @@ import {
 	__experimentalUseGradient,
 } from '@wordpress/block-editor';
 import {
+	Button,
 	CheckboxControl,
 	FocalPointPicker,
+	Icon,
 	PanelBody,
 	RangeControl,
 } from '@wordpress/components';
@@ -17,6 +19,7 @@ import { __ } from '@wordpress/i18n';
 import { __experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients } from '@wordpress/block-editor';
 
 import { mediaPosition } from './common';
+import icons from './icons';
 
 /**
  * Inspector controls
@@ -37,6 +40,7 @@ const Inspector = ( props ) => {
 		focalPoint,
 		originalImageSize,
 		overlayOpacity,
+		coverSize,
 	} = attributes;
 
 	const {
@@ -83,19 +87,6 @@ const Inspector = ( props ) => {
 								checked={ hasParallax }
 							/>
 
-							<CheckboxControl
-								label={ __(
-									'Show image in original size',
-									'ctx-blocks'
-								) }
-								onChange={ () => {
-									setAttributes( {
-										originalImageSize: ! originalImageSize,
-									} );
-								} }
-								checked={ originalImageSize }
-							/>
-
 							<FocalPointPicker
 								__nextHasNoMarginBottom
 								label={ __( 'Focal point picker' ) }
@@ -119,7 +110,56 @@ const Inspector = ( props ) => {
 						</p>
 					) }
 				</PanelBody>
+				<PanelBody
+					title={ __( 'Size', 'ctx-blocks' ) }
+					initialOpen={ true }
+				>
+					<div className="ctx-style-selector">
+						<Button
+							onClick={ () =>
+								setAttributes( { coverSize: 'original' } )
+							}
+							className={
+								coverSize === 'original' ? 'active' : ''
+							}
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.original }
+							/>
+							<div>{ __( 'Original', 'gutenberg-form' ) }</div>
+						</Button>
+						<Button
+							onClick={ () =>
+								setAttributes( { coverSize: 'fixed' } )
+							}
+							className={ coverSize === 'fixed' ? 'active' : '' }
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.fixed }
+							/>
+							<div>{ __( 'Fixed', 'gutenberg-form' ) }</div>
+						</Button>
+						<Button
+							onClick={ () =>
+								setAttributes( { coverSize: 'pinch' } )
+							}
+							className={ coverSize === 'pinch' ? 'active' : '' }
+						>
+							<Icon
+								size="64"
+								className="icon"
+								icon={ icons.pinch }
+							/>
+							<div>{ __( 'Manually', 'gutenberg-form' ) }</div>
+						</Button>
+					</div>
+				</PanelBody>
 			</InspectorControls>
+
 			<InspectorControls group="styles">
 				<PanelColorSettings
 					title={ __( 'Color settings', 'ctx-blocks' ) }

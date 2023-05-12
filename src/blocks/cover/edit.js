@@ -46,7 +46,8 @@ const CoverEdit = ( { ...props } ) => {
 		contentPosition,
 		overlayOpacity,
 		focalPoint,
-		originalImageSize,
+		coverSize,
+		aspectRatio,
 	} = attributes;
 
 	const mediaElement = useRef();
@@ -121,7 +122,6 @@ const CoverEdit = ( { ...props } ) => {
 		backgroundPosition: imagePosition,
 		backgroundImage: url && hasParallax ? 'url(' + url + ')' : undefined,
 		minHeight: minHeightUnit === 'px' ? minHeight + 'px' : minHeight + '%',
-		backgroundSize: originalImageSize ? '100%' : 'cover',
 	};
 
 	const overlayStyle = {
@@ -148,15 +148,15 @@ const CoverEdit = ( { ...props } ) => {
 
 	const imageClasses = classnames(
 		'ctx:cover__image',
-		hasParallax && 'ctx:cover__image--parallax',
-		originalImageSize
-			? 'ctx:cover__image--original'
-			: 'ctx:cover__image--cover'
+		hasParallax && coverSize !== 'original' && 'ctx:cover__image--parallax'
 	);
 
 	const classes = [
 		'ctx:cover',
 		'alignwide',
+		coverSize === 'fixed' && 'ctx:cover--fixed',
+		coverSize === 'pinch' && 'ctx:cover--pinch',
+		coverSize === 'original' && 'ctx:cover--cover',
 		hasParallax ? 'parallax' : false,
 		className || false,
 	]
@@ -164,6 +164,8 @@ const CoverEdit = ( { ...props } ) => {
 		.join( ' ' );
 
 	const blockProps = useBlockProps( { ref }, { classes } );
+
+	console.log( 'coverSize', coverSize );
 
 	return (
 		<>
@@ -206,16 +208,23 @@ const CoverEdit = ( { ...props } ) => {
 								setAttributes( { minHeight: newMinHeight } );
 							} }
 							showHandle={ isSelected }
+							enable={ {
+								top: false,
+								right: false,
+								bottom: coverSize === 'pinch',
+								left: false,
+							} }
 						/>
 
-						{ url && ! hasParallax && (
-							<img
-								className={ imageClasses }
-								ref={ mediaElement }
-								src={ url }
-								style={ imageStyle }
-							/>
-						) }
+						{ url &&
+							! ( coverSize !== 'original' && hasParallax ) && (
+								<img
+									className={ imageClasses }
+									ref={ mediaElement }
+									src={ url }
+									style={ imageStyle }
+								/>
+							) }
 						<div
 							className="ctx:cover__overlay"
 							style={ overlayStyle }

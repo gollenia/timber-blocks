@@ -80,6 +80,14 @@
 		"tagName": {
 			"type": "string",
 			"default": "div"
+		},
+		"coverSize": {
+			"type": "string",
+			"default": "full"
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": "16/9"
 		}
 	},
 	"usesContext": [ "postId", "postType" ],
