@@ -34,7 +34,7 @@
 	{{ id and hasModal ? 'data-modal="' ~ id ~ '"' }} 
 	class="{{classes}}" 
 	style="{{style}}" 
-	href="{{ tag == a ? url }}" 
+	href="{{ url }}" 
 	{% if action == 'script' %}onClick="{{id}}()"{% endif %}
 >
 	{% if icon %}<i class="material-icons">{{icon}}</i>{% endif %} {{ not iconOnly ? title }}
