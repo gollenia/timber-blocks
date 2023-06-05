@@ -74,8 +74,8 @@ class Block implements BlockInterface {
         $template = $this->get_template($full_data->name);
 		
         if(!$template) return;
+
 		$styles = '';
-		
 		if ($full_data->parsed_block['attrs']) $styles = get_block_wrapper_attributes();
 		$attributes['className'] = preg_match('/class="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
 		$attributes['style'] = preg_match('/style="([^"]+)"/', $styles, $matches) ? $matches[1] : '';
@@ -83,7 +83,7 @@ class Block implements BlockInterface {
 		$attributes['content'] = $content;
         if(count($full_data->parsed_block['innerBlocks']) > 0) {
             $attributes['children'] = $full_data->parsed_block['innerBlocks'];
-			$attributes['blockGap'] = Helper::get_array_value(Helper::get_css_var($full_data->parsed_block['attrs'], "style.spacing.blockGap"), '');
+			$attributes['blockGap'] = Helper::get_css_var(Helper::get_array_value($full_data->parsed_block['attrs'], "style.spacing.blockGap", '1.5rem'));
         }
         
         return \Timber\Timber::compile($template, $attributes); 
