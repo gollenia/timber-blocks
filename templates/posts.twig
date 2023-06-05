@@ -33,7 +33,7 @@
 
 {% if styleType == "cards" %}
 <div></div>
-<div class="grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">
+<div class="{{className}} grid md:grid--columns-2 xl:grid--columns-3" style="{{ style }} gap: {{ blockGap ?? "1.5rem" }}">
     {% for item in posts %}
             <div 
                 class="card bg-white
