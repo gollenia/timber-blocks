@@ -12,7 +12,7 @@ import { get } from 'lodash';
 import { store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-
+import blockGapStyle from '../../common/utils/blockGapStyle';
 import Inspector from './inspector';
 
 export default function Edit( props ) {
@@ -110,6 +110,12 @@ export default function Edit( props ) {
 			.join( ' ' ),
 	} );
 
+	const style = {
+		gap: blockGapStyle(
+			props.attributes?.style?.spacing?.blockGap || '1rem'
+		),
+	};
+
 	return (
 		<>
 			<Inspector
@@ -118,7 +124,7 @@ export default function Edit( props ) {
 				categoryList={ categoryList }
 				category={ category }
 			/>
-			<div { ...blockProps }>
+			<div { ...blockProps } style={ { ...blockProps.style, ...style } }>
 				{ getPosts().map( ( post, index ) => {
 					// unfortunatedly the excerpt sometimes comes only prerendered, which diusturbs trimming to excerpt length
 					let excerpt =
