@@ -5,9 +5,11 @@ class Helper {
 
 	
 	public static function get_array_value($data, $key, $default = null) {
-		if (!is_string($key) || empty($key) || !count($data)) {
+		if (!$data || !is_string($key) || empty($key) || !count($data)) {
 			return $default;
 		}
+
+		
 	
 		if (strpos($key, '.') !== false) {
 			$keys = explode('.', $key);
@@ -26,8 +28,9 @@ class Helper {
 	public static function get_css_var($attribute) {
 		if(!$attribute) return $attribute;
 		if(is_array($attribute)) {
-			return;
+			return '';
 		}
+		if(!strpos($attribute, '|') ) return $attribute;
 		$attribute = str_replace('var:', '', $attribute);
 		return 'var(--wp--' . str_replace('|', '--',$attribute) . '); ';
 	}
