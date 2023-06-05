@@ -15,6 +15,7 @@ import { Button, Icon, Placeholder } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+import blockGapStyle from '../../../common/utils/blockGapStyle';
 import icons from './icons.js';
 
 const ALLOWED_BLOCKS = [ 'ctx-blocks/grid-column' ];
@@ -77,21 +78,10 @@ export default function GridRowEdit( { ...props } ) {
 		orientation: 'horizontal',
 	} );
 
-	const gapCalc = () => {
-		const raw = props.attributes?.style?.spacing?.blockGap;
-
-		if ( ! raw ) {
-			return '1rem';
-		}
-		if ( raw.includes( 'rem' ) || raw.includes( 'px' ) ) {
-			return raw;
-		}
-
-		return raw.replace( ':', '(--wp--' ).replaceAll( '|', '--' ) + ')';
-	};
-
 	const style = {
-		gap: gapCalc(),
+		gap: blockGapStyle(
+			props.attributes?.style?.spacing?.blockGap || '1.5rem'
+		),
 	};
 
 	return (
