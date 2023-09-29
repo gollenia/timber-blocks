@@ -13,7 +13,7 @@ import * as buttonGroup from './blocks/buttons/button-group';
 import * as buttonSpacer from './blocks/buttons/button-spacer';
 import * as card from './blocks/card';
 import * as conditional from './blocks/conditional';
-import * as cover from './blocks/cover';
+//import * as cover from './blocks/cover';
 import * as descriptionItem from './blocks/description/description-item';
 import * as descriptionList from './blocks/description/description-list';
 import * as footer from './blocks/footer';
@@ -24,6 +24,7 @@ import * as nav from './blocks/nav';
 import * as posts from './blocks/posts';
 import * as progress from './blocks/progress';
 import * as section from './blocks/section';
+import * as inlineSvg from './blocks/svg';
 import * as topbar from './blocks/topbar';
 //import * as modal from './blocks/modal';
 import * as gridColumn from './blocks/grid/grid-column';
@@ -74,7 +75,7 @@ export const registerBlocks = () => {
 		section,
 		footer,
 		posts,
-		cover,
+		inlineSvg,
 		header,
 		headerContent,
 		nav,

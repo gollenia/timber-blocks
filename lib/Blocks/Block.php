@@ -37,7 +37,7 @@ class Block implements BlockInterface {
         }
     }
 
-	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []): void {
 		$instance = new self($assets, $blocks);
 		$instance->register();
 	}

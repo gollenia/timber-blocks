@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ctx-blocks/svg",
+	"title": "Inline SVG",
+	"category": "widgets",
+	"keywords": [ "navigation", "logo", "menu", "claim" ],
+	"textdomain": "ctx-blocks",
+	"description": "Inject an SVG file into the page.",
+	"attributes": {
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"id": {
+			"type": "number",
+			"default": 0
+		},
+		"width": {
+			"type": "number",
+			"default": 500
+		},
+		"height": {
+			"type": "number",
+			"default": 500
+		},
+		"fillColor": {
+			"type": "string",
+			"default": ""
+		},
+		"strokeColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customFillColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customStrokeColor": {
+			"type": "string",
+			"default": ""
+		},
+		"strokeWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": ""
+		},
+		"linkDestination": {
+			"type": "string",
+			"default": ""
+		},
+		"linkClass": {
+			"type": "string",
+			"default": ""
+		},
+		"linkRel": {
+			"type": "string",
+			"default": ""
+		},
+		"href": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"admin.js","mappings":";;;;;AAAA,MAAMA,CAAC,GAAG,CAAC;AACXC,QAAQ,CAACC,gBAAgB,CAAE,kBAAkB,EAAE,YAAY,CAAC,CAAC,CAAE,C","sources":["webpack://timber-blocks/./src/admin.js"],"sourcesContent":["const t = 6;\ndocument.addEventListener( 'DOMContentLoaded', function () {} );\n"],"names":["t","document","addEventListener"],"sourceRoot":""}

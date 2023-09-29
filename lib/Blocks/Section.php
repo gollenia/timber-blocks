@@ -11,7 +11,7 @@ class Section extends Block {
         "section"
     ];
 
-	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) : void{
 		$instance = new self($assets);
 		$instance->register();
 	}

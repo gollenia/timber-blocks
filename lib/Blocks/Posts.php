@@ -28,7 +28,7 @@ class Posts extends Block {
         return \Timber\Timber::compile($template, $attributes);
     }
 
-	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []) {
+	public static function init(\Contexis\Utils\Assets $assets, array $blocks = []): void {
 		$instance = new self($assets);
 		$instance->register();
 	}

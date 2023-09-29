@@ -1,1 +1,10 @@
-!function(){"use strict";var e=window.wp.blocks;document.addEventListener("DOMContentLoaded",(function(){(0,e.unregisterBlockType)("core/columns"),(0,e.unregisterBlockType)("core/cover"),(0,e.unregisterBlockType)("core/more"),(0,e.unregisterBlockType)("core/nextpage")}))}();
+/******/ (function() { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!**********************!*\
+  !*** ./src/admin.js ***!
+  \**********************/
+const t = 6;
+document.addEventListener('DOMContentLoaded', function () {});
+/******/ })()
+;
+//# sourceMappingURL=admin.js.map
