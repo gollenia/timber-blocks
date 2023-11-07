@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "ctx-blocks/card",
+  "apiVersion": 2,
+  "title": "Card",
+  "keywords": [
+    "container",
+    "card"
+  ],
+  "description": "Card component to hold different Information",
+  "textdomain": "ctx-blocks",
+  "category": "layout",
+  "attributes": {
+    "secondaryColor": {
+      "type": "string",
+      "default": ""
+    },
+    "customSecondaryColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "customBackgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "shadow": {
+      "type": "boolean",
+      "default": true
+    },
+    "focalPoint": {
+      "type": "object"
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "hover": {
+      "type": "boolean",
+      "default": false
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "top"
+    },
+    "hasBadge": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasLabel": {
+      "type": "boolean",
+      "default": false
+    },
+    "labelText": {
+      "type": "string",
+      "default": ""
+    },
+    "badgeText": {
+      "type": "string",
+      "default": ""
+    },
+    "anchor": {
+      "type": "string"
+    }
+  },
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "supports": {
+    "anchor": true,
+    "html": false,
+    "shadow": true,
+    "className": true,
+    "layout": true,
+    "spacing": {
+      "blockGap": true,
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "blockGap": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    }
+  },
+  "selectors": {
+    "root": ".wp-block-ctx-blocks-card",
+    "spacing": ".wp-block ctx-card .ctx-card-content"
+  },
+  "editorStyle": "ctx-cards-editor-style",
+  "style": "ctx-cards-style"
+}

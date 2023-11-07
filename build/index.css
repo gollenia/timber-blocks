@@ -1,0 +1,941 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button/editor.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-ctx-blocks-button {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.ctx-button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.ctx-button.reverse {
+  flex-direction: row-reverse;
+}
+
+.components-panel__body .block-editor-url-input input {
+  width: 100% !important;
+}
+
+.backdrop {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.ctx-modal {
+  background: #fff;
+  padding: 50px;
+  box-shadow: 0px 3px 20px #000;
+  z-index: 2;
+}
+.ctx-modal.full {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-shadow: none !important;
+}
+
+.ctx-style-selector Button {
+  flex-direction: column;
+  height: 70px;
+  background: #eee;
+  width: 70px;
+  border: 2px solid #eee;
+  margin-right: 5px;
+}
+.ctx-style-selector Button.active {
+  border: 2px solid #007cba;
+}
+
+.ctx-style-selector {
+  padding-top: 10px;
+  padding-bottom: 22px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button-group/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+.ctx\:buttons {
+  display: flex;
+  margin-top: 5px;
+  gap: 1rem;
+  align-items: center;
+  border: 1px dashed #bbb;
+}
+.ctx\:buttons__center {
+  justify-content: center;
+}
+.ctx\:buttons__right {
+  justify-content: flex-end;
+}
+
+.ctx-buttons > .block-list-appender {
+  position: relative;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button-spacer/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.ctx-button-spacer {
+  flex: 1;
+  height: 2rem;
+  /* background: rgba(0,0,0,0.2); */
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/card/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.ctx-card {
+  position: relative;
+  display: flex;
+  padding: 0 !important;
+}
+.ctx-card--right {
+  align-items: flex-end;
+  text-align: right;
+}
+.ctx-card--right {
+  align-items: center;
+  text-align: center;
+}
+.ctx-card__label {
+  margin-bottom: 5px;
+}
+.ctx-card__shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.ctx-card__badge {
+  position: absolute;
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  aspect-ratio: 1/1;
+}
+.ctx-card label {
+  position: absolute;
+  top: 0;
+  margin-top: -11px;
+  padding: 1px 5px;
+}
+.ctx-card__image--top {
+  flex-direction: column;
+}
+.ctx-card__image--top label {
+  left: 10px;
+}
+.ctx-card__image--top img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-right-radius: inherit;
+  border-top-left-radius: inherit;
+}
+.ctx-card__image--top .ctx\:card__badge {
+  right: 10px;
+  top: 10px;
+}
+.ctx-card__image--bottom {
+  flex-direction: column-reverse;
+}
+.ctx-card__image--bottom img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+.ctx-card__image--bottom .ctx\:card__badge {
+  right: 10px;
+  bottom: 10px;
+}
+.ctx-card__image--left {
+  flex-direction: row;
+  align-items: center;
+}
+.ctx-card__image--left img {
+  width: 33%;
+  aspect-ratio: 1/1;
+  height: revert;
+  align-self: stretch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-left-radius: inherit;
+  border-top-left-radius: inherit;
+}
+.ctx-card__image--left .ctx\:card__badge {
+  left: 10px;
+  top: 10px;
+}
+.ctx-card__image--right {
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.ctx-card__image--right img {
+  width: 33%;
+  aspect-ratio: 1/1;
+  height: revert;
+  align-self: stretch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-right-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.ctx-card__image--right .ctx\:card__badge {
+  right: 10px;
+  top: 10px;
+}
+.ctx-card__content {
+  padding: 15px;
+  position: relative;
+  flex: 1;
+}
+.imagePositionSelector {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.imagePositionSelector Button {
+  flex-direction: column;
+  height: 70px;
+  background: #eee;
+  width: 56px;
+  font-size: 11px;
+  border: 2px solid #eee;
+  margin-left: 5px;
+}
+.imagePositionSelector Button.active {
+  border: 2px solid #007cba;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/conditional/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.ctx\:conditional {
+  padding: 1.5rem;
+}
+.ctx\:conditional::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #a6ec65 0px, #a6ec65 20px, rgba(255, 255, 255, 0) 20px, rgba(255, 255, 255, 0) 40px);
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+.ctx\:conditional__logged-in::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e5c703 0px, #e5c703 20px, rgba(255, 255, 255, 0) 20px, rgba(255, 255, 255, 0) 40px);
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+}
+.ctx\:conditional__unscheduled::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e53b03 0px, #e53b03 20px, #eeb4a0 20px, #eeb4a0 40px);
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description/description-item/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.components-datetime {
+  padding: 0;
+}
+
+.ctx-description__item {
+  display: flex;
+  align-items: center;
+}
+.ctx-description__item img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.ctx-description__item img.round {
+  border-radius: 999px;
+}
+.ctx-description__item p {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.ctx-description__item .ctx-description__content {
+  flex: 1;
+}
+
+.ctx-has-icon .ctx-description__icon {
+  background: #ccc;
+  color: #444;
+}
+
+.ctx-round-icon .ctx-description__icon {
+  border-radius: 999px;
+}
+
+.ctx-description__icon {
+  width: 3.5rem;
+  margin-right: 1rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+.ctx-description__icon i {
+  font-size: 2.5rem;
+}
+
+.ctx-description--divider:not(:last-child) .ctx-description__item {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.ctx-description-item {
+  display: flex;
+}
+.ctx-description-item img {
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
+}
+.ctx-description-item .ctx-item-content {
+  flex: 1;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description/description-list/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.ctx\:description {
+  border: 1px dashed #bbb;
+  padding: 5px;
+}
+.ctx\:description__wrapper {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-column/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+div[data-width="1"] {
+  grid-column: span 1/span 1 !important;
+}
+
+div[data-width="2"] {
+  grid-column: span 2/span 2 !important;
+}
+
+div[data-width="3"] {
+  grid-column: span 3/span 3 !important;
+}
+
+div[data-width="4"] {
+  grid-column: span 4/span 4 !important;
+}
+
+div[data-width="5"] {
+  grid-column: span 5/span 5 !important;
+}
+
+div[data-width="6"] {
+  grid-column: span 6/span 6 !important;
+}
+
+div[data-width="7"] {
+  grid-column: span 7/span 7 !important;
+}
+
+div[data-width="8"] {
+  grid-column: span 8/span 8 !important;
+}
+
+div[data-width="9"] {
+  grid-column: span 9/span 9 !important;
+}
+
+div[data-width="10"] {
+  grid-column: span 10/span 10 !important;
+}
+
+div[data-width="11"] {
+  grid-column: span 11/span 11 !important;
+}
+
+div[data-width="12"] {
+  grid-column: span 12/span 12 !important;
+}
+
+.ctx\:column {
+  margin: 0 !important;
+}
+.ctx\:column__wrapper {
+  padding: 0 5px;
+}
+.ctx\:column__label {
+  margin: 5px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-row/editor.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+.ctx-appender-col-header {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1) 100%);
+  background-size: 28.28px 28.28px;
+  height: 32px;
+  opacity: 0;
+}
+
+.ctx\:row {
+  display: grid !important;
+}
+.ctx\:row__icon {
+  height: 18px;
+  width: 18px;
+  opacity: 0.6;
+}
+.ctx\:row--equalize .ctx\:card {
+  height: 100%;
+}
+.ctx\:row__label {
+  margin-bottom: 5px;
+  position: absolute;
+}
+.ctx\:row__icons {
+  height: 18px;
+}
+.ctx\:row__header {
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  margin-bottom: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+}
+.ctx\:row__header label {
+  font-size: 12px;
+  margin-left: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  color: #444;
+}
+.ctx\:row__header .ctx-row-icons {
+  margin-left: auto;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.ctx\:row__header .ctx-row-icons .ctx-row-icon {
+  height: 16px;
+  width: 16px;
+  opacity: 0.8;
+}
+
+.ctx\:row__columns--1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--10 {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/posts/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+.posts {
+  display: grid;
+  gap: 1rem;
+}
+.posts .shadow {
+  box-shadow: 0px 1px 2px #777;
+}
+
+.wp-block-ctx-blocks-posts img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.wp-block-ctx-blocks-posts .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.wp-block-ctx-blocks-posts .tags span {
+  color: #333;
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.ctx-post {
+  display: flex;
+  background: #fff;
+}
+
+.style-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.style-mini .post-card {
+  background-color: transparent;
+  display: flex;
+  gap: 1rem;
+}
+.style-mini .date-box {
+  padding-right: 0.5rem;
+  border-right: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.style-mini .date-box span:first-child {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.style-mini .content {
+  padding: 0;
+  flex: 1;
+}
+.style-mini .content h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.style-mini .link-button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.style-mini .link-button i {
+  color: #fff;
+  font-size: 14px;
+  background-color: var(--primary);
+  padding: 8px;
+}
+
+.style-list {
+  display: flex;
+  flex-direction: column;
+}
+.style-list .image {
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  width: 30%;
+  height: 100%;
+}
+.style-list h4 {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.style-list .ctx-post-image {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+.style-list img {
+  aspect-ratio: 1/1;
+  transition: all 0.3s ease-in-out;
+}
+.style-list .post-card {
+  align-items: stretch;
+  background-color: #fff;
+}
+.style-list span {
+  color: #bbb;
+  font-size: 14px;
+}
+.style-list .content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.style-list .link-button {
+  margin-top: auto;
+  text-align: right;
+}
+.style-list .link-button span {
+  color: #fff;
+  font-size: 14px;
+  background-color: var(--primary);
+  padding: 6px 8px;
+}
+
+.style-cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.style-cards .image {
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.style-cards p,
+.style-cards span {
+  margin: 0px !important;
+}
+.style-cards h4 {
+  margin: 5px 0px !important;
+}
+.style-cards span {
+  color: #999;
+  font-size: 14px;
+}
+.style-cards img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  transition: all 0.3s ease-in-out;
+}
+.style-cards .post-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.style-cards .taxonomy {
+  margin-top: auto;
+}
+.style-cards .content {
+  padding: 1rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.style-cards .link-button {
+  margin-top: auto;
+  text-align: right;
+}
+.style-cards .link-button span {
+  color: #fff;
+  font-size: 14px;
+  background-color: var(--primary);
+  padding: 6px 8px;
+}
+
+.ctx-text-align-center {
+  text-align: center;
+}
+.ctx-text-align-center .ctx-post-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctx-text-align-right {
+  text-align: right;
+}
+.ctx-text-align-right .ctx-post-image {
+  margin-left: auto;
+}
+
+.styleSelector Button {
+  flex-direction: column;
+  height: 70px;
+  background: #eee;
+  width: 70px;
+  border: 2px solid #eee;
+  margin-left: 5px;
+}
+.styleSelector Button.active {
+  border: 2px solid #007cba;
+}
+
+.wp-block-ctx-blocks-posts.columns-1 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-5 {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-6 {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-7 {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-8 {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-9 {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-10 {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-11 {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts.columns-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.wp-block-ctx-blocks-posts {
+  grid-gap: 1em;
+}
+.wp-block-ctx-blocks-posts.hover .post-card:hover img {
+  transform: scale(1.1);
+}
+.wp-block-ctx-blocks-posts.style-list .post-card {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.wp-block-ctx-blocks-posts.style-list .post-card .image {
+  overflow: hidden;
+}
+.wp-block-ctx-blocks-posts.style-list .post-card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/progress/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.ctx-progress .outer {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+}
+.ctx-progress .inner {
+  height: 20px;
+  border-radius: 10px;
+}
+.ctx-progress span.value {
+  float: right;
+  font-size: small;
+  margin-right: 10px;
+  color: #fff;
+}
+.ctx-progress .description {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.ctx-progress .cur-value-description, .ctx-progress .max-value-description {
+  font-size: 13px;
+}
+.ctx-progress .cur-value, .ctx-progress .max-value {
+  font-size: 20px;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/svg/editor.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.ctx-header-has-image .ctx\:header-content {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 1rem;
+  bottom: 1rem;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/common/styles/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+.ctx-appender__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8);
+}
+.ctx-appender__toggle:hover {
+  outline: 1px dashed #555d66;
+  color: #191e23;
+  background: rgba(237, 239, 240, 0.8) !important;
+  box-shadow: none !important;
+}
+
+.ctx-blocks-appender {
+  margin-top: 28px;
+}
+
+.ctx-text-align-center {
+  text-align: center;
+}
+
+.ctx-text-align-right {
+  text-align: right;
+}
+
+.ctx\:control {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+.ctx\:control__appender {
+  position: relative;
+  line-height: 1.2rem;
+  background: #1e1e1e;
+  padding: 0 1px;
+  border: 1px solud;
+  border-radius: 2px;
+  font-style: italic;
+  color: #fff;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.ctx\:control__appender:hover {
+  background: #017cba;
+}
+.ctx\:control__appender svg {
+  fill: #fff;
+}
+.ctx\:control__label {
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+  display: inline-flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  gap: 5px;
+}
+.ctx\:control__label--error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px dashed rgba(255, 0, 0, 0.3);
+}
+.ctx\:control__label--success {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px dashed rgba(0, 255, 0, 0.3);
+}
+.ctx\:control__icons {
+  height: 18px;
+}
+.ctx\:control__icon {
+  height: 18px;
+  width: 18px;
+  opacity: 0.6;
+}
+
+.wp-justify {
+  text-align: justify !important;
+}
+
+.has-primary-background-color {
+  background-color: var(--primary) !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

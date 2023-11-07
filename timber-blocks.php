@@ -34,7 +34,7 @@ $blocks_to_register = [
 	"alert",
 	"buttons/button-group",
 	"buttons/button-spacer",
-	"card",
+	//"card",
 	"description/description-item",
 	"description/description-list",
 	"grid/grid-column",
@@ -58,4 +58,10 @@ Contexis\Blocks\Section::init($assets);	//deprecated
 Contexis\Blocks\Button::init($assets);
 Contexis\Blocks\Topbar::init($assets);
 Contexis\Blocks\CoreBlock::init($assets);
+Contexis\Blocks\Svg::init($assets);
 
+
+function tblock_tblock_block_init() {
+	register_block_type( __DIR__ . '/build/blocks/card' );
+}
+add_action( 'init', 'tblock_tblock_block_init' );

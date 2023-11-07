@@ -47,7 +47,7 @@ class TwigExtend {
             }
         }
 
-		$result['light'] = Helper::color_is_light($result['color']);
+		//$result['light'] = Helper::color_is_light($result['color']);
 
         return $result;
     }

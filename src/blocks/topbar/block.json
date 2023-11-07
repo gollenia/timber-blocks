@@ -4,7 +4,7 @@
 	"name": "ctx-blocks/topbar",
 	"title": "Top Bar",
 	"category": "layout",
-	"keywords": [ "navigation", "logo", "menu", "claim" ],
+	"keywords": ["navigation", "logo", "menu", "claim"],
 	"textdomain": "ctx-blocks",
 	"description": "Contains main menu, logo and claim",
 	"attributes": {

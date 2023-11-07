@@ -3,7 +3,7 @@
 	"name": "ctx-blocks/card",
 	"apiVersion": 2,
 	"title": "Card",
-	"keywords": [ "container", "card" ],
+	"keywords": ["container", "card"],
 	"description": "Card component to hold different Information",
 	"textdomain": "ctx-blocks",
 	"category": "layout",
@@ -18,7 +18,7 @@
 		},
 		"backgroundColor": {
 			"type": "string",
-			"default": "white"
+			"default": ""
 		},
 		"customBackgroundColor": {
 			"type": "string",
@@ -59,11 +59,19 @@
 			"type": "string",
 			"default": "top"
 		},
-		"label": {
+		"hasBadge": {
+			"type": "boolean",
+			"default": false
+		},
+		"hasLabel": {
+			"type": "boolean",
+			"default": false
+		},
+		"labelText": {
 			"type": "string",
 			"default": ""
 		},
-		"badge": {
+		"badgeText": {
 			"type": "string",
 			"default": ""
 		},
@@ -71,11 +79,13 @@
 			"type": "string"
 		}
 	},
-	"usesContext": [ "postId", "postType" ],
+	"usesContext": ["postId", "postType"],
 	"supports": {
 		"anchor": true,
 		"html": false,
 		"shadow": true,
+		"className": true,
+		"layout": true,
 		"spacing": {
 			"blockGap": true,
 			"padding": true,
@@ -85,18 +95,22 @@
 			}
 		},
 		"__experimentalBorder": {
-			"color": false,
+			"color": true,
 			"radius": true,
-			"style": false,
-			"width": false,
+			"style": true,
+			"width": true,
 			"__experimentalDefaultControls": {
-				"color": false,
+				"color": true,
 				"radius": true,
-				"style": false,
-				"width": false
+				"style": true,
+				"width": true
 			}
 		}
 	},
-	"editorStyle": "ctx-blocks-editor",
-	"style": "ctx-blocks"
+	"selectors": {
+		"root": ".wp-block-ctx-blocks-card",
+		"spacing": ".wp-block ctx-card .ctx-card-content"
+	},
+	"editorStyle": "ctx-cards-editor-style",
+	"style": "ctx-cards-style"
 }

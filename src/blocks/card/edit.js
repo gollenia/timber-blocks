@@ -1,24 +1,30 @@
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	RichText,
+	getColorClassName,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 import { useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { colord } from 'colord';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
-export default function CardEdit( { ...props } ) {
+export default function CardEdit({ ...props }) {
 	const {
 		attributes: {
 			imagePosition,
 			textAlign,
-			label,
-			badge,
 			hover,
 			imageId,
 			imageUrl,
 			shadow,
 			url,
 			style,
-			className,
+			badgeText,
+			labelText,
+			hasBadge,
+			hasLabel,
 			customBackgroundColor,
 			customSecondaryColor,
 		},
@@ -27,6 +33,8 @@ export default function CardEdit( { ...props } ) {
 		setAttributes,
 		__unstableLayoutClassNames: layoutClassNames,
 	} = props;
+
+	console.log('edit', props);
 
 	const allowedBlocks = [
 		'core/spacer',
@@ -38,26 +46,27 @@ export default function CardEdit( { ...props } ) {
 		'ctx-blocks/progress',
 		'events-manager/details',
 		'events-manager/booking',
+		!url ? 'ctx-blocks/button' : false,
 	];
 
 	const imageRef = useRef();
 
-	const onSelectMedia = ( media ) => {
-		if ( ! media || ! media.url ) {
-			setAttributes( { imageUrl: undefined, imageId: undefined } );
+	const onSelectMedia = (media) => {
+		if (!media || !media.url) {
+			setAttributes({ imageUrl: undefined, imageId: undefined });
 			return;
 		}
-		setAttributes( {
+		setAttributes({
 			imageUrl: media.sizes?.large?.url ?? media.url,
 			imageId: media.id,
-		} );
+		});
 	};
 
 	const template = [
 		[
 			'core/heading',
 			{
-				placeholder: __( 'Title', 'ctx-blocks' ),
+				placeholder: __('Title', 'ctx-blocks'),
 				className: 'card__title',
 				level: 2,
 			},
@@ -65,7 +74,7 @@ export default function CardEdit( { ...props } ) {
 		[
 			'core/heading',
 			{
-				placeholder: __( 'Subtitle', 'ctx-blocks' ),
+				placeholder: __('Subtitle', 'ctx-blocks'),
 				className: 'card__subtitle',
 				level: 4,
 			},
@@ -73,15 +82,24 @@ export default function CardEdit( { ...props } ) {
 		[
 			'core/paragraph',
 			{
-				placeholder: __( 'Your content goes here...', 'ctx-blocks' ),
+				placeholder: __('Your content goes here...', 'ctx-blocks'),
 				className: 'card__text',
 			},
 		],
 	];
+	const backgroundColorClass = getColorClassName(
+		'background-color',
+		backgroundColor
+	);
+
+	const secondaryColorClass = getColorClassName(
+		'background-color',
+		secondaryColor
+	);
 
 	const backgroundColorValue = customBackgroundColor
 		? customBackgroundColor
-		: backgroundColor.color ?? '#ffffff';
+		: backgroundColor.color ?? '';
 
 	const secondaryColorValue = customSecondaryColor
 		? customSecondaryColor
@@ -89,7 +107,7 @@ export default function CardEdit( { ...props } ) {
 
 	const secondaryStyle = {
 		background: secondaryColorValue,
-		color: colord( secondaryColorValue ).isDark() ? '#ffffff' : '#000000',
+		color: colord(secondaryColorValue).isDark() ? '#ffffff' : '#000000',
 	};
 
 	const innerBlockProps = useInnerBlocksProps(
@@ -97,30 +115,18 @@ export default function CardEdit( { ...props } ) {
 		{ allowedBlocks, template }
 	);
 
-	const textColor = backgroundColor.color
-		? colord( backgroundColor.color ).isDark()
-			? 'white'
-			: 'black'
-		: 'black';
-
 	const classes = [
-		layoutClassNames,
-		className,
-		'ctx:card',
-		backgroundColor.slug
-			? `has-background has-${ backgroundColor.slug }-background-color`
-			: false,
-		'has-text-color',
-		'has-' + textColor + '-text-color',
-		url ? 'ctx:card--hover' : false,
-		shadow ? 'ctx:card__shadow' : false,
-		`ctx:card--${ textAlign }`,
-		`ctx:card__image--${ imagePosition }`,
+		'ctx-card',
+		backgroundColorClass,
+		url || hover ? 'ctx-card-hover' : false,
+		shadow ? 'ctx-card-shadow' : false,
+		`ctx-card-${textAlign}`,
+		`ctx-card-image-${imagePosition}`,
 	]
-		.filter( Boolean )
-		.join( ' ' );
+		.filter(Boolean)
+		.join(' ');
 
-	const blockProps = useBlockProps( { className: classes } );
+	const blockProps = useBlockProps({ className: classes });
 
 	const cardStyle = {
 		...blockProps.style,
@@ -137,20 +143,36 @@ export default function CardEdit( { ...props } ) {
 
 	return (
 		<>
-			<Inspector { ...props } imageRef={ imageRef } />
-			<Toolbar { ...props } onSelectMedia={ onSelectMedia } />
-			<div { ...blockProps } style={ cardStyle }>
-				{ !! badge && (
-					<b className="ctx:card__badge" style={ secondaryStyle }>
-						<b>{ badge }</b>
-					</b>
-				) }
-				{ imageUrl && <img ref={ imageRef } src={ imageUrl ?? '' } /> }
-				<div className="ctx:card__content" style={ contentStyle }>
-					{ !! label && (
-						<label style={ secondaryStyle }>{ label }</label>
-					) }
-					<div { ...innerBlockProps }></div>
+			<Inspector {...props} imageRef={imageRef} />
+			<Toolbar {...props} onSelectMedia={onSelectMedia} />
+			<div {...blockProps} style={cardStyle}>
+				{!!hasBadge && (
+					<RichText
+						tagName="p"
+						className={`ctx-card-badge ${secondaryColorClass}`}
+						placeholder={__('Badge', 'ctx-blocks')}
+						value={badgeText}
+						onChange={(value) =>
+							setAttributes({ badgeText: value })
+						}
+						style={secondaryStyle}
+					/>
+				)}
+				{imageUrl && <img ref={imageRef} src={imageUrl ?? ''} />}
+				<div className="ctx-card-content" style={contentStyle}>
+					{!!hasLabel && (
+						<RichText
+							className={`ctx-card-label ${secondaryColorClass}`}
+							tagName="label"
+							placeholder={__('Label', 'ctx-blocks')}
+							value={labelText}
+							onChange={(value) =>
+								setAttributes({ labelText: value })
+							}
+							style={secondaryStyle}
+						/>
+					)}
+					<div {...innerBlockProps}></div>
 				</div>
 			</div>
 		</>

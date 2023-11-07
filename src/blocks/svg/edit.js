@@ -17,9 +17,14 @@ const Edit = ( props ) => {
 
 	const onSelectMedia = ( media ) => {
 		if ( ! media || ! media.url ) {
-			setAttributes( { url: undefined, fileId: undefined } );
+			setAttributes( {
+				url: undefined,
+				fileId: undefined,
+			} );
 			return;
 		}
+
+		console.log( media );
 
 		setAttributes( {
 			url: media.sizes?.large?.url ?? media.url,

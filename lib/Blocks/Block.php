@@ -71,6 +71,8 @@ class Block implements BlockInterface {
 	
 
     public function render($attributes, $content, $full_data) {
+
+		if($full_data->name == 'ctx-blocks/card') return $content;
         $template = $this->get_template($full_data->name);
 		
         if(!$template) return;

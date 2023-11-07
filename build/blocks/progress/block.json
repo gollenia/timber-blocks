@@ -1,0 +1,86 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "ctx-blocks/progress",
+  "apiVersion": 2,
+  "title": "Progress Bar",
+  "keywords": [
+    "percent",
+    "progress"
+  ],
+  "description": "Shows a progress bar",
+  "textdomain": "ctx-blocks",
+  "category": "common",
+  "attributes": {
+    "maxValue": {
+      "type": "string",
+      "default": "100"
+    },
+    "currentValue": {
+      "type": "string",
+      "default": "50"
+    },
+    "showValues": {
+      "type": "boolean",
+      "default": true
+    },
+    "unit": {
+      "type": "string",
+      "default": ""
+    },
+    "prefixedUnit": {
+      "type": "boolean",
+      "default": false
+    },
+    "thousandSeparators": {
+      "type": "boolean",
+      "default": false
+    },
+    "decimalPlaces": {
+      "type": "integer",
+      "default": 0
+    },
+    "colorBar": {
+      "type": "string",
+      "default": "blue"
+    },
+    "colorBackground": {
+      "type": "string",
+      "default": "lightgray"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "currentDescription": {
+      "type": "string",
+      "default": ""
+    },
+    "maxDescription": {
+      "type": "string",
+      "default": ""
+    },
+    "animate": {
+      "type": "boolean",
+      "default": true
+    },
+    "barLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "barType": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorStyle": "ctx-cards-editor-style",
+  "style": "ctx-cards-style",
+  "viewScript": [
+    "file:../../view.js"
+  ]
+}

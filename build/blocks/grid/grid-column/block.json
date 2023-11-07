@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "ctx-blocks/grid-column",
+  "apiVersion": 2,
+  "title": "Column",
+  "keywords": [
+    "list",
+    "table"
+  ],
+  "description": "Single column as child of a columns collection",
+  "textdomain": "ctx-blocks",
+  "category": "layout",
+  "attributes": {
+    "widthSmall": {
+      "type": "integer",
+      "default": 0
+    },
+    "widthMedium": {
+      "type": "integer",
+      "default": 0
+    },
+    "widthLarge": {
+      "type": "integer",
+      "default": 0
+    },
+    "startSmall": {
+      "type": "integer",
+      "default": 0
+    },
+    "startMedium": {
+      "type": "integer",
+      "default": 0
+    },
+    "startLarge": {
+      "type": "integer",
+      "default": 0
+    },
+    "endSmall": {
+      "type": "integer",
+      "default": 0
+    },
+    "endMedium": {
+      "type": "integer",
+      "default": 0
+    },
+    "endLarge": {
+      "type": "integer",
+      "default": 0
+    },
+    "mobilePosition": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "ctx-blocks/grid-row"
+  ]
+}

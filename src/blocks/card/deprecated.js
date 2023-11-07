@@ -1,9 +1,14 @@
-import { InnerBlocks } from '@wordpress/block-editor';
+import {
+	getColorClassName,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
+import { colord } from 'colord';
 
-const migrateAttributes = ( attributes ) => {
-	console.log( attributes );
+const migrateAttributes = (attributes) => {
+	console.log(attributes);
 
-	console.log( 'migrating (shouldn`t happen)', attributes );
+	console.log('migrating (shouldn`t happen)', attributes);
 	attributes.imageUrl = attributes.image?.url ?? '';
 	attributes.imageId = attributes.image?.id ?? 0;
 
@@ -82,100 +87,111 @@ const deprecated = [
 				type: 'string',
 			},
 		},
-		save: () => {
-			return <InnerBlocks.Content />;
+		migrate: function (attributes) {
+			console.log('migrating', attributes);
+			attributes.labelText = attributes.label;
+			attributes.badgeText = attributes.badge;
+			attributes.hasBadge = !!attributes.badge;
+			attributes.hasLabel = !!attributes.label;
+			delete attributes.label;
+			delete attributes.badge;
+			return attributes;
 		},
-	},
-	{
-		attributes: {
-			backgroundColor: {
-				type: 'string',
-				default: 'white',
-			},
-			secondaryColor: {
-				type: 'string',
-				default: '',
-			},
-			customBackgroundColor: {
-				type: 'string',
-				default: '',
-			},
-			customSecondaryColor: {
-				type: 'string',
-				default: '',
-			},
-			transparent: {
-				type: 'boolean',
-				default: false,
-			},
-			shadow: {
-				type: 'boolean',
-				default: true,
-			},
-			url: {
-				type: 'string',
-				default: '',
-			},
-			hover: {
-				type: 'boolean',
-				default: false,
-			},
-			textAlign: {
-				type: 'string',
-				default: 'left',
-			},
-			image: {
-				type: 'Object',
-				default: {},
-			},
-			imageRound: {
-				type: 'boolean',
-				default: false,
-			},
-			imageWidth: {
-				type: 'integer',
-				default: 100,
-			},
-			imageBorder: {
-				type: 'boolean',
-				default: false,
-			},
-			imagePosition: {
-				type: 'string',
-				default: 'top',
-			},
-			isFirst: {
-				type: 'boolean',
-				default: false,
-			},
-			isLast: {
-				type: 'boolean',
-				default: false,
-			},
-			label: {
-				type: 'string',
-				default: '',
-			},
-			badge: {
-				type: 'string',
-				default: '',
-			},
-			actions: {
-				type: 'array',
-				default: [],
-			},
-		},
-		migrate: migrateAttributes,
-		isEligible: ( attributes, innerBlocks ) => {
-			console.log( attributes );
-			if ( attributes.image && typeof attributes.image !== 'string' ) {
-				console.log( 'is eligible' );
-				return true;
-			}
-			return false;
-		},
-		save: () => {
-			return <InnerBlocks.Content />;
+		save: function (props) {
+			console.log('saving', props);
+			const { attributes, className, children } = props;
+			const {
+				imagePosition,
+				textAlign,
+				label,
+				badge,
+				hover,
+				imageId,
+				imageUrl,
+				shadow,
+				url,
+				style,
+				backgroundColor,
+				secondaryColor,
+				customBackgroundColor,
+				customSecondaryColor,
+			} = attributes;
+
+			const backgroundColorClass = getColorClassName(
+				'background-color',
+				backgroundColor
+			);
+
+			const secondaryColorClass = getColorClassName(
+				'background-color',
+				secondaryColor
+			);
+
+			const classes = [
+				className,
+				'ctx-card',
+				backgroundColorClass,
+				url || hover ? 'ctx-card-hover' : false,
+				shadow ? 'ctx-card-shadow' : false,
+				`ctx-card-${textAlign}`,
+				`ctx-card-image-${imagePosition}`,
+			]
+				.filter(Boolean)
+				.join(' ');
+
+			const blockProps = useBlockProps.save({ className: classes });
+
+			const contentStyle = {
+				paddingTop: blockProps.style?.paddingTop ?? '1rem',
+				paddingBottom: blockProps.style?.paddingBottom ?? '1rem',
+				paddingLeft: blockProps.style?.paddingLeft ?? '1rem',
+				paddingRight: blockProps.style?.paddingRight ?? '1rem',
+			};
+
+			const accentStyle = {
+				background: customSecondaryColor,
+				color: colord(customSecondaryColor).isDark()
+					? '#ffffff'
+					: '#000000',
+			};
+
+			const cardStyle = {
+				...blockProps.style,
+				backgroundColor: !backgroundColorClass
+					? customBackgroundColor
+					: undefined,
+				padding: '0 !important',
+			};
+
+			return (
+				<div {...blockProps} style={cardStyle} className={classes}>
+					{!!badge && (
+						<b className="ctx-card-badge" style={accentStyle}>
+							<b>{badge}</b>
+						</b>
+					)}
+					{imageUrl && (
+						<div className="ctx-card-image">
+							<img src={imageUrl ?? ''} />
+						</div>
+					)}
+					<div className="ctx-card-content" style={contentStyle}>
+						{!!label && (
+							<label
+								className="ctx-card-label"
+								style={accentStyle}
+							>
+								{label}
+							</label>
+						)}
+						<div
+							{...useInnerBlocksProps.save({
+								className: 'wp-block-card__inner-container',
+							})}
+						/>
+					</div>
+				</div>
+			);
 		},
 	},
 ];

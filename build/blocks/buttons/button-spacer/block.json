@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ctx-blocks/button-spacer",
+  "title": "Button Spacer",
+  "keywords": [
+    "link",
+    "action",
+    "button"
+  ],
+  "textdomain": "ctx-blocks",
+  "description": "Display a button with a link or a modal",
+  "api_version": 2,
+  "category": "layout",
+  "attributes": {
+    "textAlignment": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "default": "alignfull"
+  },
+  "parent": [
+    "ctx-blocks/button-group"
+  ]
+}

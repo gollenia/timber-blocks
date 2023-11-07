@@ -22,12 +22,16 @@ class Assets {
         add_action( 'init', [$instance, "register_assets"] );
 
 		add_action('enqueue_block_editor_assets', function() {
-			wp_enqueue_script('bricks-block-filter', plugin_dir_url(__FILE__) . "../assets/admin.js", [], false, true);
+			wp_enqueue_script('bricks-block-filter', plugin_dir_url(__FILE__) . "../build/admin.js", [], false, true);
 		});
 
        	add_action('init', function() {
-        	wp_enqueue_script('bricks-frontend', plugin_dir_url(__FILE__) . "../assets/frontend.js", [], false, true);
+        	wp_enqueue_script('bricks-frontend', plugin_dir_url(__FILE__) . "../build/frontend.js", [], false, true);
     	});
+
+		add_action('wp_enqueue_scripts', function() {
+			wp_enqueue_style('bricks-frontend', plugin_dir_url(__FILE__) . "../build/frontend.css", [], false);
+		});
 
 		return $instance;
     }
@@ -47,7 +51,7 @@ class Assets {
 	 * @return void
 	 */
     public function register_assets() {
-		$dir = __DIR__ . "/../assets/";
+		$dir = __DIR__ . "/../build/";
 
 		if ( ! file_exists( $dir . "index.asset.php" ) ) {
 			  throw new \Error(
@@ -59,7 +63,7 @@ class Assets {
 
 		wp_register_script(
 			$this->assets['editor_script'],
-			plugins_url( '../assets/index.js', __FILE__ ),
+			plugins_url( '../build/index.js', __FILE__ ),
 			$script_asset['dependencies'],
 			$script_asset['version']
 		);
@@ -67,10 +71,19 @@ class Assets {
 
 		wp_register_style(
 			$this->assets['editor_style'],
-			plugins_url( '../assets/index.css', __FILE__ ),
+			plugins_url( '../build/index.css', __FILE__ ),
 			array(),
 			$script_asset['version']
 		);
+
+		wp_register_style(
+			$this->assets['style'],
+			plugins_url( '../build/style-index.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
+
+	
 		
 	}
 

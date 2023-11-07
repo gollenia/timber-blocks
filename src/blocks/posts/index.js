@@ -16,8 +16,8 @@ const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
-	title: __( title, 'ctx-blocks' ),
-	description: __( description, 'ctx-blocks' ),
+	title: __(title, 'ctx-blocks'),
+	description: __(description, 'ctx-blocks'),
 	deprecated,
 	icon: icons.posts,
 	edit,
