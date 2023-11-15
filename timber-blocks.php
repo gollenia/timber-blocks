@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:     Timber Blocks 
- * Description:     Render Bocks with twig
- * Version:         1.9.1
+ * Plugin Name:     CTX Blocks 
+ * Description:     Additional Blocks for Gutenberg
+ * Version:         2.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -11,57 +11,62 @@
  * @package         create-block
  */
 
+/**
+ * New Block registration making use of the new block.json format.
+ */
+function ctx_block_init() {
 
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+	wp_register_script('ctx-blocks--frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
+	wp_enqueue_style('ctx-blocks--frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
 
-$assets = Contexis\Utils\Assets::init();
+	$dir = __DIR__ . "/build/";
 
-// Add Twig functions
-add_filter( 'timber/twig', ["Contexis\\Utils\\TwigExtend", "add_to_twig"] );
+	if ( ! file_exists( $dir . "index.asset.php" ) ) {
+		  return;
+	}
 
-//Add translation
-function timberblocks_plugin_textdomain() {
-    load_plugin_textdomain('timber-blocks', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
+	$script_asset = require( $dir . "index.asset.php" );
+
+	if(is_admin()) {
+		wp_register_script(
+			"ctx-blocks-editor",
+			plugins_url( '/build/index.js', __FILE__ ),
+			$script_asset['dependencies'],
+			$script_asset['version']
+		);
+		wp_set_script_translations( "ctx-blocks-editor", 'ctx-blocks', plugin_dir_path( __FILE__ ) . 'languages' );
+		
+		wp_register_style(
+			"ctx-blocks-editor-style",
+			plugins_url( 'build/index.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
+	}
+
+	wp_register_style(
+		"ctx-blocks-style",
+		plugins_url( 'build/style-index.css', __FILE__ ),
+		array(),
+		$script_asset['version']
+	);
+
+	$blocks = [
+		'card',
+		'button',
+		'conditional',
+		'description-item',
+		'description-list',
+		'grid-column',
+		'grid-row',
+		'progress',
+		'svg'
+	];
+
+	foreach($blocks as $block) {
+		register_block_type( __DIR__ . '/build/blocks/'.$block );
+	}
+	
 }
-add_action('plugins_loaded', 'timberblocks_plugin_textdomain');
 
-function timberblocks_theme_support() {
-    remove_theme_support('core-block-patterns');
-}
-add_action('after_setup_theme', 'timberblocks_theme_support');
-
-$blocks_to_register = [
-	"alert",
-	"buttons/button-group",
-	"buttons/button-spacer",
-	//"card",
-	"description/description-item",
-	"description/description-list",
-	"grid/grid-column",
-	"grid/grid-row",
-	"image",	
-	"modal",  //deprecated
-	"progress",
-	"header/header",
-	"header/header-content",
-	"cover"
-];
-
-
-
-Contexis\Blocks\Block::init($assets, $blocks_to_register); 
-
-Contexis\Blocks\Nav::init($assets);
-Contexis\Blocks\Conditional::init($assets);
-Contexis\Blocks\Posts::init($assets);
-Contexis\Blocks\Section::init($assets);	//deprecated
-Contexis\Blocks\Button::init($assets);
-Contexis\Blocks\Topbar::init($assets);
-Contexis\Blocks\CoreBlock::init($assets);
-Contexis\Blocks\Svg::init($assets);
-
-
-function tblock_tblock_block_init() {
-	register_block_type( __DIR__ . '/build/blocks/card' );
-}
-add_action( 'init', 'tblock_tblock_block_init' );
+add_action( 'init', 'ctx_block_init' );

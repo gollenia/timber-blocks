@@ -1,0 +1,58 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.wp-block-ctx-blocks-button {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.ctx__button {
+	> span {
+		gap: 0.5rem;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	background-color: #000000;
+	color: #ffffff;
+
+	&.reverse > span {
+		flex-direction: row-reverse;
+	}
+
+	i.material-icons {
+		line-height: 0;
+	}
+}
+
+// Ugly Hack to limit URL input width.
+.components-panel__body .block-editor-url-input input {
+	width: 100% !important;
+}
+
+.ctx-style-selector Button {
+	flex-direction: column;
+	height: 70px;
+	background: #eee;
+	width: 70px;
+	border: 2px solid #eee;
+	margin-right: 5px;
+
+	&.active {
+		border: 2px solid #007cba;
+	}
+}
+
+.ctx-style-selector {
+	padding-top: 10px;
+	padding-bottom: 22px;
+}
+
+.ctx__button.is-style-outline {
+	background: transparent !important;
+	box-shadow: inset 0px 0px 0px 2px currentColor;
+}

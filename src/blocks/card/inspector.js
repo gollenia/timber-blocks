@@ -16,7 +16,7 @@ import {
 import { __ } from '@wordpress/i18n';
 import icons from './icons.js';
 
-import { mediaPosition } from '../../common/utils/mediaPosition.js';
+import { mediaPosition } from './mediaPosition.js';
 
 const Inspector = (props) => {
 	const {

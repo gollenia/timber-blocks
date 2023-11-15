@@ -43,9 +43,17 @@
       "type": "string",
       "default": "blue"
     },
+    "customColorBar": {
+      "type": "string",
+      "default": ""
+    },
     "colorBackground": {
       "type": "string",
       "default": "lightgray"
+    },
+    "customColorBackground": {
+      "type": "string",
+      "default": ""
     },
     "title": {
       "type": "string",

@@ -1,0 +1,20 @@
+.ctx\:buttons {
+	display: flex;
+	margin-top: 5px;
+	gap: 1rem;
+	align-items: center;
+	background-color: darksalmon;
+	border: 1px dashed #ff0000;
+
+	&__center {
+		justify-content: center;
+	}
+
+	&__right {
+		justify-content: flex-end;
+	}
+}
+
+.ctx-buttons > .block-list-appender {
+	position: relative;
+}

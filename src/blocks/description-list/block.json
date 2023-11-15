@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "ctx-blocks/description-list",
+	"apiVersion": 2,
+	"title": "Description List",
+	"keywords": ["list", "table"],
+	"description": "List containing items with an image or icon and a text",
+	"textdomain": "ctx-blocks",
+	"category": "layout",
+	"attributes": {
+		"dividers": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"__experimentalOnEnter": true,
+		"__experimentalSettings": true,
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"blockGap": true
+			}
+		},
+		"__experimentalLayout": {
+			"allowSizingOnChildren": true
+		}
+	},
+	"editorStyle": "wp-block-descriptiopn-list-editor",
+	"style": "wp-block-descriptiopn-list"
+}

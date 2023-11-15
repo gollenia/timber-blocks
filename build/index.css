@@ -1,6 +1,6 @@
-/*!**************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button/editor.scss ***!
-  \**************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/button/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
 /**
  * #.# Editor Styles
  *
@@ -12,54 +12,24 @@
   margin-right: 0px !important;
 }
 
-.ctx-button {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-  gap: 7px;
+.ctx__button {
+  background-color: #000000;
+  color: #ffffff;
 }
-.ctx-button.reverse {
+.ctx__button > span {
+  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+.ctx__button.reverse > span {
   flex-direction: row-reverse;
+}
+.ctx__button i.material-icons {
+  line-height: 0;
 }
 
 .components-panel__body .block-editor-url-input input {
   width: 100% !important;
-}
-
-.backdrop {
-  position: fixed;
-  display: grid;
-  place-items: center;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.ctx-modal {
-  background: #fff;
-  padding: 50px;
-  box-shadow: 0px 3px 20px #000;
-  z-index: 2;
-}
-.ctx-modal.full {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  box-shadow: none !important;
 }
 
 .ctx-style-selector Button {
@@ -78,15 +48,21 @@
   padding-top: 10px;
   padding-bottom: 22px;
 }
-/*!********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button-group/editor.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************/
+
+.ctx__button.is-style-outline {
+  background: transparent !important;
+  box-shadow: inset 0px 0px 0px 2px currentColor;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/button/button-group/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
 .ctx\:buttons {
   display: flex;
   margin-top: 5px;
   gap: 1rem;
   align-items: center;
-  border: 1px dashed #bbb;
+  background-color: darksalmon;
+  border: 1px dashed #ff0000;
 }
 .ctx\:buttons__center {
   justify-content: center;
@@ -97,19 +73,6 @@
 
 .ctx-buttons > .block-list-appender {
   position: relative;
-}
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/buttons/button-spacer/editor.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
-.ctx-button-spacer {
-  flex: 1;
-  height: 2rem;
-  /* background: rgba(0,0,0,0.2); */
-  background: rgba(0, 0, 0, 0.1);
-  line-height: 1.2rem;
-  border: 1px dashed rgba(0, 0, 0, 0.3);
-  margin-left: 0 !important;
-  margin-right: 0 !important;
 }
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/card/editor.scss ***!
@@ -283,83 +246,61 @@
   z-index: 1;
   pointer-events: none;
 }
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description/description-item/editor.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description-item/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
 .components-datetime {
   padding: 0;
 }
 
-.ctx-description__item {
+.ctx__description-item {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
-.ctx-description__item img {
+.ctx__description-item img {
   width: 3.5rem;
   height: 3.5rem;
 }
-.ctx-description__item img.round {
+.ctx__description-item img.round {
   border-radius: 999px;
 }
-.ctx-description__item p {
+.ctx__description-item p {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
 }
-.ctx-description__item .ctx-description__content {
+.ctx__description-item__content {
   flex: 1;
 }
-
-.ctx-has-icon .ctx-description__icon {
-  background: #ccc;
-  color: #444;
+.ctx__description-item__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+.ctx__description-item__icon i {
+  font-size: 2.5rem;
+}
+.ctx__description-item__icon.round {
+  border-radius: 999px;
 }
 
 .ctx-round-icon .ctx-description__icon {
   border-radius: 999px;
 }
 
-.ctx-description__icon {
-  width: 3.5rem;
-  margin-right: 1rem;
-  height: 3.5rem;
-  display: grid;
-  place-items: center;
-}
-.ctx-description__icon i {
-  font-size: 2.5rem;
-}
-
-.ctx-description--divider:not(:last-child) .ctx-description__item {
+.ctx-description--divider:not(:last-child) .ctx__description-item {
   border-bottom: 1px solid #bbb;
   padding-bottom: 1rem;
   margin-bottom: -1rem;
 }
-
-.ctx-description-item {
-  display: flex;
-}
-.ctx-description-item img {
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-}
-.ctx-description-item .ctx-item-content {
-  flex: 1;
-}
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description/description-list/editor.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
-.ctx\:description {
-  border: 1px dashed #bbb;
-  padding: 5px;
-}
-.ctx\:description__wrapper {
-  padding-left: 5px;
-  padding-right: 5px;
-}
 /*!****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-column/editor.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description-list/editor.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************/
+
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-column/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
 div[data-width="1"] {
   grid-column: span 1/span 1 !important;
 }
@@ -417,9 +358,9 @@ div[data-width="12"] {
 .ctx\:column__label {
   margin: 5px;
 }
-/*!*************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-row/editor.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-row/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
 .ctx-appender-col-header {
   background-image: linear-gradient(135deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1) 100%);
   background-size: 28.28px 28.28px;
@@ -522,288 +463,6 @@ div[data-width="12"] {
 .ctx\:row__columns--12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/posts/editor.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
-.posts {
-  display: grid;
-  gap: 1rem;
-}
-.posts .shadow {
-  box-shadow: 0px 1px 2px #777;
-}
-
-.wp-block-ctx-blocks-posts img {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.wp-block-ctx-blocks-posts .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-.wp-block-ctx-blocks-posts .tags span {
-  color: #333;
-  font-size: 12px;
-  padding: 2px 6px;
-  background: #ddd;
-  border-radius: 10px;
-}
-
-.ctx-post {
-  display: flex;
-  background: #fff;
-}
-
-.style-mini {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.style-mini .post-card {
-  background-color: transparent;
-  display: flex;
-  gap: 1rem;
-}
-.style-mini .date-box {
-  padding-right: 0.5rem;
-  border-right: 1px solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.style-mini .date-box span:first-child {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 30px;
-  margin-bottom: 5px;
-}
-.style-mini .content {
-  padding: 0;
-  flex: 1;
-}
-.style-mini .content h4 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.style-mini .link-button {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.style-mini .link-button i {
-  color: #fff;
-  font-size: 14px;
-  background-color: var(--primary);
-  padding: 8px;
-}
-
-.style-list {
-  display: flex;
-  flex-direction: column;
-}
-.style-list .image {
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-  width: 30%;
-  height: 100%;
-}
-.style-list h4 {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
-.style-list .ctx-post-image {
-  flex-shrink: 0;
-  margin-right: 20px;
-}
-.style-list img {
-  aspect-ratio: 1/1;
-  transition: all 0.3s ease-in-out;
-}
-.style-list .post-card {
-  align-items: stretch;
-  background-color: #fff;
-}
-.style-list span {
-  color: #bbb;
-  font-size: 14px;
-}
-.style-list .content {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.style-list .link-button {
-  margin-top: auto;
-  text-align: right;
-}
-.style-list .link-button span {
-  color: #fff;
-  font-size: 14px;
-  background-color: var(--primary);
-  padding: 6px 8px;
-}
-
-.style-cards {
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-.style-cards .image {
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-.style-cards p,
-.style-cards span {
-  margin: 0px !important;
-}
-.style-cards h4 {
-  margin: 5px 0px !important;
-}
-.style-cards span {
-  color: #999;
-  font-size: 14px;
-}
-.style-cards img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  transition: all 0.3s ease-in-out;
-}
-.style-cards .post-card {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-}
-.style-cards .taxonomy {
-  margin-top: auto;
-}
-.style-cards .content {
-  padding: 1rem;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-.style-cards .link-button {
-  margin-top: auto;
-  text-align: right;
-}
-.style-cards .link-button span {
-  color: #fff;
-  font-size: 14px;
-  background-color: var(--primary);
-  padding: 6px 8px;
-}
-
-.ctx-text-align-center {
-  text-align: center;
-}
-.ctx-text-align-center .ctx-post-image {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ctx-text-align-right {
-  text-align: right;
-}
-.ctx-text-align-right .ctx-post-image {
-  margin-left: auto;
-}
-
-.styleSelector Button {
-  flex-direction: column;
-  height: 70px;
-  background: #eee;
-  width: 70px;
-  border: 2px solid #eee;
-  margin-left: 5px;
-}
-.styleSelector Button.active {
-  border: 2px solid #007cba;
-}
-
-.wp-block-ctx-blocks-posts.columns-1 {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-4 {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-5 {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-6 {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-7 {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-8 {
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-9 {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-10 {
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-11 {
-  display: grid;
-  grid-template-columns: repeat(11, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts.columns-12 {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.wp-block-ctx-blocks-posts {
-  grid-gap: 1em;
-}
-.wp-block-ctx-blocks-posts.hover .post-card:hover img {
-  transform: scale(1.1);
-}
-.wp-block-ctx-blocks-posts.style-list .post-card {
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-}
-.wp-block-ctx-blocks-posts.style-list .post-card .image {
-  overflow: hidden;
-}
-.wp-block-ctx-blocks-posts.style-list .post-card img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-}
 /*!********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/progress/editor.scss ***!
   \********************************************************************************************************************************************************************************************************************************************************/
@@ -843,6 +502,10 @@ div[data-width="12"] {
   top: 1rem;
   bottom: 1rem;
 }
+
+.fill-primary {
+  fill: var(--wp--preset--color--primary);
+}
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/common/styles/editor.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/
@@ -873,61 +536,6 @@ div[data-width="12"] {
 
 .ctx-text-align-right {
   text-align: right;
-}
-
-.ctx\:control {
-  display: flex;
-  gap: 5px;
-  margin-top: 5px;
-}
-.ctx\:control__appender {
-  position: relative;
-  line-height: 1.2rem;
-  background: #1e1e1e;
-  padding: 0 1px;
-  border: 1px solud;
-  border-radius: 2px;
-  font-style: italic;
-  color: #fff;
-  font-style: normal;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.ctx\:control__appender:hover {
-  background: #017cba;
-}
-.ctx\:control__appender svg {
-  fill: #fff;
-}
-.ctx\:control__label {
-  background: rgba(0, 0, 0, 0.1);
-  line-height: 1.2rem;
-  border: 1px dashed rgba(0, 0, 0, 0.3);
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 10px;
-  display: inline-flex;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  color: rgba(0, 0, 0, 0.7);
-  align-items: center;
-  gap: 5px;
-}
-.ctx\:control__label--error {
-  background: rgba(255, 0, 0, 0.1);
-  border: 1px dashed rgba(255, 0, 0, 0.3);
-}
-.ctx\:control__label--success {
-  background: rgba(0, 255, 0, 0.1);
-  border: 1px dashed rgba(0, 255, 0, 0.3);
-}
-.ctx\:control__icons {
-  height: 18px;
-}
-.ctx\:control__icon {
-  height: 18px;
-  width: 18px;
-  opacity: 0.6;
 }
 
 .wp-justify {

@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "ctx-blocks/description-item",
+	"apiVersion": 2,
+	"title": "Description Item",
+	"keywords": ["list", "table"],
+	"description": "Singel item of a description list",
+	"textdomain": "ctx-blocks",
+	"category": "common",
+	"attributes": {
+		"image": {
+			"type": "object",
+			"default": null
+		},
+		"icon": {
+			"type": "string",
+			"default": "done"
+		},
+		"styleVariation": {
+			"type": "string",
+			"default": "icon"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"urlIcon": {
+			"type": "string",
+			"default": "more_horiz"
+		},
+		"roundImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"seperationLines": {
+			"type": "boolean",
+			"default": false
+		},
+		"iconColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customIconColor": {
+			"type": "string",
+			"default": ""
+		},
+		"iconBackgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customIconBackgroundColor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": ["ctx-blocks/description-list"],
+	"supports": {
+		"spacing": {
+			"margin": ["top", "bottom"],
+			"__experimentalDefaultControls": {
+				"margin": true
+			}
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"selectors": {
+		"root": ".wp-block-ctx-blocks-description-item",
+		"color": ".wp-block-ctx-blocks-description-item > .ctx__description-item__icon"
+	},
+	"editorStyle": "ctx-description-item-editor-style",
+	"style": "ctx-description-item-style"
+}

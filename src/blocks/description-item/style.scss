@@ -1,0 +1,69 @@
+.components-datetime {
+	padding: 0;
+}
+
+.ctx__description-item {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	img {
+		width: 3.5rem;
+		height: 3.5rem;
+
+		&.round {
+			border-radius: 999px;
+		}
+	}
+	p {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+	&__content {
+		flex: 1;
+	}
+
+	&__icon {
+		width: 3.5rem;
+		height: 3.5rem;
+		display: grid;
+		place-items: center;
+
+		i {
+			font-size: 2.5rem;
+		}
+
+		&.round {
+			border-radius: 999px;
+		}
+	}
+
+	&__bullet {
+		place-items: center;
+		display: grid;
+		i {
+			font-size: 1.3rem;
+		}
+		align-self: baseline;
+		padding: 4px;
+	}
+}
+
+.ctx__description-item__icon {
+	width: 3.5rem;
+	height: 3.5rem;
+	display: grid;
+	place-items: center;
+
+	i {
+		font-size: 2.5rem;
+	}
+}
+
+.ctx-description--divider:not(:last-child) {
+	.ctx__description-item {
+		border-bottom: 1px solid #bbb;
+		padding-bottom: 1rem;
+		margin-bottom: -1rem;
+	}
+}

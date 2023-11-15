@@ -4,7 +4,7 @@
 	"name": "ctx-blocks/svg",
 	"title": "Inline SVG",
 	"category": "widgets",
-	"keywords": [ "navigation", "logo", "menu", "claim" ],
+	"keywords": ["navigation", "logo", "menu", "claim"],
 	"textdomain": "ctx-blocks",
 	"description": "Inject an SVG file into the page.",
 	"attributes": {
@@ -64,5 +64,6 @@
 			"type": "string",
 			"default": ""
 		}
-	}
+	},
+	"render": "file:./render.php"
 }

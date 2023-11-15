@@ -1,6 +1,6 @@
-# Timber Blocks
+# CTX Blocks
 
-Timber Blocks is a Wordpress Gutenberg Plugin. It includes some new blocks, but it also allows you to easily redesign core blocks with yout very own twig template.
+CTX Blocks is a Wordpress Gutenberg Plugin. It includes some new blocks that come in handy fopr generic websites
 
 ### Description
 
@@ -14,68 +14,42 @@ Plugins like simple-blocks where not an option for me as they heavily rely on da
 
 **Card**: Create a card component with many options (lables, badges, shadow, colors, etc.)
 
-**Alarm**: Add a dismissable alarm to your page
-
 **Description List**: A list with optional images or icons, captions and a description text
 
-**Buttons**: Create buttons and groups of buttons, order them as you wish.
+**Buttons**: Create buttons that support not only links, but also modals and scripts
 
 **Condition**: conditionally render blocks (currently depending on date/time)
 
-**Header**: Makes it easier to create a header for your page template
-
-**Image**: More options for your images
-
-**Nav**: Navigation component, list subpages or pages of a given category
-
-**Posts**: Show posts as cards
-
 **Progress**: A progress bar, for donations, statos, whatever
 
-**Topbar**: Navigation element for the page template editor
+**SVG**: Insert an SVG graphic
 
 ### Installation
 
-For installation, you will need SSH access to your server and an installed composer environment. Simply run these commands to install the plugin:
+For installation, you will need SSH access to your server and an installed npm environment. Simply run these commands to install the plugin:
 
 ```sh
-git clone https://github.com/gollenia/timber-blocks.git
-cd timber-blocks
-composer install
+git clone https://github.com/gollenia/ctx-blocks.git
+cd ctx-blocks
+npm install
+npm run build
 ```
-
-You can recompile the Backend code for development with `npm start` or for production with `npm run build`
 
 Feel free, of course, to make use of GitHub's actions ;-)
-
-### Adopt blocks to your design
-
-This plugin is made for developers, not for end-users. That's why I didn't put it on the Wordpress Plugin Database. Also, timber-blocks doesn't include any styles, that's up to you. The predefined templates use BEM-Style classes. To adapt blocks to your needs, copy the `*.twig` files in the plugin's template folder to `your-theme/plugins/timber-blocks` and modify them to your needs.
-
-```
-{% set bg = get_color_by_slug(buttonColor) %}
-
-<div>
-    <a
-        {% if hasModal %}data-modal="{{id}}"{% endif %}
-        class="{% if hasModal %}has-modal{% endif %} button {{ isLink ? "button--link" }} {{ outline ? "button--outline" }} {{ size == "small" ? "button--small" }} {{ size == "large" ? "button-large" }}"
-        style="color: {{ isLink or outline ? bg.color : (bg.light ? "#000000" : "#ffffff" ) }}; background: {{ isLink or outline ? "transparent" : bg.color }}; box-shadow: {{ outline ? "inset 0px 0px 0px 2px " ~ bg.color : "none" }};"
-        href="{{ hasModal ? "#/" : url }}"
-    >
-    {{title}}
-    </a>
-</div>
-```
-
-In the upper example you see how it's done. The first line is a function to get the color value by it's slug. Use it if you like, or simply add the color slug as a class like Wordpress does it (`has-blue-color` for example)
-
-The available attributes of each block are in it's twig template or the corresponding block.json, and you can use them name by name as simple twig variables.
 
 ### Legacy notice
 
 As this plugin was once called "ctx-blocks", the internal block names still start with "ctx-blocks/...". This can not be changed, since websites already use these block names.
 
 ### Changelog
+
+##### 2.0
+
+-   Removed all Timber stuff and render most blocks through react
+-   Removed alert, image, modal, header, footer, button-group, button-spacer, topbar, posts
+-   Added SVG Block
+-   Support for Wordpress 6.4
+-   Make use of new Block registration System via block.json
 
 ##### 1.9.1
 

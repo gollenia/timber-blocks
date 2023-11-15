@@ -1,0 +1,25 @@
+.ctx__button {
+	display: inline-flex;
+	gap: 0.5rem;
+	align-items: center;
+	background: #000000;
+	color: #ffffff;
+
+	&--reverse {
+		flex-direction: row-reverse;
+	}
+
+	&.is-style-outline {
+		background: transparent !important;
+		box-shadow: inset 0px 0px 0px 2px currentColor;
+		color: currentColor;
+	}
+
+	i.material-icons {
+		line-height: 0;
+	}
+}
+
+.ctx-button-hidden {
+	display: none !important;
+}

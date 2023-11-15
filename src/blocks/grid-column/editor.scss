@@ -1,0 +1,17 @@
+@for $i from 1 through 12 {
+	div[data-width="#{$i}"] {
+		grid-column: span $i/span $i !important;
+	}
+}
+
+.ctx\:column {
+	margin: 0 !important;
+
+	&__wrapper {
+		padding: 0 5px;
+	}
+
+	&__label {
+		margin: 5px;
+	}
+}

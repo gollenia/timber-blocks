@@ -20,7 +20,6 @@ export default function CardEdit({ ...props }) {
 			imageUrl,
 			shadow,
 			url,
-			style,
 			badgeText,
 			labelText,
 			hasBadge,

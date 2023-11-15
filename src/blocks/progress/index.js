@@ -1,27 +1,30 @@
 /**
  * Internal dependencies
  */
-import edit from './edit';
-import icon from './icon';
 import metadata from './block.json';
+import edit from './edit';
 import './editor.scss';
+import icon from './icon';
+import save from './save';
 
 /**
  * Wordpress dependencies
  */
-import { __ } from '@wordpress/i18n'; 
 import { withColors } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
-	title: __( title, 'ctx-blocks' ),
-	description: __( description, 'ctx-blocks' ),
+	title: __(title, 'ctx-blocks'),
+	description: __(description, 'ctx-blocks'),
 	icon,
-	edit: withColors({colorBar: 'colorBar', colorBackground: 'colorBackground'})(edit),
-	save: () => { return null; }
+	edit: withColors({
+		colorBar: 'colorBar',
+		colorBackground: 'colorBackground',
+	})(edit),
+	save,
 };
-
 
 export { name, settings };

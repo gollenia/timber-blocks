@@ -19,7 +19,6 @@ const CardSave = (props) => {
 		imageUrl,
 		shadow,
 		url,
-		style,
 		backgroundColor,
 		secondaryColor,
 		customBackgroundColor,
@@ -31,11 +30,6 @@ const CardSave = (props) => {
 	const backgroundColorClass = getColorClassName(
 		'background-color',
 		backgroundColor
-	);
-
-	const secondaryColorClass = getColorClassName(
-		'background-color',
-		secondaryColor
 	);
 
 	const classes = [

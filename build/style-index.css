@@ -1,3 +1,28 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/button/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+.ctx__button {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: #000000;
+  color: #ffffff;
+}
+.ctx__button--reverse {
+  flex-direction: row-reverse;
+}
+.ctx__button.is-style-outline {
+  background: transparent !important;
+  box-shadow: inset 0px 0px 0px 2px currentColor;
+  color: currentColor;
+}
+.ctx__button i.material-icons {
+  line-height: 0;
+}
+
+.ctx-button-hidden {
+  display: none !important;
+}
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/card/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************/
@@ -181,8 +206,71 @@
   border-radius: 999px;
 }
 /*!***************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-column/style.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description-item/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************************/
+.components-datetime {
+  padding: 0;
+}
+
+.ctx__description-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ctx__description-item img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.ctx__description-item img.round {
+  border-radius: 999px;
+}
+.ctx__description-item p {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.ctx__description-item__content {
+  flex: 1;
+}
+.ctx__description-item__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+.ctx__description-item__icon i {
+  font-size: 2.5rem;
+}
+.ctx__description-item__icon.round {
+  border-radius: 999px;
+}
+.ctx__description-item__bullet {
+  place-items: center;
+  display: grid;
+  align-self: baseline;
+  padding: 4px;
+}
+.ctx__description-item__bullet i {
+  font-size: 1.3rem;
+}
+
+.ctx__description-item__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+.ctx__description-item__icon i {
+  font-size: 2.5rem;
+}
+
+.ctx-description--divider:not(:last-child) .ctx__description-item {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-column/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
 .grid--columns-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -291,66 +379,6 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-1 {
-    grid-column: span 1/span 1;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-2 {
-    grid-column: span 2/span 2;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-3 {
-    grid-column: span 3/span 3;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-4 {
-    grid-column: span 4/span 4;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-5 {
-    grid-column: span 5/span 5;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid__column--span-6 {
-    grid-column: span 6/span 6;
-  }
-}
-@media (min-width: 1024px) {
-  .lg\:grid--columns-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-}
 @media (min-width: 1280px) {
   .xl\:grid__column--span-1 {
     grid-column: span 1/span 1;
@@ -411,9 +439,9 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
-/*!************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid/grid-row/style.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-row/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 @media (min-width: 1024px) {
   .lg\:grid {
     display: grid;
