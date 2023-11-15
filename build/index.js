@@ -1364,7 +1364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons.js */ "./src/blocks/card/icons.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../common/utils/mediaPosition.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _mediaPosition_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mediaPosition.js */ "./src/blocks/card/mediaPosition.js");
 
 
 
@@ -1394,7 +1394,7 @@ const Inspector = props => {
   } = props;
   const imperativeFocalPointPreview = value => {
     const [styleOfRef, property] = imageRef.current ? [imageRef.current.style, 'objectPosition'] : [imageRef.current.style, 'backgroundPosition'];
-    styleOfRef[property] = Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../common/utils/mediaPosition.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(value);
+    styleOfRef[property] = (0,_mediaPosition_js__WEBPACK_IMPORTED_MODULE_5__.mediaPosition)(value);
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
     group: "styles"
@@ -1510,6 +1510,25 @@ const Inspector = props => {
   })))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
+
+/***/ }),
+
+/***/ "./src/blocks/card/mediaPosition.js":
+/*!******************************************!*\
+  !*** ./src/blocks/card/mediaPosition.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mediaPosition: function() { return /* binding */ mediaPosition; }
+/* harmony export */ });
+function mediaPosition({
+  x,
+  y
+} = DEFAULT_FOCAL_POINT) {
+  return `${Math.round(x * 100)}% ${Math.round(y * 100)}%`;
+}
 
 /***/ }),
 
@@ -2933,6 +2952,27 @@ function GridColumnEdit({
 
 /***/ }),
 
+/***/ "./src/blocks/grid-row/blockGapStyle.js":
+/*!**********************************************!*\
+  !*** ./src/blocks/grid-row/blockGapStyle.js ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const blockGapStyle = blockGap => {
+  const raw = blockGap;
+  if (!raw) {
+    return '1rem';
+  }
+  if (raw.includes('rem') || raw.includes('px')) {
+    return raw;
+  }
+  return raw.replace(':', '(--wp--').replaceAll('|', '--') + ')';
+};
+/* harmony default export */ __webpack_exports__["default"] = (blockGapStyle);
+
+/***/ }),
+
 /***/ "./src/blocks/grid-row/edit.js":
 /*!*************************************!*\
   !*** ./src/blocks/grid-row/edit.js ***!
@@ -2956,7 +2996,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../common/utils/blockGapStyle'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _blockGapStyle_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blockGapStyle.js */ "./src/blocks/grid-row/blockGapStyle.js");
 /* harmony import */ var _icons_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./icons.js */ "./src/blocks/grid-row/icons.js");
 
 /**
@@ -3015,7 +3055,7 @@ function GridRowEdit({
     orientation: 'horizontal'
   });
   const style = {
-    gap: Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../common/utils/blockGapStyle'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(props.attributes?.style?.spacing?.blockGap || '1.5rem')
+    gap: (0,_blockGapStyle_js__WEBPACK_IMPORTED_MODULE_7__["default"])(props.attributes?.style?.spacing?.blockGap || '1.5rem')
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], {
     ...props
