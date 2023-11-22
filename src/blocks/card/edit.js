@@ -43,8 +43,6 @@ export default function CardEdit({ ...props }) {
 		'core/list',
 		'core/group',
 		'ctx-blocks/progress',
-		'events-manager/details',
-		'events-manager/booking',
 		!url ? 'ctx-blocks/button' : false,
 	];
 

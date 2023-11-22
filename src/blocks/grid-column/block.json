@@ -15,15 +15,16 @@
 		"widthMedium": {
 			"type": "integer",
 			"default": 0
-        },
-        "widthLarge": {
+		},
+		"widthLarge": {
 			"type": "integer",
 			"default": 0
 		},
 		"mobilePosition": {
 			"type": "string",
-            "default": ""
+			"default": ""
 		}
 	},
-	"parent": [ "ctx-blocks/grid-row" ]
+	"parent": ["ctx-blocks/grid-row"],
+	"style": "ctx-blocks-style"
 }

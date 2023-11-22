@@ -5,73 +5,86 @@ const { PanelBody, ToggleControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
-const addAutoMarginAttribute = ( props, name ) => {
-
-    if (name != 'core/spacer') {
-        return props;
-    }
+const addAutoMarginAttribute = (props, name) => {
+	if (name != 'core/spacer') {
+		return props;
+	}
 
 	const attributes = {
 		...props.attributes,
 		autoMargin: {
 			type: 'boolean',
-			default: false
-        }
+			default: false,
+		},
 	};
 
 	return { ...props, attributes };
 };
 
-addFilter( 'blocks.registerBlockType', 'ctx-blocks/core-mtauto', addAutoMarginAttribute );
+addFilter(
+	'blocks.registerBlockType',
+	'ctx-blocks/core-mtauto',
+	addAutoMarginAttribute
+);
 
-
-
-const withAutoMarginControl = createHigherOrderComponent( ( BlockEdit ) => {
-	return ( props ) => {
-
-        if (props.name != 'core/spacer') {
-            return ( <BlockEdit { ...props } /> );
-        }
+/*
+ * Add autoMargin control to core/spacer block inspector
+ */
+const withAutoMarginControl = createHigherOrderComponent((BlockEdit) => {
+	return (props) => {
+		if (props.name != 'core/spacer') {
+			return <BlockEdit {...props} />;
+		}
 
 		const { attributes, setAttributes } = props;
 		const { autoMargin } = attributes;
 
 		return (
 			<Fragment>
-				<BlockEdit { ...props } />
+				<BlockEdit {...props} />
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Auto Height', 'ctx-blocks' ) }
-						initialOpen={ false }
+						title={__('Auto Height', 'ctx-blocks')}
+						initialOpen={false}
 					>
 						<ToggleControl
-							label={ __( 'Use as auto height control in a card', 'ctx-blocks' ) }
-							checked={ autoMargin }
-							onChange={ ( value ) => { setAttributes( { autoMargin: value,} );} }
+							label={__(
+								'Use as auto height control in a card',
+								'ctx-blocks'
+							)}
+							checked={autoMargin}
+							onChange={(value) => {
+								setAttributes({ autoMargin: value });
+							}}
 						/>
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
 		);
 	};
-}, 'withAutoMarginControl' );
+}, 'withAutoMarginControl');
 
-addFilter( 'editor.BlockEdit', 'ctx-blocks/core-mtauto', withAutoMarginControl );
+addFilter('editor.BlockEdit', 'ctx-blocks/core-mtauto', withAutoMarginControl);
 
-const addAutoMarginClass = ( extraProps, blockType, attributes ) => {
-	
+const addAutoMarginClass = (extraProps, blockType, attributes) => {
 	const { autoMargin } = attributes;
 
-    if (blockType.name != 'core/spacer') {
-        return extraProps;
-    }
+	if (blockType.name != 'core/spacer') {
+		return extraProps;
+	}
 
-    extraProps.className = [
-        autoMargin ? "mt-auto" : false,
-        extraProps.className || false
-	].filter(Boolean).join(" ")
-	
+	extraProps.className = [
+		autoMargin ? 'mt-auto' : false,
+		extraProps.className || false,
+	]
+		.filter(Boolean)
+		.join(' ');
+
 	return extraProps;
 };
 
-addFilter( 'blocks.getSaveContent.extraProps', 'ctx-blocks/core-mtauto', addAutoMarginClass );
+addFilter(
+	'blocks.getSaveContent.extraProps',
+	'ctx-blocks/core-mtauto',
+	addAutoMarginClass
+);

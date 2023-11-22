@@ -30,5 +30,6 @@
   },
   "parent": [
     "ctx-blocks/grid-row"
-  ]
+  ],
+  "style": "ctx-blocks-style"
 }

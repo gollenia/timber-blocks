@@ -83,26 +83,11 @@ const withAnimationControl = createHigherOrderComponent((BlockEdit) => {
 									value: 'fade-in-right',
 								},
 								{
-									label: __('Fade In Up Big', 'ctx-blocks'),
-									value: 'fade-in-up-big',
+									label: __('Flip In X', 'ctx-blocks'),
+									value: 'flip-in-x',
 								},
 								{
-									label: __('Fade In Down Big', 'ctx-blocks'),
-									value: 'fade-in-down-big',
-								},
-								{
-									label: __('Fade In Left Big', 'ctx-blocks'),
-									value: 'fade-in-left-big',
-								},
-								{
-									label: __(
-										'Fade In Right Big',
-										'ctx-blocks'
-									),
-									value: 'fade-in-right-big',
-								},
-								{
-									label: __('Flip In', 'ctx-blocks'),
+									label: __('Flip In Y', 'ctx-blocks'),
 									value: 'flip-in-x',
 								},
 								{
@@ -112,10 +97,6 @@ const withAnimationControl = createHigherOrderComponent((BlockEdit) => {
 								{
 									label: __('Bounce in In', 'ctx-blocks'),
 									value: 'bounce-in',
-								},
-								{
-									label: __('Fade in Zoom', 'ctx-blocks'),
-									value: 'zoom-in-up',
 								},
 							]}
 							onChange={(value) => {
@@ -139,6 +120,21 @@ const addAnimationClass = (extraProps, blockType, attributes) => {
 	const { animateOnScroll, animationType } = attributes;
 
 	if (forbiddenBlocks.includes(blockType.name)) {
+		return extraProps;
+	}
+
+	if (
+		['core/latest-posts', 'ctx-blocks/description-list'].includes(
+			blockType.name
+		)
+	) {
+		extraProps.className = [
+			animateOnScroll ? 'ctx-animate-li-on-scroll' : false,
+			animationType ? `ctx-${animationType}` : false,
+			extraProps.className || false,
+		]
+			.filter(Boolean)
+			.join(' ');
 		return extraProps;
 	}
 

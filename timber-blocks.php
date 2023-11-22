@@ -16,8 +16,8 @@
  */
 function ctx_block_init() {
 
-	wp_register_script('ctx-blocks--frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
-	wp_enqueue_style('ctx-blocks--frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
+	wp_enqueue_script('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
+	wp_enqueue_style('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
 
 	$dir = __DIR__ . "/build/";
 
@@ -70,3 +70,4 @@ function ctx_block_init() {
 }
 
 add_action( 'init', 'ctx_block_init' );
+

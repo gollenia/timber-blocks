@@ -65,6 +65,6 @@
       "allowSizingOnChildren": true
     }
   },
-  "style": "wp-block-ctx-blocks-grid-row",
+  "style": "ctx-blocks-style",
   "editorStyle": "wp-block-ctx-blocks-grid-row-editor"
 }

@@ -79,5 +79,5 @@
     "color": ".wp-block-ctx-blocks-description-item > .ctx__description-item__icon"
   },
   "editorStyle": "ctx-description-item-editor-style",
-  "style": "ctx-description-item-style"
+  "style": "ctx-blocks-style"
 }

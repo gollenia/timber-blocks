@@ -4,7 +4,7 @@
 	"name": "ctx-blocks/conditional",
 	"title": "Conditional Content",
 	"category": "formatting",
-	"keywords": [ "date", "time", "country", "user" ],
+	"keywords": ["date", "time", "country", "user"],
 	"textdomain": "ctx-blocks",
 	"description": "Show or hide a block under certain conditions",
 	"attributes": {
@@ -41,5 +41,6 @@
 			"default": false
 		}
 	},
-	"editorStyle": "wp-block-alert-editor"
+	"editorStyle": "wp-block-alert-editor",
+	"style": "ctx-blocks-style"
 }

@@ -43,7 +43,7 @@ if($attributes['script']) {
 		default:
 			return '';
 	}
-	$script = 'document.getElementById("'.$attributes['scriptTarget'].'").' . $command ;
+	$script = 'document.getElementById("'.$attributes['scriptTarget'].'")?.' . $command ;
 	
 
 	add_action('wp_footer', function() use ($script, $id) {

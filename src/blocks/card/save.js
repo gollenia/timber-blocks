@@ -25,12 +25,19 @@ const CardSave = (props) => {
 		customSecondaryColor,
 	} = attributes;
 
-	console.log('SAVE', props);
-
 	const backgroundColorClass = getColorClassName(
 		'background-color',
 		backgroundColor
 	);
+
+	const gapStyle = !attributes.style?.spacing?.blockGap
+		? {}
+		: {
+				gap:
+					attributes.style?.spacing?.blockGap
+						.replaceAll('|', '--')
+						.replace(':', '(--wp--') + ')',
+		  };
 
 	const classes = [
 		'ctx-card',
@@ -66,6 +73,10 @@ const CardSave = (props) => {
 			? customBackgroundColor
 			: undefined,
 		padding: '0 !important',
+		gap:
+			attributes.style?.spacing?.blockGap
+				.replaceAll('|', '--')
+				.replace(':', '(--wp--') + ')' ?? undefined,
 	};
 
 	const Tag = url ? 'a' : 'div';

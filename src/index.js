@@ -20,9 +20,7 @@ import * as inlineSvg from './blocks/svg';
 /**
  * Core Block modification dependencies.
  */
-import './mods/featuredImageProps';
 import './mods/paragraphJustify';
-import './mods/postTitleProps';
 import './mods/scrollAnimation';
 import './mods/spacerAutoOption';
 

@@ -8,7 +8,9 @@ const observer = new IntersectionObserver((entries) => {
 	});
 });
 
-const animatedElements = document.querySelectorAll('.ctx-animate-on-scroll');
+const animatedElements = document.querySelectorAll(
+	'.ctx-animate-on-scroll, .ctx-animate-li-on-scroll li'
+);
 animatedElements.forEach((element) => {
 	observer.observe(element);
 });

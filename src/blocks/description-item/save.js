@@ -55,12 +55,10 @@ export default function Save({ ...props }) {
 		getColorClassName('background-color', iconBackgroundColor),
 	].join(' ');
 
-	console.log(props.attributes);
-
 	const innerBlocksProps = useInnerBlocksProps.save();
 
 	return (
-		<div {...blockProps}>
+		<li {...blockProps}>
 			{styleVariation === 'image' && image && (
 				<img
 					style={iconStyle}
@@ -94,6 +92,6 @@ export default function Save({ ...props }) {
 					{urlIcon && <i className="material-icons">{urlIcon}</i>}
 				</a>
 			)}
-		</div>
+		</li>
 	);
 }

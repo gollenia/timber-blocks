@@ -118,5 +118,5 @@
     "spacing": ".wp-block ctx-card .ctx-card-content"
   },
   "editorStyle": "ctx-cards-editor-style",
-  "style": "ctx-cards-style"
+  "style": "ctx-blocks-style"
 }

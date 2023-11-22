@@ -29,5 +29,5 @@
 		}
 	},
 	"editorStyle": "wp-block-descriptiopn-list-editor",
-	"style": "wp-block-descriptiopn-list"
+	"style": "ctx-blocks-style"
 }

@@ -1,16 +1,13 @@
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-export default function Save(props) {
+export default function Save({ attributes }) {
 	const {
-		attributes: {
-			equalizer,
-			divider,
-			childrenWidthLarge,
-			childrenWidthMedium,
-			childrenWidthSmall,
-		},
-		className,
-	} = props;
+		equalizer,
+		divider,
+		childrenWidthLarge,
+		childrenWidthMedium,
+		childrenWidthSmall,
+	} = attributes;
 
 	const classes = [
 		'grid__row',
@@ -20,12 +17,23 @@ export default function Save(props) {
 		`xl:grid--columns-${childrenWidthLarge}`,
 		equalizer && 'grid--equalizer',
 		divider && 'grid--divider',
-		props.className,
 	]
 		.filter(Boolean)
 		.join(' ');
 
-	const blockProps = useBlockProps.save({ className: classes });
+	const gapStyle = !attributes.style?.spacing?.blockGap
+		? {}
+		: {
+				gap:
+					attributes.style?.spacing?.blockGap
+						.replaceAll('|', '--')
+						.replace(':', '(--wp--') + ')',
+		  };
+
+	const blockProps = useBlockProps.save({
+		className: classes,
+		style: gapStyle,
+	});
 	const innerBlocksProps = useInnerBlocksProps.save(blockProps, {});
 
 	return <div {...innerBlocksProps}></div>;

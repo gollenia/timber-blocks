@@ -29,8 +29,6 @@ const Inspector = (props) => {
 	const { image, roundImage, url, urlIcon, icon, styleVariation } =
 		attributes;
 
-	console.log(props.attributes);
-
 	return (
 		<>
 			<InspectorControls>
