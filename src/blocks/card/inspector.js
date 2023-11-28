@@ -5,33 +5,18 @@ import {
 } from '@wordpress/block-editor';
 import {
 	BaseControl,
-	Button,
 	CheckboxControl,
 	FocalPointPicker,
-	Icon,
 	PanelBody,
-	PanelRow,
-	ToggleControl,
+	TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import icons from './icons.js';
 
 import { mediaPosition } from './mediaPosition.js';
 
 const Inspector = (props) => {
 	const {
-		attributes: {
-			imagePosition,
-			hover,
-			transparent,
-			url,
-			imageUrl,
-			shadow,
-			focalPoint,
-			customSecondaryColor,
-			hasBadge,
-			hasLabel,
-		},
+		attributes: { url, imageUrl, shadow, focalPoint, labelText, badgeText },
 		setAttributes,
 		imageRef,
 		backgroundColor,
@@ -77,7 +62,7 @@ const Inspector = (props) => {
 					title={__('Appearance', 'ctx-blocks')}
 					initialOpen={false}
 				>
-					<ToggleControl
+					<CheckboxControl
 						label={__('Shadow', 'ctx-blocks')}
 						checked={shadow}
 						onChange={(value) => {
@@ -85,19 +70,19 @@ const Inspector = (props) => {
 						}}
 					/>
 
-					<CheckboxControl
-						label={__('Label', 'ctx-blocks')}
-						checked={hasLabel}
+					<TextControl
+						label={__('Label Text', 'ctx-blocks')}
+						value={labelText}
 						onChange={(value) => {
-							setAttributes({ hasLabel: value });
+							setAttributes({ labelText: value });
 						}}
 					/>
 
-					<CheckboxControl
-						label={__('Badge', 'ctx-blocks')}
-						checked={hasBadge}
+					<TextControl
+						label={__('Badge Text', 'ctx-blocks')}
+						value={badgeText}
 						onChange={(value) => {
-							setAttributes({ hasBadge: value });
+							setAttributes({ badgeText: value });
 						}}
 					/>
 				</PanelBody>
@@ -119,88 +104,6 @@ const Inspector = (props) => {
 							})
 						}
 					/>
-					<PanelRow>
-						<div>
-							<label
-								className="components-base-control__label"
-								htmlFor="inspector-range-control-4"
-							>
-								{__('Image position', 'ctx-blocks')}
-							</label>
-							<div className="imagePositionSelector">
-								<Button
-									onClick={() =>
-										setAttributes({
-											imagePosition: 'top',
-										})
-									}
-									className={
-										imagePosition == 'top' ? 'active' : ''
-									}
-								>
-									<Icon
-										size="64"
-										className="icon"
-										icon={icons.topimage}
-									/>
-									<div>{__('top', 'ctx-blocks')}</div>
-								</Button>
-								<Button
-									onClick={() =>
-										setAttributes({
-											imagePosition: 'bottom',
-										})
-									}
-									className={
-										imagePosition == 'bottom'
-											? 'active'
-											: ''
-									}
-								>
-									<Icon
-										size="64"
-										className="icon"
-										icon={icons.bottomimage}
-									/>
-									<div>{__('bottom', 'ctx-blocks')}</div>
-								</Button>
-								<Button
-									onClick={() =>
-										setAttributes({
-											imagePosition: 'left',
-										})
-									}
-									className={
-										imagePosition == 'left' ? 'active' : ''
-									}
-								>
-									<Icon
-										size="64"
-										className="icon"
-										icon={icons.leftimage}
-									/>
-									<div>{__('left', 'ctx-blocks')}</div>
-								</Button>
-								<Button
-									onClick={() =>
-										setAttributes({
-											imagePosition: 'right',
-										})
-									}
-									className={
-										imagePosition == 'right' ? 'active' : ''
-									}
-								>
-									<Icon
-										size="64"
-										className="icon"
-										icon={icons.rightimage}
-									/>
-									<div>{__('right', 'ctx-blocks')}</div>
-								</Button>
-							</div>
-						</div>
-					</PanelRow>
 				</PanelBody>
 				<PanelBody
 					title={__('Behaviour', 'ctx-blocks')}

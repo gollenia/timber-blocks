@@ -5,13 +5,21 @@ if(!file_exists($path)) {
 	return "";
 }
 
-$width = $attributes['width'] ? $attributes['width'].'px' : 'auto';
-$height = $attributes['height'] ? $attributes['height'].'px' : 'auto';
-$ret = "<div class='svg-wrapper' style=\"width: $width; height: $height\">";
-$ret .= "<style>";
-$ret .= "fill: {$attributes['fillColor']};";
-$ret .= "stroke: {$attributes['strokeColor']};";
-$ret .="</style>";
-$ret .= file_get_contents($path);
-$ret .= "</div>";
-echo $ret;
+$tag = $attributes['linkDestination'] ? 'a' : 'div';
+$style = "width: {$attributes['width']}px; height: {$attributes['height']}px;";
+
+?>
+
+<?php if($attributes['linkDestination']) : ?>
+<a href="<?php echo $attributes['linkDestination'] ?>" target="<?php echo $attributes['linkTarget'] ?>" style="<?php echo $style; ?>">
+<?php else : ?>
+<div class="svg-wrapper" style="<?php echo $style; ?>">
+<?php endif; ?>
+	<style>
+		.svg-wrapper svg path {
+			fill: <?php echo $attributes['fillColor'] ?>;
+			stroke: <?php echo $attributes['strokeColor'] ?>;
+		}
+	</style>
+	<?php echo file_get_contents($path); ?>
+<?php echo $attributes['linkDestination'] ? "</a>" : "</div>";

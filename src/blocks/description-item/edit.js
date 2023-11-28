@@ -16,8 +16,7 @@ import { compose } from '@wordpress/compose';
 
 function ItemEdit({ ...props }) {
 	const {
-		attributes: { image, icon, roundImage, styleVariation, url, urlIcon },
-
+		attributes: { image, icon, styleVariation, url, urlIcon },
 		iconColor,
 		customIconColor,
 		customIconBackgroundColor,
@@ -37,12 +36,11 @@ function ItemEdit({ ...props }) {
 		color: iconColor?.color ?? customIconColor ?? 'none',
 		backgroundColor:
 			iconBackgroundColor?.color ?? customIconBackgroundColor ?? 'none',
-		borderRadius: roundImage ? '50%' : '0',
 	};
 
 	const iconClasses = [
-		styleVariation === 'icon' && 'ctx__description-item__icon',
-		styleVariation === 'bullet' && 'ctx__description-item__bullet',
+		styleVariation === 'icon' && 'ctx__description-item-icon',
+		styleVariation === 'bullet' && 'ctx__description-item-bullet',
 		getColorClassName('color', iconColor),
 		getColorClassName('background-color', iconBackgroundColor),
 	].join(' ');
@@ -60,7 +58,7 @@ function ItemEdit({ ...props }) {
 		['core/paragraph', { placeholder: 'Description' }],
 	];
 	const innerBlockProps = useInnerBlocksProps(
-		{ className: 'ctx__description-item__content' },
+		{ className: 'ctx__description-item-content' },
 		{
 			template: TEMPLATE,
 			allowedBlocks: ['core/paragraph', 'core/heading'],
@@ -76,7 +74,7 @@ function ItemEdit({ ...props }) {
 					image &&
 					image.subtype != 'svg+xml' && (
 						<img
-							className={roundImage ? 'round' : ''}
+							className="ctx__description-item-image"
 							src={image.sizes.thumbnail.url}
 							style={iconStyle}
 						/>

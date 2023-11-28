@@ -19,11 +19,11 @@
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
 	}
-	&__content {
+	&-content {
 		flex: 1;
 	}
 
-	&__icon {
+	&-icon {
 		width: 3.5rem;
 		height: 3.5rem;
 		display: grid;
@@ -37,10 +37,6 @@
 			border-radius: 999px;
 		}
 	}
-}
-
-.ctx-round-icon .ctx-description__icon {
-	border-radius: 999px;
 }
 
 .ctx-description--divider:not(:last-child) {

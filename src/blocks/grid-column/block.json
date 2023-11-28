@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/grid-column",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Column",
 	"keywords": ["list", "table"],
 	"description": "Single column as child of a columns collection",

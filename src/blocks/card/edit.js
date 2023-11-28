@@ -1,5 +1,4 @@
 import {
-	RichText,
 	getColorClassName,
 	useBlockProps,
 	useInnerBlocksProps,
@@ -13,27 +12,21 @@ import Toolbar from './toolbar';
 export default function CardEdit({ ...props }) {
 	const {
 		attributes: {
-			imagePosition,
-			textAlign,
 			hover,
-			imageId,
 			imageUrl,
+			imageId,
 			shadow,
 			url,
 			badgeText,
 			labelText,
-			hasBadge,
-			hasLabel,
+			layout,
 			customBackgroundColor,
 			customSecondaryColor,
 		},
 		backgroundColor,
 		secondaryColor,
 		setAttributes,
-		__unstableLayoutClassNames: layoutClassNames,
 	} = props;
-
-	console.log('edit', props);
 
 	const allowedBlocks = [
 		'core/spacer',
@@ -86,12 +79,12 @@ export default function CardEdit({ ...props }) {
 	];
 	const backgroundColorClass = getColorClassName(
 		'background-color',
-		backgroundColor
+		backgroundColor.slug
 	);
 
 	const secondaryColorClass = getColorClassName(
 		'background-color',
-		secondaryColor
+		secondaryColor.slug
 	);
 
 	const backgroundColorValue = customBackgroundColor
@@ -102,29 +95,27 @@ export default function CardEdit({ ...props }) {
 		? customSecondaryColor
 		: secondaryColor.color ?? 'var(--primary)';
 
-	const secondaryStyle = {
+	const accentStyle = {
 		background: secondaryColorValue,
 		color: colord(secondaryColorValue).isDark() ? '#ffffff' : '#000000',
 	};
 
-	const innerBlockProps = useInnerBlocksProps(
-		{},
-		{ allowedBlocks, template }
-	);
+	console.log(imageId);
 
 	const classes = [
-		'ctx-card',
+		'ctx__card',
+		layout?.orientation === 'horizontal'
+			? 'ctx__card-horizontal'
+			: 'ctx__card-vertical',
 		backgroundColorClass,
-		url || hover ? 'ctx-card-hover' : false,
-		shadow ? 'ctx-card-shadow' : false,
-		`ctx-card-${textAlign}`,
-		`ctx-card-image-${imagePosition}`,
+		url || hover ? 'ctx__card-hover' : false,
+		shadow ? 'ctx__card-shadow' : false,
 	]
 		.filter(Boolean)
 		.join(' ');
 
+	console.log(classes);
 	const blockProps = useBlockProps({ className: classes });
-
 	const cardStyle = {
 		...blockProps.style,
 		backgroundColor: backgroundColorValue,
@@ -138,39 +129,41 @@ export default function CardEdit({ ...props }) {
 		paddingRight: blockProps.style?.paddingRight ?? '1rem',
 	};
 
+	const innerBlockProps = useInnerBlocksProps(
+		{ className: 'ctx__card-content', style: contentStyle },
+		{ allowedBlocks, template }
+	);
+
 	return (
 		<>
 			<Inspector {...props} imageRef={imageRef} />
 			<Toolbar {...props} onSelectMedia={onSelectMedia} />
 			<div {...blockProps} style={cardStyle}>
-				{!!hasBadge && (
-					<RichText
-						tagName="p"
-						className={`ctx-card-badge ${secondaryColorClass}`}
-						placeholder={__('Badge', 'ctx-blocks')}
-						value={badgeText}
-						onChange={(value) =>
-							setAttributes({ badgeText: value })
-						}
-						style={secondaryStyle}
-					/>
-				)}
-				{imageUrl && <img ref={imageRef} src={imageUrl ?? ''} />}
-				<div className="ctx-card-content" style={contentStyle}>
-					{!!hasLabel && (
-						<RichText
-							className={`ctx-card-label ${secondaryColorClass}`}
-							tagName="label"
-							placeholder={__('Label', 'ctx-blocks')}
-							value={labelText}
-							onChange={(value) =>
-								setAttributes({ labelText: value })
-							}
-							style={secondaryStyle}
-						/>
+				<div className="ctx__card-header">
+					{badgeText && (
+						<span
+							className={`ctx__card-badge ${secondaryColorClass}`}
+							style={accentStyle}
+						>
+							{badgeText}
+						</span>
 					)}
-					<div {...innerBlockProps}></div>
+					{labelText && (
+						<span
+							className={`ctx__card-label ${secondaryColorClass}`}
+							style={accentStyle}
+						>
+							{labelText}
+						</span>
+					)}
+					{imageUrl && <img ref={imageRef} src={imageUrl ?? ''} />}
 				</div>
+
+				<div
+					{...innerBlockProps}
+					className="ctx__card-content"
+					style={contentStyle}
+				></div>
 			</div>
 		</>
 	);

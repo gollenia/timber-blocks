@@ -8,12 +8,8 @@ import { colord } from 'colord';
 const CardSave = (props) => {
 	const { attributes, children } = props;
 	const {
-		imagePosition,
-		textAlign,
 		labelText,
 		badgeText,
-		hasLabel,
-		hasBadge,
 		hover,
 		imageId,
 		imageUrl,
@@ -23,6 +19,7 @@ const CardSave = (props) => {
 		secondaryColor,
 		customBackgroundColor,
 		customSecondaryColor,
+		layout,
 	} = attributes;
 
 	const backgroundColorClass = getColorClassName(
@@ -30,22 +27,15 @@ const CardSave = (props) => {
 		backgroundColor
 	);
 
-	const gapStyle = !attributes.style?.spacing?.blockGap
-		? {}
-		: {
-				gap:
-					attributes.style?.spacing?.blockGap
-						.replaceAll('|', '--')
-						.replace(':', '(--wp--') + ')',
-		  };
-
 	const classes = [
-		'ctx-card',
+		'ctx__card',
 		backgroundColorClass,
-		url || hover ? 'ctx-card-hover' : false,
-		shadow ? 'ctx-card-shadow' : false,
-		`ctx-card-${textAlign}`,
-		`ctx-card-image-${imagePosition}`,
+		layout?.orientation === 'horizontal'
+			? 'ctx__card-horizontal'
+			: 'ctx__card-vertical',
+		url || hover ? 'ctx__card-hover' : false,
+		shadow ? 'ctx__card-shadow' : false,
+		imageId ? '' : 'ctx__card-no-image',
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -75,42 +65,39 @@ const CardSave = (props) => {
 		padding: '0 !important',
 		gap:
 			attributes.style?.spacing?.blockGap
-				.replaceAll('|', '--')
+				?.replaceAll('|', '--')
 				.replace(':', '(--wp--') + ')' ?? undefined,
 	};
+
+	const innerBlockProps = useInnerBlocksProps.save({
+		className: 'ctx__card-content',
+		style: contentStyle,
+	});
 
 	const Tag = url ? 'a' : 'div';
 
 	return (
 		<Tag {...blockProps} style={cardStyle} href={url ? url : undefined}>
-			{hasBadge && !!badgeText && (
-				<b
-					className={`ctx-card-badge ${accentClass}`}
-					style={accentStyle}
-				>
-					{badgeText}
-				</b>
-			)}
-			{imageUrl && (
-				<div className="ctx-card-image">
-					<img src={imageUrl ?? ''} />
-				</div>
-			)}
-			<div className="ctx-card-content" style={contentStyle}>
-				{hasLabel && !!labelText && (
+			<div className="ctx__card-header">
+				{!!badgeText && (
+					<b
+						className={`ctx__card-badge ${accentClass}`}
+						style={accentStyle}
+					>
+						{badgeText}
+					</b>
+				)}
+				{imageUrl && <img src={imageUrl ?? ''} />}
+				{!!labelText && (
 					<label
-						className={`ctx-card-label ${accentClass}`}
+						className={`ctx__card-label ${accentClass}`}
 						style={accentStyle}
 					>
 						{labelText}
 					</label>
 				)}
-				<div
-					{...useInnerBlocksProps.save({
-						className: 'wp-block-card__inner-container',
-					})}
-				/>
 			</div>
+			<div {...innerBlockProps} />
 		</Tag>
 	);
 };

@@ -1,0 +1,848 @@
+# Copyright (C) 2023 Thomas Gollenia
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CTX Blocks 2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-11-27T12:51:02+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: ctx-blocks\n"
+
+#. Plugin Name of the plugin
+msgid "CTX Blocks"
+msgstr ""
+
+#. Description of the plugin
+msgid "Additional Blocks for Gutenberg"
+msgstr ""
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr ""
+
+#: build/index.js:84
+#: build/index.js:60
+msgid "Deprecated - Please use Groups instead"
+msgstr ""
+
+#: build/index.js:477
+#: build/index.js:369
+msgid "Button title"
+msgstr ""
+
+#: build/index.js:497
+#: build/index.js:397
+msgid "Edit Modal content"
+msgstr ""
+
+#: build/index.js:509
+#: build/index.js:410
+msgid "Modal title"
+msgstr ""
+
+#: build/index.js:687
+#: build/index.js:690
+#: build/index.js:2072
+#: build/index.js:2120
+#: build/index.js:516
+#: build/index.js:519
+#: build/index.js:1915
+#: build/index.js:2009
+msgid "Icon"
+msgstr ""
+
+#: build/index.js:698
+#: build/index.js:528
+msgid "Show icon on the right"
+msgstr ""
+
+#: build/index.js:704
+#: build/index.js:535
+msgid "Hide button text and show icon only"
+msgstr ""
+
+#: build/index.js:710
+#: build/index.js:1299
+#: build/index.js:2035
+#: build/index.js:544
+#: build/index.js:1211
+#: build/index.js:1868
+msgid "Behaviour"
+msgstr ""
+
+#: build/index.js:743
+#: build/index.js:593
+msgid "Full screen size"
+msgstr ""
+
+#: build/index.js:755
+#: build/index.js:613
+msgid "Click here"
+msgstr ""
+
+#: build/index.js:758
+#: build/index.js:619
+msgid "Open in new Tab"
+msgstr ""
+
+#: build/index.js:764
+#: build/index.js:631
+msgid "Script"
+msgstr ""
+
+#: build/index.js:767
+#: build/index.js:635
+msgid "Select a script"
+msgstr ""
+
+#: build/index.js:770
+#: build/index.js:642
+msgid "Toggle Element"
+msgstr ""
+
+#: build/index.js:773
+#: build/index.js:649
+msgid "Hide Element"
+msgstr ""
+
+#: build/index.js:776
+#: build/index.js:653
+msgid "Show Element"
+msgstr ""
+
+#: build/index.js:779
+#: build/index.js:657
+msgid "Scroll to Element"
+msgstr ""
+
+#: build/index.js:788
+#: build/index.js:670
+msgid "Element ID"
+msgstr ""
+
+#: build/index.js:1044
+#: build/index.js:944
+msgid "Title"
+msgstr ""
+
+#: build/index.js:1048
+#: build/index.js:952
+msgid "Subtitle"
+msgstr ""
+
+#: build/index.js:1052
+#: build/index.js:960
+msgid "Your content goes here..."
+msgstr ""
+
+#: build/index.js:1242
+#: build/index.js:2128
+#: build/index.js:3869
+#: build/index.js:1141
+#: build/index.js:2018
+#: build/index.js:3492
+msgid "Color settings"
+msgstr ""
+
+#: build/index.js:1245
+#: build/index.js:2139
+#: build/index.js:1145
+#: build/index.js:2031
+msgid "Background color"
+msgstr ""
+
+#: build/index.js:1252
+#: build/index.js:1153
+msgid "Secondary color"
+msgstr ""
+
+#: build/index.js:1259
+#: build/index.js:2402
+#: build/index.js:3071
+#: build/index.js:1164
+#: build/index.js:2233
+#: build/index.js:2740
+msgid "Appearance"
+msgstr ""
+
+#: build/index.js:1262
+#: build/index.js:1168
+msgid "Shadow"
+msgstr ""
+
+#: build/index.js:1270
+#: build/index.js:1176
+msgid "Label Text"
+msgstr ""
+
+#: build/index.js:1278
+#: build/index.js:1184
+msgid "Badge Text"
+msgstr ""
+
+#: build/index.js:1286
+#: build/index.js:2050
+#: build/index.js:2063
+#: build/index.js:1193
+#: build/index.js:1883
+#: build/index.js:1898
+msgid "Image"
+msgstr ""
+
+#: build/index.js:1302
+#: build/index.js:2038
+#: build/index.js:1214
+#: build/index.js:1872
+msgid "Link"
+msgstr ""
+
+#: build/index.js:1307
+#: build/index.js:1222
+msgid "Click here..."
+msgstr ""
+
+#: build/index.js:1464
+#: build/index.js:1381
+msgid "Add Media"
+msgstr ""
+
+#: build/index.js:1467
+#: build/index.js:1388
+msgid "Remove Media"
+msgstr ""
+
+#: build/index.js:1698
+#: build/index.js:1554
+msgid "Date"
+msgstr ""
+
+#: build/index.js:1711
+#: build/index.js:1565
+msgid "Hide"
+msgstr ""
+
+#: build/index.js:1720
+#: build/index.js:1575
+msgid "Show"
+msgstr ""
+
+#: build/index.js:1722
+#: build/index.js:1581
+msgid "From"
+msgstr ""
+
+#: build/index.js:1729
+#: build/index.js:1589
+msgid "To"
+msgstr ""
+
+#: build/index.js:1737
+#: build/index.js:1599
+msgid "Access Control"
+msgstr ""
+
+#: build/index.js:1740
+#: build/index.js:1603
+msgid "Show only to logged in users"
+msgstr ""
+
+#: build/index.js:1746
+#: build/index.js:1611
+msgid "Show login notice"
+msgstr ""
+
+#: build/index.js:1752
+#: build/index.js:1621
+msgid "Login notice"
+msgstr ""
+
+#: build/index.js:1758
+#: build/index.js:1628
+msgid "Include login form"
+msgstr ""
+
+#: build/index.js:2044
+#: build/index.js:1877
+msgid "Icon for Link"
+msgstr ""
+
+#: build/index.js:2081
+#: build/index.js:1930
+msgid "Bullet"
+msgstr ""
+
+#: build/index.js:2096
+#: build/index.js:1949
+msgid "Choose image"
+msgstr ""
+
+#: build/index.js:2100
+#: build/index.js:1961
+msgid "No image loaded"
+msgstr ""
+
+#: build/index.js:2105
+#: build/index.js:1971
+msgid "Replace image"
+msgstr ""
+
+#: build/index.js:2111
+#: build/index.js:1986
+msgid "Remove image"
+msgstr ""
+
+#: build/index.js:2114
+#: build/index.js:2000
+msgid "Rounded"
+msgstr ""
+
+#: build/index.js:2131
+#: build/index.js:2022
+msgid "Icon color"
+msgstr ""
+
+#: build/index.js:2405
+#: build/index.js:2238
+msgid "Lines as separators"
+msgstr ""
+
+#: build/index.js:2653
+#: build/index.js:2378
+msgid "Mobile appearance"
+msgstr ""
+
+#: build/index.js:2657
+#: build/index.js:2383
+msgid "Column span on mobile devices"
+msgstr ""
+
+#: build/index.js:2667
+#: build/index.js:2390
+msgid "Columns span on tablets and small displays"
+msgstr ""
+
+#: build/index.js:2677
+#: build/index.js:2397
+msgid "Column span on Desktops"
+msgstr ""
+
+#: build/index.js:2687
+#: build/index.js:2405
+msgid "Position on mobile devices"
+msgstr ""
+
+#: build/index.js:2690
+#: build/index.js:2408
+msgid "In place"
+msgstr ""
+
+#: build/index.js:2693
+#: build/index.js:2409
+msgid "Start"
+msgstr ""
+
+#: build/index.js:2696
+#: build/index.js:2410
+msgid "End"
+msgstr ""
+
+#: build/index.js:3074
+#: build/index.js:2744
+msgid "Columns on mobile devices"
+msgstr ""
+
+#: build/index.js:3084
+#: build/index.js:2751
+msgid "Columns on tablets and medium screens"
+msgstr ""
+
+#: build/index.js:3094
+#: build/index.js:2758
+msgid "Columns on desktops"
+msgstr ""
+
+#: build/index.js:3104
+#: build/index.js:2766
+msgid "Make all columns same height"
+msgstr ""
+
+#: build/index.js:3112
+#: build/index.js:2771
+msgid "Separate columns with borders"
+msgstr ""
+
+#: build/index.js:3241
+#: build/index.js:2891
+msgid "Current value description..."
+msgstr ""
+
+#: build/index.js:3251
+#: build/index.js:2912
+msgid "Max value description..."
+msgstr ""
+
+#: build/index.js:3404
+#: build/index.js:3028
+msgid "Values"
+msgstr ""
+
+#: build/index.js:3407
+#: build/index.js:3032
+msgid "Max value"
+msgstr ""
+
+#: build/index.js:3413
+#: build/index.js:3039
+msgid "Current value"
+msgstr ""
+
+#: build/index.js:3419
+#: build/index.js:3047
+msgid "Labels"
+msgstr ""
+
+#: build/index.js:3422
+#: build/index.js:3052
+msgid "Show Values"
+msgstr ""
+
+#: build/index.js:3428
+#: build/index.js:3062
+msgid "Separate Thousands"
+msgstr ""
+
+#: build/index.js:3435
+#: build/index.js:3078
+msgid "Decimal places"
+msgstr ""
+
+#: build/index.js:3446
+#: build/index.js:3091
+msgid "Unit"
+msgstr ""
+
+#: build/index.js:3453
+#: build/index.js:3103
+msgid "Show unit before Value"
+msgstr ""
+
+#: build/index.js:3460
+#: build/index.js:3117
+msgid "Bar"
+msgstr ""
+
+#: build/index.js:3463
+#: build/index.js:3121
+msgid "Bar type"
+msgstr ""
+
+#: build/index.js:3466
+#: build/index.js:3124
+msgid "Normal"
+msgstr ""
+
+#: build/index.js:3469
+#: build/index.js:3126
+msgid "Gradient (experimental)"
+msgstr ""
+
+#: build/index.js:3472
+#: build/index.js:3133
+msgid "Stripes"
+msgstr ""
+
+#: build/index.js:3479
+#: build/index.js:3142
+msgid "Bar Label"
+msgstr ""
+
+#: build/index.js:3482
+#: build/index.js:4198
+#: build/index.js:3145
+#: build/index.js:3763
+msgid "None"
+msgstr ""
+
+#: build/index.js:3485
+#: build/index.js:3147
+msgid "Percentage"
+msgstr ""
+
+#: build/index.js:3488
+#: build/index.js:3151
+msgid "Value"
+msgstr ""
+
+#: build/index.js:3491
+#: build/index.js:3155
+msgid "Both"
+msgstr ""
+
+#: build/index.js:3498
+#: build/index.js:3164
+msgid "Animate"
+msgstr ""
+
+#: build/index.js:3506
+#: build/index.js:3174
+msgid "Colors"
+msgstr ""
+
+#: build/index.js:3508
+#: build/index.js:3177
+msgid "Color for low values"
+msgstr ""
+
+#: build/index.js:3513
+#: build/index.js:3183
+msgid "Color for medium values"
+msgstr ""
+
+#: build/index.js:3842
+#: build/index.js:3458
+msgid "Image Size"
+msgstr ""
+
+#: build/index.js:3845
+#: build/index.js:3462
+msgid "Width"
+msgstr ""
+
+#: build/index.js:3852
+#: build/index.js:3470
+msgid "Height"
+msgstr ""
+
+#: build/index.js:3859
+#: build/index.js:3479
+msgid "Image Manipulation"
+msgstr ""
+
+#: build/index.js:3862
+#: build/index.js:3483
+msgid "Stroke Width"
+msgstr ""
+
+#: build/index.js:3872
+#: build/index.js:3496
+msgid "Stroke color"
+msgstr ""
+
+#: build/index.js:3879
+#: build/index.js:3504
+msgid "Fill color"
+msgstr ""
+
+#: build/index.js:3935
+#: build/index.js:3550
+msgid "Add SVG"
+msgstr ""
+
+#: build/index.js:4101
+#: build/index.js:3683
+msgid "Justify text"
+msgstr ""
+
+#: build/index.js:4183
+#: build/index.js:3748
+msgid "Animation"
+msgstr ""
+
+#: build/index.js:4186
+#: build/index.js:3752
+msgid "Animate on scroll"
+msgstr ""
+
+#: build/index.js:4195
+#: build/index.js:3760
+msgid "Select Animation"
+msgstr ""
+
+#: build/index.js:4201
+#: build/index.js:3765
+msgid "Fade In"
+msgstr ""
+
+#: build/index.js:4204
+#: build/index.js:3769
+msgid "Fade In Up"
+msgstr ""
+
+#: build/index.js:4207
+#: build/index.js:3773
+msgid "Fade In Down"
+msgstr ""
+
+#: build/index.js:4210
+#: build/index.js:3777
+msgid "Fade In Left"
+msgstr ""
+
+#: build/index.js:4213
+#: build/index.js:3781
+msgid "Fade In Right"
+msgstr ""
+
+#: build/index.js:4216
+#: build/index.js:3785
+msgid "Flip In X"
+msgstr ""
+
+#: build/index.js:4219
+#: build/index.js:3789
+msgid "Flip In Y"
+msgstr ""
+
+#: build/index.js:4222
+#: build/index.js:3793
+msgid "Zoom In"
+msgstr ""
+
+#: build/index.js:4225
+#: build/index.js:3797
+msgid "Bounce in In"
+msgstr ""
+
+#: build/index.js:4323
+#: build/index.js:3903
+msgid "Auto Height"
+msgstr ""
+
+#: build/index.js:4326
+#: build/index.js:3907
+msgid "Use as auto height control in a card"
+msgstr ""
+
+#: build/blocks/button/block.json
+msgctxt "block title"
+msgid "Button"
+msgstr ""
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr ""
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "action"
+msgstr ""
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr ""
+
+#: build/blocks/button/block.json
+msgctxt "block description"
+msgid "Display a button with a link or a modal"
+msgstr ""
+
+#: build/blocks/button/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr ""
+
+#: build/blocks/button/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr ""
+
+#: build/blocks/button/button-group/block.json
+msgctxt "block title"
+msgid "Button Group"
+msgstr ""
+
+#: build/blocks/button/button-group/block.json
+msgctxt "block description"
+msgid "Collection of buttons that can be aligned or spaced."
+msgstr ""
+
+#: build/blocks/card/block.json
+msgctxt "block title"
+msgid "Card"
+msgstr ""
+
+#: build/blocks/card/block.json
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "container"
+msgstr ""
+
+#: build/blocks/card/block.json
+msgctxt "block keyword"
+msgid "card"
+msgstr ""
+
+#: build/blocks/card/block.json
+msgctxt "block description"
+msgid "Card component to hold different Information"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block title"
+msgid "Conditional Content"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "date"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "time"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "country"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "user"
+msgstr ""
+
+#: build/blocks/conditional/block.json
+msgctxt "block description"
+msgid "Show or hide a block under certain conditions"
+msgstr ""
+
+#: build/blocks/description-item/block.json
+msgctxt "block title"
+msgid "Description Item"
+msgstr ""
+
+#: build/blocks/description-item/block.json
+#: build/blocks/description-list/block.json
+#: build/blocks/grid-column/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr ""
+
+#: build/blocks/description-item/block.json
+#: build/blocks/description-list/block.json
+#: build/blocks/grid-column/block.json
+msgctxt "block keyword"
+msgid "table"
+msgstr ""
+
+#: build/blocks/description-item/block.json
+msgctxt "block description"
+msgid "Singel item of a description list"
+msgstr ""
+
+#: build/blocks/description-list/block.json
+msgctxt "block title"
+msgid "Description List"
+msgstr ""
+
+#: build/blocks/description-list/block.json
+msgctxt "block description"
+msgid "List containing items with an image or icon and a text"
+msgstr ""
+
+#: build/blocks/grid-column/block.json
+msgctxt "block title"
+msgid "Column"
+msgstr ""
+
+#: build/blocks/grid-column/block.json
+msgctxt "block description"
+msgid "Single column as child of a columns collection"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block title"
+msgid "Columns"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "columns"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "responsive"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "wrapper"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "row"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "section"
+msgstr ""
+
+#: build/blocks/grid-row/block.json
+msgctxt "block description"
+msgid "Displays content in columns of different width"
+msgstr ""
+
+#: build/blocks/progress/block.json
+msgctxt "block title"
+msgid "Progress Bar"
+msgstr ""
+
+#: build/blocks/progress/block.json
+msgctxt "block keyword"
+msgid "percent"
+msgstr ""
+
+#: build/blocks/progress/block.json
+msgctxt "block keyword"
+msgid "progress"
+msgstr ""
+
+#: build/blocks/progress/block.json
+msgctxt "block description"
+msgid "Shows a progress bar"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block title"
+msgid "Inline SVG"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "navigation"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "logo"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "menu"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "claim"
+msgstr ""
+
+#: build/blocks/svg/block.json
+msgctxt "block description"
+msgid "Inject an SVG file into the page."
+msgstr ""

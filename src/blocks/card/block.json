@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/card",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Card",
 	"keywords": ["container", "card"],
 	"description": "Card component to hold different Information",
@@ -55,18 +55,6 @@
 			"type": "number",
 			"default": 0
 		},
-		"imagePosition": {
-			"type": "string",
-			"default": "top"
-		},
-		"hasBadge": {
-			"type": "boolean",
-			"default": false
-		},
-		"hasLabel": {
-			"type": "boolean",
-			"default": false
-		},
 		"labelText": {
 			"type": "string",
 			"default": ""
@@ -74,9 +62,6 @@
 		"badgeText": {
 			"type": "string",
 			"default": ""
-		},
-		"anchor": {
-			"type": "string"
 		}
 	},
 	"usesContext": ["postId", "postType"],
@@ -85,7 +70,17 @@
 		"html": false,
 		"shadow": true,
 		"className": true,
-		"layout": true,
+
+		"layout": {
+			"allowSizingOnChildren": false,
+			"allowVerticalAlignment": true,
+			"allowSwitching": false,
+			"default": {
+				"type": "flex",
+				"orientation": "vertical",
+				"justifyContent": "stretch"
+			}
+		},
 		"spacing": {
 			"blockGap": true,
 			"padding": true,

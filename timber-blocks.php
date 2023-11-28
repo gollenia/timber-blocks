@@ -16,8 +16,7 @@
  */
 function ctx_block_init() {
 
-	wp_enqueue_script('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
-	wp_enqueue_style('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
+	
 
 	$dir = __DIR__ . "/build/";
 
@@ -44,12 +43,17 @@ function ctx_block_init() {
 		);
 	}
 
-	wp_register_style(
-		"ctx-blocks-style",
-		plugins_url( 'build/style-index.css', __FILE__ ),
-		array(),
-		$script_asset['version']
-	);
+	if(!is_admin()) {
+		wp_register_style(
+			"ctx-blocks-style",
+			plugins_url( 'build/style-index.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
+		wp_enqueue_script('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
+	wp_enqueue_style('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
+	}
+	
 
 	$blocks = [
 		'card',
@@ -71,3 +75,10 @@ function ctx_block_init() {
 
 add_action( 'init', 'ctx_block_init' );
 
+
+
+
+function ctx_blocks_load_textdomain() {
+	load_plugin_textdomain('ctx-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+}
+add_action( 'plugins_loaded', 'ctx_blocks_load_textdomain' );

@@ -1,0 +1,70 @@
+.wp-block-descriptions-manager-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.ctx
+
+.description-details {
+	&.has-dividers .description-details-item {
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 1rem;
+	}
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	h4 {
+		font-size: 1rem;
+		font-weight: 600;
+		margin: 0;
+		padding: 0;
+	}
+
+	&-item {
+		width: 100%;
+		display: flex;
+		gap: 1rem;
+	}
+
+	&-image {
+		background: rgba(0, 0, 0, 0.133);
+		border-radius: 999px;
+		display: grid;
+		flex-shrink: 0;
+		height: 3rem;
+		object-fit: cover;
+		place-items: center;
+		width: 3rem;
+
+		i {
+			font-size: 30px !important;
+		}
+	}
+
+	&-action {
+		margin-left: auto;
+		a {
+			text-decoration: none;
+			color: var(--primary-contrast);
+			width: 2rem;
+			height: 2rem;
+			background: var(--primary);
+			border-radius: 999px;
+			display: grid;
+			place-items: center;
+			margin-top: 0.5rem;
+			transition: transform 100ms ease-in-out;
+
+			&:hover {
+				animation: action-zoom-in 150ms ease-in-out;
+				transform: scale(1.3);
+			}
+
+			i {
+				font-size: 18px;
+			}
+		}
+	}
+}

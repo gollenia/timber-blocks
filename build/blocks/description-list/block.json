@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "ctx-blocks/description-list",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "title": "Description List",
   "keywords": [
     "list",

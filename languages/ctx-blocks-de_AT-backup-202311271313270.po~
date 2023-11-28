@@ -1,0 +1,1084 @@
+# Copyright (C) 2023 Thomas Gollenia
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CTX Blocks 2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/timber-blocks\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-11-27T12:22:17+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: ctx-blocks\n"
+
+#. Plugin Name of the plugin
+msgid "CTX Blocks"
+msgstr "CTX Blocks"
+
+#. Description of the plugin
+msgid "Additional Blocks for Gutenberg"
+msgstr "Zusätzliche Blöcke für Gutenberg"
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr ""
+
+#: build/index.js:84
+#: src/blocks/button/button-group/edit.js:47
+#: build/index.js:60
+msgid "Deprecated - Please use Groups instead"
+msgstr "Veraltet - Bitte verwenden Sie stattdessen Gruppen"
+
+#: build/index.js:477
+#: src/blocks/button/edit.js:68
+#: build/index.js:369
+msgid "Button title"
+msgstr "Button Titel"
+
+#: build/index.js:497
+#: src/blocks/button/edit.js:96
+#: build/index.js:397
+msgid "Edit Modal content"
+msgstr "Bearbeite Modal Inhalt"
+
+#: build/index.js:509
+#: src/blocks/button/edit.js:109
+#: build/index.js:410
+msgid "Modal title"
+msgstr "Modal Titel"
+
+#: build/index.js:687
+#: build/index.js:690
+#: build/index.js:2077
+#: build/index.js:2125
+#: src/blocks/button/inspector.js:41
+#: src/blocks/button/inspector.js:44
+#: src/blocks/description-item/inspector.js:83
+#: src/blocks/description-item/inspector.js:177
+#: src/mods/postTitleProps.js:77
+#: build/index.js:516
+#: build/index.js:519
+#: build/index.js:1918
+#: build/index.js:2012
+msgid "Icon"
+msgstr "Icon"
+
+#: build/index.js:698
+#: src/blocks/button/inspector.js:53
+#: build/index.js:528
+msgid "Show icon on the right"
+msgstr "Zeige Icon auf der rechten Seite"
+
+#: build/index.js:704
+#: src/blocks/button/inspector.js:60
+#: build/index.js:535
+msgid "Hide button text and show icon only"
+msgstr "Verstecke Button Text und zeige nur Icon"
+
+#: build/index.js:710
+#: build/index.js:1304
+#: build/index.js:2040
+#: src/blocks/button/inspector.js:69
+#: src/blocks/card/inspector.js:109
+#: src/blocks/description-item/inspector.js:36
+#: build/index.js:544
+#: build/index.js:1214
+#: build/index.js:1871
+msgid "Behaviour"
+msgstr "Verhalten"
+
+#: build/index.js:743
+#: src/blocks/button/inspector.js:118
+#: build/index.js:593
+msgid "Full screen size"
+msgstr "Vollbildgröße"
+
+#: build/index.js:755
+#: src/blocks/button/inspector.js:138
+#: src/mods/postTitleProps.js:65
+#: build/index.js:613
+msgid "Click here"
+msgstr "Klicke hier"
+
+#: build/index.js:758
+#: src/blocks/button/inspector.js:144
+#: build/index.js:619
+msgid "Open in new Tab"
+msgstr "In neuem Tab öffnen"
+
+#: build/index.js:764
+#: src/blocks/button/inspector.js:156
+#: build/index.js:631
+msgid "Script"
+msgstr "Script"
+
+#: build/index.js:767
+#: src/blocks/button/inspector.js:160
+#: build/index.js:635
+msgid "Select a script"
+msgstr "Wähle ein Script"
+
+#: build/index.js:770
+#: src/blocks/button/inspector.js:167
+#: build/index.js:642
+msgid "Toggle Element"
+msgstr "Element umschalten"
+
+#: build/index.js:773
+#: src/blocks/button/inspector.js:174
+#: build/index.js:649
+msgid "Hide Element"
+msgstr "Element verstecken"
+
+#: build/index.js:776
+#: src/blocks/button/inspector.js:178
+#: build/index.js:653
+msgid "Show Element"
+msgstr "Element anzeigen"
+
+#: build/index.js:779
+#: src/blocks/button/inspector.js:182
+#: build/index.js:657
+msgid "Scroll to Element"
+msgstr "Zum Element scrollen"
+
+#: build/index.js:788
+#: src/blocks/button/inspector.js:195
+#: build/index.js:670
+msgid "Element ID"
+msgstr "Element ID"
+
+#: build/index.js:1044
+#: src/blocks/card/edit.js:59
+#: build/index.js:944
+msgid "Title"
+msgstr "Titel"
+
+#: build/index.js:1048
+#: src/blocks/card/edit.js:67
+#: build/index.js:952
+msgid "Subtitle"
+msgstr "Untertitel"
+
+#: build/index.js:1052
+#: src/blocks/card/edit.js:75
+#: build/index.js:960
+msgid "Your content goes here..."
+msgstr "Dein Inhalt kommt hier hin..."
+
+#: build/index.js:1247
+#: build/index.js:2133
+#: build/index.js:3874
+#: src/blocks/card/inspector.js:39
+#: src/blocks/description-item/inspector.js:186
+#: src/blocks/svg/inspector.js:61
+#: build/index.js:1144
+#: build/index.js:2021
+#: build/index.js:3495
+msgid "Color settings"
+msgstr "Farbeinstellungen"
+
+#: build/index.js:1250
+#: build/index.js:2144
+#: src/blocks/card/inspector.js:43
+#: src/blocks/description-item/inspector.js:199
+#: build/index.js:1148
+#: build/index.js:2034
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: build/index.js:1257
+#: src/blocks/card/inspector.js:51
+#: build/index.js:1156
+msgid "Secondary color"
+msgstr "Sekundäre Farbe"
+
+#: build/index.js:1264
+#: build/index.js:2407
+#: build/index.js:3076
+#: src/blocks/card/inspector.js:62
+#: src/blocks/description-list/inspector.js:13
+#: src/blocks/grid-row/inspector.js:28
+#: build/index.js:1167
+#: build/index.js:2236
+#: build/index.js:2743
+msgid "Appearance"
+msgstr "Aussehen"
+
+#: build/index.js:1267
+#: src/blocks/card/inspector.js:66
+#: build/index.js:1171
+msgid "Shadow"
+msgstr "Schatten"
+
+#: build/index.js:1275
+#: src/blocks/card/inspector.js:74
+#: build/index.js:1179
+msgid "Label Text"
+msgstr "Label Text"
+
+#: build/index.js:1283
+#: src/blocks/card/inspector.js:82
+#: build/index.js:1187
+msgid "Badge Text"
+msgstr "Badge Text"
+
+#: build/index.js:1291
+#: build/index.js:2055
+#: build/index.js:2068
+#: src/blocks/card/inspector.js:91
+#: src/blocks/description-item/inspector.js:51
+#: src/blocks/description-item/inspector.js:66
+#: build/index.js:1196
+#: build/index.js:1886
+#: build/index.js:1901
+msgid "Image"
+msgstr "Bild"
+
+#: build/index.js:1307
+#: build/index.js:2043
+#: src/blocks/card/inspector.js:112
+#: src/blocks/description-item/inspector.js:40
+#: build/index.js:1217
+#: build/index.js:1875
+msgid "Link"
+msgstr "Link"
+
+#: build/index.js:1312
+#: src/blocks/card/inspector.js:120
+#: build/index.js:1225
+msgid "Click here..."
+msgstr "Klicke hier..."
+
+#: build/index.js:1469
+#: src/blocks/card/toolbar.js:37
+#: build/index.js:1384
+msgid "Add Media"
+msgstr "Medien hinzufügen"
+
+#: build/index.js:1472
+#: src/blocks/card/toolbar.js:44
+#: build/index.js:1391
+msgid "Remove Media"
+msgstr "Medien entfernen"
+
+#: build/index.js:1703
+#: src/blocks/conditional/inspector.js:34
+#: build/index.js:1557
+msgid "Date"
+msgstr "Datum"
+
+#: build/index.js:1716
+#: src/blocks/conditional/inspector.js:45
+#: build/index.js:1568
+msgid "Hide"
+msgstr "verstecken"
+
+#: build/index.js:1725
+#: src/blocks/conditional/inspector.js:55
+#: build/index.js:1578
+msgid "Show"
+msgstr "zeigen"
+
+#: build/index.js:1727
+#: src/blocks/conditional/inspector.js:61
+#: build/index.js:1584
+msgid "From"
+msgstr "Von"
+
+#: build/index.js:1734
+#: src/blocks/conditional/inspector.js:69
+#: build/index.js:1592
+msgid "To"
+msgstr "Bis"
+
+#: build/index.js:1742
+#: src/blocks/conditional/inspector.js:79
+#: build/index.js:1602
+msgid "Access Control"
+msgstr "Zugriffskontrolle"
+
+#: build/index.js:1745
+#: src/blocks/conditional/inspector.js:83
+#: build/index.js:1606
+msgid "Show only to logged in users"
+msgstr "Nur für eingeloggte Benutzer anzeigen"
+
+#: build/index.js:1751
+#: src/blocks/conditional/inspector.js:91
+#: build/index.js:1614
+msgid "Show login notice"
+msgstr "Login Hinweis anzeigen"
+
+#: build/index.js:1757
+#: src/blocks/conditional/inspector.js:101
+#: build/index.js:1624
+msgid "Login notice"
+msgstr "Login Hinweis"
+
+#: build/index.js:1763
+#: src/blocks/conditional/inspector.js:108
+#: build/index.js:1631
+msgid "Include login form"
+msgstr "Login Formular einbinden"
+
+#: build/index.js:2049
+#: src/blocks/description-item/inspector.js:45
+#: build/index.js:1880
+msgid "Icon for Link"
+msgstr "Icon für Link"
+
+#: build/index.js:2086
+#: src/blocks/description-item/inspector.js:98
+#: build/index.js:1933
+msgid "Bullet"
+msgstr "Punkt"
+
+#: build/index.js:2101
+#: src/blocks/description-item/inspector.js:117
+#: build/index.js:1952
+msgid "Choose image"
+msgstr "Bild auswählen"
+
+#: build/index.js:2105
+#: src/blocks/description-item/inspector.js:129
+#: build/index.js:1964
+msgid "No image loaded"
+msgstr "Kein Bild geladen"
+
+#: build/index.js:2110
+#: src/blocks/description-item/inspector.js:139
+#: build/index.js:1974
+msgid "Replace image"
+msgstr "Bild ersetzen"
+
+#: build/index.js:2116
+#: src/blocks/description-item/inspector.js:154
+#: build/index.js:1989
+msgid "Remove image"
+msgstr "Bild entfernen"
+
+#: build/index.js:2119
+#: src/blocks/description-item/inspector.js:168
+#: build/index.js:2003
+msgid "Rounded"
+msgstr "Abgerundet"
+
+#: build/index.js:2136
+#: src/blocks/description-item/inspector.js:190
+#: build/index.js:2025
+msgid "Icon color"
+msgstr "Icon Farbe"
+
+#: build/index.js:2410
+#: src/blocks/description-list/inspector.js:18
+#: build/index.js:2241
+msgid "Lines as separators"
+msgstr "Linien als Trenner"
+
+#: build/index.js:2658
+#: src/blocks/grid-column/inspector.js:27
+#: build/index.js:2381
+msgid "Mobile appearance"
+msgstr "Mobilansicht"
+
+#: build/index.js:2662
+#: src/blocks/grid-column/inspector.js:32
+#: build/index.js:2386
+msgid "Column span on mobile devices"
+msgstr "Spaltenbreite auf mobilen Geräten"
+
+#: build/index.js:2672
+#: src/blocks/grid-column/inspector.js:39
+#: build/index.js:2393
+msgid "Columns span on tablets and small displays"
+msgstr "Spaltenbreite auf Tablets und kleinen Displays"
+
+#: build/index.js:2682
+#: src/blocks/grid-column/inspector.js:46
+#: build/index.js:2400
+msgid "Column span on Desktops"
+msgstr "Spaltenbreite auf Desktops"
+
+#: build/index.js:2692
+#: src/blocks/grid-column/inspector.js:54
+#: build/index.js:2408
+msgid "Position on mobile devices"
+msgstr "Position auf mobilen Geräten"
+
+#: build/index.js:2695
+#: src/blocks/grid-column/inspector.js:57
+#: build/index.js:2411
+msgid "In place"
+msgstr "An Ort und Stelle"
+
+#: build/index.js:2698
+#: src/blocks/grid-column/inspector.js:58
+#: build/index.js:2412
+msgid "Start"
+msgstr "Start"
+
+#: build/index.js:2701
+#: src/blocks/grid-column/inspector.js:59
+#: build/index.js:2413
+msgid "End"
+msgstr "Ende"
+
+#: build/index.js:3079
+#: src/blocks/grid-row/inspector.js:32
+#: build/index.js:2747
+msgid "Columns on mobile devices"
+msgstr "Spalten auf mobilen Geräten"
+
+#: build/index.js:3089
+#: src/blocks/grid-row/inspector.js:39
+#: build/index.js:2754
+msgid "Columns on tablets and medium screens"
+msgstr "Spalten auf Tablets und mittleren Bildschirmen"
+
+#: build/index.js:3099
+#: src/blocks/grid-row/inspector.js:46
+#: build/index.js:2761
+msgid "Columns on desktops"
+msgstr "Spalten auf Desktops"
+
+#: build/index.js:3109
+#: src/blocks/grid-row/inspector.js:54
+#: build/index.js:2769
+msgid "Make all columns same height"
+msgstr "Alle Spalten gleich hoch machen"
+
+#: build/index.js:3117
+#: src/blocks/grid-row/inspector.js:59
+#: build/index.js:2774
+msgid "Separate columns with borders"
+msgstr "Spalten mit Rahmen trennen"
+
+#: build/index.js:3246
+#: src/blocks/progress/edit.js:66
+#: build/index.js:2894
+msgid "Current value description..."
+msgstr "Beschriftung des aktuellen Wertes"
+
+#: build/index.js:3256
+#: src/blocks/progress/edit.js:87
+#: build/index.js:2915
+msgid "Max value description..."
+msgstr "Beschriftung des maximalen Wertes"
+
+#: build/index.js:3409
+#: src/blocks/progress/inspector.js:46
+#: build/index.js:3031
+msgid "Values"
+msgstr "Werte"
+
+#: build/index.js:3412
+#: src/blocks/progress/inspector.js:50
+#: build/index.js:3035
+msgid "Max value"
+msgstr "Maximaler Wert"
+
+#: build/index.js:3418
+#: src/blocks/progress/inspector.js:57
+#: build/index.js:3042
+msgid "Current value"
+msgstr "Aktueller Wert"
+
+#: build/index.js:3424
+#: src/blocks/progress/inspector.js:65
+#: build/index.js:3050
+msgid "Labels"
+msgstr "Beschriftungen"
+
+#: build/index.js:3427
+#: src/blocks/progress/inspector.js:70
+#: build/index.js:3055
+msgid "Show Values"
+msgstr "Werte anzeigen"
+
+#: build/index.js:3433
+#: src/blocks/progress/inspector.js:80
+#: build/index.js:3065
+msgid "Separate Thousands"
+msgstr "Tausender trennen"
+
+#: build/index.js:3440
+#: src/blocks/progress/inspector.js:96
+#: build/index.js:3081
+msgid "Decimal places"
+msgstr "Dezimalstellen"
+
+#: build/index.js:3451
+#: src/blocks/progress/inspector.js:109
+#: build/index.js:3094
+msgid "Unit"
+msgstr "Einheit"
+
+#: build/index.js:3458
+#: src/blocks/progress/inspector.js:121
+#: build/index.js:3106
+msgid "Show unit before Value"
+msgstr "Einheit vor Wert anzeigen"
+
+#: build/index.js:3465
+#: src/blocks/progress/inspector.js:135
+#: build/index.js:3120
+msgid "Bar"
+msgstr "Balken"
+
+#: build/index.js:3468
+#: src/blocks/progress/inspector.js:139
+#: build/index.js:3124
+msgid "Bar type"
+msgstr "Balken Typ"
+
+#: build/index.js:3471
+#: src/blocks/progress/inspector.js:142
+#: build/index.js:3127
+msgid "Normal"
+msgstr "Normal"
+
+#: build/index.js:3474
+#: src/blocks/progress/inspector.js:144
+#: build/index.js:3129
+msgid "Gradient (experimental)"
+msgstr "Verlauf (experimentell)"
+
+#: build/index.js:3477
+#: src/blocks/progress/inspector.js:151
+#: build/index.js:3136
+msgid "Stripes"
+msgstr "Streifen"
+
+#: build/index.js:3484
+#: src/blocks/progress/inspector.js:160
+#: build/index.js:3145
+msgid "Bar Label"
+msgstr "Balken Beschriftung"
+
+#: build/index.js:3487
+#: build/index.js:4203
+#: src/blocks/progress/inspector.js:163
+#: src/mods/scrollAnimation.js:64
+#: build/index.js:3148
+#: build/index.js:3766
+msgid "None"
+msgstr "Keine"
+
+#: build/index.js:3490
+#: src/blocks/progress/inspector.js:165
+#: build/index.js:3150
+msgid "Percentage"
+msgstr "Prozent"
+
+#: build/index.js:3493
+#: src/blocks/progress/inspector.js:169
+#: build/index.js:3154
+msgid "Value"
+msgstr "Wert"
+
+#: build/index.js:3496
+#: src/blocks/progress/inspector.js:173
+#: build/index.js:3158
+msgid "Both"
+msgstr "Beides"
+
+#: build/index.js:3503
+#: src/blocks/progress/inspector.js:182
+#: build/index.js:3167
+msgid "Animate"
+msgstr "Animieren"
+
+#: build/index.js:3511
+#: src/blocks/progress/inspector.js:192
+#: build/index.js:3177
+msgid "Colors"
+msgstr "Farben"
+
+#: build/index.js:3513
+#: src/blocks/progress/inspector.js:195
+#: build/index.js:3180
+msgid "Color for low values"
+msgstr "Farbe für niedrige Werte"
+
+#: build/index.js:3518
+#: src/blocks/progress/inspector.js:201
+#: build/index.js:3186
+msgid "Color for medium values"
+msgstr "Farbe für mittlere Werte"
+
+#: build/index.js:3847
+#: src/blocks/svg/inspector.js:27
+#: build/index.js:3461
+msgid "Image Size"
+msgstr "Bildgröße"
+
+#: build/index.js:3850
+#: src/blocks/svg/inspector.js:31
+#: build/index.js:3465
+msgid "Width"
+msgstr "Breite"
+
+#: build/index.js:3857
+#: src/blocks/svg/inspector.js:39
+#: build/index.js:3473
+msgid "Height"
+msgstr "Höhe"
+
+#: build/index.js:3864
+#: src/blocks/svg/inspector.js:48
+#: build/index.js:3482
+msgid "Image Manipulation"
+msgstr "Bildmanipulation"
+
+#: build/index.js:3867
+#: src/blocks/svg/inspector.js:52
+#: build/index.js:3486
+msgid "Stroke Width"
+msgstr "Strichstärke"
+
+#: build/index.js:3877
+#: src/blocks/svg/inspector.js:65
+#: build/index.js:3499
+msgid "Stroke color"
+msgstr "Strichfarbe"
+
+#: build/index.js:3884
+#: src/blocks/svg/inspector.js:73
+#: build/index.js:3507
+msgid "Fill color"
+msgstr "Füllfarbe"
+
+#: build/index.js:3940
+#: src/blocks/svg/toolbar.js:33
+#: build/index.js:3553
+msgid "Add SVG"
+msgstr "SVG hinzufügen"
+
+#: build/index.js:4106
+#: src/mods/paragraphJustify.js:49
+#: build/index.js:3686
+msgid "Justify text"
+msgstr "Text ausrichten"
+
+#: build/index.js:4188
+#: src/mods/scrollAnimation.js:49
+#: build/index.js:3751
+msgid "Animation"
+msgstr "Animation"
+
+#: build/index.js:4191
+#: src/mods/scrollAnimation.js:53
+#: build/index.js:3755
+msgid "Animate on scroll"
+msgstr "Beim Scrollen animieren"
+
+#: build/index.js:4200
+#: src/mods/scrollAnimation.js:61
+#: build/index.js:3763
+msgid "Select Animation"
+msgstr "Animation auswählen"
+
+#: build/index.js:4206
+#: src/mods/scrollAnimation.js:66
+#: build/index.js:3768
+msgid "Fade In"
+msgstr "Einblenden"
+
+#: build/index.js:4209
+#: src/mods/scrollAnimation.js:70
+#: build/index.js:3772
+msgid "Fade In Up"
+msgstr "Nach oben einblenden"
+
+#: build/index.js:4212
+#: src/mods/scrollAnimation.js:74
+#: build/index.js:3776
+msgid "Fade In Down"
+msgstr "Nach unten einblenden"
+
+#: build/index.js:4215
+#: src/mods/scrollAnimation.js:78
+#: build/index.js:3780
+msgid "Fade In Left"
+msgstr "Nach links einblenden"
+
+#: build/index.js:4218
+#: src/mods/scrollAnimation.js:82
+#: build/index.js:3784
+msgid "Fade In Right"
+msgstr "Nach rechts einblenden"
+
+#: build/index.js:4221
+#: src/mods/scrollAnimation.js:86
+#: build/index.js:3788
+msgid "Flip In X"
+msgstr "Um X-Achse drehen"
+
+#: build/index.js:4224
+#: src/mods/scrollAnimation.js:90
+#: build/index.js:3792
+msgid "Flip In Y"
+msgstr "Um Y-Achse drehen"
+
+#: build/index.js:4227
+#: src/mods/scrollAnimation.js:94
+#: build/index.js:3796
+msgid "Zoom In"
+msgstr "Hineinzoomen"
+
+#: build/index.js:4230
+#: src/mods/scrollAnimation.js:98
+#: build/index.js:3800
+msgid "Bounce in In"
+msgstr "Hinein hüpfen"
+
+#: build/index.js:4328
+#: src/mods/spacerAutoOption.js:47
+#: build/index.js:3906
+msgid "Auto Height"
+msgstr "Automatische Höhe"
+
+#: build/index.js:4331
+#: src/mods/spacerAutoOption.js:51
+#: build/index.js:3910
+msgid "Use as auto height control in a card"
+msgstr "Als automatische Höhenkontrolle in einer Karte verwenden"
+
+#: src/blocks/grid-row/appender.js:14
+msgid "New column"
+msgstr "Neue Spalte"
+
+#: src/blocks/grid-row/appender.js:18
+msgid "Add column"
+msgstr "Spalte hinzufügen"
+
+#: src/mods/featuredImageProps.js:47
+#: src/mods/imageSettings.js:55
+msgid "Mobile Options"
+msgstr "Mobiloptionen"
+
+#: src/mods/featuredImageProps.js:51
+#: src/mods/imageSettings.js:59
+msgid "Image Orientation on mobile devices"
+msgstr "Bildausrichtung auf mobilen Geräten"
+
+#: src/mods/featuredImageProps.js:66
+#: src/mods/imageSettings.js:74
+msgid "Image size on mobile devices"
+msgstr "Bildgröße auf mobilen Geräten"
+
+#: src/mods/mobileVisibility.js:52
+msgid "Visibility"
+msgstr "Sichtbarkeit"
+
+#: src/mods/mobileVisibility.js:56
+msgid "Hide on large screens"
+msgstr "Auf großen Bildschirmen verstecken"
+
+#: src/mods/mobileVisibility.js:61
+msgid "Hide on mobile devices"
+msgstr "Auf mobilen Geräten verstecken"
+
+#: src/mods/postTitleProps.js:55
+msgid "Link Options"
+msgstr "Link Optionen"
+
+#: src/mods/postTitleProps.js:70
+msgid "Link Text"
+msgstr "Link Text"
+
+#: src/mods/postTitleProps.js:85
+msgid "Icon Position"
+msgstr "Icon Position"
+
+#: src/mods/postTitleProps.js:86
+msgid "Prepend or append the icon"
+msgstr "Icon voranstellen oder anhängen"
+
+#: src/mods/postTitleProps.js:93
+msgid "Left"
+msgstr "Links"
+
+#: src/mods/postTitleProps.js:97
+msgid "Right"
+msgstr "Rechts"
+
+#: build/blocks/button/block.json
+#: src/blocks/button/block.json
+msgctxt "block title"
+msgid "Button"
+msgstr "Button"
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+#: src/blocks/button/block.json
+#: src/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr "Link"
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+#: src/blocks/button/block.json
+#: src/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "action"
+msgstr "Aktion"
+
+#: build/blocks/button/block.json
+#: build/blocks/button/button-group/block.json
+#: src/blocks/button/block.json
+#: src/blocks/button/button-group/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr "Button"
+
+#: build/blocks/button/block.json
+#: src/blocks/button/block.json
+msgctxt "block description"
+msgid "Display a button with a link or a modal"
+msgstr "Zeige einen Button mit einem Link oder einem Modal"
+
+#: build/blocks/button/block.json
+#: src/blocks/button/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr "Füllen"
+
+#: build/blocks/button/block.json
+#: src/blocks/button/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr "Umriss"
+
+#: build/blocks/button/button-group/block.json
+#: src/blocks/button/button-group/block.json
+msgctxt "block title"
+msgid "Button Group"
+msgstr "Button Gruppe"
+
+#: build/blocks/button/button-group/block.json
+#: src/blocks/button/button-group/block.json
+msgctxt "block description"
+msgid "Collection of buttons that can be aligned or spaced."
+msgstr "Sammlung von Buttons, die ausgerichtet oder abständig sein können."
+
+#: build/blocks/card/block.json
+msgctxt "block title"
+msgid "Card"
+msgstr "Karte"
+
+#: build/blocks/card/block.json
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "container"
+msgstr "Container"
+
+#: build/blocks/card/block.json
+msgctxt "block keyword"
+msgid "card"
+msgstr "Karte"
+
+#: build/blocks/card/block.json
+msgctxt "block description"
+msgid "Card component to hold different Information"
+msgstr "Kartenkomponente, um verschiedene Informationen zu halten"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block title"
+msgid "Conditional Content"
+msgstr "Bedingter Inhalt"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "date"
+msgstr "Datum"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "time"
+msgstr "Zeit"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "country"
+msgstr "Land"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block keyword"
+msgid "user"
+msgstr "Benutzer"
+
+#: build/blocks/conditional/block.json
+#: src/blocks/conditional/block.json
+msgctxt "block description"
+msgid "Show or hide a block under certain conditions"
+msgstr "Zeige oder verstecke einen Block unter bestimmten Bedingungen"
+
+#: build/blocks/description-item/block.json
+#: src/blocks/description-item/block.json
+msgctxt "block title"
+msgid "Description Item"
+msgstr "Beschreibungselement"
+
+#: build/blocks/description-item/block.json
+#: build/blocks/description-list/block.json
+#: build/blocks/grid-column/block.json
+#: src/blocks/description-item/block.json
+#: src/blocks/description-list/block.json
+#: src/blocks/grid-column/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr "Liste"
+
+#: build/blocks/description-item/block.json
+#: build/blocks/description-list/block.json
+#: build/blocks/grid-column/block.json
+#: src/blocks/description-item/block.json
+#: src/blocks/description-list/block.json
+#: src/blocks/grid-column/block.json
+msgctxt "block keyword"
+msgid "table"
+msgstr "Tabelle"
+
+#: build/blocks/description-item/block.json
+#: src/blocks/description-item/block.json
+msgctxt "block description"
+msgid "Singel item of a description list"
+msgstr "Einzelnes Element einer Beschreibungsliste"
+
+#: build/blocks/description-list/block.json
+#: src/blocks/description-list/block.json
+msgctxt "block title"
+msgid "Description List"
+msgstr "Beschreibungsliste"
+
+#: build/blocks/description-list/block.json
+#: src/blocks/description-list/block.json
+msgctxt "block description"
+msgid "List containing items with an image or icon and a text"
+msgstr "Liste mit Elementen mit einem Bild oder Icon und einem Text"
+
+#: build/blocks/grid-column/block.json
+#: src/blocks/grid-column/block.json
+msgctxt "block title"
+msgid "Column"
+msgstr "Spalte"
+
+#: build/blocks/grid-column/block.json
+#: src/blocks/grid-column/block.json
+msgctxt "block description"
+msgid "Single column as child of a columns collection"
+msgstr "Einzelne Spalte als Kind einer Spaltensammlung"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block title"
+msgid "Columns"
+msgstr "Spalten"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "columns"
+msgstr "Spalten"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "responsive"
+msgstr "responsiv"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "wrapper"
+msgstr "Wrapper"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "row"
+msgstr "Zeile"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block keyword"
+msgid "section"
+msgstr "Abschnitt"
+
+#: build/blocks/grid-row/block.json
+#: src/blocks/grid-row/block.json
+msgctxt "block description"
+msgid "Displays content in columns of different width"
+msgstr "Zeigt Inhalte in Spalten unterschiedlicher Breite an"
+
+#: build/blocks/progress/block.json
+#: src/blocks/progress/block.json
+msgctxt "block title"
+msgid "Progress Bar"
+msgstr "Fortschrittsbalken"
+
+#: build/blocks/progress/block.json
+#: src/blocks/progress/block.json
+msgctxt "block keyword"
+msgid "percent"
+msgstr "Prozent"
+
+#: build/blocks/progress/block.json
+#: src/blocks/progress/block.json
+msgctxt "block keyword"
+msgid "progress"
+msgstr "Fortschritt"
+
+#: build/blocks/progress/block.json
+#: src/blocks/progress/block.json
+msgctxt "block description"
+msgid "Shows a progress bar"
+msgstr "Zeigt einen Fortschrittsbalken an"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block title"
+msgid "Inline SVG"
+msgstr "Inline SVG"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "navigation"
+msgstr "Navigation"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "logo"
+msgstr "Logo"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "menu"
+msgstr "Menü"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block keyword"
+msgid "claim"
+msgstr "Anspruch"
+
+#: build/blocks/svg/block.json
+#: src/blocks/svg/block.json
+msgctxt "block description"
+msgid "Inject an SVG file into the page."
+msgstr "Fügt eine SVG-Datei in die Seite ein."

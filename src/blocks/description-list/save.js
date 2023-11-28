@@ -11,6 +11,7 @@ export default function Save({ attributes }) {
 	const { dividers } = attributes;
 
 	const classes = [
+		'ctx-description',
 		'ctx:description__wrapper',
 		dividers ? 'ctx-description--divider' : false,
 	]
