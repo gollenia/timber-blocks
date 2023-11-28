@@ -11,6 +11,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Inspector from './inspector';
+import Toolbar from './toolbar';
 
 export default function ButtonEdit({ ...props }) {
 	const {
@@ -51,7 +52,7 @@ export default function ButtonEdit({ ...props }) {
 	return (
 		<div {...blockProps}>
 			<Inspector {...props} />
-
+			<Toolbar {...props} />
 			<span
 				onClick={() => {
 					if (!hasModal) return;

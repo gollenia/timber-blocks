@@ -10,7 +10,6 @@ import {
 	PanelBody,
 	PanelRow,
 	TextControl,
-	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import icons from './icons';
@@ -163,15 +162,7 @@ const Inspector = (props) => {
 							}}
 						/>
 					</MediaUploadCheck>
-					<PanelRow>
-						<ToggleControl
-							label={__('Rounded', 'ctx-blocks')}
-							checked={roundImage}
-							onChange={(value) =>
-								setAttributes({ roundImage: value })
-							}
-						/>
-					</PanelRow>
+
 					<PanelRow>
 						<TextControl
 							label={__('Icon', 'ctx-blocks')}

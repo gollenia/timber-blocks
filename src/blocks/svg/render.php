@@ -5,13 +5,13 @@ if(!file_exists($path)) {
 	return "";
 }
 
-$tag = $attributes['linkDestination'] ? 'a' : 'div';
+$tag = $attributes['linkUrl'] ? 'a' : 'div';
 $style = "width: {$attributes['width']}px; height: {$attributes['height']}px;";
 
 ?>
 
-<?php if($attributes['linkDestination']) : ?>
-<a href="<?php echo $attributes['linkDestination'] ?>" target="<?php echo $attributes['linkTarget'] ?>" style="<?php echo $style; ?>">
+<?php if($attributes['linkUrl']) : ?>
+<a href="<?php echo $attributes['linkUrl'] ?>" target="<?php echo $attributes['linkNewTab'] ? '_blank' : '' ?>" style="<?php echo $style; ?>">
 <?php else : ?>
 <div class="svg-wrapper" style="<?php echo $style; ?>">
 <?php endif; ?>
@@ -22,4 +22,4 @@ $style = "width: {$attributes['width']}px; height: {$attributes['height']}px;";
 		}
 	</style>
 	<?php echo file_get_contents($path); ?>
-<?php echo $attributes['linkDestination'] ? "</a>" : "</div>";
+<?php echo $attributes['linkUrl'] ? "</a>" : "</div>";

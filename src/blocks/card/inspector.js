@@ -1,10 +1,5 @@
+import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import {
-	InspectorControls,
-	PanelColorSettings,
-	URLInput,
-} from '@wordpress/block-editor';
-import {
-	BaseControl,
 	CheckboxControl,
 	FocalPointPicker,
 	PanelBody,
@@ -104,24 +99,6 @@ const Inspector = (props) => {
 							})
 						}
 					/>
-				</PanelBody>
-				<PanelBody
-					title={__('Behaviour', 'ctx-blocks')}
-					initialOpen={false}
-				>
-					<BaseControl label={__('Link', 'ctx-blocks')}>
-						<URLInput
-							value={url}
-							onChange={(url, post) =>
-								setAttributes({
-									url,
-									text:
-										(post && post.title) ||
-										__('Click here...', 'ctx-blocks'),
-								})
-							}
-						/>
-					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
 		</>

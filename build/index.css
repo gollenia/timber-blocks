@@ -1,11 +1,489 @@
-.wp-block-ctx-blocks-button{margin-left:0!important;margin-right:0!important}.ctx__button{background-color:#000;color:#fff}.ctx__button>span{align-items:center;display:inline-flex;gap:.5rem}.ctx__button.reverse>span{flex-direction:row-reverse}.ctx__button i.material-icons{line-height:0}.components-panel__body .block-editor-url-input input{width:100%!important}.ctx-style-selector Button{background:#eee;border:2px solid #eee;flex-direction:column;height:70px;margin-right:5px;width:70px}.ctx-style-selector Button.active{border:2px solid #007cba}.ctx-style-selector{padding-bottom:22px;padding-top:10px}.ctx__button.is-style-outline{background:transparent!important;box-shadow:inset 0 0 0 2px currentColor}
-.ctx\:buttons{align-items:center;background-color:#e9967a;border:1px dashed red;display:flex;gap:1rem;margin-top:5px}.ctx\:buttons__center{justify-content:center}.ctx\:buttons__right{justify-content:flex-end}.ctx-buttons>.block-list-appender{position:relative}
-.ctx__card{display:flex;flex-direction:column;padding:0!important;position:relative}.ctx__card-header{align-self:normal;position:relative}.ctx__card-header img{align-self:stretch;aspect-ratio:16/9;border-bottom-left-radius:inherit;border-top-left-radius:inherit;height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.ctx__card-shadow{box-shadow:0 0 10px rgba(0,0,0,.2)}.ctx__card-badge{align-items:center;aspect-ratio:1/1;border-radius:100%;display:inline-flex;justify-content:center;padding:5px;position:absolute;right:1rem;top:1rem}.ctx__card-label{bottom:1rem;left:1rem;padding:1px 5px;position:absolute}.ctx__card-horizontal{flex-direction:row}.ctx__card-horizontal .ctx__card__badge{left:10px;top:10px}.ctx__card-horizontal .ctx__card-header{align-self:stretch;position:static;width:33%}.ctx__card-horizontal .ctx__card-header img{aspect-ratio:unset;-o-object-fit:cover;object-fit:cover}.ctx__card-horizontal .ctx__card-content{align-items:stretch}.ctx__card__content{flex:1;padding:15px;position:relative}.ctx__card-no-image .ctx__card-header{position:static!important}
-.ctx\:conditional{padding:1.5rem}.ctx\:conditional:after{background:repeating-linear-gradient(-45deg,#a6ec65,#a6ec65 20px,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0) 40px);opacity:.3}.ctx\:conditional:after,.ctx\:conditional__logged-in:after{content:" ";display:block;height:100%;left:0;pointer-events:none;position:absolute;top:0;width:100%;z-index:1}.ctx\:conditional__logged-in:after{background:repeating-linear-gradient(-45deg,#e5c703,#e5c703 20px,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0) 40px);opacity:.4}.ctx\:conditional__unscheduled:after{background:repeating-linear-gradient(-45deg,#e53b03,#e53b03 20px,#eeb4a0 0,#eeb4a0 40px);content:" ";display:block;height:100%;left:0;opacity:.3;pointer-events:none;position:absolute;top:0;width:100%;z-index:1}
-.components-datetime{padding:0}.ctx__description-item{align-items:center;display:flex;gap:1rem}.ctx__description-item img{height:3.5rem;width:3.5rem}.ctx__description-item img.round{border-radius:999px}.ctx__description-item p{margin-bottom:0!important;margin-top:0!important}.ctx__description-item-content{flex:1}.ctx__description-item-icon{display:grid;height:3.5rem;place-items:center;width:3.5rem}.ctx__description-item-icon i{font-size:2.5rem}.ctx__description-item-icon.round{border-radius:999px}.ctx-description--divider:not(:last-child) .ctx__description-item{border-bottom:1px solid #bbb;margin-bottom:-1rem;padding-bottom:1rem}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/button/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-ctx-blocks-button {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 
-div[data-width="1"]{grid-column:span 1/span 1!important}div[data-width="2"]{grid-column:span 2/span 2!important}div[data-width="3"]{grid-column:span 3/span 3!important}div[data-width="4"]{grid-column:span 4/span 4!important}div[data-width="5"]{grid-column:span 5/span 5!important}div[data-width="6"]{grid-column:span 6/span 6!important}div[data-width="7"]{grid-column:span 7/span 7!important}div[data-width="8"]{grid-column:span 8/span 8!important}div[data-width="9"]{grid-column:span 9/span 9!important}div[data-width="10"]{grid-column:span 10/span 10!important}div[data-width="11"]{grid-column:span 11/span 11!important}div[data-width="12"]{grid-column:span 12/span 12!important}.ctx\:column{margin:0!important}.ctx\:column__wrapper{padding:0 5px}.ctx\:column__label{margin:5px}
-.ctx-appender-col-header{background-image:linear-gradient(135deg,transparent 25%,rgba(0,0,0,.1) 0,rgba(0,0,0,.1) 50%,transparent 0,transparent 75%,rgba(0,0,0,.1) 0,rgba(0,0,0,.1));background-size:28.28px 28.28px;height:32px;opacity:0}.ctx\:row{display:grid!important}.ctx\:row__icon{height:18px;opacity:.6;width:18px}.ctx\:row--equalize .ctx\:card{height:100%}.ctx\:row__label{margin-bottom:5px;position:absolute}.ctx\:row__icons{height:18px}.ctx\:row__header{align-items:center;background:rgba(0,0,0,.1);border:1px dashed rgba(0,0,0,.3);display:flex;line-height:1.2rem;margin-bottom:25px;padding-bottom:5px;padding-top:5px;visibility:hidden}.ctx\:row__header label{color:#444;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-size:12px;font-weight:700;margin-left:10px}.ctx\:row__header .ctx-row-icons{align-items:center;display:flex;margin-left:auto;padding-right:10px}.ctx\:row__header .ctx-row-icons .ctx-row-icon{height:16px;opacity:.8;width:16px}.ctx\:row__columns--1{grid-template-columns:repeat(1,minmax(0,1fr))}.ctx\:row__columns--2{grid-template-columns:repeat(2,minmax(0,1fr))}.ctx\:row__columns--3{grid-template-columns:repeat(3,minmax(0,1fr))}.ctx\:row__columns--4{grid-template-columns:repeat(4,minmax(0,1fr))}.ctx\:row__columns--5{grid-template-columns:repeat(5,minmax(0,1fr))}.ctx\:row__columns--6{grid-template-columns:repeat(6,minmax(0,1fr))}.ctx\:row__columns--7{grid-template-columns:repeat(7,minmax(0,1fr))}.ctx\:row__columns--8{grid-template-columns:repeat(8,minmax(0,1fr))}.ctx\:row__columns--9{grid-template-columns:repeat(9,minmax(0,1fr))}.ctx\:row__columns--10{grid-template-columns:repeat(10,minmax(0,1fr))}.ctx\:row__columns--11{grid-template-columns:repeat(11,minmax(0,1fr))}.ctx\:row__columns--12{grid-template-columns:repeat(12,minmax(0,1fr))}
-.ctx-progress .outer{width:100%}.ctx-progress .inner,.ctx-progress .outer{border-radius:10px;height:20px}.ctx-progress span.value{color:#fff;float:right;font-size:small;margin-right:10px}.ctx-progress .description{display:flex;justify-content:space-between;width:100%}.ctx-progress .cur-value-description,.ctx-progress .max-value-description{font-size:13px}.ctx-progress .cur-value,.ctx-progress .max-value{font-size:20px}
-.ctx-header-has-image .ctx\:header-content{bottom:1rem;left:1rem;position:absolute;right:1rem;top:1rem}.fill-primary{fill:var(--wp--preset--color--primary)}
-.ctx-appender__toggle{align-items:center;background:hsla(200,9%,94%,.8);color:#555d66;display:flex;justify-content:center;outline:1px dashed #8d96a0;padding:35px;width:100%}.ctx-appender__toggle:hover{background:hsla(200,9%,94%,.8)!important;box-shadow:none!important;color:#191e23;outline:1px dashed #555d66}.ctx-blocks-appender{margin-top:28px}.ctx-text-align-center{text-align:center}.ctx-text-align-right{text-align:right}.wp-justify{text-align:justify!important}.has-primary-background-color{background-color:var(--primary)!important}
+.ctx__button {
+  background-color: #000000;
+  color: #ffffff;
+}
+.ctx__button > span {
+  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+.ctx__button.reverse > span {
+  flex-direction: row-reverse;
+}
+.ctx__button i.material-icons {
+  line-height: 0;
+}
+
+.components-panel__body .block-editor-url-input input {
+  width: 100% !important;
+}
+
+.ctx-style-selector Button {
+  flex-direction: column;
+  height: 70px;
+  background: #eee;
+  width: 70px;
+  border: 2px solid #eee;
+  margin-right: 5px;
+}
+.ctx-style-selector Button.active {
+  border: 2px solid #007cba;
+}
+
+.ctx-style-selector {
+  padding-top: 10px;
+  padding-bottom: 22px;
+}
+
+.ctx__button.is-style-outline {
+  background: transparent !important;
+  box-shadow: inset 0px 0px 0px 2px currentColor;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/button/button-group/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.ctx\:buttons {
+  display: flex;
+  margin-top: 5px;
+  gap: 1rem;
+  align-items: center;
+  background-color: darksalmon;
+  border: 1px dashed #ff0000;
+}
+.ctx\:buttons__center {
+  justify-content: center;
+}
+.ctx\:buttons__right {
+  justify-content: flex-end;
+}
+
+.ctx-buttons > .block-list-appender {
+  position: relative;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/card/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.ctx__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
+.ctx__card-header {
+  position: relative;
+  align-self: normal;
+}
+.ctx__card-header img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  align-self: stretch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom-left-radius: inherit;
+  border-top-left-radius: inherit;
+}
+.ctx__card-shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.ctx__card-badge {
+  position: absolute;
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  right: 1rem;
+  top: 1rem;
+  aspect-ratio: 1/1;
+}
+.ctx__card-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 1px 5px;
+}
+.ctx__card-horizontal {
+  flex-direction: row;
+}
+.ctx__card-horizontal .ctx__card__badge {
+  left: 10px;
+  top: 10px;
+}
+.ctx__card-horizontal .ctx__card-header {
+  position: initial;
+  width: 33%;
+  align-self: stretch;
+}
+.ctx__card-horizontal .ctx__card-header img {
+  aspect-ratio: unset;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ctx__card-horizontal .ctx__card-content {
+  align-items: stretch;
+}
+.ctx__card__content {
+  padding: 15px;
+  position: relative;
+  flex: 1;
+}
+.ctx__card-no-image .ctx__card-header {
+  position: initial !important;
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/conditional/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.ctx\:conditional {
+  padding: 1.5rem;
+}
+.ctx\:conditional::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #a6ec65 0px, #a6ec65 20px, rgba(255, 255, 255, 0) 20px, rgba(255, 255, 255, 0) 40px);
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+.ctx\:conditional__logged-in::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e5c703 0px, #e5c703 20px, rgba(255, 255, 255, 0) 20px, rgba(255, 255, 255, 0) 40px);
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+}
+.ctx\:conditional__unscheduled::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, #e53b03 0px, #e53b03 20px, #eeb4a0 20px, #eeb4a0 40px);
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description-item/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+.components-datetime {
+  padding: 0;
+}
+
+.ctx__description-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ctx__description-item img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.ctx__description-item img.round {
+  border-radius: 999px;
+}
+.ctx__description-item p {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.ctx__description-item-content {
+  flex: 1;
+}
+.ctx__description-item-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+}
+.ctx__description-item-icon i {
+  font-size: 2.5rem;
+}
+.ctx__description-item-icon.round {
+  border-radius: 999px;
+}
+
+.ctx-description--divider:not(:last-child) .ctx__description-item {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/description-list/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-column/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+div[data-width="1"] {
+  grid-column: span 1/span 1 !important;
+}
+
+div[data-width="2"] {
+  grid-column: span 2/span 2 !important;
+}
+
+div[data-width="3"] {
+  grid-column: span 3/span 3 !important;
+}
+
+div[data-width="4"] {
+  grid-column: span 4/span 4 !important;
+}
+
+div[data-width="5"] {
+  grid-column: span 5/span 5 !important;
+}
+
+div[data-width="6"] {
+  grid-column: span 6/span 6 !important;
+}
+
+div[data-width="7"] {
+  grid-column: span 7/span 7 !important;
+}
+
+div[data-width="8"] {
+  grid-column: span 8/span 8 !important;
+}
+
+div[data-width="9"] {
+  grid-column: span 9/span 9 !important;
+}
+
+div[data-width="10"] {
+  grid-column: span 10/span 10 !important;
+}
+
+div[data-width="11"] {
+  grid-column: span 11/span 11 !important;
+}
+
+div[data-width="12"] {
+  grid-column: span 12/span 12 !important;
+}
+
+.ctx\:column {
+  margin: 0 !important;
+}
+.ctx\:column__wrapper {
+  padding: 0 5px;
+}
+.ctx\:column__label {
+  margin: 5px;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/grid-row/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.ctx-appender-col-header {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1) 100%);
+  background-size: 28.28px 28.28px;
+  height: 32px;
+  opacity: 0;
+}
+
+.ctx\:row {
+  display: grid !important;
+}
+.ctx\:row__icon {
+  height: 18px;
+  width: 18px;
+  opacity: 0.6;
+}
+.ctx\:row--equalize .ctx\:card {
+  height: 100%;
+}
+.ctx\:row__label {
+  margin-bottom: 5px;
+  position: absolute;
+}
+.ctx\:row__icons {
+  height: 18px;
+}
+.ctx\:row__header {
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1.2rem;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  margin-bottom: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+}
+.ctx\:row__header label {
+  font-size: 12px;
+  margin-left: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  color: #444;
+}
+.ctx\:row__header .ctx-row-icons {
+  margin-left: auto;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.ctx\:row__header .ctx-row-icons .ctx-row-icon {
+  height: 16px;
+  width: 16px;
+  opacity: 0.8;
+}
+
+.ctx\:row__columns--1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--10 {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.ctx\:row__columns--12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/progress/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.ctx-progress .outer {
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+}
+.ctx-progress .inner {
+  height: 20px;
+  border-radius: 10px;
+}
+.ctx-progress span.value {
+  float: right;
+  font-size: small;
+  margin-right: 10px;
+  color: #fff;
+}
+.ctx-progress .description {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.ctx-progress .cur-value-description, .ctx-progress .max-value-description {
+  font-size: 13px;
+}
+.ctx-progress .cur-value, .ctx-progress .max-value {
+  font-size: 20px;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/svg/editor.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.ctx-header-has-image .ctx\:header-content {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 1rem;
+  bottom: 1rem;
+}
+
+.fill-primary {
+  fill: var(--wp--preset--color--primary);
+}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/common/styles/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+.ctx-appender__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+  outline: 1px dashed #8d96a0;
+  width: 100%;
+  color: #555d66;
+  background: rgba(237, 239, 240, 0.8);
+}
+.ctx-appender__toggle:hover {
+  outline: 1px dashed #555d66;
+  color: #191e23;
+  background: rgba(237, 239, 240, 0.8) !important;
+  box-shadow: none !important;
+}
+
+.ctx-blocks-appender {
+  margin-top: 28px;
+}
+
+.ctx-text-align-center {
+  text-align: center;
+}
+
+.ctx-text-align-right {
+  text-align: right;
+}
+
+.wp-justify {
+  text-align: justify !important;
+}
+
+.has-primary-background-color {
+  background-color: var(--primary) !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

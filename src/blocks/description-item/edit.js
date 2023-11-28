@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 import Inspector from './inspector';
-
+import Toolbar from './toolbar';
 /**
  * WordPress dependencies
  */
@@ -14,15 +14,41 @@ import {
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 
+import { useRef } from '@wordpress/element';
+
 function ItemEdit({ ...props }) {
 	const {
-		attributes: { image, icon, styleVariation, url, urlIcon },
+		attributes: {
+			image,
+			icon,
+			styleVariation,
+			url,
+			urlIcon,
+			imageUrl,
+			imageId,
+		},
 		iconColor,
 		customIconColor,
 		customIconBackgroundColor,
 		iconBackgroundColor,
 		className,
+		setAttributes,
 	} = props;
+
+	console.log(imageUrl);
+
+	const imageRef = useRef();
+
+	const onSelectMedia = (media) => {
+		if (!media || !media.url) {
+			setAttributes({ imageUrl: undefined, imageId: undefined });
+			return;
+		}
+		setAttributes({
+			imageUrl: media.sizes?.thumbnail?.url ?? media.url,
+			imageId: media.id,
+		});
+	};
 
 	const classes = [className, 'ctx__description-item']
 		.filter(Boolean)
@@ -69,16 +95,15 @@ function ItemEdit({ ...props }) {
 		<>
 			<div {...blockProps}>
 				<Inspector {...props} />
-
-				{styleVariation == 'image' &&
-					image &&
-					image.subtype != 'svg+xml' && (
-						<img
-							className="ctx__description-item-image"
-							src={image.sizes.thumbnail.url}
-							style={iconStyle}
-						/>
-					)}
+				<Toolbar {...props} onSelectMedia={onSelectMedia} />
+				{styleVariation == 'image' && imageUrl && (
+					<img
+						className="ctx__description-item-image"
+						src={imageUrl}
+						style={iconStyle}
+						ref={imageRef}
+					/>
+				)}
 
 				{styleVariation == 'icon' && (
 					<div className={iconClasses} style={iconStyle}>

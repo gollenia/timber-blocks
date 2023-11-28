@@ -15,6 +15,7 @@ const CardSave = (props) => {
 		imageUrl,
 		shadow,
 		url,
+		openInNewTab,
 		backgroundColor,
 		secondaryColor,
 		customBackgroundColor,
@@ -77,7 +78,12 @@ const CardSave = (props) => {
 	const Tag = url ? 'a' : 'div';
 
 	return (
-		<Tag {...blockProps} style={cardStyle} href={url ? url : undefined}>
+		<Tag
+			{...blockProps}
+			style={cardStyle}
+			href={url ? url : undefined}
+			target={openInNewTab ? '_blank' : undefined}
+		>
 			<div className="ctx__card-header">
 				{!!badgeText && (
 					<b

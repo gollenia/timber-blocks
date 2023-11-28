@@ -44,23 +44,11 @@
 			"type": "number",
 			"default": 0
 		},
-		"linkTarget": {
-			"type": "string",
-			"default": ""
+		"linkNewTab": {
+			"type": "boolean",
+			"default": false
 		},
-		"linkDestination": {
-			"type": "string",
-			"default": ""
-		},
-		"linkClass": {
-			"type": "string",
-			"default": ""
-		},
-		"linkRel": {
-			"type": "string",
-			"default": ""
-		},
-		"href": {
+		"linkUrl": {
 			"type": "string",
 			"default": ""
 		}

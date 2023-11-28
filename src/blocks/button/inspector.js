@@ -1,18 +1,19 @@
 /**
  * WordPress dependencies
  */
-import { InspectorControls, URLInput } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 import {
 	Button,
+	CheckboxControl,
 	Icon,
 	PanelBody,
 	PanelRow,
 	SelectControl,
 	TextControl,
-	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import icons from './icons';
+
 /**
  * Inspector controls
  */
@@ -48,22 +49,6 @@ const Inspector = (props) => {
 							}}
 						/>
 					</PanelRow>
-
-					<ToggleControl
-						label={__('Show icon on the right', 'ctx-blocks')}
-						checked={iconRight}
-						onChange={(value) =>
-							setAttributes({ iconRight: value })
-						}
-					/>
-					<ToggleControl
-						label={__(
-							'Hide button text and show icon only',
-							'ctx-blocks'
-						)}
-						checked={iconOnly}
-						onChange={(value) => setAttributes({ iconOnly: value })}
-					/>
 				</PanelBody>
 				<PanelBody
 					title={__('Behaviour', 'ctx-blocks')}
@@ -114,37 +99,11 @@ const Inspector = (props) => {
 
 					{action === 'modal' && (
 						<>
-							<ToggleControl
+							<CheckboxControl
 								label={__('Full screen size', 'ctx-blocks')}
 								checked={modalFull}
 								onChange={(value) =>
 									setAttributes({ modalFull: !modalFull })
-								}
-							/>
-						</>
-					)}
-
-					{action == 'link' && (
-						<>
-							<div className="block-editor-link-control__search-input-container">
-								<URLInput
-									value={url}
-									placeholder={__('Search or type url')}
-									onChange={(url, post) =>
-										setAttributes({
-											url,
-											text:
-												(post && post.title) ||
-												__('Click here', 'ctx-blocks'),
-										})
-									}
-								/>
-							</div>
-							<ToggleControl
-								label={__('Open in new Tab', 'ctx-blocks')}
-								checked={newTab}
-								onChange={(value) =>
-									setAttributes({ newTab: !newTab })
 								}
 							/>
 						</>

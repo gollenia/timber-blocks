@@ -11,9 +11,17 @@
   "textdomain": "ctx-blocks",
   "category": "common",
   "attributes": {
-    "image": {
-      "type": "object",
-      "default": null
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
     },
     "icon": {
       "type": "string",
@@ -26,6 +34,10 @@
     "url": {
       "type": "string",
       "default": ""
+    },
+    "urlNewTab": {
+      "type": "boolean",
+      "default": false
     },
     "urlIcon": {
       "type": "string",

@@ -20,6 +20,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"rel": {
+			"type": "string",
+			"default": ""
+		},
 		"icon": {
 			"type": "string",
 			"default": ""
