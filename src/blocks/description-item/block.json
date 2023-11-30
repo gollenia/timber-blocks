@@ -22,7 +22,7 @@
 		},
 		"icon": {
 			"type": "string",
-			"default": "done"
+			"default": "label"
 		},
 		"styleVariation": {
 			"type": "string",
@@ -91,9 +91,8 @@
 		}
 	},
 	"selectors": {
-		"root": ".wp-block ctx__description-item",
-		"color": ".wp-block ctx__description-item .ctx__description-item-icon",
-		"border": ".wp-block ctx__description-item .ctx__description-item-icon"
+		"color": ".wp-block-ctx-blocks-description-item .ctx__description-item-image",
+		"border": ".wp-block-ctx-blocks-description-item .ctx__description-item-image"
 	},
 	"editorStyle": "ctx-description-item-editor-style",
 	"style": "ctx-blocks-style"

@@ -9,6 +9,7 @@ import Toolbar from './toolbar';
 import {
 	getColorClassName,
 	useBlockProps,
+	__experimentalUseBorderProps as useBorderProps,
 	useInnerBlocksProps,
 	withColors,
 } from '@wordpress/block-editor';
@@ -18,21 +19,14 @@ import { useRef } from '@wordpress/element';
 
 function ItemEdit({ ...props }) {
 	const {
-		attributes: {
-			image,
-			icon,
-			styleVariation,
-			url,
-			urlIcon,
-			imageUrl,
-			imageId,
-		},
+		attributes: { icon, url, urlIcon, imageUrl },
 		iconColor,
 		customIconColor,
 		customIconBackgroundColor,
 		iconBackgroundColor,
 		className,
 		setAttributes,
+		backgroundColor,
 	} = props;
 
 	console.log(imageUrl);
@@ -58,17 +52,21 @@ function ItemEdit({ ...props }) {
 		className: classes,
 	});
 
-	const iconStyle = {
+	console.log(blockProps);
+
+	const borderProps = useBorderProps(props.attributes);
+	const imageStyle = {
+		...borderProps.style,
 		color: iconColor?.color ?? customIconColor ?? 'none',
 		backgroundColor:
 			iconBackgroundColor?.color ?? customIconBackgroundColor ?? 'none',
 	};
 
-	const iconClasses = [
-		styleVariation === 'icon' && 'ctx__description-item-icon',
-		styleVariation === 'bullet' && 'ctx__description-item-bullet',
+	const imageClasses = [
+		'ctx__description-item-image',
 		getColorClassName('color', iconColor),
 		getColorClassName('background-color', iconBackgroundColor),
+		icon === 'label' && !imageUrl && 'ctx__description-item-image-bullet',
 	].join(' ');
 
 	const TEMPLATE = [
@@ -91,33 +89,23 @@ function ItemEdit({ ...props }) {
 		}
 	);
 
+	console.log(borderProps);
 	return (
 		<>
-			<div {...blockProps}>
+			<div
+				{...blockProps}
+				style={{
+					...blockProps.style,
+					backgroundColor: 'none !important',
+				}}
+			>
 				<Inspector {...props} />
 				<Toolbar {...props} onSelectMedia={onSelectMedia} />
-				{styleVariation == 'image' && imageUrl && (
-					<img
-						className="ctx__description-item-image"
-						src={imageUrl}
-						style={iconStyle}
-						ref={imageRef}
-					/>
-				)}
+				<div className={imageClasses} style={imageStyle}>
+					{imageUrl && <img src={imageUrl} ref={imageRef} />}
 
-				{styleVariation == 'icon' && (
-					<div className={iconClasses} style={iconStyle}>
-						<i className="material-icons">{icon}</i>
-					</div>
-				)}
-
-				{styleVariation == 'bullet' && (
-					<div className={iconClasses} style={iconStyle}>
-						<i className="material-icons">
-							{icon ? icon : 'label'}
-						</i>
-					</div>
-				)}
+					{!imageUrl && <i className="material-icons">{icon}</i>}
+				</div>
 
 				<div
 					className="ctx__description-item__content"

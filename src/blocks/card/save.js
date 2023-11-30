@@ -6,7 +6,7 @@ import {
 import { colord } from 'colord';
 
 const CardSave = (props) => {
-	const { attributes, children } = props;
+	const { attributes } = props;
 	const {
 		labelText,
 		badgeText,
@@ -16,21 +16,13 @@ const CardSave = (props) => {
 		shadow,
 		url,
 		openInNewTab,
-		backgroundColor,
-		secondaryColor,
-		customBackgroundColor,
-		customSecondaryColor,
+		accentColor,
+		customAccentColor,
 		layout,
 	} = attributes;
 
-	const backgroundColorClass = getColorClassName(
-		'background-color',
-		backgroundColor
-	);
-
 	const classes = [
 		'ctx__card',
-		backgroundColorClass,
 		layout?.orientation === 'horizontal'
 			? 'ctx__card-horizontal'
 			: 'ctx__card-vertical',
@@ -52,17 +44,14 @@ const CardSave = (props) => {
 	};
 
 	const accentStyle = {
-		background: customSecondaryColor,
-		color: colord(customSecondaryColor).isDark() ? '#ffffff' : '#000000',
+		background: customAccentColor,
+		color: colord(customAccentColor).isDark() ? '#ffffff' : '#000000',
 	};
 
-	const accentClass = getColorClassName('background-color', secondaryColor);
+	const accentClass = getColorClassName('background-color', accentColor);
 
 	const cardStyle = {
 		...blockProps.style,
-		backgroundColor: !backgroundColorClass
-			? customBackgroundColor
-			: undefined,
 		padding: '0 !important',
 		gap:
 			attributes.style?.spacing?.blockGap

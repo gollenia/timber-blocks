@@ -1,32 +1,33 @@
 import {
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	InspectorControls,
-	MediaUpload,
-	MediaUploadCheck,
-	PanelColorSettings,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
 } from '@wordpress/block-editor';
-import {
-	Button,
-	Icon,
-	PanelBody,
-	PanelRow,
-	TextControl,
-} from '@wordpress/components';
+import { PanelBody, PanelRow, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import icons from './icons';
 
 const Inspector = (props) => {
 	const {
 		attributes,
 		setAttributes,
 		iconColor,
-
 		iconBackgroundColor,
 		setIconColor,
 		setIconBackgroundColor,
+		clientId,
 	} = props;
 
-	const { image, roundImage, url, urlIcon, icon, styleVariation } =
-		attributes;
+	const colorGradientSettings = useMultipleOriginColorsAndGradients();
+
+	const {
+		image,
+		roundImage,
+		url,
+		urlIcon,
+		icon,
+		customIconBackgroundColor,
+		customIconColor,
+	} = attributes;
 
 	return (
 		<>
@@ -48,121 +49,6 @@ const Inspector = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__('Image', 'ctx-blocks')} initialOpen={true}>
-					<div className="ctx-style-selector">
-						<Button
-							onClick={() =>
-								setAttributes({ styleVariation: 'image' })
-							}
-							className={
-								styleVariation === 'image' ? 'active' : ''
-							}
-						>
-							<Icon
-								size="64"
-								className="icon"
-								icon={icons.image}
-							/>
-							<div>{__('Image', 'ctx-blocks')}</div>
-						</Button>
-						<Button
-							onClick={() =>
-								setAttributes({
-									styleVariation: 'icon',
-								})
-							}
-							className={
-								styleVariation === 'icon' ? 'active' : ''
-							}
-						>
-							<Icon
-								size="64"
-								className="icon"
-								icon={icons.icon}
-							/>
-							<div>{__('Icon', 'ctx-blocks')}</div>
-						</Button>
-						<Button
-							onClick={() =>
-								setAttributes({ styleVariation: 'bullet' })
-							}
-							className={
-								styleVariation === 'bullet' ? 'active' : ''
-							}
-						>
-							<Icon
-								size="64"
-								className="icon"
-								icon={icons.bullet}
-							/>
-							<div>{__('Bullet', 'ctx-blocks')}</div>
-						</Button>
-					</div>
-					<MediaUploadCheck>
-						<MediaUpload
-							onSelect={(media) =>
-								setAttributes({ image: media })
-							}
-							label="Bild"
-							value={image}
-							render={({ open }) => {
-								return (
-									<div className="editor-post-featured-image ctx-image-select">
-										{!image && (
-											<button
-												type="button"
-												className="components-button editor-post-featured-image__toggle"
-												onClick={open}
-											>
-												{__(
-													'Choose image',
-													'ctx-blocks'
-												)}
-											</button>
-										)}
-										{image && (
-											<div>
-												<img
-													className=""
-													src={image.url}
-													onClick={open}
-													alt={__(
-														'No image loaded',
-														'ctx-blocks'
-													)}
-												/>
-												<button
-													type="button"
-													className="components-button is-button is-default is-large"
-													onClick={open}
-												>
-													{__(
-														'Replace image',
-														'ctx-blocks'
-													)}
-												</button>
-												<button
-													type="button"
-													className="components-button is-link is-destructive"
-													onClick={() =>
-														setAttributes({
-															image: null,
-														})
-													}
-												>
-													{' '}
-													{__(
-														'Remove image',
-														'ctx-blocks'
-													)}
-												</button>
-											</div>
-										)}
-									</div>
-								);
-							}}
-						/>
-					</MediaUploadCheck>
-
 					<PanelRow>
 						<TextControl
 							label={__('Icon', 'ctx-blocks')}
@@ -172,29 +58,48 @@ const Inspector = (props) => {
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<InspectorControls group="styles">
-				<PanelColorSettings
-					title={__('Color settings', 'ctx-blocks')}
-					initialOpen={false}
-					colorSettings={[
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					settings={[
 						{
-							label: __('Icon color', 'ctx-blocks'),
-							onChange: setIconColor,
-							value: iconColor.color,
-							disableCustomColors: false,
-							clearable: true,
-							defaultPalette: false,
-							enableAlpha: true,
-						},
-						{
-							label: __('Background color', 'ctx-blocks'),
-							onChange: setIconBackgroundColor,
-							value: iconBackgroundColor.color,
-							clearable: true,
-							disableCustomColors: false,
-							defaultPalette: false,
+							label: __('Icon Background', 'ctx-blocks'),
+							colorValue:
+								iconBackgroundColor.color ||
+								customIconBackgroundColor,
+							onColorChange: (value) => {
+								setIconBackgroundColor(value);
+
+								setAttributes({
+									customIconBackgroundColor: value,
+								});
+							},
 						},
 					]}
+					panelId={clientId}
+					hasColorsOrGradients={false}
+					disableCustomColors={false}
+					__experimentalIsRenderedInSidebar
+					{...colorGradientSettings}
+				/>
+				<ColorGradientSettingsDropdown
+					settings={[
+						{
+							label: __('Icon Color', 'ctx-blocks'),
+							colorValue: iconColor.color || customIconColor,
+							onColorChange: (value) => {
+								setIconColor(value);
+
+								setAttributes({
+									customIconColor: value,
+								});
+							},
+						},
+					]}
+					panelId={clientId}
+					hasColorsOrGradients={false}
+					disableCustomColors={false}
+					__experimentalIsRenderedInSidebar
+					{...colorGradientSettings}
 				/>
 			</InspectorControls>
 		</>

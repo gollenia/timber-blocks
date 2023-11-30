@@ -11,19 +11,11 @@
   "textdomain": "ctx-blocks",
   "category": "layout",
   "attributes": {
-    "secondaryColor": {
+    "accentColor": {
       "type": "string",
       "default": ""
     },
-    "customSecondaryColor": {
-      "type": "string",
-      "default": ""
-    },
-    "backgroundColor": {
-      "type": "string",
-      "default": ""
-    },
-    "customBackgroundColor": {
+    "customAccentColor": {
       "type": "string",
       "default": ""
     },
@@ -113,6 +105,10 @@
         "style": true,
         "width": true
       }
+    },
+    "color": {
+      "background": true,
+      "text": true
     }
   },
   "selectors": {

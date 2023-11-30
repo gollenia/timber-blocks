@@ -7,14 +7,37 @@
 	align-items: center;
 	gap: 1rem;
 
-	img {
+	&-image {
 		width: 3.5rem;
 		height: 3.5rem;
+		display: grid;
+		place-items: center;
 
-		&.round {
-			border-radius: 999px;
+		i {
+			font-size: 2rem;
+		}
+
+		&-bullet {
+			display: grid;
+			place-items: start self-end;
+
+			height: auto;
+			align-self: stretch;
+
+			i {
+				font-size: 1.3rem;
+				margin-top: 2px;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: inherit;
 		}
 	}
+
 	p {
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;

@@ -58,5 +58,17 @@
       "default": ""
     }
   },
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
   "render": "file:./render.php"
 }

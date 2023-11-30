@@ -14,14 +14,13 @@ import './style.scss';
  */
 import { withColors } from '@wordpress/block-editor';
 
-const { name, title, description } = metadata;
+const { name } = metadata;
 
 const settings = {
 	icon: icon,
 	deprecated,
 	edit: withColors({
-		backgroundColor: 'backgroundColor',
-		secondaryColor: 'secondaryColor',
+		accentColor: 'accentColor',
 	})(Edit),
 
 	save: Save,

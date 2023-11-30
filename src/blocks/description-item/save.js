@@ -6,30 +6,26 @@
  * WordPress dependencies
  */
 import {
+	__experimentalGetBorderClassesAndStyles as getBorderClassesAndStyles,
 	getColorClassName,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 
-export default function Save({ ...props }) {
+export default function Save(props) {
 	const {
 		attributes: {
-			text,
-			contentType,
-			image,
+			imageUrl,
 			icon,
-			roundImage,
-			styleVariation,
-			title,
 			url,
 			urlIcon,
 			iconColor,
 			customIconColor,
 			iconBackgroundColor,
 			customIconBackgroundColor,
+			backgroundColor,
+			textColor,
 		},
-		setAttributes,
-
 		className,
 	} = props;
 
@@ -41,16 +37,20 @@ export default function Save({ ...props }) {
 		className: classes,
 	});
 
-	const iconStyle = {
+	const borderProps = getBorderClassesAndStyles(props.attributes);
+
+	const imageStyle = {
+		...borderProps.style,
+		...blockProps.style,
 		color: iconColor?.color ?? customIconColor ?? 'none',
 		backgroundColor:
 			iconBackgroundColor?.color ?? customIconBackgroundColor ?? 'none',
-		borderRadius: roundImage ? '50%' : '0',
 	};
 
-	const iconClasses = [
-		styleVariation === 'icon' && 'ctx__description-item__icon',
-		styleVariation === 'bullet' && 'ctx__description-item__bullet',
+	const imageClasses = [
+		borderProps.classes,
+		'ctx__description-item-image',
+		icon === 'label' && !imageUrl && 'ctx__description-item-image-bullet',
 		getColorClassName('color', iconColor),
 		getColorClassName('background-color', iconBackgroundColor),
 	].join(' ');
@@ -59,23 +59,11 @@ export default function Save({ ...props }) {
 
 	return (
 		<li {...blockProps}>
-			{styleVariation === 'image' && image && (
-				<img
-					style={iconStyle}
-					src={image?.sizes?.thumbnail?.url}
-					alt={title}
-				/>
-			)}
-			{styleVariation === 'icon' && icon && (
-				<div style={iconStyle} className={iconClasses}>
-					<i className="material-icons">{icon}</i>
-				</div>
-			)}
-			{styleVariation === 'bullet' && (
-				<div className={iconClasses} style={iconStyle}>
-					<i className="material-icons">{icon ? icon : 'label'}</i>
-				</div>
-			)}
+			<div className={imageClasses} style={imageStyle}>
+				{imageUrl && <img src={imageUrl} />}
+
+				{!imageUrl && <i className="material-icons">{icon}</i>}
+			</div>
 
 			<div
 				{...innerBlocksProps}

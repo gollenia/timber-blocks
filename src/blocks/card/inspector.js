@@ -1,4 +1,8 @@
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import {
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	InspectorControls,
+	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients,
+} from '@wordpress/block-editor';
 import {
 	CheckboxControl,
 	FocalPointPicker,
@@ -11,14 +15,23 @@ import { mediaPosition } from './mediaPosition.js';
 
 const Inspector = (props) => {
 	const {
-		attributes: { url, imageUrl, shadow, focalPoint, labelText, badgeText },
+		attributes: {
+			url,
+			imageUrl,
+			shadow,
+			focalPoint,
+			labelText,
+			badgeText,
+			customAccentColor,
+		},
 		setAttributes,
 		imageRef,
-		backgroundColor,
-		setBackgroundColor,
-		secondaryColor,
-		setSecondaryColor,
+		accentColor,
+		setAccentColor,
+		clientId,
 	} = props;
+
+	const colorGradientSettings = useMultipleOriginColorsAndGradients();
 
 	const imperativeFocalPointPreview = (value) => {
 		const [styleOfRef, property] = imageRef.current
@@ -29,27 +42,26 @@ const Inspector = (props) => {
 
 	return (
 		<>
-			<InspectorControls group="styles">
-				<PanelColorSettings
-					title={__('Color settings', 'ctx-blocks')}
-					initialOpen={false}
-					colorSettings={[
+			<InspectorControls group="color">
+				<ColorGradientSettingsDropdown
+					settings={[
 						{
-							label: __('Background color', 'ctx-blocks'),
-							onChange: setBackgroundColor,
-							value: backgroundColor.color,
-							disableCustomColors: false,
-							defaultPalette: false,
-							enableAlpha: true,
-						},
-						{
-							label: __('Secondary color', 'ctx-blocks'),
-							onChange: setSecondaryColor,
-							value: secondaryColor.color,
-							disableCustomColors: false,
-							defaultPalette: false,
+							label: __('Accent Color', 'ctx-blocks'),
+							colorValue: accentColor.color || customAccentColor,
+							onColorChange: (value) => {
+								setAccentColor(value);
+
+								setAttributes({
+									customAccentColor: value,
+								});
+							},
 						},
 					]}
+					panelId={clientId}
+					hasColorsOrGradients={false}
+					disableCustomColors={false}
+					__experimentalIsRenderedInSidebar
+					{...colorGradientSettings}
 				/>
 			</InspectorControls>
 			<InspectorControls>

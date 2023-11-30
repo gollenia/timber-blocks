@@ -7,16 +7,17 @@ if(!file_exists($path)) {
 
 $tag = $attributes['linkUrl'] ? 'a' : 'div';
 $style = "width: {$attributes['width']}px; height: {$attributes['height']}px;";
+$block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper', 'style' => $style]);
 
 ?>
 
 <?php if($attributes['linkUrl']) : ?>
-<a href="<?php echo $attributes['linkUrl'] ?>" target="<?php echo $attributes['linkNewTab'] ? '_blank' : '' ?>" style="<?php echo $style; ?>">
+<a href="<?php echo $attributes['linkUrl'] ?>" target="<?php echo $attributes['linkNewTab'] ? '_blank' : '' ?>" <?php echo $block_attributes; ?>>
 <?php else : ?>
-<div class="svg-wrapper" style="<?php echo $style; ?>">
+<div <?php echo $block_attributes; ?>>
 <?php endif; ?>
 	<style>
-		.svg-wrapper svg path {
+		.ctx-svg-wrapper svg path {
 			fill: <?php echo $attributes['fillColor'] ?>;
 			stroke: <?php echo $attributes['strokeColor'] ?>;
 		}
