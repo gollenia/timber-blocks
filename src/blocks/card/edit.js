@@ -20,11 +20,11 @@ export default function CardEdit({ ...props }) {
 			badgeText,
 			labelText,
 			layout,
-			customBackgroundColor,
-			customSecondaryColor,
+
+			customAccentColor,
 		},
-		backgroundColor,
-		secondaryColor,
+
+		accentColor,
 		setAttributes,
 	} = props;
 
@@ -77,27 +77,19 @@ export default function CardEdit({ ...props }) {
 			},
 		],
 	];
-	const backgroundColorClass = getColorClassName(
+
+	const accentColorClass = getColorClassName(
 		'background-color',
-		backgroundColor.slug
+		accentColor.slug
 	);
 
-	const secondaryColorClass = getColorClassName(
-		'background-color',
-		secondaryColor.slug
-	);
-
-	const backgroundColorValue = customBackgroundColor
-		? customBackgroundColor
-		: backgroundColor.color ?? '';
-
-	const secondaryColorValue = customSecondaryColor
-		? customSecondaryColor
-		: secondaryColor.color ?? 'var(--primary)';
+	const accentColorValue = customAccentColor
+		? customAccentColor
+		: accentColor.color ?? 'var(--primary)';
 
 	const accentStyle = {
-		background: secondaryColorValue,
-		color: colord(secondaryColorValue).isDark() ? '#ffffff' : '#000000',
+		background: accentColorValue,
+		color: colord(accentColorValue).isDark() ? '#ffffff' : '#000000',
 	};
 
 	console.log(imageId);
@@ -107,7 +99,6 @@ export default function CardEdit({ ...props }) {
 		layout?.orientation === 'horizontal'
 			? 'ctx__card-horizontal'
 			: 'ctx__card-vertical',
-		backgroundColorClass,
 		url || hover ? 'ctx__card-hover' : false,
 		shadow ? 'ctx__card-shadow' : false,
 	]
@@ -118,7 +109,6 @@ export default function CardEdit({ ...props }) {
 	const blockProps = useBlockProps({ className: classes });
 	const cardStyle = {
 		...blockProps.style,
-		backgroundColor: backgroundColorValue,
 		padding: '0 !important',
 	};
 
@@ -142,7 +132,7 @@ export default function CardEdit({ ...props }) {
 				<div className="ctx__card-header">
 					{badgeText && (
 						<span
-							className={`ctx__card-badge ${secondaryColorClass}`}
+							className={`ctx__card-badge ${accentColorClass}`}
 							style={accentStyle}
 						>
 							{badgeText}
@@ -150,7 +140,7 @@ export default function CardEdit({ ...props }) {
 					)}
 					{labelText && (
 						<span
-							className={`ctx__card-label ${secondaryColorClass}`}
+							className={`ctx__card-label ${accentColorClass}`}
 							style={accentStyle}
 						>
 							{labelText}
