@@ -5,7 +5,8 @@ const transforms = {
 		{
 			type: 'block',
 			blocks: ['core/image'],
-			transform: (attributes, innerBlocks) => {
+			transform: (attributes) => {
+				console.log(attributes);
 				attributes.id = attributes.image.id;
 				attributes.href = attributes.url;
 				attributes.url = attributes.image.url;
@@ -14,9 +15,7 @@ const transforms = {
 
 				attributes.width = attributes.width + '%';
 
-				attributes.image = undefined;
-
-				return createBlock('core/image', attributes, innerBlocks);
+				return createBlock('core/image', attributes);
 			},
 		},
 	],
