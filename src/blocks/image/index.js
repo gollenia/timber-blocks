@@ -5,6 +5,7 @@ import metadata from './block.json';
 import edit from './edit';
 import './editor.scss';
 import icon from './icon';
+import transforms from './transforms';
 
 /**
  * Wordpress dependencies
@@ -22,6 +23,7 @@ const settings = {
 	save: () => {
 		return null;
 	},
+	transforms,
 };
 
 export { name, settings };
