@@ -115,56 +115,6 @@ const Inspector = (props) => {
 						}}
 					/>
 				</MediaUploadCheck>
-
-				<CheckboxControl
-					label={__('Parallax-Effect', 'ctx-blocks')}
-					disabled={true}
-					onChange={(event) => {
-						setAttributes({ parallaxEffect: event });
-					}}
-					checked={parallaxEffect}
-				/>
-			</PanelBody>
-			<PanelBody title={__('Padding', 'ctx-blocks')} initialOpen={false}>
-				<RangeControl
-					label={__('Padding Top', 'ctx-blocks')}
-					value={paddingTop}
-					disabled={true}
-					onChange={(event) => {
-						setAttributes({ paddingTop: event });
-					}}
-					min={0}
-					max={11}
-				/>
-				<RangeControl
-					label={__('Padding Bottom', 'ctx-blocks')}
-					value={paddingBottom}
-					disabled={true}
-					onChange={(event) => {
-						setAttributes({ paddingBottom: event });
-					}}
-					min={0}
-					max={11}
-				/>
-			</PanelBody>
-			<PanelBody title={__('Date', 'ctx-blocks')} initialOpen={true}>
-				<p>{__('Show only...', 'ctx-blocks')}</p>
-				<TextControl
-					disabled={true}
-					label={__('From', 'ctx-blocks')}
-					value={fromDate}
-					onChange={(newDate) => setAttributes({ fromDate: newDate })}
-					is12Hour={false}
-					type="date"
-				/>
-				<TextControl
-					label={__('To', 'ctx-blocks')}
-					value={toDate}
-					disabled={true}
-					onChange={(newDate) => setAttributes({ toDate: newDate })}
-					is12Hour={false}
-					type="date"
-				/>
 			</PanelBody>
 		</InspectorControls>
 	);
