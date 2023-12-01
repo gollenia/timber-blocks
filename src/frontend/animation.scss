@@ -1,9 +1,12 @@
-.ctx-animate-on-scroll,
-.ctx-animate-li-on-scroll {
+.ctx-animate-on-scroll {
 	transition: all 600ms ease-in-out;
 
+	li {
+		transition: all 600ms ease-in-out;
+	}
+
 	&.ctx-fade-in-left,
-	> li {
+	&.ctx-fade-in-left > li {
 		transform: translateX(-100px);
 		opacity: 0;
 
@@ -14,7 +17,7 @@
 	}
 
 	&.ctx-fade-in-right,
-	> li {
+	&.ctx-fade-in-right > li {
 		transform: translateX(100px);
 		opacity: 0;
 
@@ -25,7 +28,7 @@
 	}
 
 	&.ctx-fade-in-up,
-	> li {
+	&.ctx-fade-in-up > li {
 		transform: translateY(100px);
 		opacity: 0;
 
@@ -36,7 +39,7 @@
 	}
 
 	&.ctx-fade-in-down,
-	> li {
+	&.ctx-fade-in-down > li {
 		transform: translateY(-100px);
 		opacity: 0;
 
@@ -47,7 +50,7 @@
 	}
 
 	&.ctx-fade-in,
-	> li {
+	&.ctx-fade-in > li {
 		transition: all 600ms ease-in-out opacity 1000ms ease-in-out;
 		opacity: 0;
 
@@ -57,7 +60,7 @@
 	}
 
 	&.ctx-fade-out,
-	> li {
+	&.ctx-fade-out > li {
 		opacity: 1;
 
 		&.ctx-animate-start {
@@ -66,7 +69,7 @@
 	}
 
 	&.ctx-zoom-in,
-	> li {
+	&.ctx-zoom-in > li {
 		transform: scale(0.5);
 		opacity: 0;
 
@@ -77,7 +80,7 @@
 	}
 
 	&.ctx-flip-in-x,
-	> li {
+	&.ctx-flip-in-x > li {
 		backface-visibility: hidden !important;
 		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
 		animation-timing-function: ease-in;
@@ -90,7 +93,7 @@
 	}
 
 	&.ctx-flip-in-y,
-	> li {
+	&.ctx-flip-in-x > li {
 		backface-visibility: hidden !important;
 		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
 		animation-timing-function: ease-in;
@@ -103,13 +106,113 @@
 	}
 
 	&.ctx-bounce-in,
-	> li {
+	&.ctx-bounce-in > li {
 		opacity: 0;
 		transform: scale3d(0.3, 0.3, 0.3);
 
 		&.ctx-animate-start {
 			animation: bounceIn 1s both;
 		}
+	}
+}
+
+.ctx-fade-in-left > li {
+	transform: translateX(-100px);
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+.ctx-fade-in-right > li {
+	transform: translateX(100px);
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+.ctx-fade-in-up > li {
+	transform: translateY(100px);
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.ctx-fade-in-down > li {
+	transform: translateY(-100px);
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.ctx-fade-in > li {
+	transition: all 600ms ease-in-out opacity 1000ms ease-in-out;
+	opacity: 0;
+
+	&.ctx-animate-start {
+		opacity: 1;
+	}
+}
+
+.ctx-fade-out > li {
+	opacity: 1;
+
+	&.ctx-animate-start {
+		opacity: 0;
+	}
+}
+
+.ctx-zoom-in > li {
+	transform: scale(0.5);
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.ctx-flip-in-x > li {
+	backface-visibility: hidden !important;
+	transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+	animation-timing-function: ease-in;
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: perspective(400px) rotate3d(1, 0, 0, 0deg);
+		opacity: 1;
+	}
+}
+
+.ctx-flip-in-y > li {
+	backface-visibility: hidden !important;
+	transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+	animation-timing-function: ease-in;
+	opacity: 0;
+
+	&.ctx-animate-start {
+		transform: perspective(400px) rotate3d(0, 1, 0, 0deg);
+		opacity: 1;
+	}
+}
+
+.ctx-bounce-in > li {
+	opacity: 0;
+	transform: scale3d(0.3, 0.3, 0.3);
+
+	&.ctx-animate-start {
+		animation: bounceIn 1s both;
 	}
 }
 

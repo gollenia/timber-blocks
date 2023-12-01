@@ -4,7 +4,7 @@ const { PanelBody, ToggleControl, SelectControl } = wp.components;
 const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
-const forbiddenBlocks = ['core/shortcode', 'ctx-blocks/nav'];
+const forbiddenBlocks = [];
 
 const addAnimationControlAttribute = (props, name) => {
 	if (forbiddenBlocks.includes(name)) {
@@ -123,11 +123,9 @@ const addAnimationClass = (extraProps, blockType, attributes) => {
 		return extraProps;
 	}
 
-	if (
-		['core/latest-posts', 'ctx-blocks/description-list'].includes(
-			blockType.name
-		)
-	) {
+	console.log(blockType.name);
+
+	if (blockType.name == 'core/latest-posts') {
 		extraProps.className = [
 			animateOnScroll ? 'ctx-animate-li-on-scroll' : false,
 			animationType ? `ctx-${animationType}` : false,
@@ -135,6 +133,7 @@ const addAnimationClass = (extraProps, blockType, attributes) => {
 		]
 			.filter(Boolean)
 			.join(' ');
+		console.log(extraProps.className);
 		return extraProps;
 	}
 

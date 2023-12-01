@@ -84,3 +84,17 @@ function ctx_blocks_load_textdomain() {
 	load_plugin_textdomain('ctx-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
 }
 add_action( 'plugins_loaded', 'ctx_blocks_load_textdomain' );
+
+
+
+function modify_render_block_defaults($block_content, $block, $instance) {
+	if($block['blockName'] !== "core/latest-posts" || !$block['attrs']['animateOnScroll']) {
+		return $block_content;
+	}
+	
+	$block_content = str_replace('<ul class="wp-block-latest-posts__list', '<ul class="wp-block-latest-posts__list ctx-animate-children ctx-' . $block['attrs']['animationType'] . ' ', $block_content);
+    return $block_content; 
+
+}
+
+add_filter( "render_block", "modify_render_block_defaults", 10, 3 );
