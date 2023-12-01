@@ -13,6 +13,7 @@ import './style.scss';
  * Wordpress dependencies
  */
 import { withColors } from '@wordpress/block-editor';
+import transforms from './transforms';
 
 const { name } = metadata;
 
@@ -22,7 +23,7 @@ const settings = {
 	edit: withColors({
 		accentColor: 'accentColor',
 	})(Edit),
-
+	transform: transforms,
 	save: Save,
 };
 
