@@ -64,7 +64,9 @@ function ctx_block_init() {
 		'grid-column',
 		'grid-row',
 		'progress',
-		'svg'
+		'svg',
+		'section',
+		'image'
 	];
 
 	foreach($blocks as $block) {

@@ -14,7 +14,9 @@ import * as descriptionItem from './blocks/description-item';
 import * as descriptionList from './blocks/description-list';
 import * as gridColumn from './blocks/grid-column';
 import * as gridRow from './blocks/grid-row';
+import * as image from './blocks/image';
 import * as progress from './blocks/progress';
+import * as section from './blocks/section';
 import * as inlineSvg from './blocks/svg';
 
 /**
@@ -48,6 +50,8 @@ export const registerBlocks = () => {
 		progress,
 		gridRow,
 		gridColumn,
+		section,
+		image,
 	].forEach(registerBlock);
 };
 
