@@ -16,8 +16,7 @@
 		margin-block-start: 0 !important;
 	}
 
-	&__equalizer > div {
+	&--equalizer > div {
 		height: 100%;
-		flex-direction: column;
 	}
 }
