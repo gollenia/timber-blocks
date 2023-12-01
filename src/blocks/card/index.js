@@ -23,7 +23,7 @@ const settings = {
 	edit: withColors({
 		accentColor: 'accentColor',
 	})(Edit),
-	transform: transforms,
+	transforms,
 	save: Save,
 };
 
