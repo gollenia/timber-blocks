@@ -96,7 +96,6 @@ export default function Edit({ ...props }) {
 				</picture>
 			);
 	};
-	console.log(props.attributes);
 
 	return (
 		<>

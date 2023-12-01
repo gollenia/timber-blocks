@@ -6,7 +6,6 @@ const transforms = {
 			type: 'block',
 			blocks: ['core/image'],
 			transform: (attributes) => {
-				console.log(attributes);
 				attributes.id = attributes.image.id;
 				attributes.href = attributes.url;
 				attributes.url = attributes.image.url;
