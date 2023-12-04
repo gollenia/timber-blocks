@@ -51,7 +51,7 @@
 
 	&.ctx-fade-in,
 	&.ctx-fade-in > li {
-		transition: all 600ms ease-in-out opacity 1000ms ease-in-out;
+		transition: all 600ms ease-in-out;
 		opacity: 0;
 
 		&.ctx-animate-start {
@@ -157,7 +157,7 @@
 }
 
 .ctx-fade-in > li {
-	transition: all 600ms ease-in-out opacity 1000ms ease-in-out;
+	transition: all 600ms ease-in-out;
 	opacity: 0;
 
 	&.ctx-animate-start {
