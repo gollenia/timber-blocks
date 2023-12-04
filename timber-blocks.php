@@ -93,6 +93,7 @@ function modify_render_block_defaults($block_content, $block, $instance) {
 	}
 	
 	$block_content = str_replace('<ul class="wp-block-latest-posts__list', '<ul class="wp-block-latest-posts__list ctx-animate-children ctx-' . $block['attrs']['animationType'] . ' ', $block_content);
+	
     return $block_content; 
 
 }
