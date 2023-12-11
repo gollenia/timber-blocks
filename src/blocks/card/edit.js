@@ -20,7 +20,7 @@ export default function CardEdit({ ...props }) {
 			badgeText,
 			labelText,
 			layout,
-
+			fullHeight,
 			customAccentColor,
 		},
 
@@ -92,8 +92,6 @@ export default function CardEdit({ ...props }) {
 		color: colord(accentColorValue).isDark() ? '#ffffff' : '#000000',
 	};
 
-	console.log(imageId);
-
 	const classes = [
 		'ctx__card',
 		layout?.orientation === 'horizontal'
@@ -105,11 +103,11 @@ export default function CardEdit({ ...props }) {
 		.filter(Boolean)
 		.join(' ');
 
-	console.log(classes);
 	const blockProps = useBlockProps({ className: classes });
 	const cardStyle = {
 		...blockProps.style,
 		padding: '0 !important',
+		height: fullHeight ? '100%' : undefined,
 	};
 
 	const contentStyle = {

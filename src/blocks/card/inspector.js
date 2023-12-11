@@ -23,6 +23,7 @@ const Inspector = (props) => {
 			labelText,
 			badgeText,
 			customAccentColor,
+			fullHeight,
 		},
 		setAttributes,
 		imageRef,
@@ -74,6 +75,14 @@ const Inspector = (props) => {
 						checked={shadow}
 						onChange={(value) => {
 							setAttributes({ shadow: value });
+						}}
+					/>
+
+					<CheckboxControl
+						label={__('Full Height', 'ctx-blocks')}
+						checked={fullHeight}
+						onChange={(value) => {
+							setAttributes({ fullHeight: value });
 						}}
 					/>
 

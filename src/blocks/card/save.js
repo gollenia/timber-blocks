@@ -19,6 +19,7 @@ const CardSave = (props) => {
 		accentColor,
 		customAccentColor,
 		layout,
+		fullHeight,
 	} = attributes;
 
 	const classes = [
@@ -52,6 +53,7 @@ const CardSave = (props) => {
 
 	const cardStyle = {
 		...blockProps.style,
+		height: fullHeight ? '100%' : undefined,
 		padding: '0 !important',
 		gap:
 			attributes.style?.spacing?.blockGap
