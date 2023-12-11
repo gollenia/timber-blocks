@@ -4,7 +4,7 @@ import { useEffect, useState } from '@wordpress/element';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
-const Edit = ( props ) => {
+const Edit = (props) => {
 	const {
 		attributes: { url, id, width, height, strokeWidth },
 		setAttributes,
@@ -13,36 +13,34 @@ const Edit = ( props ) => {
 		fillColor,
 	} = props;
 
-	const [ svgData, setSvgData ] = useState( null );
+	const [svgData, setSvgData] = useState(null);
 
-	const onSelectMedia = ( media ) => {
-		if ( ! media || ! media.url ) {
-			setAttributes( {
+	const onSelectMedia = (media) => {
+		if (!media || !media.url) {
+			setAttributes({
 				url: undefined,
 				fileId: undefined,
-			} );
+			});
 			return;
 		}
 
-		console.log( media );
-
-		setAttributes( {
+		setAttributes({
 			url: media.sizes?.large?.url ?? media.url,
 			id: media.id,
-		} );
+		});
 	};
 
-	useEffect( () => {
-		if ( ! url ) {
+	useEffect(() => {
+		if (!url) {
 			return;
 		}
 
-		fetch( url )
-			.then( ( response ) => response.text() )
-			.then( ( data ) => {
-				setSvgData( data );
-			} );
-	}, [ url ] );
+		fetch(url)
+			.then((response) => response.text())
+			.then((data) => {
+				setSvgData(data);
+			});
+	}, [url]);
 
 	const blockProps = useBlockProps();
 
@@ -51,56 +49,54 @@ const Edit = ( props ) => {
 		height: height + 'px',
 	};
 
-	console.log( strokeColor, fillColor );
-
 	return (
 		<>
-			<Inspector { ...props } />
-			<Toolbar { ...props } onSelectMedia={ onSelectMedia } />
+			<Inspector {...props} />
+			<Toolbar {...props} onSelectMedia={onSelectMedia} />
 			<style scoped>
-				{ `
-					#svg-${ id } svg path {
-						stroke: ${ strokeColor.color };
-						fill: ${ fillColor.color };
-						stroke-width: ${ strokeWidth };
+				{`
+					#svg-${id} svg path {
+						stroke: ${strokeColor.color};
+						fill: ${fillColor.color};
+						stroke-width: ${strokeWidth};
 					}
-				` }
+				`}
 			</style>
-			<figure { ...blockProps }>
-				{ svgData && (
+			<figure {...blockProps}>
+				{svgData && (
 					<ResizableBox
-						minWidth={ 16 }
-						minHeight={ 16 }
-						size={ {
+						minWidth={16}
+						minHeight={16}
+						size={{
 							width,
 							height,
-						} }
-						onResizeStart={ () => {
-							toggleSelection( false );
-						} }
-						onResizeStop={ ( event, direction, elt, delta ) => {
-							setAttributes( {
+						}}
+						onResizeStart={() => {
+							toggleSelection(false);
+						}}
+						onResizeStop={(event, direction, elt, delta) => {
+							setAttributes({
 								width: width + delta.width,
 								height: height + delta.height,
-							} );
-							toggleSelection( true );
-						} }
-						enable={ {
+							});
+							toggleSelection(true);
+						}}
+						enable={{
 							top: false,
 							right: true,
 							bottom: true,
 							left: false,
-						} }
+						}}
 					>
 						<div
-							id={ 'svg-' + id }
-							style={ svgStyle }
-							dangerouslySetInnerHTML={ {
+							id={'svg-' + id}
+							style={svgStyle}
+							dangerouslySetInnerHTML={{
 								__html: svgData,
-							} }
+							}}
 						/>
 					</ResizableBox>
-				) }
+				)}
 			</figure>
 		</>
 	);

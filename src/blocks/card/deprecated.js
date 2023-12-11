@@ -6,9 +6,6 @@ import {
 import { colord } from 'colord';
 
 const migrateAttributes = (attributes) => {
-	console.log(attributes);
-
-	console.log('migrating (shouldn`t happen)', attributes);
 	attributes.imageUrl = attributes.image?.url ?? '';
 	attributes.imageId = attributes.image?.id ?? 0;
 
@@ -88,7 +85,6 @@ const deprecated = [
 			},
 		},
 		migrate: function (attributes) {
-			console.log('migrating', attributes);
 			attributes.labelText = attributes.label;
 			attributes.badgeText = attributes.badge;
 			attributes.hasBadge = !!attributes.badge;
@@ -98,7 +94,6 @@ const deprecated = [
 			return attributes;
 		},
 		save: function (props) {
-			console.log('saving', props);
 			const { attributes, className, children } = props;
 			const {
 				imagePosition,

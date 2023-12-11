@@ -28,8 +28,6 @@ export default function Edit({ ...props }) {
 		backgroundColor,
 	} = props;
 
-	console.log(props);
-
 	const isHidden = () => {
 		if (!fromDate && !toDate) return false;
 		if (fromDate && !toDate && new Date(fromDate) > new Date()) return true;

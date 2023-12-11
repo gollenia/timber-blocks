@@ -5,6 +5,7 @@ const { addFilter } = wp.hooks;
 const { __ } = wp.i18n;
 
 const forbiddenBlocks = [];
+const disableClasses = ['events-manager/upcoming'];
 
 const addAnimationControlAttribute = (props, name) => {
 	if (forbiddenBlocks.includes(name)) {
@@ -120,20 +121,6 @@ const addAnimationClass = (extraProps, blockType, attributes) => {
 	const { animateOnScroll, animationType } = attributes;
 
 	if (forbiddenBlocks.includes(blockType.name)) {
-		return extraProps;
-	}
-
-	console.log(blockType.name);
-
-	if (blockType.name == 'core/latest-posts') {
-		extraProps.className = [
-			animateOnScroll ? 'ctx-animate-li-on-scroll' : false,
-			animationType ? `ctx-${animationType}` : false,
-			extraProps.className || false,
-		]
-			.filter(Boolean)
-			.join(' ');
-		console.log(extraProps.className);
 		return extraProps;
 	}
 

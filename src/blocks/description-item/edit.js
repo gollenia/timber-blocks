@@ -29,8 +29,6 @@ function ItemEdit({ ...props }) {
 		backgroundColor,
 	} = props;
 
-	console.log(imageUrl);
-
 	const imageRef = useRef();
 
 	const onSelectMedia = (media) => {
@@ -51,8 +49,6 @@ function ItemEdit({ ...props }) {
 	const blockProps = useBlockProps({
 		className: classes,
 	});
-
-	console.log(blockProps);
 
 	const borderProps = useBorderProps(props.attributes);
 	const imageStyle = {
@@ -89,7 +85,6 @@ function ItemEdit({ ...props }) {
 		}
 	);
 
-	console.log(borderProps);
 	return (
 		<>
 			<div

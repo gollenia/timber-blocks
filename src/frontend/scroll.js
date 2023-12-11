@@ -1,9 +1,8 @@
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
-		console.log(entry);
 		if (entry.target.classList.contains('ctx-animate-children')) {
 			const children = entry.target.querySelectorAll('li');
-			console.log(children);
+
 			children.forEach((child, index) => {
 				if (entry.isIntersecting) {
 					setTimeout(
@@ -29,6 +28,5 @@ const animatedElements = document.querySelectorAll(
 	'.ctx-animate-on-scroll, .ctx-animate-children'
 );
 animatedElements.forEach((element) => {
-	console.log(element);
 	observer.observe(element);
 });
