@@ -34,6 +34,7 @@ export default function CardEdit({ ...props }) {
 		'core/paragraph',
 		'core/heading',
 		'core/list',
+		'core/image',
 		'core/group',
 		'ctx-blocks/progress',
 		!url ? 'ctx-blocks/button' : false,
