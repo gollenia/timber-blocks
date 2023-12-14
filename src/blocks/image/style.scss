@@ -1,0 +1,13 @@
+.ctx__image {
+	position: relative;
+	max-width: 100%;
+	width: 100%;
+
+	&-shadow img {
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	}
+
+	img {
+		border-radius: inherit;
+	}
+}

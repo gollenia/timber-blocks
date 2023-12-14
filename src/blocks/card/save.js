@@ -4,6 +4,7 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { colord } from 'colord';
+import { mediaPosition } from './common';
 
 const CardSave = (props) => {
 	const { attributes } = props;
@@ -20,6 +21,7 @@ const CardSave = (props) => {
 		customAccentColor,
 		layout,
 		fullHeight,
+		focalPoint,
 	} = attributes;
 
 	const classes = [
@@ -61,6 +63,9 @@ const CardSave = (props) => {
 				.replace(':', '(--wp--') + ')' ?? undefined,
 	};
 
+	const objectPosition =
+		focalPoint && imageUrl ? mediaPosition(focalPoint) : undefined;
+
 	const innerBlockProps = useInnerBlocksProps.save({
 		className: 'ctx__card-content',
 		style: contentStyle,
@@ -84,7 +89,9 @@ const CardSave = (props) => {
 						{badgeText}
 					</b>
 				)}
-				{imageUrl && <img src={imageUrl ?? ''} />}
+				{imageUrl && (
+					<img style={{ objectPosition }} src={imageUrl ?? ''} />
+				)}
 				{!!labelText && (
 					<label
 						className={`ctx__card-label ${accentClass}`}

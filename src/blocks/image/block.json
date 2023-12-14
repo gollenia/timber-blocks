@@ -16,31 +16,24 @@
 			"type": "string",
 			"default": ""
 		},
-		"lightboxText": {
+		"imageUrl": {
 			"type": "string",
-			"default": ""
-		},
-		"image": {
-			"type": "object",
 			"default": null
+		},
+		"imageId": {
+			"type": "integer",
+			"default": 0
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "full"
 		},
 		"width": {
 			"type": "integer",
 			"default": 100
 		},
-		"alignment": {
-			"type": "string",
-			"default": "left"
-		},
+
 		"round": {
-			"type": "boolean",
-			"default": false
-		},
-		"roundCorners": {
-			"type": "boolean",
-			"default": true
-		},
-		"border": {
 			"type": "boolean",
 			"default": false
 		},
@@ -48,14 +41,63 @@
 			"type": "boolean",
 			"default": false
 		},
-		"flip": {
+		"flipX": {
 			"type": "boolean",
 			"default": false
+		},
+		"flipY": {
+			"type": "boolean",
+			"default": false
+		},
+		"rotate": {
+			"type": "integer",
+			"default": 0
 		},
 		"caption": {
 			"type": "string",
 			"default": ""
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": ""
+		},
+		"focalPoint": {
+			"type": "object",
+			"default": {
+				"x": 0.5,
+				"y": 0.5
+			}
 		}
 	},
-	"render": "file:./render.php"
+	"supports": {
+		"align": ["left", "center", "right"],
+		"anchor": true,
+		"html": false,
+		"multiple": true,
+		"reusable": true,
+		"alignWide": true,
+		"customClassName": true,
+		"spacing": {
+			"margin": true,
+			"__experimentalDefaultControls": {
+				"margin": true
+			}
+		},
+		"__experimentalBorder": {
+			"__experimentalSkipSerialization": true,
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		}
+	},
+	"__experimentalSelector": {
+		"border": ".wp-block-ctx-blocks-image img"
+	}
 }
