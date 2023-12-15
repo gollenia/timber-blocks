@@ -59,24 +59,26 @@ const Inspector = (props) => {
 		const data = image?.media_details?.sizes;
 		if (!data || !sizes) return [];
 
-		const selectSizes = sizes.map((size) => {
-			const dataForSize = data[size.slug];
-			if (!dataForSize) return undefined;
-			return {
-				label:
-					size.name +
-					' (' +
-					dataForSize.width +
-					'x' +
-					dataForSize.height +
-					')',
-				value: size.slug,
-			};
-		});
+		const selectSizes = sizes
+			.filter((size) => {
+				return !!data[size.slug];
+			})
+			.map((size) => {
+				const dataForSize = data[size.slug];
+				if (!dataForSize) return undefined;
+				return {
+					label:
+						size.name +
+						' (' +
+						dataForSize.width +
+						'x' +
+						dataForSize.height +
+						')',
+					value: size.slug,
+				};
+			});
 		return selectSizes;
 	});
-
-	console.log(imageUrl, imageSizes);
 
 	const setImageSize = (size) => {
 		const data = image?.media_details?.sizes;
