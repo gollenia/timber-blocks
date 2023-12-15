@@ -6,13 +6,13 @@ const transforms = {
 			type: 'block',
 			blocks: ['core/image'],
 			transform: (attributes) => {
-				attributes.id = attributes.image.id;
+				attributes.id = attributes.imageId;
 				attributes.href = attributes.url;
-				attributes.url = attributes.image.url;
-				attributes.alt = attributes.image.alt;
-				attributes.title = attributes.image.title;
+				attributes.url = attributes.imageUrl;
+				attributes.alt = attributes.imageAlt;
+				attributes.title = attributes.caption;
 
-				attributes.width = attributes.width + '%';
+				attributes.width = attributes.width;
 
 				return createBlock('core/image', attributes);
 			},
