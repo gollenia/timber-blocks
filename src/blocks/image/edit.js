@@ -45,8 +45,8 @@ export default function Edit({ ...props }) {
 
 	const imageClasses = [
 		className,
-		shadow ? 'ctx:image--shadow' : false,
-		round ? 'ctx:image--circle' : false,
+		shadow ? 'hasshadow' : false,
+		round ? 'iscircle' : false,
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -63,15 +63,11 @@ export default function Edit({ ...props }) {
 		aspectRatio: aspectRatio ? aspectRatio : undefined,
 		objectFit: aspectRatio ? 'cover' : undefined,
 		transform: transformations,
+		width: width ? width + '%' : undefined,
 		...useBorderProps(props.attributes).style,
 	};
 
-	const blockProps = useBlockProps({
-		className: 'ctx:image',
-		style: {
-			width: width ? width + '%' : undefined,
-		},
-	});
+	const blockProps = useBlockProps();
 
 	return (
 		<>

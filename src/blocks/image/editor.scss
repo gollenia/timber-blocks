@@ -1,7 +1,8 @@
 // Hässlicher Hack, da das Feld sonst mit 300px Breite angezeigt wird.
 
-.ctx\:image {
+.wp-block-ctx-blocks-image {
 	position: relative;
+	display: flex;
 	max-width: 100%;
 	width: 100%;
 
@@ -11,25 +12,16 @@
 		box-sizing: border-box;
 	}
 
-	&--left {
-		picture,
-		figure {
-			justify-content: flex-start;
-		}
+	&.alignleft {
+		justify-content: flex-start;
 	}
 
-	&--right {
-		picture,
-		figure {
-			justify-content: flex-end;
-		}
+	&.aligncenter {
+		justify-content: center;
 	}
 
-	&--center {
-		picture,
-		figure {
-			justify-content: center;
-		}
+	&.alignright {
+		justify-content: flex-end;
 	}
 
 	&__caption {
@@ -38,15 +30,7 @@
 		text-align: center;
 	}
 
-	&--circle {
-		border-radius: 999px;
-	}
-
-	&--shadow {
+	&.hasshadow {
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-	}
-
-	&--flip img {
-		transform: scaleX(-1);
 	}
 }
