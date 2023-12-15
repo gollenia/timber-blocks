@@ -63,7 +63,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"FullHeight": {
+		"fullHeight": {
 			"type": "boolean",
 			"default": false
 		}
