@@ -29,7 +29,7 @@ const Save = (props) => {
 		.filter(Boolean)
 		.join(' ');
 
-	const imageClasses = ['ctx__image', shadow ? 'ctx__image-shadow' : false]
+	const imageClasses = [shadow ? 'has-shadow' : false]
 		.filter(Boolean)
 		.join(' ');
 

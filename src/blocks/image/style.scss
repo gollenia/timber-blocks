@@ -1,20 +1,18 @@
-.ctx__image {
+.wp-block-ctx-blocks-image {
+	display: flex;
+	align-items: center;
 	position: relative;
 	max-width: 100%;
 	width: 100%;
 
-	&-shadow img {
+	&.has-shadow img {
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 	}
 
 	img {
 		border-radius: inherit;
 	}
-}
 
-.wp-block-ctx-blocks-image {
-	display: flex;
-	align-items: center;
 	&.alignleft {
 		justify-content: flex-start;
 	}
