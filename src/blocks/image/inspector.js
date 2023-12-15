@@ -61,7 +61,7 @@ const Inspector = (props) => {
 
 		const selectSizes = sizes.map((size) => {
 			const dataForSize = data[size.slug];
-			if (!dataForSize) return null;
+			if (!dataForSize) return undefined;
 			return {
 				label:
 					size.name +
