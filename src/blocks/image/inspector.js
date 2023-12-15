@@ -71,11 +71,12 @@ const Inspector = (props) => {
 					dataForSize.height +
 					')',
 				value: size.slug,
-				url: dataForSize.source_url,
 			};
 		});
 		return selectSizes;
 	});
+
+	console.log(imageUrl, selectSizes);
 
 	const setImageSize = (size) => {
 		const data = image?.media_details?.sizes;
