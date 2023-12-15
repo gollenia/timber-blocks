@@ -6,7 +6,7 @@ import { ALLOWED_MEDIA_TYPES } from './common';
 
 const Toolbar = (props) => {
 	const {
-		attributes: { alignment, imageUrl, imageId },
+		attributes: { imageUrl, imageId },
 		setAttributes,
 		onSelectMedia,
 	} = props;
