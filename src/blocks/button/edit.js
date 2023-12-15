@@ -42,6 +42,7 @@ export default function ButtonEdit({ ...props }) {
 		className || false,
 		'ctx__button',
 		iconRight ? 'reverse' : false,
+		iconOnly ? 'icon-only' : false,
 		size || false,
 	]
 		.filter(Boolean)
