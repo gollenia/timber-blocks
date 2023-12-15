@@ -76,15 +76,14 @@ const Inspector = (props) => {
 		return selectSizes;
 	});
 
-	console.log(imageUrl, selectSizes);
+	console.log(imageUrl, imageSizes);
 
 	const setImageSize = (size) => {
 		const data = image?.media_details?.sizes;
-		console.log(data);
-		console.log(size);
+
 		if (!data) return;
 		const dataForSize = data[size];
-		console.log(dataForSize);
+
 		if (!dataForSize) return;
 		setAttributes({
 			imageUrl: dataForSize.source_url,
