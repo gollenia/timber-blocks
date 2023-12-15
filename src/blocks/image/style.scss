@@ -11,3 +11,18 @@
 		border-radius: inherit;
 	}
 }
+
+.wp-block-ctx-blocks-image {
+	display: flex;
+	align-items: center;
+	&.alignleft {
+		justify-content: flex-start;
+	}
+	&.aligncenter {
+		justify-content: center;
+	}
+
+	&.alignright {
+		justify-content: flex-end;
+	}
+}
