@@ -2,10 +2,14 @@ import {
 	useBlockProps,
 	__experimentalUseBorderProps as useBorderProps,
 } from '@wordpress/block-editor';
+import { Placeholder } from '@wordpress/components';
+import icon from './icon';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 import { useRef } from '@wordpress/element';
+
+import { __ } from '@wordpress/i18n';
 
 export default function Edit({ ...props }) {
 	const {
@@ -26,8 +30,6 @@ export default function Edit({ ...props }) {
 		},
 		className,
 	} = props;
-
-	console.log(props);
 
 	const imageRef = useRef();
 
@@ -59,15 +61,43 @@ export default function Edit({ ...props }) {
 		.filter(Boolean)
 		.join(' ');
 
+	const borderProps = useBorderProps(props.attributes);
+
 	const imageStyle = {
 		aspectRatio: aspectRatio ? aspectRatio : undefined,
 		objectFit: aspectRatio ? 'cover' : undefined,
 		transform: transformations,
 		width: width ? width + '%' : undefined,
-		...useBorderProps(props.attributes).style,
+		...borderProps.style,
 	};
 
 	const blockProps = useBlockProps();
+
+	const placeholder = (content) => {
+		return (
+			<Placeholder
+				className={'block-editor-media-placeholder'}
+				withIllustration={true}
+				icon={icon}
+				label={__('Image')}
+				instructions={__(
+					'Upload an image file, pick one from your media library, or add one with a URL.'
+				)}
+				style={{
+					aspectRatio:
+						!(width && height) && aspectRatio
+							? aspectRatio
+							: undefined,
+					width: height && aspectRatio ? '100%' : width,
+					height: width && aspectRatio ? '100%' : height,
+					objectFit: scale,
+					...borderProps.style,
+				}}
+			>
+				{content}
+			</Placeholder>
+		);
+	};
 
 	return (
 		<>
@@ -75,13 +105,29 @@ export default function Edit({ ...props }) {
 			<Inspector {...props} imageRef={imageRef} />
 
 			<figure {...blockProps}>
-				{imageUrl && (
+				{imageUrl ? (
 					<img
 						className={imageClasses}
 						ref={imageRef}
 						src={imageUrl ?? ''}
 						style={imageStyle}
 					/>
+				) : (
+					<Placeholder
+						className={'block-editor-media-placeholder'}
+						withIllustration={true}
+						icon={icon}
+						label={__('Image')}
+						instructions={__(
+							'Upload an image file, pick one from your media library, or add one with a URL.'
+						)}
+						style={{
+							aspectRatio,
+							width,
+
+							...borderProps.style,
+						}}
+					></Placeholder>
 				)}
 			</figure>
 		</>
