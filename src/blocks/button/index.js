@@ -4,7 +4,7 @@
 import { InnerBlocks } from '@wordpress/block-editor';
 import metadata from './block.json';
 import deprecated from './deprecated';
-import Edit from './edit';
+import edit from './edit';
 import './editor.scss';
 import icon from './icon';
 import './style.scss';
@@ -12,14 +12,13 @@ import './style.scss';
 /**
  * Wordpress dependencies
  */
-import { withColors } from '@wordpress/block-editor';
 
-const { name, title, description } = metadata;
+const { name } = metadata;
 
 const settings = {
 	icon,
 	deprecated,
-	edit: withColors({ buttonColor: 'buttonColor' })(Edit),
+	edit,
 	save: () => {
 		return <InnerBlocks.Content />;
 	},
