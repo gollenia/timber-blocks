@@ -70,7 +70,7 @@
 			}
 		}
 	},
-	"parent": ["ctx-blocks/button-group", "core/group"],
+	"parent": ["ctx-blocks/button-group", "core/group", "core/navigation"],
 	"supports": {
 		"anchor": true,
 		"html": false,
