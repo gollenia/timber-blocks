@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     CTX Blocks 
  * Description:     Additional Blocks for Gutenberg
- * Version:         2.0
+ * Version:         3.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,8 +15,6 @@
  * New Block registration making use of the new block.json format.
  */
 function ctx_block_init() {
-
-	
 
 	$dir = __DIR__ . "/build/";
 
@@ -51,9 +49,9 @@ function ctx_block_init() {
 			$script_asset['version']
 		);
 		wp_enqueue_script('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.js", [], false, true);
-	wp_enqueue_style('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
+		wp_enqueue_style('ctx-blocks-frontend', plugin_dir_url(__FILE__) . "build/frontend.css", [], false);
 	}
-	
+
 
 	$blocks = [
 		'card',
