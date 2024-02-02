@@ -97,3 +97,26 @@ function modify_render_block_defaults($block_content, $block, $instance) {
 }
 
 add_filter( "render_block", "modify_render_block_defaults", 10, 3 );
+
+
+
+
+/**
+ * Polyfill wp-block-list class on list blocks
+ *
+ * Should not be necessary in future version of WP:
+ * @see https://github.com/WordPress/gutenberg/issues/12420
+ * @see https://github.com/WordPress/gutenberg/pull/42269
+ */
+function ctx_add_class_to_list_block( $block_content, $block ) {
+
+    if ( 'core/list' === $block['blockName'] ) {
+        $block_content = new WP_HTML_Tag_Processor( $block_content );
+        $block_content->next_tag(); /* first tag should always be ul or ol */
+        $block_content->add_class( 'core-block' );
+        $block_content->get_updated_html();
+    }
+
+    return $block_content;
+}
+add_filter( 'render_block', 'ctx_add_class_to_list_block', 10, 2 );
