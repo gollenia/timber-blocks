@@ -5,7 +5,7 @@
 	max-width: 100%;
 	width: 100%;
 	transform: scale(1);
-	transition: transform 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 
 	&.has-shadow img {
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
