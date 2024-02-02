@@ -32,6 +32,7 @@ const Inspector = (props) => {
 			aspectRatio,
 			url,
 			imageUrl,
+			hoverZoom,
 			imageId,
 			focalPoint,
 			imageSize,
@@ -197,6 +198,13 @@ const Inspector = (props) => {
 					title={__('Behaviour', 'ctx-blocks')}
 					initialOpen={true}
 				>
+					<CheckboxControl
+						label={__('Zoom in on hover', 'ctx-blocks')}
+						checked={hoverZoom}
+						onChange={(event) => {
+							setAttributes({ hoverZoom: event });
+						}}
+					/>
 					<SelectControl
 						label={__('Action', 'ctx-blocks')}
 						value={hasLightbox ? 'modal' : 'link'}

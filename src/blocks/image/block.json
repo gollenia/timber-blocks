@@ -32,7 +32,10 @@
 			"type": "integer",
 			"default": 100
 		},
-
+		"hoverZoom": {
+			"type": "boolean",
+			"default": false
+		},
 		"round": {
 			"type": "boolean",
 			"default": false

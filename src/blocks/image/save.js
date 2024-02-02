@@ -18,6 +18,7 @@ const Save = (props) => {
 			flipY,
 			rotate,
 			shadow,
+			hoverZoom,
 		},
 	} = props;
 
@@ -29,7 +30,10 @@ const Save = (props) => {
 		.filter(Boolean)
 		.join(' ');
 
-	const imageClasses = [shadow ? 'has-shadow' : false]
+	const imageClasses = [
+		shadow ? 'has-shadow' : false,
+		hoverZoom ? 'hover-zoom' : false,
+	]
 		.filter(Boolean)
 		.join(' ');
 
