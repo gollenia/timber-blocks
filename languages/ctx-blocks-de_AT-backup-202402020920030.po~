@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2023-11-27T12:22:17+00:00\n"
-"PO-Revision-Date: 2024-02-02 09:20+0000\n"
+"PO-Revision-Date: 2024-02-02 09:18+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: ctx-blocks\n"
 "Language: de_AT\n"
@@ -803,7 +803,3 @@ msgstr "Dein Inhalt kommt hier hin..."
 #: build/index.js:1
 msgid "Zoom In"
 msgstr "Hineinzoomen"
-
-#: build/index.js:1
-msgid "Zoom in on hover"
-msgstr "Beim darüberfahren vergrößern"
