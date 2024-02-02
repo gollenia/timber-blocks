@@ -38,7 +38,7 @@ const withAutoMarginControl = createHigherOrderComponent((BlockEdit) => {
 
 		const { attributes, setAttributes } = props;
 		const { autoMargin } = attributes;
-
+		console.log(attributes);
 		return (
 			<Fragment>
 				<BlockEdit {...props} />
@@ -49,12 +49,13 @@ const withAutoMarginControl = createHigherOrderComponent((BlockEdit) => {
 					>
 						<ToggleControl
 							label={__(
-								'Use as auto height control in a card',
+								'Use as auto height control in a flex container',
 								'ctx-blocks'
 							)}
 							checked={autoMargin}
 							onChange={(value) => {
 								setAttributes({ autoMargin: value });
+								setAttributes({ className: 'ctx-auto-spacer' });
 							}}
 						/>
 					</PanelBody>

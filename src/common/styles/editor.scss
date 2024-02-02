@@ -38,3 +38,8 @@
 .has-primary-background-color {
 	background-color: var(--primary) !important;
 }
+
+.ctx-auto-spacer {
+	flex: 1;
+	height: auto !important;
+}

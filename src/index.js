@@ -22,6 +22,7 @@ import * as inlineSvg from './blocks/svg';
 /**
  * Core Block modification dependencies.
  */
+
 import './mods/paragraphJustify';
 import './mods/scrollAnimation';
 import './mods/spacerAutoOption';
