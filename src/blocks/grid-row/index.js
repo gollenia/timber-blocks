@@ -4,6 +4,7 @@ import './editor.scss';
 import icons from './icons';
 import save from './save';
 import './style.scss';
+import transforms from './transforms';
 
 /**
  * Wordpress dependencies
@@ -15,6 +16,7 @@ const settings = {
 	icon: icons.row,
 	edit,
 	save,
+	transforms,
 };
 
 export { name, settings };
