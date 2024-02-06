@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import metadata from './block.json';
+import deprecated from './deprecated';
 import edit from './edit';
 import './editor.scss';
 import icon from './icon';
@@ -24,6 +25,7 @@ const settings = {
 	edit,
 	save,
 	transforms,
+	deprecated,
 };
 
 export { name, settings };
