@@ -50,11 +50,13 @@ const Save = (props) => {
 		...borderProps.style,
 	};
 
+	const ImageTag = url ? 'a' : 'div';
+
 	return (
 		<>
-			<div {...blockProps}>
+			<ImageTag {...blockProps} href={url ? url : undefined}>
 				<img src={imageUrl} alt="" style={imageStyle} />
-			</div>
+			</ImageTag>
 		</>
 	);
 };

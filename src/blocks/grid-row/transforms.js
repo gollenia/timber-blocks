@@ -34,7 +34,6 @@ const transforms = {
 					);
 				});
 
-				console.log('innner', newInnerBlocks);
 				return createBlock('core/columns', attributes, newInnerBlocks);
 			},
 		},

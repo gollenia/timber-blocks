@@ -18,7 +18,7 @@ $block_attributes = get_block_wrapper_attributes(['class' => join(" ", $classNam
 echo '<' . join(" ", [$tag, $href, $block_attributes, $button_id, $target]) . '>';
 
 if($attributes['icon']) {
-	echo "<i class=\"material-icons\">{$attributes['icon']}</i>";
+	echo "<i class=\"material-icons material-symbols-outlined\">{$attributes['icon']}</i>";
 } 
 if(!$attributes['iconOnly']) {
 	echo "{$attributes['title']}";

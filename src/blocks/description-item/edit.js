@@ -99,7 +99,11 @@ function ItemEdit({ ...props }) {
 				<div className={imageClasses} style={imageStyle}>
 					{imageUrl && <img src={imageUrl} ref={imageRef} />}
 
-					{!imageUrl && <i className="material-icons">{icon}</i>}
+					{!imageUrl && (
+						<i className="material-icons material-symbols-outlined">
+							{icon}
+						</i>
+					)}
 				</div>
 
 				<div
@@ -109,7 +113,9 @@ function ItemEdit({ ...props }) {
 				{url && (
 					<div class="ctx__description-item__action">
 						<b>
-							<i class="material-icons">{urlIcon}</i>
+							<i class="material-icons material-symbols-outlined">
+								{urlIcon}
+							</i>
 						</b>
 					</div>
 				)}

@@ -62,7 +62,11 @@ export default function Save(props) {
 			<div className={imageClasses} style={imageStyle}>
 				{imageUrl && <img src={imageUrl} />}
 
-				{!imageUrl && <i className="material-icons">{icon}</i>}
+				{!imageUrl && (
+					<i className="material-icons material-symbols-outlined">
+						{icon}
+					</i>
+				)}
 			</div>
 
 			<div
@@ -77,7 +81,11 @@ export default function Save(props) {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					{urlIcon && <i className="material-icons">{urlIcon}</i>}
+					{urlIcon && (
+						<i className="material-icons material-symbols-outlined">
+							{urlIcon}
+						</i>
+					)}
 				</a>
 			)}
 		</li>

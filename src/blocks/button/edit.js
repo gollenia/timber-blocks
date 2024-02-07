@@ -60,7 +60,11 @@ export default function ButtonEdit({ ...props }) {
 					setShowModal(true);
 				}}
 			>
-				{icon && <i className="material-icons">{icon}</i>}
+				{icon && (
+					<i className="material-icons material-symbols-outlined">
+						{icon}
+					</i>
+				)}
 				{!iconOnly && (
 					<RichText
 						tagName="span"
