@@ -12,13 +12,13 @@ jobs:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
-                node-version: '20.x'
+                  node-version: '20.x'
             - run: npm ci
             - run: npm run build
             - name: rsync deployments
               uses: burnett01/rsync-deployments@5.1
               with:
-                  switches: -avzr --delete --exclude .git --exclude .github --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
+                  switches: -avzr --delete --exclude .git --exclude .github --exclude node_modules --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
                   path: /
                   remote_path: ${{ secrets.GMU_PATH }}
                   remote_host: ${{ secrets.GMU_SERVER }}
