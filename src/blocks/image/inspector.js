@@ -1,10 +1,9 @@
 /**
  * WordPress dependencies
  */
-import { InspectorControls, URLInput } from '@wordpress/block-editor';
+import { InspectorControls } from '@wordpress/block-editor';
 import {
 	AnglePickerControl,
-	BaseControl,
 	CheckboxControl,
 	FocalPointPicker,
 	PanelBody,
@@ -21,7 +20,6 @@ import { mediaPosition } from './common.js';
 const Inspector = (props) => {
 	const {
 		attributes: {
-			hasLightbox,
 			round,
 			border,
 			width,
@@ -205,37 +203,6 @@ const Inspector = (props) => {
 							setAttributes({ hoverZoom: event });
 						}}
 					/>
-					<SelectControl
-						label={__('Action', 'ctx-blocks')}
-						value={hasLightbox ? 'modal' : 'link'}
-						options={[
-							{ label: __('Link', 'ctx-blocks'), value: 'link' },
-							{
-								label: __('Lightbox', 'ctx-blocks'),
-								value: 'modal',
-							},
-						]}
-						onChange={(event) => {
-							setAttributes({ hasLightbox: event == 'modal' });
-						}}
-					/>
-					{!hasLightbox && (
-						<BaseControl
-							label={__('Add a URL or a link', 'ctx-blocks')}
-						>
-							<URLInput
-								value={url}
-								onChange={(url, post) =>
-									setAttributes({
-										url,
-										text:
-											(post && post.title) ||
-											__('Click here', 'ctx-blocks'),
-									})
-								}
-							/>
-						</BaseControl>
-					)}
 				</PanelBody>
 			</InspectorControls>
 		</>

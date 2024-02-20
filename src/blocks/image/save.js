@@ -8,6 +8,8 @@ const Save = (props) => {
 	const {
 		attributes: {
 			url,
+			newTab,
+			rel,
 			imageUrl,
 			imageId,
 			focalPoint,
@@ -54,7 +56,12 @@ const Save = (props) => {
 
 	return (
 		<>
-			<ImageTag {...blockProps} href={url ? url : undefined}>
+			<ImageTag
+				{...blockProps}
+				href={url ? url : undefined}
+				rel={rel}
+				target={newTab ? '_blank' : undefined}
+			>
 				<img src={imageUrl} alt="" style={imageStyle} />
 			</ImageTag>
 		</>

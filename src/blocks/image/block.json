@@ -16,6 +16,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"newTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"rel": {
+			"type": "string",
+			"default": ""
+		},
 		"imageUrl": {
 			"type": "string",
 			"default": null
