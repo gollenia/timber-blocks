@@ -38,7 +38,7 @@ const withAutoMarginControl = createHigherOrderComponent((BlockEdit) => {
 
 		const { attributes, setAttributes } = props;
 		const { autoMargin } = attributes;
-		console.log(attributes);
+
 		return (
 			<Fragment>
 				<BlockEdit {...props} />
