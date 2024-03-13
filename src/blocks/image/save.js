@@ -59,7 +59,6 @@ const Save = (props) => {
 			<ImageTag
 				{...blockProps}
 				href={url ? url : undefined}
-				rel={rel}
 				target={newTab ? '_blank' : undefined}
 			>
 				<img src={imageUrl} alt="" style={imageStyle} />
