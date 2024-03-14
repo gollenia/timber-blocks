@@ -10,10 +10,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: php-actions/composer@v6
-              with:
-                  args: --ignore-platform-reqs
-            - run: sudo composer update --ignore-platform-reqs
             - uses: actions/setup-node@v3
               with:
                   node-version: '20.x'
