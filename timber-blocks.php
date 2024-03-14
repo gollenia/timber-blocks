@@ -120,3 +120,7 @@ function ctx_add_class_to_list_block( $block_content, $block ) {
     return $block_content;
 }
 add_filter( 'render_block', 'ctx_add_class_to_list_block', 10, 2 );
+
+require_once plugin_dir_path( __FILE__ ) . 'lib/Update.php';
+
+\Contexis\Timber\Update::init('gutenberg-form');
