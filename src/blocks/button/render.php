@@ -15,6 +15,7 @@ $classNames = [
 
 $block_attributes = get_block_wrapper_attributes(['class' => join(" ", $classNames)]);
 
+echo "<div class='button-container'>";
 echo '<' . join(" ", [$tag, $href, $block_attributes, $button_id, $target]) . '>';
 
 if($attributes['icon']) {
@@ -24,8 +25,9 @@ if(!$attributes['iconOnly']) {
 	echo "{$attributes['title']}";
 }
 
-echo '</' . $tag . '>';
 
+echo '</' . $tag . '>';
+echo "</div>";
 if($attributes['script']) {
 	$command = 'classList.add("ctx-button-hidden");';
 	switch ($attributes['script']) {
