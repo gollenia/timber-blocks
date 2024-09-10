@@ -55,15 +55,14 @@ const Save = (props) => {
 	const ImageTag = url ? 'a' : 'div';
 
 	return (
-		<>
-			<ImageTag
-				{...blockProps}
-				href={url ? url : undefined}
-				target={newTab ? '_blank' : undefined}
-			>
-				<img src={imageUrl} alt="" style={imageStyle} />
-			</ImageTag>
-		</>
+		<ImageTag
+			{...blockProps}
+			href={url ? url : undefined}
+			target={newTab ? '_blank' : undefined}
+			rel="noopener"
+		>
+			<img src={imageUrl} alt="" style={imageStyle} />
+		</ImageTag>
 	);
 };
 
