@@ -8,7 +8,7 @@ $target = $attributes['newTab'] ? 'target="_blank"' : '';
 $button_id = $attributes['action'] == "modal" ? "data-modal=\"{$id}\"" : "id=\"{$id}\"";
 
 $classNames = [
-	'ctx__button',
+	'button ctx__button',
 	$attributes['iconOnly'] ? 'ctx__button--icon-only' : '',
 	$attributes['iconRight'] ? 'ctx__button--reverse' : '',
 ];
