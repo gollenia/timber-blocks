@@ -51,6 +51,10 @@
 		"linkUrl": {
 			"type": "string",
 			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {
@@ -62,5 +66,6 @@
 			"margin": true
 		}
 	},
+	"parent": ["core/group", "core/navigation"],
 	"render": "file:./render.php"
 }

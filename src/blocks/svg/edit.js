@@ -23,6 +23,7 @@ const Edit = (props) => {
 			});
 			return;
 		}
+		
 
 		setAttributes({
 			url: media.sizes?.large?.url ?? media.url,
