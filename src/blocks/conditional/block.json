@@ -39,8 +39,17 @@
 		"hideWithinDateRange": {
 			"type": "boolean",
 			"default": false
+		},
+		"hideOnMobile": {
+			"type": "boolean",
+			"default": false
+		},
+		"hideOnDesktop": {
+			"type": "boolean",
+			"default": false
 		}
 	},
+	"parent": ["core/navigation", "core/group"],
 	"editorStyle": "wp-block-alert-editor",
 	"style": "ctx-blocks-style"
 }
