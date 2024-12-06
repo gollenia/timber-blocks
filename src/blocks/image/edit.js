@@ -1,4 +1,7 @@
 import {
+	BlockIcon,
+	MediaPlaceholder,
+	RichText,
 	useBlockProps,
 	__experimentalUseBorderProps as useBorderProps,
 } from '@wordpress/block-editor';
@@ -8,7 +11,9 @@ import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 import { useRef } from '@wordpress/element';
+import { store as noticesStore } from '@wordpress/notices';
 
+import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit({ ...props }) {
@@ -21,8 +26,6 @@ export default function Edit({ ...props }) {
 			aspectRatio,
 			width,
 			round,
-			border,
-			shadow,
 			flipX,
 			flipY,
 			caption,
@@ -32,7 +35,7 @@ export default function Edit({ ...props }) {
 	} = props;
 
 	const imageRef = useRef();
-
+	const ALLOWED_MEDIA_TYPES = ['image'];
 	const onSelectMedia = (media) => {
 		if (!media || !media.url) {
 			setAttributes({ imageUrl: undefined, imageId: undefined });
@@ -45,11 +48,37 @@ export default function Edit({ ...props }) {
 		});
 	};
 
-	const imageClasses = [
-		className,
-		shadow ? 'hasshadow' : false,
-		round ? 'iscircle' : false,
-	]
+	const mediaPreview = !!imageUrl && (
+		<img
+			alt={__('Edit image')}
+			title={__('Edit image')}
+			className="edit-image-preview"
+			src={imageUrl}
+		/>
+	);
+
+	const { createErrorNotice } = useDispatch(noticesStore);
+
+	function onUploadError(message) {
+		createErrorNotice(message, { type: 'snackbar' });
+		setAttributes({
+			src: undefined,
+			id: undefined,
+			url: undefined,
+			blob: undefined,
+		});
+	}
+
+	function onSelectURL(newURL) {
+		if (newURL !== url) {
+			setAttributes({
+				imageUrl: newURL,
+				id: undefined,
+			});
+		}
+	}
+
+	const imageClasses = [className, round ? 'iscircle' : false]
 		.filter(Boolean)
 		.join(' ');
 
@@ -63,42 +92,38 @@ export default function Edit({ ...props }) {
 
 	const borderProps = useBorderProps(props.attributes);
 
+	const blockProps = useBlockProps();
+
 	const imageStyle = {
 		aspectRatio: aspectRatio ? aspectRatio : undefined,
 		objectFit: aspectRatio ? 'cover' : undefined,
 		transform: transformations,
 		width: width ? width + '%' : undefined,
+		boxShadow: blockProps.style.boxShadow || undefined,
 		...borderProps.style,
 	};
 
-	const blockProps = useBlockProps();
+	blockProps.style.boxShadow = undefined;
 
-	const placeholder = (content) => {
-		return (
-			<Placeholder
-				className={'block-editor-media-placeholder'}
-				withIllustration={true}
-				icon={icon}
-				label={__('Image')}
-				instructions={__(
-					'Upload an image file, pick one from your media library, or add one with a URL.'
-				)}
-				style={{
-					aspectRatio:
-						!(width && height) && aspectRatio
-							? aspectRatio
-							: undefined,
-					width: height && aspectRatio ? '100%' : width,
-					height: width && aspectRatio ? '100%' : height,
-					objectFit: scale,
-					...borderProps.style,
-				}}
-			>
-				{content}
-			</Placeholder>
-		);
-	};
+	const placeholder = (
+		<Placeholder
+			className={'block-editor-media-placeholder'}
+			withIllustration={true}
+			icon={icon}
+			label={__('Image')}
+			instructions={__(
+				'Upload an image file, pick one from your media library, or add one with a URL.'
+			)}
+			style={{
+				aspectRatio,
+				width,
 
+				...borderProps.style,
+			}}
+		></Placeholder>
+	);
+
+	console.log('Edit', blockProps);
 	return (
 		<>
 			<Toolbar {...props} onSelectMedia={onSelectMedia} />
@@ -106,28 +131,30 @@ export default function Edit({ ...props }) {
 
 			<figure {...blockProps}>
 				{imageUrl ? (
-					<img
-						className={imageClasses}
-						ref={imageRef}
-						src={imageUrl ?? ''}
-						style={imageStyle}
-					/>
+					<div>
+						<img
+							className={imageClasses}
+							ref={imageRef}
+							src={imageUrl ?? ''}
+							style={imageStyle}
+						/>
+						<RichText
+							tagName="figcaption"
+							value={caption}
+							onChange={(caption) => setAttributes({ caption })}
+							placeholder={__('Write caption…')}
+							withoutInteractiveFormatting
+						/>
+					</div>
 				) : (
-					<Placeholder
-						className={'block-editor-media-placeholder'}
-						withIllustration={true}
-						icon={icon}
-						label={__('Image')}
-						instructions={__(
-							'Upload an image file, pick one from your media library, or add one with a URL.'
-						)}
-						style={{
-							aspectRatio,
-							width,
-
-							...borderProps.style,
-						}}
-					></Placeholder>
+					<MediaPlaceholder
+						icon={<BlockIcon icon={icon} />}
+						onSelect={onSelectMedia}
+						placeholder={placeholder}
+						accept="image/*"
+						allowedTypes={ALLOWED_MEDIA_TYPES}
+						value={{ imageId, imageUrl }}
+					/>
 				)}
 			</figure>
 		</>
