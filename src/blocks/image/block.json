@@ -48,10 +48,6 @@
 			"type": "boolean",
 			"default": false
 		},
-		"shadow": {
-			"type": "boolean",
-			"default": false
-		},
 		"flipX": {
 			"type": "boolean",
 			"default": false
@@ -88,6 +84,7 @@
 		"reusable": true,
 		"alignWide": true,
 		"customClassName": true,
+		"shadow": true,
 		"spacing": {
 			"margin": true,
 			"__experimentalDefaultControls": {
