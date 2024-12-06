@@ -64,7 +64,7 @@ const Inspector = (props) => {
 								className="icon"
 								icon={icons.link}
 							/>
-							<div>{__('Link', 'gutenberg-form')}</div>
+							<div>{__('Link', 'ctx-blocks')}</div>
 						</Button>
 						<Button
 							onClick={() =>
@@ -82,7 +82,7 @@ const Inspector = (props) => {
 								className="icon"
 								icon={icons.window}
 							/>
-							<div>{__('Modal', 'gutenberg-form')}</div>
+							<div>{__('Modal', 'ctx-blocks')}</div>
 						</Button>
 						<Button
 							onClick={() => setAttributes({ action: 'script' })}
@@ -93,7 +93,7 @@ const Inspector = (props) => {
 								className="icon"
 								icon={icons.script}
 							/>
-							<div>{__('Script', 'gutenberg-form')}</div>
+							<div>{__('Script', 'ctx-blocks')}</div>
 						</Button>
 					</div>
 
